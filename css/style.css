@@ -1,6 +1,9 @@
 body {
   background-color: #D1DDD0;
 }
+nav a {
+  color: rgba(255, 255, 255, 0.6);
+}
 nav a:hover {
   color: #ffffff;
   transition: .5s ease;
@@ -10,7 +13,9 @@ img {
   max-height: 600px;
 }
 #earshare,
-#space-clones {
+#space-clones,
+#project3,
+#project4 {
   display: block;
   margin-left: auto;
   margin-right: auto;
