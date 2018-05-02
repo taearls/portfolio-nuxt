@@ -1,3 +1,18 @@
 body {
   background-color: #D1DDD0;
 }
+nav a:hover {
+  color: #ffffff;
+  transition: .5s ease;
+}
+.nav-link:hover {
+  color: #ffffff;
+  transition: .5s ease;
+}
+img {
+  max-width: 600px;
+  max-height: 600px;
+}
+#copyright {
+  text-align: center;
+}
