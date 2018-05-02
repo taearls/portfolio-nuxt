@@ -5,10 +5,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Home</title>
+	<title>Tyler Earls</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/fontawesome.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+
 
 </head>
 <body>
@@ -49,9 +53,8 @@
 
 			<!-- PROFILE -->
 		<section id="profile">
-			<img src="./images/headshot.jpg" alt="Profile Picture" />			
-			<h1>Tyler Earls</h1>
-			<h2>Web Developer</h2>
+			<img id="headshot" src="./images/headshot.jpg" alt="Profile Picture" />			
+			<h1>Tyler Earls: Web Developer</h1>
 
 		</section>
 
@@ -76,14 +79,14 @@
 			<p> <strong>Space Clones:</strong> An original space shooting video game inspired by the 1978 classic, Space Invaders. The galaxy is yours to save from the invading clone army. Play alone, or take turns with a friend! Created using HTML5, CSS3, Javascript, and jQuery. </p>
 
 			<!-- SPACE CLONES LINK -->
-			<a href="https://tboneearls.github.io/space_clones/" target="_blank"> <img src="./images/screenshots/space_clones_screenshot.png">
+			<a href="https://tboneearls.github.io/space_clones/" target="_blank"> <img id="space-clones" src="./images/screenshots/space_clones_screenshot.png">
 			</a> <br/>
 
 			<!-- EARSHARE DESCRIPTION -->
 			<p> <strong>Earshare:</strong> A fullstack application designed for musicians and concertgoers to network and promote concerts. Inspired by firsthand experiences trying to promote my band's shows on Facebook. Rather than implementing a pay-to-play model by sponsoring a show, Earshare is <em>exclusively</em> geared towards music. Sign up to join the network! Created using HTML5, CSS3/LESS, Javascript, and jQuery on the frontend; and Node, Express, and MongoDB on the backend. </p>
 
 			<!-- EARSHARE LINK -->
-			<a href="https://earshare.herokuapp.com" target="_blank"><img src="./images/screenshots/earshare_screenshot.png"> 
+			<a href="https://earshare.herokuapp.com" target="_blank"><img id="earshare" src="./images/screenshots/earshare_screenshot.png"> 
 			</a> <br/>
 
 			<a href="#">Project 3</a> <br/>
@@ -93,9 +96,24 @@
 			<!-- CONTACT -->
 		<section id="contact">
 			<h1>Contact</h1>
-			<a href="mailto: tyler.a.earls@gmail.com">Email</a> <br/>
-			<a href="https://www.linkedin.com/in/tylerearls" target="_blank">LinkedIn</a> <br/>
-			<a href="https://www.github.com/tboneearls" target="_blank">Github</a>
+			<div class="container">
+				<a href="mailto:tyler.a.earls@gmail.com">
+					<span class="btn-lg btn-dark">
+						<i class="fas fa-envelope"></i>
+					</span>
+				</a>
+				<a href="https://www.linkedin.com/in/tylerearls" target="_blank">
+					<span class="btn-lg btn-dark">
+						<i class="fab fa-linkedin"></i>
+					</span>
+				</a>
+				<a href="https://www.github.com/tboneearls" target="_blank">
+					<span class="btn-lg btn-dark">
+						<i class="fab fa-github"></i>
+					</span>
+				</a>
+			</div>
+			<br>
 		</section>
 		
 			<!-- MUSIC -->
