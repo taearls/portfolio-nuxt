@@ -26,11 +26,30 @@ img {
 #portfolio {
 	text-align: center;
 	a {
+		text-decoration: none;
+		color: #000;
 		display: inline-block;
+		max-width: 75%;
+		cursor: default;
+		#space-clones:hover {
+			cursor: url(../images/space_clones_cursor.png), default;
+		}
+		#earshare:hover {
+			cursor: url(../images/earshare_cursor.png), default;
+		}
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	#space-clones-link:hover {
+		cursor: url(../images/space_clones_cursor.png), default;
+	}
+	#earshare-link:hover {
+		cursor: url(../images/earshare_cursor.png), default;
 	}
 }
 .img-fluid {
-	max-width: 75%;
+	max-width: 100%;
 	height: auto;
 }
 p {

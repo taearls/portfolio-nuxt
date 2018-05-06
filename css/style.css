@@ -24,10 +24,29 @@ img {
   text-align: center;
 }
 #portfolio a {
+  text-decoration: none;
+  color: #000;
   display: inline-block;
+  max-width: 75%;
+  cursor: default;
+}
+#portfolio a #space-clones:hover {
+  cursor: url(../images/space_clones_cursor.png), default;
+}
+#portfolio a #earshare:hover {
+  cursor: url(../images/earshare_cursor.png), default;
+}
+#portfolio a:hover {
+  text-decoration: none;
+}
+#portfolio #space-clones-link:hover {
+  cursor: url(../images/space_clones_cursor.png), default;
+}
+#portfolio #earshare-link:hover {
+  cursor: url(../images/earshare_cursor.png), default;
 }
 .img-fluid {
-  max-width: 75%;
+  max-width: 100%;
   height: auto;
 }
 p {
