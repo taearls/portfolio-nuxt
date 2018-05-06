@@ -26,6 +26,10 @@ img {
 #portfolio a {
   display: inline-block;
 }
+.img-fluid {
+  max-width: 75%;
+  height: auto;
+}
 p {
   margin-left: 14vw;
   margin-right: 14vw;
