@@ -1,5 +1,8 @@
 body {
-  background-color: #D1DDD0;
+  background-color: #fff;
+}
+body * {
+  font-family: 'Raleway', sans-sarif;
 }
 nav a {
   color: rgba(255, 255, 255, 0.6);
@@ -20,23 +23,31 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+p {
+  margin-left: 14vw;
+  margin-right: 14vw;
+  text-align: justify;
+  text-justify: inter-word;
+}
 section a {
   text-decoration: none;
 }
 section a:hover {
   text-decoration: none;
 }
-section h1 {
+section h1,
+section h2 {
   text-align: center;
 }
 .nav-link:hover {
   color: #ffffff;
   transition: .5s ease;
 }
-#profile * {
-  display: inline;
-}
 #headshot {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
