@@ -62,8 +62,13 @@ nav a:hover {
   -moz-border-radius: 50%;
 }
 img {
-  max-width: 600px;
   max-height: 600px;
+}
+.space-cursor:hover {
+  cursor: url(../images/space_clones_cursor.png), default;
+}
+.earshare-cursor:hover {
+  cursor: url(../images/earshare_cursor.png), default;
 }
 #portfolio {
   text-align: center;
@@ -75,24 +80,8 @@ img {
   max-width: 75%;
   cursor: default;
 }
-#portfolio a #space-clones:hover {
-  cursor: url(../images/space_clones_cursor.png), default;
-}
-#portfolio a #earshare:hover {
-  cursor: url(../images/earshare_cursor.png), default;
-}
 #portfolio a:hover {
   text-decoration: none;
-}
-#portfolio #space-clones-link:hover {
-  cursor: url(../images/space_clones_cursor.png), default;
-  color: #348899;
-  transition: 0.5s ease;
-}
-#portfolio #earshare-link:hover {
-  cursor: url(../images/earshare_cursor.png), default;
-  color: #348899;
-  transition: 0.5s ease;
 }
 .img-fluid {
   /*	margin-left needs to be half of max-width for it to be centered */
@@ -109,9 +98,12 @@ p {
 }
 section a {
   text-decoration: none;
+  color: #E02141;
 }
 section a:hover {
   text-decoration: none;
+  color: #348899;
+  transition: 0.5s ease;
 }
 section h1,
 section h2 {
