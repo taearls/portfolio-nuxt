@@ -68,6 +68,9 @@ nav a:hover {
 img {
   max-height: 600px;
 }
+.contact {
+  cursor: pointer;
+}
 .space-cursor:hover {
   cursor: url(../images/space_clones_cursor.png), default;
 }
