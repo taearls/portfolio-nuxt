@@ -4,6 +4,7 @@ body {
 body * {
   font-family: 'Raleway', sans-sarif;
 }
+/* NAV */
 nav {
   background-color: #000;
 }
@@ -28,6 +29,26 @@ nav a:hover {
   position: fixed;
   top: 0;
   width: 100%;
+}
+/* TOGGLED DROP-DOWN ICON */
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224, 33, 65, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.custom-toggler .navbar-toggler-icon:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(52, 136, 153, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  transition: 0.5s ease;
+}
+/* MAIN */
+/* IMAGES */
+#headshot {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 56px;
+  width: 50%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }
 img {
   max-width: 600px;
@@ -62,17 +83,11 @@ img {
   color: #348899;
   transition: 0.5s ease;
 }
-.custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224, 33, 65, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-.custom-toggler .navbar-toggler-icon:hover {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(52, 136, 153, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  transition: 0.5s ease;
-}
 .img-fluid {
   max-width: 100%;
   height: auto;
 }
+/* TEXT */
 p {
   margin-left: 14vw;
   margin-right: 14vw;
@@ -93,16 +108,7 @@ section h2 {
 section p {
   color: #F2EBC7;
 }
-#headshot {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 56px;
-  width: 50%;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-}
+/* FOOTER */
 #contact .container {
   display: flex;
   justify-content: center;
