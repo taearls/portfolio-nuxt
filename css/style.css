@@ -10,8 +10,6 @@ nav {
 }
 nav .navbar {
   color: #E02141;
-  position: fixed;
-  top: 0;
   width: 100%;
 }
 nav * {
@@ -39,6 +37,19 @@ nav a:hover {
   transition: 0.5s ease;
 }
 /* MAIN */
+.section {
+  position: relative;
+}
+.anchor {
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: -1;
+  top: -56px;
+  left: 0;
+  visibility: hidden;
+}
 /* IMAGES */
 #headshot {
   display: block;

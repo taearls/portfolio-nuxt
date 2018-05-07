@@ -11,8 +11,6 @@ nav {
 	background-color: #000; 
 	.navbar {
 		color: #E02141;
-		position: fixed;
-		top: 0;
 		width: 100%;
 	}
 	* {
@@ -46,6 +44,20 @@ nav {
 }
 
 /* MAIN */
+
+.section {
+    position: relative;
+}
+.anchor {
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    top: -56px;
+    left: 0;
+    visibility: hidden;
+}
 
 /* IMAGES */
 #headshot {
