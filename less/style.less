@@ -1,14 +1,28 @@
 body {
-	background-color: #fff;
+	background-color: #2A3663;
 	* {
 		font-family: 'Raleway', sans-sarif;
 	}
 }
 nav {
+	background-color: #000; 
+	.navbar {
+		color: #E02141;
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+	* {
+		color: #E02141;
+
+		.nav-link:hover {
+			color: #348899;
+			transition: .5s ease;
+		}
+	}
 	a {
-		color: rgba(255, 255, 255, 0.6);
 		&:hover {
-			color: rgba(255, 255, 255, 1);
+			color: #348899;
 			transition: .5s ease;
 		}
 	}
@@ -27,7 +41,7 @@ img {
 	text-align: center;
 	a {
 		text-decoration: none;
-		color: #000;
+		color: #E02141;
 		display: inline-block;
 		max-width: 75%;
 		cursor: default;
@@ -43,10 +57,21 @@ img {
 	}
 	#space-clones-link:hover {
 		cursor: url(../images/space_clones_cursor.png), default;
+		color: #348899;
+		transition: 0.5s ease;
 	}
 	#earshare-link:hover {
 		cursor: url(../images/earshare_cursor.png), default;
+		color: #348899;
+		transition: 0.5s ease;
 	}
+}
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224, 33, 65, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  &:hover {
+  	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(52, 136, 153, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  	transition: 0.5s ease;
+  }
 }
 .img-fluid {
 	max-width: 100%;
@@ -68,15 +93,13 @@ section {
 	}
 	h1,h2 {
 		text-align: center;
+		color: #E02141;
+	}
+	p {
+		color: #F2EBC7;
 	}
 }
 // NAV
-.nav-link {
-	&:hover {
-		color: rgba(255, 255, 255, 1);
-		transition: .5s ease;
-	}
-}
 
 #headshot {
 	display: block;
@@ -100,4 +123,5 @@ section {
 // FOOTER
 #copyright {
 	text-align: center;
+	color: #F2EBC7;
 }
