@@ -17,11 +17,11 @@ nav * {
 }
 nav * .nav-link:hover {
   color: #348899;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 nav a:hover {
   color: #348899;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 .navbar {
   position: fixed;
@@ -30,6 +30,7 @@ nav a:hover {
 }
 /* TOGGLED DROP-DOWN ICON */
 .custom-toggler .navbar-toggler-icon {
+  /* I have to redraw SVG image to customize the color */
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224, 33, 65, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 .custom-toggler .navbar-toggler-icon:hover {
@@ -64,6 +65,10 @@ nav a:hover {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
+}
+#headshot:hover {
+  opacity: 0.8;
+  transition: 0.09s linear;
 }
 img {
   max-height: 600px;

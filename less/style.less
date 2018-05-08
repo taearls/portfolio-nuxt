@@ -18,13 +18,13 @@ nav {
 
 		.nav-link:hover {
 			color: #348899;
-			transition: .5s ease;
+			transition: 0.5s ease;
 		}
 	}
 	a {
 		&:hover {
 			color: #348899;
-			transition: .5s ease;
+			transition: 0.5s ease;
 		}
 	}
 }
@@ -36,15 +36,18 @@ nav {
 
 /* TOGGLED DROP-DOWN ICON */
 .custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224, 33, 65, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  &:hover {
-  	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(52, 136, 153, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  	transition: 0.5s ease;
-  }
-  &:focus {
-  	border: none;
-  	outline: none;
-  }
+
+	/* I have to redraw SVG image to customize the color */
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224, 33, 65, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+	&:hover {
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(52, 136, 153, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+		transition: 0.5s ease;
+	}
+
+	&:focus {
+		border: none;
+		outline: none;
+	}
 }
 
 /* MAIN */
@@ -73,6 +76,10 @@ nav {
 	border-radius: 50%;
  	-webkit-border-radius: 50%;
  	-moz-border-radius: 50%;
+ 	&:hover {
+ 		opacity: 0.8;
+ 		transition: 0.09s linear;
+ 	}
 }
 
 img {
