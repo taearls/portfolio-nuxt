@@ -147,6 +147,9 @@ section p {
 section #skill-list p {
   text-align: center;
 }
+.tagline {
+  text-align: center;
+}
 /* FOOTER */
 #contact .container {
   display: flex;
