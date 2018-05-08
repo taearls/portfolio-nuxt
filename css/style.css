@@ -77,10 +77,13 @@ img {
   cursor: pointer;
 }
 .contact span {
+  background-color: #E02141;
   border: 1px solid black;
 }
 .contact span:hover {
   border: 1px solid black;
+  background-color: #348899;
+  transition: 0.3s ease;
 }
 .space-cursor:hover {
   cursor: url(../images/space_clones_cursor.png), default;
@@ -129,7 +132,7 @@ section a {
 section a:hover {
   text-decoration: none;
   color: #348899;
-  transition: 0.5s ease;
+  transition: 0.3s ease;
 }
 section h1,
 section h2 {
