@@ -71,11 +71,23 @@ img {
 .contact {
   cursor: pointer;
 }
+.contact span {
+  border: 1px solid black;
+}
+.contact span:hover {
+  border: 1px solid black;
+}
 .space-cursor:hover {
   cursor: url(../images/space_clones_cursor.png), default;
 }
 .earshare-cursor:hover {
   cursor: url(../images/earshare_cursor.png), default;
+}
+.project3-cursor:hover {
+  /* update with cursor url */
+}
+.project4-cursor:hover {
+  /* update with cursor url */
 }
 #portfolio {
   text-align: center;
@@ -121,6 +133,9 @@ section h2 {
 }
 section p {
   color: #F2EBC7;
+}
+section #skill-list p {
+  text-align: center;
 }
 /* FOOTER */
 #contact .container {
