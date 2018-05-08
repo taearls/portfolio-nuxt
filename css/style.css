@@ -61,6 +61,7 @@ nav a:hover {
   margin-left: auto;
   margin-right: auto;
   margin-top: 56px;
+  max-width: 267px;
   width: 30%;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -135,7 +136,8 @@ section a:hover {
   transition: 0.3s ease;
 }
 section h1,
-section h2 {
+section h2,
+section h3 {
   text-align: center;
   color: #E02141;
 }
