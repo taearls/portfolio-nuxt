@@ -61,6 +61,7 @@ nav a:hover {
   margin-left: auto;
   margin-right: auto;
   margin-top: 56px;
+  /* 267 by 267px is the file size, so it shouldn't be any bigger than that */
   max-width: 267px;
   width: 30%;
   border-radius: 50%;
@@ -147,8 +148,18 @@ section p {
 section #skill-list p {
   text-align: center;
 }
+.project-title {
+  color: #E02141;
+}
 .tagline {
+  color: #F2EBC7;
+  font-weight: bold;
   text-align: center;
+}
+.tagline:hover {
+  text-decoration: none;
+  color: #348899;
+  transition: 0.3s ease;
 }
 /* FOOTER */
 #contact .container {
