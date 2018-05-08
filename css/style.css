@@ -68,10 +68,6 @@ nav a:hover {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
 }
-#headshot:hover {
-  opacity: 0.8;
-  transition: 0.09s linear;
-}
 img {
   max-height: 600px;
 }
@@ -147,6 +143,10 @@ section p {
 }
 section #skill-list p {
   text-align: center;
+}
+section img:hover {
+  opacity: 0.7;
+  transition: 0.09s linear;
 }
 .project-title {
   color: #E02141;
