@@ -19,8 +19,8 @@ let navDeployed = false;
 
 $("#toggler").on("click", () => {
 	navDeployed = !navDeployed;
-	// check for home button being clicked
-	$("#toggler").css("transition", "0.5s ease");
+	// adjust top of body to compensate for navbar differential
+	// transition so it moves at the same speed as navbar
 	if (navDeployed) {
 		$("body").css({
 			"padding-top": "176px",
