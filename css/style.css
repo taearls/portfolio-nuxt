@@ -140,6 +140,9 @@ section p {
 section #skill-list p {
   text-align: center;
 }
+section img {
+  width: 75vw;
+}
 section img:hover {
   opacity: 0.7;
   transition: 0.09s linear;
