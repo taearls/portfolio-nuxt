@@ -104,14 +104,13 @@ img {
   text-decoration: none;
   color: #E02141;
   display: inline-block;
-  max-width: 75%;
   cursor: default;
 }
 #portfolio a:hover {
   text-decoration: none;
 }
 .img-fluid {
-  max-width: 75%;
+  max-width: 600px;
   height: auto;
 }
 /* TEXT */
