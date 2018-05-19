@@ -83,16 +83,13 @@ nav a:hover {
   transition: 0.3s ease;
 }
 .space-cursor:hover {
-  cursor: url(../images/space_clones_cursor.png), default;
+  cursor: url(../images/cursors/space_clones_cursor.png), pointer;
 }
 .earshare-cursor:hover {
-  cursor: url(../images/earshare_cursor.png), default;
+  cursor: url(../images/cursors/earshare_cursor.png), pointer;
 }
-.project3-cursor:hover {
-  /* update with cursor url */
-}
-.project4-cursor:hover {
-  /* update with cursor url */
+.ems-cursor:hover {
+  cursor: url(../images/cursors/ems_cursor.png), pointer;
 }
 #portfolio {
   text-align: center;
