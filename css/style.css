@@ -44,6 +44,9 @@ nav a:hover {
   color: #348899;
   transition: 0.5s ease;
 }
+.dropdown-divider {
+  border-top: 1px solid #F2EBC7 !important;
+}
 /* TOGGLED DROP-DOWN ICON */
 .custom-toggler .navbar-toggler-icon {
   /* I have to redraw SVG image to customize the color */
@@ -102,7 +105,7 @@ hr.line-break {
   background-color: #348899;
   transition: 0.3s ease;
 }
-.space-cursor:hover {
+.spaceclones-cursor:hover {
   cursor: url(../images/cursors/space_clones_cursor.png), pointer;
 }
 .earshare-cursor:hover {
@@ -113,6 +116,9 @@ hr.line-break {
 }
 .musiclog-cursor:hover {
   cursor: url(../images/cursors/musiclog_cursor.png), pointer;
+}
+.ethtrust-cursor:hover {
+  cursor: url(../images/cursors/ethtrust_cursor.png), pointer;
 }
 #portfolio {
   text-align: center;
