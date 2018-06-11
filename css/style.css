@@ -61,6 +61,13 @@ nav a:hover {
 .section {
   position: relative;
 }
+hr.line-break {
+  border: 0;
+  height: 1px;
+  margin-left: 14vw;
+  margin-right: 14vw;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #e02141, rgba(0, 0, 0, 0));
+}
 .anchor {
   display: block;
   position: absolute;

@@ -1,6 +1,6 @@
 # Portfolio
 
-My website showcasing my professional portfolio.
+My personal website showcasing my professional portfolio.
 
 Here, you can keep up to date with my current web projects.
 
