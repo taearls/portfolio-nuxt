@@ -163,9 +163,6 @@ section h3 {
 section p {
   color: #F2EBC7;
 }
-section #skill-list p {
-  text-align: center;
-}
 section img {
   width: 75vw;
 }
@@ -173,9 +170,14 @@ section img:hover {
   opacity: 0.7;
   transition: 0.09s linear;
 }
-.project-title {
+.project-title,
+.skill-title {
   color: #E02141;
   font-weight: bold;
+}
+.project-title p,
+.skill-title p {
+  text-align: center;
 }
 .tagline {
   color: #E02141;
