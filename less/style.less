@@ -183,14 +183,15 @@ section {
 		}
 	}
 }
-// .skill-list {
-// 	display: flex;
-// 	flex-direction: column;
-// }
-// #frontend-skills, #backend-skills, #blockchain-skills, #misc-skills {
-// 	display: flex;
-// 	flex-direction: column;
-// }
+
+// fixes display of code languages when the window gets smaller; they become one column
+@media (max-width: 450px) {
+	// resetting a bootstrap class
+	.row {
+		display: block;
+	}
+}
+
 .project-title, .skill-title {
 	color: #E02141;
 	font-weight: bold;
