@@ -61,6 +61,11 @@ nav a:hover {
   outline: none;
 }
 /* MAIN */
+#contact .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .section {
   position: relative;
 }
@@ -195,11 +200,6 @@ section img:hover {
   transition: 0.3s ease;
 }
 /* FOOTER */
-#contact .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 #copyright {
   text-align: center;
   color: #F2EBC7;
