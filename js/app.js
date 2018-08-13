@@ -1,9 +1,13 @@
+let navbarHeight;
+
 // check if window is below threshold of navbar-expand-md (767px)
 function checkWidth() {
 	// toggle between nav heights depending on if navbar is deployed or not
 	if ($(window).width() <= 767) {
+		navbarHeight = -176;
 		$(".anchor").css("top", "-176px");
 	} else {
+		navbarHeight = -57;
 		$(".anchor").css("top", "-57px");
 	}
 }
@@ -34,19 +38,19 @@ $("#toggler").on("click", () => {
 	}
 });
 
-$(window).on("scroll", revealOnScroll);
+$(window).on("scroll", animateOnScroll);
 
 // function for text animation to be triggered by scrolling
-function revealOnScroll() {
+function animateOnScroll() {
 
 	// set variable for top of user's view within window object
     let scrolled = $(window).scrollTop();
 
-    $(".revealOnScroll:not(.animated)").each(function () {
+    $(".run-animation").each(function () {
 
         let offsetTop = $(this).offset().top;
 
-    	if (scrolled + win_height_padded > offsetTop) {
+    	if (scrolled + navbarHeight > offsetTop) {
 
         	if ($(this).data("timeout")) {
         		window.setTimeout(function(){

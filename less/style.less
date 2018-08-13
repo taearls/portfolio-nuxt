@@ -190,21 +190,17 @@ section {
 		}
 	}
 }
-// fixes display of code languages when the window gets smaller; they become one column
-@media (max-width: 450px) {
-	// resetting a bootstrap class
-	.row {
-		display: block;
-	}
-}
 
 .project-title, .skill-title {
 	color: #E02141;
-	font-weight: bold;
 	p {
 		text-align: center;
 	}
 }
+.skill-title, section h2 {
+	font-weight: bold;
+}
+
 .tagline {
 	color: #E02141;
 	font-weight: bold;
@@ -221,4 +217,47 @@ section {
 #copyright {
 	text-align: center;
 	color: #F2EBC7;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateX(50);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.run-animation {
+	position: relative;
+	animation: fadeIn 3s forwards;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 460px) {
+	section {
+		h1 {
+			font-size: 26px;
+		}
+		h2 {
+			font-size: 24px;
+		}
+	}
+	#title {
+		font-size: 22px;
+	}
+	// .contact {
+
+	// }
+}
+// fixes display of code languages when the window gets smaller; they become one column
+@media (max-width: 450px) {
+	// resetting a bootstrap class
+	.row {
+		display: block;
+	}
 }
