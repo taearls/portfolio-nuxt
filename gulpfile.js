@@ -1,17 +1,17 @@
 const gulp = require("gulp");
-const less = require("gulp-less");
+const scss = require("gulp-sass");
 
-gulp.task("less", () => {
+gulp.task("scss", () => {
 	// find the file we want to convert
 	// then we need to convert
 	// then we need to send it to where we want
-	gulp.src("./less/style.less")
-		.pipe(less())
+	gulp.src("./scss/style.scss")
+		.pipe(scss())
 		.pipe(gulp.dest("./css/"));
 })
 
 gulp.task("watch", () => {
-	gulp.watch(["./less/**/*.less"], ["less"]);
+	gulp.watch(["./scss/**/*.scss"], ["scss"]);
 })
 
-gulp.task("default", ["less", "watch"]);
+gulp.task("default", ["scss", "watch"]);
