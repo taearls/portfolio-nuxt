@@ -4,11 +4,11 @@ let navbarHeight;
 function checkWidth() {
 	// toggle between nav heights depending on if navbar is deployed or not
 	if ($(window).width() <= 767) {
-		navbarHeight = -176;
-		$(".anchor").css("top", "-176px");
+		navbarHeight = -176 + "px";
+		$(".anchor").css("top", navbarHeight);
 	} else {
-		navbarHeight = -57;
-		$(".anchor").css("top", "-57px");
+		navbarHeight = -57 + "px";
+		$(".anchor").css("top", navbarHeight);
 	}
 }
 checkWidth();
