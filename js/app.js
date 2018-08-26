@@ -1,3 +1,9 @@
+AOS.init({
+  duration: 1000,
+  anchorPlacement: 'center-bottom'
+});
+$(window).on('load', AOS.refresh);
+
 let navbarHeight;
 
 // check if window is below threshold of navbar-expand-md (767px)
@@ -29,38 +35,11 @@ $("#toggler").on("click", () => {
 		$("body").css({
 			"padding-top": "176px",
 			"transition": "0.35s ease"
-		})
+		});
 	} else {
 		$("body").css({
 			"padding-top": "57px",
 			"transition": "0.35s ease"
-		})
+		});
 	}
 });
-
-$(window).on("scroll", animateOnScroll);
-
-// function for text animation to be triggered by scrolling
-function animateOnScroll() {
-
-	// set variable for top of user's view within window object
-    let scrolled = $(window).scrollTop();
-
-    $(".run-animation").each(function () {
-
-        let offsetTop = $(this).offset().top;
-
-    	if (scrolled + navbarHeight > offsetTop) {
-
-        	if ($(this).data("timeout")) {
-        		window.setTimeout(function(){
-            		$(this).addClass("animated " + $(this).data("animation"));
-        		}, parseInt($(this).data("timeout"), 10));
-        	} else {
-        		$(this).addClass("animated " + $(this).data("animation"));
-        	}
-
-    	}
-    });
-}
-
