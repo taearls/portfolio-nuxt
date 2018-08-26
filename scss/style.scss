@@ -8,11 +8,10 @@ $red: #E02141;
 $tan: #F2EBC7;
 
 body {
-  background: linear-gradient($darkblue, $darkpurple, $darkblue);
+  background: linear-gradient($darkblue -1%, $darkpurple 50%, $darkblue 101%);
+  background-color: $darkblue;
   padding-top: 57px;
   text-align: center;
-  height: 100%;
-  width: 100%;
   * {
     font-family: 'Raleway', sans-sarif;
   }
