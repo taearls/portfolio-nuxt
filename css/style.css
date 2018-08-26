@@ -3,7 +3,8 @@ body {
   background: linear-gradient(#2A3663, #503663, #2A3663);
   background-color: #2A3663;
   padding-top: 57px;
-  text-align: center; }
+  text-align: center;
+  overflow-x: hidden; }
   body * {
     font-family: 'Raleway', sans-sarif; }
 
