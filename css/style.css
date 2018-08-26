@@ -1,4 +1,7 @@
 /* COLOR VARIABLES */
+#fix-width {
+  overflow-x: hidden; }
+
 body {
   background: linear-gradient(#2A3663, #503663, #2A3663);
   background-color: #2A3663;
@@ -27,7 +30,8 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000; }
+  z-index: 1000;
+  overflow-x: hidden; }
 
 /* PORTFOLIO DROPDOWN */
 .dropdown-menu {

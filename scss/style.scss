@@ -7,6 +7,10 @@ $palepurple: #704E91;
 $red: #E02141;
 $tan: #F2EBC7;
 
+#fix-width {
+  overflow-x: hidden;
+}
+
 body {
   background: linear-gradient($darkblue, $darkpurple, $darkblue);
   background-color: $darkblue;
@@ -45,6 +49,7 @@ nav {
   top: 0;
   width: 100%;
   z-index: 1000;
+  overflow-x: hidden;
 }
 
 /* PORTFOLIO DROPDOWN */
