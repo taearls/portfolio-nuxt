@@ -16,7 +16,6 @@ body {
   background-color: $darkblue;
   padding-top: 57px;
   text-align: center;
-  overflow-x: hidden;
   * {
     font-family: 'Raleway', sans-sarif;
   }
@@ -49,7 +48,6 @@ nav {
   top: 0;
   width: 100%;
   z-index: 1000;
-  overflow-x: hidden;
 }
 
 /* PORTFOLIO DROPDOWN */

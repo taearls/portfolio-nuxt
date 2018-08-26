@@ -6,8 +6,7 @@ body {
   background: linear-gradient(#2A3663, #503663, #2A3663);
   background-color: #2A3663;
   padding-top: 57px;
-  text-align: center;
-  overflow-x: hidden; }
+  text-align: center; }
   body * {
     font-family: 'Raleway', sans-sarif; }
 
@@ -30,8 +29,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
-  overflow-x: hidden; }
+  z-index: 1000; }
 
 /* PORTFOLIO DROPDOWN */
 .dropdown-menu {
