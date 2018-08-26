@@ -1,5 +1,5 @@
 AOS.init({
-  duration: 1400,
+  duration: '1400',
   anchorPlacement: 'center-bottom'
 });
 $(window).on('load', AOS.refresh);
