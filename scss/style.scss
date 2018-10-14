@@ -10,7 +10,6 @@ $tan: #F2EBC7;
 #fix-width {
   overflow-x: hidden;
 }
-
 body {
   background: linear-gradient($darkblue, $darkpurple, $darkblue);
   background-color: $darkblue;
@@ -133,22 +132,15 @@ hr.line-break {
       transition: 0.3s ease;
     }
   }
-
 }
 .spaceclones-cursor:hover{
-  cursor: url(../images/cursors/space_clones_cursor.png), pointer;
+  cursor: url(../images/cursors/space-clones-cursor.png), pointer;
 }
-.earshare-cursor:hover{
-  cursor: url(../images/cursors/earshare_cursor.png), pointer;
+.bigsearch-cursor:hover {
+  cursor: url(../images/cursors/bigsearch-cursor.png), pointer;
 }
-.ems-cursor:hover {
-  cursor: url(../images/cursors/ems_cursor.png), pointer;
-}
-.musiclog-cursor:hover {
-  cursor: url(../images/cursors/musiclog_cursor.png), pointer;
-}
-.ethtrust-cursor:hover {
-  cursor: url(../images/cursors/ethtrust_cursor.png), pointer;
+.inline-link {
+  cursor: pointer !important;
 }
 #portfolio {
   text-align: center;
