@@ -178,20 +178,8 @@ section img {
 /* FOOTER */
 #copyright {
   text-align: center;
-  color: #F2EBC7; }
-
-/* ANIMATIONS */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(50); }
-  to {
-    opacity: 1;
-    transform: translateX(0); } }
-
-.run-animation {
-  position: relative;
-  animation: fadeIn 3s forwards; }
+  color: #F2EBC7;
+  font-size: 0.8rem; }
 
 /* MEDIA QUERIES */
 @media (max-width: 460px) {

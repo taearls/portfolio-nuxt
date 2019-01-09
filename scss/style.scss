@@ -185,9 +185,6 @@ section {
   p {
     color: $tan;
   }
-  // .skill-list p {
-  //  text-align: center;
-  // }
   img {
     width: 75vw;
     &:hover {
@@ -223,24 +220,7 @@ section {
 #copyright {
   text-align: center;
   color: $tan;
-}
-
-/* ANIMATIONS */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(50);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.run-animation {
-  position: relative;
-  animation: fadeIn 3s forwards;
+  font-size: 0.8rem;
 }
 
 /* MEDIA QUERIES */
@@ -256,9 +236,6 @@ section {
   #title {
     font-size: 22px;
   }
-  // .contact {
-
-  // }
 }
 // fixes display of code languages when the window gets smaller; they become one column
 @media (max-width: 450px) {
