@@ -2,44 +2,63 @@ AOS.init({
   duration: '1400',
   anchorPlacement: 'center-bottom'
 });
-$(window).on('load', AOS.refresh);
+window.onload = () => {
+	AOS.refresh();
+};
+// check width again if window is resized
+
 
 let navbarHeight;
 
 // check if window is below threshold of navbar-expand-md (767px)
-function checkWidth() {
+var checkWidth = function() {
 	// toggle between nav heights depending on if navbar is deployed or not
-	if ($(window).width() <= 767) {
-		navbarHeight = -176 + "px";
-		$(".anchor").css("top", navbarHeight);
+	var anchors = document.querySelectorAll(".anchor");
+	if (window.outerWidth <= 767) {
+		navbarHeight = -176 + "px";	
 	} else {
 		navbarHeight = -57 + "px";
-		$(".anchor").css("top", navbarHeight);
 	}
-}
-checkWidth();
+	for (let i = 0; i < anchors.length; i++) {
+		anchors[i].style.top = navbarHeight;
+	}
+};
 
-// check width again if window is resized
-$(window).on("resize", () => {
-	checkWidth();
+window.addEventListener("resize", () => {
+	console.log("resize");
+	var anchors = document.querySelectorAll(".anchor");
+	if (window.outerWidth <= 767) {
+		navbarHeight = -176 + "px";	
+	} else {
+		navbarHeight = -57 + "px";
+	}
+	for (let i = 0; i < anchors.length; i++) {
+		anchors[i].style.top = navbarHeight;
+	}
 });
 
 // listen for toggler button in nav being clicked using boolean variable
 let navDeployed = false;
 
-$("#toggler").on("click", () => {
+document.getElementById("toggler").onclick = () => {
 	navDeployed = !navDeployed;
 	// adjust top of body to compensate for navbar differential
 	// transition so it moves at the same speed as navbar
 	if (navDeployed) {
-		$("body").css({
-			"padding-top": "176px",
-			"transition": "0.35s ease"
-		});
+		document.body.style.cssText = `
+			padding-top: 176px;
+			transition: 0.35s ease;
+		`;
 	} else {
-		$("body").css({
-			"padding-top": "57px",
-			"transition": "0.35s ease"
-		});
+		document.body.style.cssText = `
+			padding-top: 57px;
+			transition: 0.35s ease;
+		`;
 	}
-});
+};
+
+(function addCopyright() {
+	var copyrightDiv = document.getElementById("copyright");
+	var year = new Date().getFullYear();
+	copyrightDiv.innerHTML = "&copy; " + year + " Tyler Earls";
+}());

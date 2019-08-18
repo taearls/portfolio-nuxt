@@ -1,4 +1,4 @@
-/* COLOR VARIABLES */
+$default-font: 'Lato', sans-sarif;
 $darkblue: rgb(42, 54, 99);
 $paleblue: #42559C; 
 $lightblue: #348899;
@@ -16,7 +16,7 @@ body {
   padding-top: 57px;
   text-align: center;
   * {
-    font-family: 'Open Sans', sans-sarif;
+    font-family: $default-font;
   }
 }
 
