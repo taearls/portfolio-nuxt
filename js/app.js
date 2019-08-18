@@ -1,3 +1,4 @@
+// init animate on scroll scripts
 AOS.init({
   duration: '1400',
   anchorPlacement: 'center-bottom'
@@ -5,12 +6,9 @@ AOS.init({
 window.onload = () => {
 	AOS.refresh();
 };
-// check width again if window is resized
-
-
-let navbarHeight;
 
 // check if window is below threshold of navbar-expand-md (767px)
+let navbarHeight;
 var checkWidth = function() {
 	// toggle between nav heights depending on if navbar is deployed or not
 	var anchors = document.querySelectorAll(".anchor");
@@ -24,6 +22,7 @@ var checkWidth = function() {
 	}
 };
 
+// check width again if window is resized
 window.addEventListener("resize", () => {
 	var anchors = document.querySelectorAll(".anchor");
 	if (window.outerWidth <= 767) {
@@ -38,7 +37,6 @@ window.addEventListener("resize", () => {
 
 // listen for toggler button in nav being clicked using boolean variable
 let navDeployed = false;
-
 document.getElementById("toggler").onclick = () => {
 	navDeployed = !navDeployed;
 	// adjust top of body to compensate for navbar differential
