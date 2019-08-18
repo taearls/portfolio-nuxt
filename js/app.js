@@ -12,7 +12,7 @@ let navbarHeight;
 var checkWidth = function() {
 	// toggle between nav heights depending on if navbar is deployed or not
 	var anchors = document.querySelectorAll(".anchor");
-	if (window.outerWidth <= 767) {
+	if (window.innerWidth <= 767) {
 		navbarHeight = -176 + "px";	
 	} else {
 		navbarHeight = -57 + "px";
@@ -25,7 +25,7 @@ var checkWidth = function() {
 // check width again if window is resized
 window.addEventListener("resize", () => {
 	var anchors = document.querySelectorAll(".anchor");
-	if (window.outerWidth <= 767) {
+	if (window.innerWidth <= 767) {
 		navbarHeight = -176 + "px";	
 	} else {
 		navbarHeight = -57 + "px";
