@@ -21,6 +21,7 @@ function checkWidth() {
 		anchors[i].style.top = navbarHeight;
 	}
 };
+checkWidth();
 
 // check width again if window is resized
 window.addEventListener("resize", checkWidth);
