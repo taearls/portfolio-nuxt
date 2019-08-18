@@ -25,7 +25,6 @@ var checkWidth = function() {
 };
 
 window.addEventListener("resize", () => {
-	console.log("resize");
 	var anchors = document.querySelectorAll(".anchor");
 	if (window.outerWidth <= 767) {
 		navbarHeight = -176 + "px";	
