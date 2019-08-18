@@ -7,10 +7,10 @@ window.onload = () => {
 	AOS.refresh();
 };
 
-// check if window is below threshold of navbar-expand-md (767px)
 let navbarHeight;
-var checkWidth = function() {
-	// toggle between nav heights depending on if navbar is deployed or not
+
+function checkWidth() {
+	// check if window is below threshold of navbar-expand-md (767px)
 	var anchors = document.querySelectorAll(".anchor");
 	if (window.innerWidth <= 767) {
 		navbarHeight = -176 + "px";	
@@ -23,17 +23,7 @@ var checkWidth = function() {
 };
 
 // check width again if window is resized
-window.addEventListener("resize", () => {
-	var anchors = document.querySelectorAll(".anchor");
-	if (window.innerWidth <= 767) {
-		navbarHeight = -176 + "px";	
-	} else {
-		navbarHeight = -57 + "px";
-	}
-	for (let i = 0; i < anchors.length; i++) {
-		anchors[i].style.top = navbarHeight;
-	}
-});
+window.addEventListener("resize", checkWidth);
 
 // listen for toggler button in nav being clicked using boolean variable
 let navDeployed = false;
