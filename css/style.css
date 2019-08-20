@@ -87,7 +87,6 @@ hr.line-break {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  /* 266 by 266px is the file size, so it shouldn't be any bigger than that */
   max-width: 266px;
   width: 30%;
   border-radius: 50%;
@@ -104,8 +103,10 @@ hr.line-break {
       background-color: #348899;
       transition: 0.3s ease; }
 
-.spaceclones-cursor:hover {
-  cursor: url(../images/cursors/space-clones-cursor.png), pointer; }
+.spaceclones-cursor {
+  cursor: default; }
+  .spaceclones-cursor:hover {
+    cursor: url(../images/cursors/space-clones-cursor.png), pointer; }
 
 #portfolio {
   text-align: center; }
@@ -131,8 +132,7 @@ p {
 section a {
   text-decoration: none;
   color: #E02141;
-  /* this makes it so cursor goes straight to custom and not to pointer in between */
-  cursor: default; }
+  cursor: pointer; }
   section a:hover {
     text-decoration: none;
     color: #348899;
@@ -150,6 +150,9 @@ section img {
   section img:hover {
     opacity: 0.7;
     transition: 0.09s linear; }
+
+section .portfolio-link {
+  cursor: pointer; }
 
 .project-title, .skill-title {
   color: #E02141; }
