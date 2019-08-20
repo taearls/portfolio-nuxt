@@ -1,13 +1,13 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "personal portfolio website",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tyler Earls",
   "license": "ISC",
   "dependencies": {
     "scrolltrigger-classes": "^0.3.6"
