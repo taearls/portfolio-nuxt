@@ -32,30 +32,25 @@
 </template>
 
 <script>
-
 export default {
-    data () {
+    data() {
         return {
             hover: false,
-            publicPath: process.env.BASE_URL
+            publicPath: process.env.BASE_URL,
         }
     },
     computed: {
         cursorStyle: function() {
-            var test = this.project.customCursor ? `${this.project.cursorStyle}, pointer`: "pointer";
-            console.log(test);
-            console.log(typeof test);
-            return this.project.customCursor ? `url(${this.project.cursorStyle}), pointer`: "pointer";
+            if (this.project.customCursor) {
+                return `url(${this.project.cursorStyle}), pointer`;
+            }
+            return "pointer";
         }
     },
-    // methods: {
-    //     getCursor: function() {
-    //         console.log(this.project);
-    //     },
-    // },
-    created() {
-        console.log(this.projectCount);
-        console.log(this.project.index);
+    methods: {
+        getScreenShotUrl: function() {
+            return this.project.screenshot;
+        },
     },
     props: ['project', 'projectCount'],
 
@@ -91,9 +86,4 @@ export default {
     .project-description {
         margin-bottom: 10px;
     }
-    // .spaceclones-cursor {
-    //     cursor: default;
-    //     &:hover {
-    //         cursor: url(./images/assets/cursors/space-clones-cursor.png), pointer;
-    //     }
 </style>
