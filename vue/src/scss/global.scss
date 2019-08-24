@@ -4,7 +4,7 @@ body {
     background: linear-gradient($darkblue, $darkpurple, $darkblue);
     background-color: $darkblue;
     // padding-top: 57px;
-    text-align: center;
+    // text-align: center;
     * {
         margin-block-start: 0;
         margin-block-end: 0;
@@ -13,9 +13,26 @@ body {
         letter-spacing: 0.6px;
     }
 }
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    // background-color: rgba(212, 123, 20, 0.486);
+    background: linear-gradient(rgba(212, 123, 20, 0.486), #e2db7c, rgba(212, 123, 20, 0.486));
+    width: 180px;
+    height: 100%;
+    * {
+        color: $red;
+        &:hover {
+            cursor: pointer;
+            color: $lightblue;
+            transition: 0.5s ease;
+        }
+    }
+}
 p {
-    margin-left: 14vw;
-    margin-right: 14vw;
+    // margin-left: 14vw;
+    // margin-right: 14vw;
     text-align: justify;
     text-justify: inter-word;
 }
@@ -26,7 +43,6 @@ section {
         cursor: pointer;
     }
     h1, h2, h3 {
-        text-align: center;
         color: $red;
     }
     p {
@@ -48,16 +64,12 @@ section {
 .section {
     position: relative;
 }
-img {
-    vertical-align: middle;
-    border-style: none;
-}
 .img-fluid {
     max-width: 75vw;
     height: auto;
 }
 h6 {
-    text-align: center;
+    // text-align: center;
     color: #F2EBC7;
     font-size: 0.8rem;
 }

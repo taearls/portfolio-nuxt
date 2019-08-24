@@ -1,13 +1,18 @@
 <template>
   <div>
-    <NavBar />
+    <NavBar 
+      v-if="navActive"
+      />
     <WebProject 
       v-for="(project, index) in projects"
       :key="index"
+      :class="{adjustBody: navActive}"
       :project="project"
       :projectCount="projects.length - 1"
       />
-    <VueFooter />
+    <VueFooter 
+      :class="{adjustBody: navActive}"
+      />
   </div>
 </template>
 
@@ -21,7 +26,8 @@ export default {
   name: 'app',
   data() {
     return {
-      projects: ProjectData
+      projects: ProjectData,
+      navActive: true,
     }
   },
   components: {
@@ -29,6 +35,21 @@ export default {
     WebProject,
     VueFooter
   },
+  created() {
+    window.addEventListener("resize", this.checkNavDeployed);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.checkNavDeployed);
+  },
+  methods: {
+    checkNavDeployed: function() {
+      if (window.innerWidth <= 767) {
+        this.navActive = false;
+      } else {
+        this.navActive = true;
+      }
+    }
+  }
 }
 </script>
 
@@ -38,33 +59,12 @@ export default {
 #fix-width {
   overflow-x: hidden;
 }
-
-/* NAV */
-nav {
-  background-color: #000; 
-  .navbar {
-    color: $lightblue;
-    width: 100%;
-  }
-  * {
-    color: $red;
-    .nav-link:hover {
-      color: $lightblue;
-      transition: 0.5s ease;
-    }
-  }
-  a {
-    &:hover {
-      color: $lightblue;
-      transition: 0.5s ease;
-    }
-  }
+.navDeployed {
+  margin-left: 180px;
 }
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+
+.adjustBody {
+  margin-left: 180px;
 }
 
 /* PORTFOLIO DROPDOWN */

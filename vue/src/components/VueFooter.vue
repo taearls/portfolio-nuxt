@@ -15,6 +15,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    h6 {
+        text-align: center;
+    }
 </style>

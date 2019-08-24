@@ -4,14 +4,12 @@
         <p data-aos="fade-in" data-aos-duration="1600" class="project-description">{{project.description}}</p> 
 
         <!-- BIGSEARCH TAGLINE -->
-        <!-- <p data-aos="fade-in" data-aos-duration="1600"> -->
-            <a :href="project.href" 
-            class="portfolio-link" 
-            :class="{ 'link-hover': hover }"
-            @mouseover="hover = true"
-            @mouseleave="hover = false"
-            target="_blank">{{project.tagline}}</a>
-        <!-- </p> -->
+        <a :href="project.href" 
+        class="portfolio-link" 
+        :class="{ 'link-hover': hover }"
+        @mouseover="hover = true"
+        @mouseleave="hover = false"
+        target="_blank">{{project.tagline}}</a>
 
         <!-- BIGSEARCH LINK -->
         <a :href="project.href" class="portfolio-link" target="_blank"> 
@@ -59,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
     @import 'src/scss/global.scss';
-    
+
     .portfolio-link {
         display: block;
         color: $red;
