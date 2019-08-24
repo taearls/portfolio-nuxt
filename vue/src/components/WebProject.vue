@@ -61,6 +61,7 @@ export default {
     @import 'src/scss/global.scss';
     
     .portfolio-link {
+        display: block;
         color: $red;
         font-weight: bold;
         text-align: center;

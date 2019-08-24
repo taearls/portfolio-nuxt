@@ -10,6 +10,7 @@ body {
         margin-block-end: 0;
         font-family: $default-font;
         font-weight: 200;
+        letter-spacing: 0.6px;
     }
 }
 p {
@@ -46,6 +47,10 @@ section {
 }
 .section {
     position: relative;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
 }
 .img-fluid {
     max-width: 75vw;
