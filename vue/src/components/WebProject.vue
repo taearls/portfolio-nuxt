@@ -1,31 +1,28 @@
 <template>
     <section>
-        <h4 data-aos="zoom-in-left" class="project-title">{{project.name}}</h4> 
-        <p data-aos="fade-in" data-aos-duration="1600" class="project-description">{{project.description}}</p> 
+        <h1 v-if="project.index === 0" href="#" id="web-projects">Web Projects</h1>
 
-        <!-- BIGSEARCH TAGLINE -->
+        <h2 class="project-title">{{project.name}}</h2> 
+        <p class="project-description">{{project.description}}</p> 
+        
         <a :href="project.href" 
         class="portfolio-link" 
-        :class="{ 'link-hover': hover }"
-        @mouseover="hover = true"
-        @mouseleave="hover = false"
-        target="_blank">{{project.tagline}}</a>
-
-        <!-- BIGSEARCH LINK -->
-        <a :href="project.href" class="portfolio-link" target="_blank"> 
+        target="_blank">{{project.tagline}}
+        </a>
+        
+        <a :href="project.href" target="_blank"> 
             <img 
-                data-aos="fade-in" 
-                data-aos-duration="2000" 
-                data-aos-anchor-placement="top-bottom"
                 class="portfolio-screenshot"
                 :src="`${publicPath}${project.screenshot}`" 
                 :alt="`${project.name} Screenshot`"
-                :style="{cursor: cursorStyle}"/>
+                :style="{cursor: cursorStyle}" />
         </a> 
-        <br/> <br/>
-
-        <hr data-aos="zoom-in" data-aos-duration="600" class="line-break" v-if="project.index !== projectCount"/> 
         <br/>
+
+        <template v-if="project.index !== projectCount">
+            <hr class="line-break" /> 
+            <br/>
+        </template>
     </section>
 </template>
 
@@ -33,10 +30,10 @@
 export default {
     data() {
         return {
-            hover: false,
-            publicPath: process.env.BASE_URL,
+            publicPath: process.env.BASE_URL
         }
     },
+    props: ['project', 'projectCount'],
     computed: {
         cursorStyle: function() {
             if (this.project.customCursor) {
@@ -45,35 +42,25 @@ export default {
             return "pointer";
         }
     },
-    methods: {
-        getScreenShotUrl: function() {
-            return this.project.screenshot;
-        },
-    },
-    props: ['project', 'projectCount'],
-
 }
 </script>
 
 <style lang="scss" scoped>
     @import 'src/scss/global.scss';
-
+    h1 {
+        margin-bottom: 20px;
+    }
     .portfolio-link {
         display: block;
         color: $red;
         font-weight: bold;
         text-align: center;
         cursor: pointer;
-        margin-bottom: 10px;
-    }
-    .link-hover {
-        text-decoration: none;
-        color: $lightblue;
-        transition: 0.3s ease;
+        margin-bottom: 5px;
     }
     .portfolio-screenshot {
-        margin-top: 10px;
-        max-width: 75vw;
+        margin: 7px 0;
+        max-width: calc(100vw - #{$navWidth} - 40px);
         height: auto;
     }
     .project-title, .skill-title {
@@ -84,5 +71,13 @@ export default {
     }
     .project-description {
         margin-bottom: 10px;
+    }
+    .line-break {
+        margin-top: 15px;
+        border: 0;
+        height: 1px;
+        margin-left: 11vw;
+        margin-right: 11vw;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(224, 33, 65, 1), rgba(0, 0, 0, 0));
     }
 </style>

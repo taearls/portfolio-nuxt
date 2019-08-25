@@ -1,6 +1,22 @@
 [
-    "Home",
-    "About",
-    "Code Languages",
-    "Web Projects"
+    {
+        "name": "Home",
+        "href": "#"
+    },
+    {
+        "name": "About",
+        "href": "#about"
+    },
+    {
+        "name": "Music",
+        "href": "#music"
+    },
+    {
+        "name": "Web Projects", 
+        "href": "#web-projects"
+    }, 
+    {
+        "name": "Contact",
+        "href": "#contact"
+    }
 ]

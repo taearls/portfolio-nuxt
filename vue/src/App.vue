@@ -1,7 +1,10 @@
 <template>
   <div>
+    <!-- add slider that controls nav? -->
+    <!-- https://www.moka.tv -->
     <NavBar 
       v-if="navActive"
+      :class="{addNav: navActive}"
       />
     <WebProject 
       v-for="(project, index) in projects"
@@ -36,13 +39,14 @@ export default {
     VueFooter
   },
   created() {
-    window.addEventListener("resize", this.checkNavDeployed);
+    this.checkNavActive();
+    window.addEventListener("resize", this.checkNavActive);
   },
   destroyed() {
-    window.removeEventListener("resize", this.checkNavDeployed);
+    window.removeEventListener("resize", this.checkNavActive);
   },
   methods: {
-    checkNavDeployed: function() {
+    checkNavActive: function() {
       if (window.innerWidth <= 767) {
         this.navActive = false;
       } else {
@@ -59,12 +63,13 @@ export default {
 #fix-width {
   overflow-x: hidden;
 }
-.navDeployed {
-  margin-left: 180px;
+.addNav {
+  width: $navWidth;
 }
 
 .adjustBody {
-  margin-left: 180px;
+  margin-left: $navWidth;
+  padding: 0px 10px;
 }
 
 /* PORTFOLIO DROPDOWN */
@@ -106,35 +111,8 @@ export default {
     align-items: center;
   }
 }
-hr.line-break {
-  border: 0;
-  height: 1px;
-  margin-left: 14vw;
-  margin-right: 14vw;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(224, 33, 65, 1), rgba(0, 0, 0, 0));
-}
-.anchor {
-  display: block;
-  position: absolute;
-  width: 0;
-  height: 0;
-  z-index: -1;
-  top: -176px;
-  left: 0;
-  visibility: hidden;
-}
 
 /* IMAGES */
-#headshot {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 266px; // 266 by 266px is the file size, so it shouldn't be any bigger than that
-  width: 30%;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-}
 .contact {
   cursor: pointer;
   span {
@@ -143,7 +121,7 @@ hr.line-break {
     &:hover {
       border: 1px solid black;
       background-color: $lightblue;
-      transition: 0.3s ease;
+      transition: 0.2s ease;
     }
   }
 }
@@ -163,34 +141,5 @@ hr.line-break {
 
 .skill-title, section h2 {
   font-weight: bold;
-}
-
-/* FOOTER */
-#copyright {
-  text-align: center;
-  color: $tan;
-  font-size: 0.8rem;
-}
-
-/* MEDIA QUERIES */
-@media (max-width: 460px) {
-  section {
-    h1 {
-      font-size: 26px;
-    }
-    h2 {
-      font-size: 24px;
-    }
-  }
-  #title {
-    font-size: 22px;
-  }
-}
-// fixes display of code languages when the window gets smaller; they become one column
-@media (max-width: 450px) {
-  // resetting a bootstrap class
-  .row {
-    display: block;
-  }
 }
 </style>
