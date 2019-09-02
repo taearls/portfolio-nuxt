@@ -59,9 +59,10 @@ export default {
         margin-bottom: 5px;
     }
     .portfolio-screenshot {
-        margin: 7px 0;
+        margin: 7px auto;
         max-width: calc(100vw - #{$navWidth} - 40px);
         height: auto;
+        display: block;
     }
     .project-title, .skill-title {
         margin-bottom: 10px;
