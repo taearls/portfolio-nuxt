@@ -6,37 +6,26 @@
       v-if="navActive"
       :class="{addNav: navActive}"
       />
-    <WebProject 
-      v-for="(project, index) in projects"
-      :key="index"
-      :class="{adjustBody: navActive}"
-      :project="project"
-      :projectCount="projects.length - 1"
-      />
-    <VueFooter 
+    <VueBody
       :class="{adjustBody: navActive}"
       />
   </div>
 </template>
 
 <script>
-import ProjectData from '@/data/web-projects.json';
 import NavBar from '@/components/NavBar.vue';
-import WebProject from '@/components/WebProject.vue';
-import VueFooter from '@/components/VueFooter.vue';
+import VueBody from '@/components/VueBody.vue';
 
 export default {
   name: 'app',
   data() {
     return {
-      projects: ProjectData,
       navActive: true,
     }
   },
   components: {
     NavBar,
-    WebProject,
-    VueFooter
+    VueBody
   },
   created() {
     this.checkNavActive();
@@ -70,23 +59,6 @@ export default {
 .adjustBody {
   margin-left: $navWidth;
   padding: 0px 10px;
-}
-
-/* PORTFOLIO DROPDOWN */
-.dropdown-menu {
-  background-color: #000;
-}
-.dropdown-item {
-  background-color: #000;
-  color: $red;
-  &:hover {
-    background-color: #000;
-    color: $lightblue;
-    transition: 0.5s ease;
-  }
-}
-.dropdown-divider {
-  border-top: 1px solid $lightblue !important;
 }
 
 /* TOGGLED DROP-DOWN ICON */

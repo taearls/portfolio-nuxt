@@ -46,6 +46,13 @@ section {
             transition: 0.09s linear;
         }
     }
+    form {
+        legend {
+            color: $red;
+            font-weight: bold;
+        }
+        color: $tan;
+    }
 }
 h1 {
     font-size: 38px;
@@ -55,7 +62,7 @@ h2 {
     font-size: 28px;
 }
 h6 {
-    color: #F2EBC7;
+    color: $tan;
     font-size: 0.8rem;
 }
 

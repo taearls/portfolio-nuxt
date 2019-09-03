@@ -5,12 +5,13 @@
         <h2 class="project-title">{{project.name}}</h2> 
         <p class="project-description">{{project.description}}</p> 
         
-        <a :href="project.href" 
-        class="portfolio-link" 
-        target="_blank">{{project.tagline}}
+        <a  class="portfolio-link" 
+            target="_blank"
+            :href="project.href" 
+            >{{project.tagline}}
         </a>
         
-        <a :href="project.href" target="_blank"> 
+        <a  :href="project.href" target="_blank"> 
             <img 
                 class="portfolio-screenshot"
                 :src="`${publicPath}${project.screenshot}`" 
