@@ -37,7 +37,7 @@
                     <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
                 </div>
                 <div>
-                    <input type="submit" value="Send Message">
+                    <input type="submit" value="Send Message" :disabled="saveDisabled" :class="{disabled: saveDisabled}">
                 </div>
             </fieldset>
         </form>
@@ -70,6 +70,9 @@ export default {
         }
     },
     computed: {
+        saveDisabled: function() {
+            return !this.email.valid || !this.name.valid || this.message.text.length == 0;
+        },
         outboundEmail: function() {
             return {
                 from: this.email.address,

@@ -54,6 +54,10 @@ section {
         color: $tan;
     }
 }
+.disabled {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
 h1 {
     font-size: 38px;
     font-weight: bold;
