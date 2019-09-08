@@ -1,7 +1,7 @@
 <template>
     <section>
-        <form class="vue-form" method="GET" target="_blank" :action="generateMailToURL()">
-            <h2 href="#" id="contact">Contact Tyler Earls</h2>
+        <form href="#" id="contact" class="vue-form" method="GET" target="_blank" :action="generateMailToURL()">
+            <h2>Contact Tyler Earls</h2>
             <fieldset>
                 <div>
                     <label class="label" for="subject">Subject: </label>
