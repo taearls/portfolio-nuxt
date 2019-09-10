@@ -15,13 +15,24 @@
                             :maxlength="message.maxlength"></textarea>
                     <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
                 </div>
-                <vue-recaptcha 
-                    sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
-                    theme="dark"
-                    style="margin-bottom: 10px;"
-                    :loadRecaptchaScript="true"
-                    @verify="markRecaptchaVerified"
-                    @expired="resetRecaptcha"></vue-recaptcha>
+
+                <!-- TODO: see if the size attribute can be dynamically changed -->
+                <template v-if="shouldCompactRecaptcha">
+                    <vue-recaptcha 
+                        sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
+                        theme="dark"
+                        size="compact"
+                        @verify="markRecaptchaVerified"
+                        @expired="resetRecaptcha"></vue-recaptcha>
+                </template>
+                <template v-else>
+                    <vue-recaptcha 
+                        sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
+                        theme="dark"
+                        size="normal"
+                        @verify="markRecaptchaVerified"
+                        @expired="resetRecaptcha"></vue-recaptcha>
+                </template>
                 
                 <div style="margin: 0;">
                     <error-message
@@ -45,6 +56,7 @@ export default {
     data() {
         return {
             recaptchaVerified: false,
+            // shouldCompactRecaptcha: false,
             message: {
                 text: `Hey Tyler,\n\nMy name is _______.\nI'd love to discuss hiring you to help build my project.`,
                 maxlength: 500
@@ -55,6 +67,13 @@ export default {
             }
         }
     },
+    created() {
+        // this.checkCompactRecaptcha();
+        // window.addEventListener("resize", this.checkCompactRecaptcha);	
+    },
+    // destroyed() {
+    //     window.removeEventListener("resize", this.checkCompactRecaptcha);	
+    // },
     components: {
         VueRecaptcha,
         ErrorMessage
@@ -63,8 +82,18 @@ export default {
         saveDisabled: function() {
             return this.message.text.length == 0 || !this.recaptchaVerified;
         },
+        shouldCompactRecaptcha: function() {
+            return window.innerWidth <= 450;
+        },
     },
     methods: {
+        // checkCompactRecaptcha: function() {
+        //     if (window.innerWidth <= 450) {	      
+        //         this.shouldCompactRecaptcha = true;
+        //     } else {
+        //         this.shouldCompactRecaptcha = false;
+        //     }
+        // },
         getErrorMessage: function() {
             if (!this.recaptchaVerified) {
                 return "Please verify that you're a human before sending.";
@@ -112,11 +141,10 @@ export default {
     .vue-form {
         box-sizing: border-box;
         font-size: 16px;
-        padding: 15px 30px;
+        padding: 15px 20px;
         border-radius: 4px;
         margin: 20px auto;
         width: 75vw;
-        max-width: calc(100vw - #{$navWidth} - 40px);
         background-color: $black;
         opacity: 0.9;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
@@ -134,6 +162,7 @@ export default {
             background-color: #ffffff;
             border-radius: 0.25em;
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
+            max-width: 60vw;
         }
         fieldset {
             margin: 24px 0 0 0;
