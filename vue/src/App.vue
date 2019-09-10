@@ -2,45 +2,39 @@
   <div>
     <!-- add slider that controls nav? -->
     <!-- https://www.moka.tv -->
-    <NavBar 
+    <nav-toggle 
+      class="nav-toggle"
+      :class="{adjustToggle: navActive}"
+      @toggle="handleToggle();"></nav-toggle>
+    <nav-bar 
       v-if="navActive"
-      :class="{addNav: navActive}"
-      />
-    <VueBody
-      :class="{adjustBody: navActive}"
-      />
+      style="padding-top: 35px;"
+      :class="{addNav: navActive}"/>
+    <vue-body
+      :class="{adjustBody: navActive}"/>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar.vue';
+import NavToggle from '@/components/NavToggle.vue';
 import VueBody from '@/components/VueBody.vue';
 
 export default {
   name: 'app',
   data() {
     return {
-      navActive: true,
+      navActive: true
     }
   },
   components: {
     NavBar,
+    NavToggle,
     VueBody
   },
-  created() {
-    this.checkNavActive();
-    window.addEventListener("resize", this.checkNavActive);
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.checkNavActive);
-  },
   methods: {
-    checkNavActive: function() {
-      if (window.innerWidth <= 767) {
-        this.navActive = false;
-      } else {
-        this.navActive = true;
-      }
+    handleToggle: function() {
+      this.navActive = !this.navActive;
     }
   }
 }
@@ -55,63 +49,11 @@ export default {
 .addNav {
   width: $navWidth;
 }
-
-.adjustBody {
-  margin-left: $navWidth;
+.nav-toggle {
+  margin-left: 0;
+}
+.adjustBody, .adjustToggle {
+  margin-left: $navWidth !important;
   padding: 0px 10px;
-}
-
-/* TOGGLED DROP-DOWN ICON */
-.custom-toggler .navbar-toggler-icon {
-  /* I have to redraw SVG image to customize the color */
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224, 33, 65, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  &:hover {
-    background-image: url("data:image/avg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(52, 136, 153, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    transition: 0.5s ease;
-  }
-  &:focus {
-    border: none;
-    outline: none;
-  }
-}
-
-/* MAIN */
-#contact {
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-/* IMAGES */
-.contact {
-  cursor: pointer;
-  span {
-    background-color: $red;
-    border: 1px solid black;
-    &:hover {
-      border: 1px solid black;
-      background-color: $lightblue;
-      transition: 0.2s ease;
-    }
-  }
-}
-
-#portfolio {
-  text-align: center;
-  a {
-    text-decoration: none;
-    color: $red;
-    display: inline-block;
-    cursor: pointer;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-.skill-title, section h2 {
-  font-weight: bold;
 }
 </style>

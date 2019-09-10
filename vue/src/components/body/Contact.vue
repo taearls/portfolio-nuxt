@@ -25,8 +25,8 @@
                 
                 <div style="margin: 0;">
                     <error-message
-                        :errorPresent="errorPresent"
                         successMessage="Thank you. I look forward to working with you!"
+                        :errorPresent="saveDisabled"
                         :errorMessage="getErrorMessage()"></error-message>
                     <input type="submit" value="Send Message"
                         :disabled="saveDisabled" 
@@ -63,9 +63,6 @@ export default {
         saveDisabled: function() {
             return this.message.text.length == 0 || !this.recaptchaVerified;
         },
-        errorPresent: function() {
-            return !this.recaptchaVerified || this.recaptchaVerified && this.message.text.length === 0;
-        }
     },
     methods: {
         getErrorMessage: function() {
