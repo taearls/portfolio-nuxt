@@ -21,13 +21,13 @@
                     style="margin-bottom: 10px;"
                     :loadRecaptchaScript="true"
                     @verify="markRecaptchaVerified"
-                    @expired="resetRecaptcha"></vue-recaptcha>  
+                    @expired="resetRecaptcha"></vue-recaptcha>
                 
                 <div style="margin: 0;">
                     <error-message
-                        :errorPresent="!recaptchaVerified"
+                        :errorPresent="errorPresent"
                         successMessage="Thank you. I look forward to working with you!"
-                        errorMessage="Please verify that you're a human before sending."></error-message>
+                        :errorMessage="getErrorMessage()"></error-message>
                     <input type="submit" value="Send Message"
                         :disabled="saveDisabled" 
                         :class="{disabled: saveDisabled}"/>
@@ -63,8 +63,19 @@ export default {
         saveDisabled: function() {
             return this.message.text.length == 0 || !this.recaptchaVerified;
         },
+        errorPresent: function() {
+            return !this.recaptchaVerified || this.recaptchaVerified && this.message.text.length === 0;
+        }
     },
     methods: {
+        getErrorMessage: function() {
+            if (!this.recaptchaVerified) {
+                return "Please verify that you're a human before sending.";
+            } else if (this.recaptchaVerified && this.message.text.length === 0) {
+                return "Message cannot be blank.";
+            }
+            return "Sorry about that. Please try again.";
+        },
         markRecaptchaVerified: function() {
             this.recaptchaVerified = true;
         },
