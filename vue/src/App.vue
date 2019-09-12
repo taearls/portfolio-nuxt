@@ -48,12 +48,12 @@ export default {
 .defaultNav {
   width: 0;
   opacity: 0;
-  transition: width 300ms $easing, opacity 400ms $easing;
+  transition: width 400ms $easing, opacity 200ms $easing;
 }
 .addNav {
   width: $navWidth;
   opacity: 0.8;
-  transition: width 300ms $easing, opacity 400ms $easing;
+  transition: width 300ms $easing, opacity 600ms $easing;
 }
 
 .nav-toggle {

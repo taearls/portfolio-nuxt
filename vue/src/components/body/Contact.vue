@@ -40,8 +40,10 @@
                         :errorPresent="saveDisabled"
                         :errorMessage="getErrorMessage()"></error-message>
                     <input type="submit" value="Send Message"
-                        :disabled="saveDisabled" 
-                        :class="{disabled: saveDisabled}"/>
+                        :disabled="saveDisabled"
+                        @mouseover="handleHoverMessage();"
+                        @mouseleave="hoveringMessage = false;"
+                        :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}"/>
                 </div>
             </fieldset>
         </form>
@@ -56,6 +58,7 @@ export default {
     data() {
         return {
             recaptchaVerified: false,
+            hoveringMessage: false,
             // shouldCompactRecaptcha: false,
             message: {
                 text: `Hey Tyler,\n\nMy name is _______.\nI'd love to discuss hiring you to help build my project.`,
@@ -94,6 +97,11 @@ export default {
         //         this.shouldCompactRecaptcha = false;
         //     }
         // },
+        handleHoverMessage: function() {
+            if (!this.saveDisabled) {
+                this.hoveringMessage = true;
+            }
+        },
         getErrorMessage: function() {
             if (!this.recaptchaVerified) {
                 return "Please verify that you're a human before sending.";
@@ -138,6 +146,10 @@ export default {
     }
     input {
         font-size: 12px;
+    }
+    .hover {
+        color: $red !important;
+        transition: 0.2s ease;
     }
     .vue-form {
         box-sizing: border-box;
