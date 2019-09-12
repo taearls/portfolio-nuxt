@@ -128,6 +128,7 @@ export default {
     form {
         display: block;
         appearance: none;
+        max-width: calc(100vw - #{$navWidth} - 40px);
     }
     fieldset {
         border: none;

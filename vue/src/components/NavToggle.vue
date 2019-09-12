@@ -1,7 +1,6 @@
 <template>
     <div>
-        <div
-            id="custom-toggler"
+        <div id="custom-toggler"
             :class="{active: toggleActive}"
             @click="handleToggle();"
             @mouseover="hoverClass = true;"
@@ -39,7 +38,6 @@ export default {
     @import 'src/scss/global.scss';
 
     #custom-toggler {
-        // will-change: transform;
         position: fixed;
         top: 10px;
         left: 15px;
@@ -48,6 +46,7 @@ export default {
         padding: 5px;
         border-radius: 3px;
         transform: none;
+        opacity: 1;
         cursor: pointer;
         div {
             width: 35px;
@@ -55,19 +54,17 @@ export default {
             margin-bottom: 8px;
             background-color: $red;
             transition: transform 500ms $easing, opacity 500ms;
+            will-change: transform, opacity;
         }
         &:focus {
             border: none;
             outline: none;
         }
-        // * {
-        //     will-change: transform;
-        // }
     }
     .active {
         left: calc(#{$navWidth} - 50px) !important;
         #toggler-top {
-		transform: translateY(10px) rotate(-135deg);
+		    transform: translateY(10px) rotate(-135deg);
         }
         #toggler-middle {
             opacity: 0;

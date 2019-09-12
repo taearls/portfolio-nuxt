@@ -7,11 +7,10 @@
       :class="{adjustToggle: navActive}"
       @toggle="handleToggle();"></nav-toggle>
     <nav-bar 
-      v-if="navActive"
       style="padding-top: 35px;"
-      :class="{addNav: navActive}"/>
+      :class="{addNav: navActive, defaultNav: !navActive}"/>
     <vue-body
-      :class="{adjustBody: navActive}"/>
+      :class="{adjustBody: navActive, defaultBody: !navActive}"/>
   </div>
 </template>
 
@@ -46,14 +45,27 @@ export default {
 #fix-width {
   overflow-x: hidden;
 }
+.defaultNav {
+  width: 0;
+  opacity: 0;
+  transition: width 300ms $easing, opacity 400ms $easing;
+}
 .addNav {
   width: $navWidth;
+  opacity: 0.8;
+  transition: width 300ms $easing, opacity 400ms $easing;
 }
+
 .nav-toggle {
   margin-left: 0;
 }
+.defaultBody {
+  margin-left: 0;
+  transition: margin-left 400ms $easing;
+}
 .adjustBody, .adjustToggle {
   margin-left: $navWidth !important;
+  transition: margin-left 400ms $easing;
   padding: 0px 10px;
 }
 </style>
