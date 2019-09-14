@@ -6,6 +6,7 @@
             :key="index">
                 <a 
                     class="bold" 
+                    tabindex="0"
                     :href="section.href">
                     {{section.name}}
                 </a>
@@ -50,7 +51,6 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    opacity: 0.9;
     background-color: $black;
     width: $navWidth;
     height: 100%;
