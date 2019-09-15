@@ -80,6 +80,6 @@ export default {
         height: 1px;
         margin-left: 11vw;
         margin-right: 11vw;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(224, 33, 65, 1), rgba(0, 0, 0, 0));
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), $red, rgba(0, 0, 0, 0));
     }
 </style>
