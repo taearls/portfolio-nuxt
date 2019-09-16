@@ -27,9 +27,17 @@ export default {
 <style lang="scss">
 @import 'src/scss/global.scss';
 
+nav .social-container {
+    position: absolute;
+    bottom: 70px;
+    left: 32px;
+    margin: 0;
+    .social-link {
+        margin-left: 5px;
+    }
+}
+
 .social-container {
-    margin: 0 20px;
-    margin-top: 30px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -58,7 +66,6 @@ export default {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        // border: 1px solid transparent;
         padding: .35rem .7rem;
         font-size: 1rem;
         line-height: 1.5;
