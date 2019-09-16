@@ -22,41 +22,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "src/scss/global.scss";
-    #landing-body {
-        display: table-cell;
-        vertical-align: middle;
-        background-color: $softblack;
-        height: 100vh;
-        width: 100vw;
-        p {
-            font-size: 36px;
-            text-align: center;
-            color: white;
-            max-width: none;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-        .important {
+@import "src/scss/global.scss";
+
+#landing-body {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: $softblack;
+    height: 100vh;
+    width: 100vw;
+    p {
+        font-size: 36px;
+        text-align: center;
+        color: white;
+        max-width: none;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .important {
+        color: $red;
+    }
+    button {
+        background-color: $black;
+        // border: 1px solid $lightblack;
+        color: $softwhite;
+        font-size: 20px;
+        border-radius: 3px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        &:hover {
             color: $red;
-        }
-        button {
-            background-color: $black;
-            // border: 1px solid $lightblack;
-            color: $softwhite;
-            font-size: 20px;
-            border-radius: 3px;
-            display: block;
-            margin: 0 auto;
-            text-align: center;
-            &:hover {
-                color: $red;
-                cursor: pointer;
-            }
+            cursor: pointer;
         }
     }
-    
-    // p {
-    //     color: white !important;
-    // }
+}
+
 </style>

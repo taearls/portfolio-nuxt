@@ -22,9 +22,10 @@
 
 <script>
 import LandingPage from '@/components/LandingPage.vue';
-import NavBar from '@/components/NavBar.vue';
-import NavToggle from '@/components/NavToggle.vue';
 import VueBody from '@/components/VueBody.vue';
+
+import NavBar from '@/components/navigation/NavBar.vue';
+import NavToggle from '@/components/navigation/NavToggle.vue';
 
 export default {
   name: 'app',

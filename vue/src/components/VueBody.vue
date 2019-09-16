@@ -35,10 +35,6 @@ export default {
 }
 </script>
 <style lang="scss">
-    @import 'src/scss/global.scss';
-    // #main-body {
-    //     background: linear-gradient($darkblue, $darkpurple, $darkblue) !important;
-    //     background-color: $darkblue !important;
-    // }
+// @import 'src/scss/global.scss';
        
 </style>

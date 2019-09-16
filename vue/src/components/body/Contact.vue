@@ -129,144 +129,144 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import 'src/scss/global.scss';
-    h2 {
-        font-weight: bold;
+@import 'src/scss/global.scss';
+h2 {
+    font-weight: bold;
+}
+form {
+    display: block;
+    appearance: none;
+    max-width: calc(100vw - #{$navWidth} - 40px);
+}
+fieldset {
+    border: none;
+    div {
+        margin-bottom: 25px;
     }
-    form {
-        display: block;
-        appearance: none;
-        max-width: calc(100vw - #{$navWidth} - 40px);
+}
+input {
+    font-size: 12px;
+}
+.hover {
+    color: $red !important;
+    transition: 0.2s ease;
+}
+.vue-form {
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin: 20px auto;
+    width: 75vw;
+    background-color: $black;
+    opacity: 0.9;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+        padding: 12px;
+        border: 1px solid #cfd9db;
+        background-color: #ffffff;
+        border-radius: 0.25em;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
+        max-width: 60vw;
     }
     fieldset {
-        border: none;
-        div {
-            margin-bottom: 25px;
-        }
+        margin: 24px 0 0 0;
     }
-    input {
-        font-size: 12px;
+    legend {
+        font-size: 26px;
+        text-align: center;
+        padding-bottom: 10px;
     }
-    .hover {
-        color: $red !important;
-        transition: 0.2s ease;
+    div {
+        position: relative;
     }
-    .vue-form {
-        box-sizing: border-box;
-        font-size: 16px;
-        padding: 15px 20px;
-        border-radius: 4px;
-        margin: 20px auto;
-        width: 75vw;
-        background-color: $black;
-        opacity: 0.9;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
-
-        * {
-            box-sizing: border-box;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select {
-            padding: 12px;
-            border: 1px solid #cfd9db;
-            background-color: #ffffff;
-            border-radius: 0.25em;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
-            max-width: 60vw;
-        }
-        fieldset {
-            margin: 24px 0 0 0;
-        }
-        legend {
-            font-size: 26px;
-            text-align: center;
-            padding-bottom: 10px;
-        }
-        div {
-            position: relative;
-        }
-        h4,
-        .label {
-            color: $red;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .label {
-            display: inline-block;
-        }
-        input,
-        textarea,
-        select,
-        label {
-            color: #2b3e51;
-        }
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select,
-        legend {
-            display: block;
-            padding: 0;
-            width: 100%;
-            appearance: none;
-        }
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select {
-            padding: 12px;
-            border  : 1px solid #cfd9db;
-            background-color: #ffffff;
-            border-radius: 0.25em;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
-        }
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: #2c3e50;
-            box-shadow: 0 0 5px rgba(44, 151, 222, 0.2);
-        }
-        textarea {
-            font-size: 13px;
-            line-height: 1.4;
-            min-height: 120px;
-            resize: vertical;
-            overflow: auto;
-        }
-        input[type="submit"] {
-            border: 1px solid $gray;
-            background: $lightblack;
-            border-radius: 0.25em;
-            padding: 12px 20px;
-            color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            appearance: none;
-        }
-        .no-touch input[type="submit"]:hover {
-            background: $lightblue;
-        }
-        input[type="submit"]:focus {
-            outline: none;
-            background: #2b3e51;
-        }
-        input[type="submit"]:active {
-            transform: scale(0.9);
-        }
-        .counter {
-            color: $red;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            font-size: 11px;
-            margin-top: 5px;
-        }
+    h4,
+    .label {
+        color: $red;
+        font-weight: bold;
+        margin-bottom: 10px;
     }
+    .label {
+        display: inline-block;
+    }
+    input,
+    textarea,
+    select,
+    label {
+        color: #2b3e51;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select,
+    legend {
+        display: block;
+        padding: 0;
+        width: 100%;
+        appearance: none;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+        padding: 12px;
+        border  : 1px solid #cfd9db;
+        background-color: #ffffff;
+        border-radius: 0.25em;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus,
+    select:focus {
+        outline: none;
+        border-color: #2c3e50;
+        box-shadow: 0 0 5px rgba(44, 151, 222, 0.2);
+    }
+    textarea {
+        font-size: 13px;
+        line-height: 1.4;
+        min-height: 120px;
+        resize: vertical;
+        overflow: auto;
+    }
+    input[type="submit"] {
+        border: 1px solid $gray;
+        background: $lightblack;
+        border-radius: 0.25em;
+        padding: 12px 20px;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        appearance: none;
+    }
+    .no-touch input[type="submit"]:hover {
+        background: $lightblue;
+    }
+    input[type="submit"]:focus {
+        outline: none;
+        background: #2b3e51;
+    }
+    input[type="submit"]:active {
+        transform: scale(0.9);
+    }
+    .counter {
+        color: $red;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        font-size: 11px;
+        margin-top: 5px;
+    }
+}
 </style>
