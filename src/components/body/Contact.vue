@@ -223,14 +223,6 @@ input {
         border-radius: 0.25em;
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
     }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus,
-    select:focus {
-        outline: none;
-        border-color: #2c3e50;
-        box-shadow: 0 0 5px rgba(44, 151, 222, 0.2);
-    }
     textarea {
         font-size: 13px;
         line-height: 1.4;
@@ -252,10 +244,6 @@ input {
     }
     .no-touch input[type="submit"]:hover {
         background: $lightblue;
-    }
-    input[type="submit"]:focus {
-        outline: none;
-        background: #2b3e51;
     }
     input[type="submit"]:active {
         transform: scale(0.9);

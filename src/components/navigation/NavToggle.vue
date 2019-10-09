@@ -56,10 +56,6 @@ export default {
         transition: transform 500ms $easing, opacity 500ms;
         will-change: transform, opacity;
     }
-    &:focus {
-        border: none;
-        outline: none;
-    }
 }
 .active {
     left: calc(#{$navWidth} - 50px) !important;

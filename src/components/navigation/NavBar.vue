@@ -1,5 +1,7 @@
 <template>
     <nav>
+        <h2>Tyler Earls</h2>
+        <h4>Software Engineer</h4>
         <img id="headshot" alt="Tyler Earls Headshot" src="assets/headshot.jpg" />
         <ul>
             <li v-for="(section, index) in sections"
@@ -27,13 +29,17 @@ export default {
         }
     },
     components: {
-        SocialMediaIcons 
+        SocialMediaIcons
     }
 }
 </script>
 
 <style lang="scss">
 @import "src/scss/global.scss";
+
+.highlighted {
+    color: $lightblue;
+}
 
 nav {
     position: fixed;
@@ -42,6 +48,16 @@ nav {
     background-color: $black;
     width: $navWidth;
     height: 100%;
+    h2, h4 {
+        color: $red;
+        text-align: center;
+    }
+    h2 {
+        margin-top: 10px;
+    }
+    h4 {
+        margin-top: 3px;
+    }
     ul {
         list-style-type: none;
         margin: 0;
