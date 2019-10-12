@@ -1,12 +1,10 @@
 <template>
   <div>
-    <!-- add slider that controls nav? -->
-    <!-- https://www.moka.tv -->
-    <template v-if="onLandingPage">
+    <!-- <template v-if="onLandingPage">
       <landing-page 
         @websiteEntered="handleWebsiteEntered();"/>
     </template>
-    <template v-else>
+    <template v-else> -->
       <nav-toggle 
         class="nav-toggle"
         :class="{adjustToggle: navActive}"
@@ -16,12 +14,12 @@
         :class="{addNav: navActive, defaultNav: !navActive}"/>
       <vue-body
         :class="{adjustBody: navActive, defaultBody: !navActive}"/>
-    </template>
+    <!-- </template> -->
   </div>
 </template>
 
 <script>
-import LandingPage from '@/components/LandingPage.vue';
+// import LandingPage from '@/components/LandingPage.vue';
 import VueBody from '@/components/VueBody.vue';
 
 import NavBar from '@/components/navigation/NavBar.vue';
@@ -31,12 +29,12 @@ export default {
   name: 'app',
   data() {
     return {
-      onLandingPage: true,
+      // onLandingPage: true,
       navActive: true
     }
   },
   components: {
-    LandingPage,
+    // LandingPage,
     NavBar,
     NavToggle,
     VueBody
@@ -45,9 +43,9 @@ export default {
     handleToggle: function() {
       this.navActive = !this.navActive;
     },
-    handleWebsiteEntered: function() {
-      this.onLandingPage = false;
-    }
+    // handleWebsiteEntered: function() {
+    //   this.onLandingPage = false;
+    // }
   }
 }
 </script>

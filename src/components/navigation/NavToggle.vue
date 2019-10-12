@@ -1,8 +1,9 @@
 <template>
     <div>
-        <div id="custom-toggler"
+        <button id="custom-toggler"
             :class="{active: toggleActive}"
             @click="handleToggle();"
+            tabindex="1"
             @mouseover="hoverClass = true;"
             @mouseleave="hoverClass = false;">
             
@@ -13,7 +14,7 @@
             <div id="toggler-bottom"
                 :class="{hover: hoverClass}"></div>
             
-        </div>
+        </button>
     </div>
 </template>
 
@@ -38,6 +39,8 @@ export default {
 @import 'src/scss/global.scss';
 
 #custom-toggler {
+    background: none;
+    border: none;
     position: fixed;
     top: 10px;
     left: 15px;
