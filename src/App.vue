@@ -10,8 +10,9 @@
         :class="{adjustToggle: navActive}"
         @toggle="handleToggle();"></nav-toggle>
       <nav-bar 
+        id="nav-bar"
         style="padding-top: 35px;"
-        :class="{addNav: navActive, defaultNav: !navActive}"/>
+        :class="{showNav: navActive, hideNav: !navActive}"/>
       <vue-body
         :class="{adjustBody: navActive, defaultBody: !navActive}"/>
     <!-- </template> -->
@@ -19,9 +20,10 @@
 </template>
 
 <script>
+import "wicg-inert";
+
 // import LandingPage from '@/components/LandingPage.vue';
 import VueBody from '@/components/VueBody.vue';
-
 import NavBar from '@/components/navigation/NavBar.vue';
 import NavToggle from '@/components/navigation/NavToggle.vue';
 
@@ -42,6 +44,13 @@ export default {
   methods: {
     handleToggle: function() {
       this.navActive = !this.navActive;
+      
+      var nav = document.getElementById("nav-bar");
+      if (this.navActive) {
+        nav.inert = false;
+      } else {
+        nav.inert = true;
+      }
     },
     // handleWebsiteEntered: function() {
     //   this.onLandingPage = false;
@@ -56,12 +65,12 @@ export default {
 #fix-width {
   overflow-x: hidden;
 }
-.defaultNav {
+.hideNav {
   width: 0;
   opacity: 0;
   transition: width 400ms $easing, opacity 200ms $easing;
 }
-.addNav {
+.showNav {
   width: $navWidth;
   opacity: 0.95;
   transition: width 300ms $easing, opacity 600ms $easing;
