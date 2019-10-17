@@ -1,16 +1,16 @@
 <template>
     <div class="social-container">
-        <a class="social-link" href="https://www.linkedin.com/in/tylerearls" target="_blank">
+        <a class="social-link" rel="noreferrer" href="https://www.linkedin.com/in/tylerearls" target="_blank" aria-label="Go to Tyler's LinkedIn">
             <span>
                 <i class="fab fa-linkedin"></i>
             </span>
         </a>
-        <a class="social-link" href="https://www.github.com/tboneearls" target="_blank">
+        <a class="social-link" rel="noreferrer" href="https://www.github.com/tboneearls" target="_blank" aria-label="Go to Tyler's Github">
             <span>
                 <i class="fab fa-github"></i>
             </span>
         </a>
-        <a class="social-link" href="https://www.twitter.com/taearls" target="_blank">
+        <a class="social-link" rel="noreferrer" href="https://www.twitter.com/taearls" target="_blank" aria-label="Go to Tyler's Twitter">
             <span>
                 <i class="fab fa-twitter"></i>
             </span>

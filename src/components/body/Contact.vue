@@ -4,13 +4,13 @@
             <h2>Contact Tyler Earls</h2>
             <fieldset>
                 <div>
-                    <label class="label" for="subject">Subject: </label>
-                    <input type="text" name="subject" id="name" required="" :maxlength="subject.maxlength" v-model="subject.text">
+                    <label class="label" for="contactSubject">Subject: </label>
+                    <input type="text" name="subject" id="contactSubject" required="" :maxlength="subject.maxlength" v-model="subject.text">
                     <span class="counter">{{ subject.text.length }} / {{ subject.maxlength }}</span>
                 </div>
                 <div>
-                    <label class="label" for="message">Message: </label>
-                    <textarea class="message" name="body" id="textarea" required="" 
+                    <label class="label" for="contactMessage">Message: </label>
+                    <textarea class="message" name="body" id="contactMessage" required="" 
                             v-model="message.text" 
                             :maxlength="message.maxlength"></textarea>
                     <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>

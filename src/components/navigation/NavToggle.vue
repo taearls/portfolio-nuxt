@@ -3,7 +3,7 @@
         <button id="custom-toggler"
             :class="{active: toggleActive}"
             @click="handleToggle();"
-            tabindex="1"
+            :aria-label="`${toggleActive ? 'Close Navigation' : 'Open Navigation'}`"
             @mouseover="hoverClass = true;"
             @mouseleave="hoverClass = false;">
             

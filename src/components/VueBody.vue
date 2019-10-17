@@ -1,5 +1,5 @@
 <template>
-    <div id="main-body">
+    <main id="main-body">
         <About />
         <web-project
             v-for="(project, index) in projects"
@@ -9,7 +9,7 @@
         />
         <Contact />
         <vue-footer />
-    </div>
+    </main>
 </template>
 
 <script>

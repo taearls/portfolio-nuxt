@@ -7,11 +7,12 @@
         
         <a  class="portfolio-link" 
             target="_blank"
+            rel="noreferrer"
             :href="project.href" 
             >{{project.tagline}}
         </a>
         
-        <a  :href="project.href" target="_blank"> 
+        <a  :href="project.href" rel="noreferrer" target="_blank"> 
             <img 
                 class="portfolio-screenshot"
                 :src="`${publicPath}${project.screenshot}`" 
