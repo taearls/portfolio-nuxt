@@ -1,51 +1,19 @@
 {
   "name": "portfolio",
-  "description": "Tyler Earls Programming Portfolio Website",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "personal portfolio website",
+  "main": "gulpfile.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "Tyler Earls",
+  "license": "ISC",
   "dependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10",
-    "vue-recaptcha": "^1.2.0",
-    "wicg-inert": "^3.0.0"
+    "scrolltrigger-classes": "^0.3.6"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^7.3.1",
-    "vue-template-compiler": "^2.6.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
 }
