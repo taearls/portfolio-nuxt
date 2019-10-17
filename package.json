@@ -1,5 +1,6 @@
 {
-  "name": "vue",
+  "name": "portfolio",
+  "description": "Tyler Earls Programming Portfolio Website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
