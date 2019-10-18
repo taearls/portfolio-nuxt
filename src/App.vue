@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       // onLandingPage: true,
-      navActive: true
+      navActive: false
     }
   },
   components: {

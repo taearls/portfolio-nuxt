@@ -63,7 +63,7 @@ h1 {
 }
 .portfolio-screenshot {
     margin: 7px auto;
-    max-width: calc(100vw - #{$navWidth} - 40px);
+    // max-width: calc(100vw - #{$navWidth} - 40px);
     height: auto;
     display: block;
 }

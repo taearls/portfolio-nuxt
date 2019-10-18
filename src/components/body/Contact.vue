@@ -36,6 +36,7 @@
                 
                 <div style="margin: 0;">
                     <error-message
+                        id="recaptcha-error"
                         successMessage="Thank you. I look forward to working with you!"
                         :errorPresent="saveDisabled"
                         :errorMessage="getErrorMessage()"></error-message>
@@ -128,7 +129,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import 'src/scss/global.scss';
 h2 {
     font-weight: bold;
@@ -136,7 +137,7 @@ h2 {
 form {
     display: block;
     appearance: none;
-    max-width: calc(100vw - #{$navWidth} - 40px);
+    // max-width: calc(100vw - #{$navWidth} - 40px);
 }
 fieldset {
     border: none;
@@ -255,6 +256,14 @@ input {
         left: 0;
         font-size: 11px;
         margin-top: 5px;
+    }
+}
+#recaptcha-error .error-message {
+    overflow-wrap: break-word;
+}
+@media (max-width: 460px) {
+    #recaptcha-error .error-message {
+        margin-bottom: 20px;
     }
 }
 </style>

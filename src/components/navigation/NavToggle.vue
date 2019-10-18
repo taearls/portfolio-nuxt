@@ -22,7 +22,7 @@
 export default {
     data() {
         return {
-            toggleActive: true,
+            toggleActive: false,
             hoverClass: false
         }
     },
@@ -43,7 +43,7 @@ export default {
     border: none;
     position: fixed;
     top: 10px;
-    left: 15px;
+    left: 10px;
     transition: left 500ms $easing;
     z-index: 1000;
     padding: 5px;
@@ -52,7 +52,7 @@ export default {
     opacity: 1;
     cursor: pointer;
     div {
-        width: 35px;
+        width: 32px;
         height: 2px;
         margin-bottom: 8px;
         background-color: $red;
@@ -76,5 +76,14 @@ export default {
 .hover {
     background-color: $lightblue !important;
     transition: 0.2s ease;
+}
+@media (max-width: 460px) {
+    #custom-toggler {
+        left: 5px;
+        div {
+            width: 27px;
+        }
+    }
+
 }
 </style>

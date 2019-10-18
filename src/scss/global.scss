@@ -38,7 +38,7 @@ section {
         color: $softwhite;
     }
     img {
-        width: 75vw;
+        max-width: 400px;
         &:hover {
             opacity: 0.7;
             transition: 0.09s linear;
@@ -58,6 +58,7 @@ h1 {
 }
 h2 {
     font-size: 28px;
+    font-weight: bold;
 }
 h6 {
     color: $softwhite;
@@ -91,8 +92,12 @@ h6 {
         h2 {
             font-size: 22px;
         }
+        img {
+            max-width: 250px;
+        }
     }
     #title {
         font-size: 22px;
     }
+
 }
