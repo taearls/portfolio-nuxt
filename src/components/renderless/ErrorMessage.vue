@@ -19,32 +19,18 @@ export default {
 <style scoped lang="scss">
 @import 'src/scss/global.scss';
 
-.error-placeholder, .error-message {
+.error-placeholder, .error-message, .success-message {
     display: block;
-    // height: 20px;
-}
-.success-message {
-    font-weight: 400;
-    color: $red;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 13px;
-    width: fit-content;
-}
-.error-message {
-    font-weight: 400;
-    color: $red;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    border-radius: 0.25em;
-    width: fit-content;
-    font-size: 13px;
     margin-left: initial;
     margin-right: initial;
-    margin-top: -5px;
     margin-bottom: 10px;
+    margin-top: -5px;
+    font-size: 13px; 
     font-weight: 400;
+    color: $red;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: fit-content;
 }
-
 
 </style>
