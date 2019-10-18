@@ -1,6 +1,6 @@
 <template>
     <section>
-        <form href="#" id="contact" class="vue-form" method="post" target="_blank" :action="generateMailToURL()">
+        <form href="#" id="contact" class="vue-form" method="get" enctype="text/plain" target="_blank" :action="generateMailToURL()">
             <h2>Contact Tyler Earls</h2>
             <fieldset>
                 <div>
@@ -10,7 +10,7 @@
                 </div>
                 <div>
                     <label class="label" for="contactMessage">Message: </label>
-                    <textarea class="message" name="body" id="contactMessage" required="" 
+                    <textarea class="message" name="message" id="contactMessage" required="" 
                             v-model="message.text" 
                             :maxlength="message.maxlength"></textarea>
                     <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
