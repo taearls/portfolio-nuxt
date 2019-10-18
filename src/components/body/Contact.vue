@@ -1,6 +1,6 @@
 <template>
     <section>
-        <form href="#" id="contact" class="vue-form" method="GET" target="_blank" :action="generateMailToURL()">
+        <form href="#" id="contact" class="vue-form" method="GET" :action="generateMailToURL()">
             <h2>Contact Tyler Earls</h2>
             <fieldset>
                 <div>
