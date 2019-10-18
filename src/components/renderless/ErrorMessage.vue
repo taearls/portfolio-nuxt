@@ -19,9 +19,9 @@ export default {
 <style scoped lang="scss">
 @import 'src/scss/global.scss';
 
-.error-placeholder {
+.error-placeholder, .error-message {
     display: block;
-    height: 20px;
+    // height: 20px;
 }
 .success-message {
     font-weight: 400;
@@ -32,7 +32,6 @@ export default {
     width: fit-content;
 }
 .error-message {
-    display: block;
     font-weight: 400;
     color: $red;
     -webkit-font-smoothing: antialiased;
@@ -40,9 +39,12 @@ export default {
     border-radius: 0.25em;
     width: fit-content;
     font-size: 13px;
-    height: 20px;
     margin-left: initial;
     margin-right: initial;
+    margin-top: -5px;
+    margin-bottom: 10px;
     font-weight: 400;
 }
+
+
 </style>

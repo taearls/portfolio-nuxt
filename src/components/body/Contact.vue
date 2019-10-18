@@ -60,7 +60,7 @@ export default {
         return {
             recaptchaVerified: false,
             hoveringMessage: false,
-            // shouldCompactRecaptcha: false,
+            errorLines: 0,
             message: {
                 text: `Hey Tyler,\n\nMy name is _______.\nI'd love to discuss hiring you to help build my project.`,
                 maxlength: 500
@@ -71,13 +71,6 @@ export default {
             }
         }
     },
-    created() {
-        // this.checkCompactRecaptcha();
-        // window.addEventListener("resize", this.checkCompactRecaptcha);	
-    },
-    // destroyed() {
-    //     window.removeEventListener("resize", this.checkCompactRecaptcha);	
-    // },
     components: {
         VueRecaptcha,
         ErrorMessage
@@ -87,17 +80,10 @@ export default {
             return this.message.text.length == 0 || !this.recaptchaVerified;
         },
         shouldCompactRecaptcha: function() {
-            return window.innerWidth <= 450;
+            return window.innerWidth <= 525;
         },
     },
     methods: {
-        // checkCompactRecaptcha: function() {
-        //     if (window.innerWidth <= 450) {	      
-        //         this.shouldCompactRecaptcha = true;
-        //     } else {
-        //         this.shouldCompactRecaptcha = false;
-        //     }
-        // },
         handleHoverMessage: function() {
             if (!this.saveDisabled) {
                 this.hoveringMessage = true;
@@ -137,7 +123,7 @@ h2 {
 form {
     display: block;
     appearance: none;
-    // max-width: calc(100vw - #{$navWidth} - 40px);
+    // max-width: calc(100vw - #{$largeNav} - 40px);
 }
 fieldset {
     border: none;
@@ -158,7 +144,6 @@ input {
     padding: 15px 20px;
     border-radius: 4px;
     margin: 20px auto;
-    width: 75vw;
     background-color: $black;
     opacity: 0.9;
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);

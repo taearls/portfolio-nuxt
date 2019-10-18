@@ -71,11 +71,9 @@ export default {
   transition: width 400ms $easing, opacity 200ms $easing;
 }
 .showNav {
-  width: $navWidth;
   opacity: 0.95;
   transition: width 300ms $easing, opacity 600ms $easing;
 }
-
 .nav-toggle {
   margin-left: 0;
 }
@@ -84,8 +82,28 @@ export default {
   transition: margin-left 400ms $easing;
 }
 .adjustBody, .adjustToggle {
-  margin-left: $navWidth !important;
+  margin-left: $largeNav;
   transition: margin-left 400ms $easing;
   padding: 0px 10px;
+}
+
+
+
+
+@media (max-width: $M) {
+  .showNav {
+    width: $mediumNav;
+  }
+  .adjustBody, .adjustToggle {
+    margin-left: $mediumNav;
+  }
+}
+@media (max-width: $S) {
+  .showNav {
+    width: $smallNav;
+  }
+  .adjustBody, .adjustToggle {
+    margin-left: $smallNav;
+  }
 }
 </style>

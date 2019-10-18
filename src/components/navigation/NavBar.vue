@@ -1,7 +1,7 @@
 <template>
     <nav>
         <h2>Tyler Earls</h2>
-        <h4>Software Engineer</h4>
+        <h3>Software Engineer</h3>
         <img id="headshot" alt="Tyler Earls Headshot" src="assets/headshot.jpg" />
         <ul>
             <li v-for="(section, index) in sections"
@@ -40,45 +40,27 @@ export default {
 .highlighted {
     color: $lightblue;
 }
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: $black;
-    width: $navWidth;
-    height: 100%;
-    h2, h4 {
-        color: $red;
-        text-align: center;
-    }
-    h2 {
-        margin-top: 10px;
-    }
-    h4 {
-        margin-top: 3px;
-    }
-    ul {
-        list-style-type: none;
-        margin: 0;
-        margin-top: 20px;
-        line-height: 1.5em;
-        padding-left: 1em;
-        color: $red;
-    }
-    li {
-        margin-bottom: 10px;
-    }
-}
 #headshot {
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-top: 15px;
-    max-width: calc(#{$navWidth} - 30px); // 266 by 266px is the file size, so it shouldn't be any bigger than that
-    max-height: calc(#{$navWidth} - 30px);
+    max-width: calc(#{$largeNav} - 30px); // 266 by 266px is the file size, so it shouldn't be any bigger than that
+    max-height: calc(#{$largeNav} - 30px);
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+}
+@media (max-width: $M) {
+  #headshot {
+    max-width: calc(#{$mediumNav} - 30px); // 266 by 266px is the file size, so it shouldn't be any bigger than that
+    max-height: calc(#{$mediumNav} - 30px);
+  } 
+}
+@media (max-width: $S) {
+  #headshot {
+    max-width: calc(#{$smallNav} - 30px); // 266 by 266px is the file size, so it shouldn't be any bigger than that
+    max-height: calc(#{$smallNav} - 30px);
+  } 
 }
 </style>

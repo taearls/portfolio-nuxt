@@ -77,4 +77,15 @@ nav .social-container {
         }
     }
 }
+@media (max-width: $M) {
+    nav .social-container {
+        left: 15px;
+    }
+}
+@media (max-width: $S) {
+    nav .social-container {
+        left: 3px;
+    }
+}
+
 </style>

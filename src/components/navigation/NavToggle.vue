@@ -1,7 +1,7 @@
 <template>
     <div>
         <button id="custom-toggler"
-            :class="{active: toggleActive}"
+            :class="{active: toggleActive, inactive: !toggleActive}"
             @click="handleToggle();"
             :aria-label="`${toggleActive ? 'Close Navigation' : 'Open Navigation'}`"
             @mouseover="hoverClass = true;"
@@ -43,7 +43,6 @@ export default {
     border: none;
     position: fixed;
     top: 10px;
-    left: 10px;
     transition: left 500ms $easing;
     z-index: 1000;
     padding: 5px;
@@ -60,8 +59,11 @@ export default {
         will-change: transform, opacity;
     }
 }
+.inactive {
+    left: 10px;
+}
 .active {
-    left: calc(#{$navWidth} - 50px) !important;
+    left: calc(#{$largeNav} - 50px);
     #toggler-top {
         transform: translateY(10px) rotate(-135deg);
     }
@@ -77,13 +79,26 @@ export default {
     background-color: $lightblue !important;
     transition: 0.2s ease;
 }
-@media (max-width: 460px) {
-    #custom-toggler {
-        left: 5px;
-        div {
-            width: 27px;
-        }
+@media (max-width: $M) {
+    #custom-toggler div {
+        width: 30px;
     }
-
+    .inactive {
+        left: 7px;
+    }
+    .active {
+        left: calc(#{$largeNav} - 82px);
+    }
+}
+@media (max-width: $S) {
+    #custom-toggler div {
+        width: 27px;
+    }
+    .inactive {
+        left: 5px;
+    }
+    .active {
+        left: calc(#{$largeNav} - 100px);
+    }
 }
 </style>
