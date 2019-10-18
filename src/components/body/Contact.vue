@@ -234,6 +234,9 @@ input {
     input[type="submit"]:active {
         transform: scale(0.9);
     }
+    input[type="text"]:focus {
+        outline-width: 7px;
+    }
     .counter {
         color: $red;
         font-weight: bold;
@@ -246,9 +249,13 @@ input {
 #recaptcha-error .error-message {
     overflow-wrap: break-word;
 }
-@media (max-width: 460px) {
+@media (max-width: $M) {
     #recaptcha-error .error-message {
         margin-bottom: 20px;
+    }
+    .vue-form {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 </style>

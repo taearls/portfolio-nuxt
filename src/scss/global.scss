@@ -5,6 +5,7 @@ body {
     // background: linear-gradient($darkblue, $darkpurple, $darkblue);
     background-color: $softblack;
     * {
+        box-sizing: border-box;
         margin-block-start: 0;
         margin-block-end: 0;
         font-family: $default-font;
@@ -116,12 +117,12 @@ h6 {
 
 $XL: 900px;
 $L: 650px;
-$M: 525px;
+$M: 550px;
 $S: 425px;
 
 $img-XXL: 650px;
-$img-XL: 450px;
-$img-L: 350px;
+$img-XL: 425px;
+$img-L: 325px;
 $img-M: 250px;
 $img-S: 210px;
 
@@ -136,7 +137,7 @@ $h1-L: 30px;
 $h1-M: 27px;
 $h1-S: 24px;
 
-$h2-XL: 29px;
+$h2-XL: 27px;
 $h2-L: 22px;
 $h2-M: 19px;
 $h2-S: 16px;
@@ -147,20 +148,14 @@ $h3-M: 17px;
 $h3-S: 14px;
 
 @media (min-width: $XL) {
-    h1 {
-        font-size: $h1-XL;
-    }
-    h2 {
-        font-size: $h2-XL;
-    }
-    h3 {
-        font-size: $h3-XL;
-    }
     img {
         max-width: $img-XXL;
     }
     form {
         max-width: $form-XXL;
+        div {
+            max-width: calc(#{$form-XXL} - 20px);
+        }
     }
 }
 @media (max-width: $XL) {
@@ -178,6 +173,9 @@ $h3-S: 14px;
     }
     form {
         max-width: $form-XL;
+        div {
+            max-width: calc(#{$form-XL} - 20px);
+        }
     }
 }
 @media (max-width: $L) {
@@ -195,6 +193,9 @@ $h3-S: 14px;
     }
     form {
         max-width: $form-L;
+        div {
+            max-width: calc(#{$form-L} - 20px);
+        }
     }
 }
 @media (max-width: $M) {
@@ -215,6 +216,9 @@ $h3-S: 14px;
     }
     form {
         max-width: $form-M;
+        div {
+            max-width: calc(#{$form-M} - 20px);
+        }
     }
 }
 @media (max-width: $S) {
@@ -235,5 +239,8 @@ $h3-S: 14px;
     }
     form {
         max-width: $form-S;
+        div {
+            max-width: calc(#{$form-S} - 20px);
+        }
     }
 }
