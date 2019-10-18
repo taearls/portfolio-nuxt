@@ -17,7 +17,7 @@
                 </div>
 
                 <!-- TODO: see if the size attribute can be dynamically changed -->
-                <template v-if="shouldCompactRecaptcha">
+                <!-- <template v-if="shouldCompactRecaptcha">
                     <vue-recaptcha 
                         sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
                         theme="dark"
@@ -32,19 +32,23 @@
                         size="normal"
                         @verify="markRecaptchaVerified"
                         @expired="resetRecaptcha"></vue-recaptcha>
-                </template>
+                </template> -->
                 
                 <div style="margin: 0;">
-                    <error-message
+                    <!-- <error-message
                         id="recaptcha-error"
                         successMessage="Thank you. I look forward to working with you!"
                         :errorPresent="saveDisabled"
-                        :errorMessage="getErrorMessage()"></error-message>
-                    <input type="submit" value="Send Message"
+                        :errorMessage="getErrorMessage()"></error-message> -->
+                    <!-- <input type="submit" value="Send Message"
                         :disabled="saveDisabled"
                         @mouseover="handleHoverMessage();"
                         @mouseleave="hoveringMessage = false;"
-                        :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}"/>
+                        :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}"/> -->
+                    <input type="submit" value="Send Message"
+                        @mouseover="handleHoverMessage();"
+                        @mouseleave="hoveringMessage = false;"
+                        :class="{hover: hoveringMessage}"/>
                 </div>
             </fieldset>
         </form>
@@ -52,8 +56,8 @@
 </template>
 
 <script>
-import VueRecaptcha from 'vue-recaptcha';
-import ErrorMessage from '@/components/renderless/ErrorMessage.vue';
+// import VueRecaptcha from 'vue-recaptcha';
+// import ErrorMessage from '@/components/renderless/ErrorMessage.vue';
 
 export default {
     data() {
@@ -71,10 +75,10 @@ export default {
             }
         }
     },
-    components: {
-        VueRecaptcha,
-        ErrorMessage
-    },
+    // components: {
+    //     VueRecaptcha,
+    //     ErrorMessage
+    // },
     computed: {
         saveDisabled: function() {
             return this.message.text.length == 0 || !this.recaptchaVerified;
@@ -85,9 +89,9 @@ export default {
     },
     methods: {
         handleHoverMessage: function() {
-            if (!this.saveDisabled) {
+            // if (!this.saveDisabled) {
                 this.hoveringMessage = true;
-            }
+            // }
         },
         getErrorMessage: function() {
             if (!this.recaptchaVerified) {
