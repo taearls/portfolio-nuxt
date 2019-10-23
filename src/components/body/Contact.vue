@@ -259,9 +259,6 @@ input {
     overflow-wrap: break-word;
 }
 @media (max-width: $M) {
-    #recaptcha-error .error-message {
-        margin-bottom: 20px;
-    }
     .vue-form {
         padding-left: 10px;
         padding-right: 10px;

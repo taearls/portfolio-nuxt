@@ -23,7 +23,7 @@ export default {
     display: block;
     margin-left: initial;
     margin-right: initial;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     margin-top: -5px;
     font-size: 13px; 
     font-weight: 400;
