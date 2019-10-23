@@ -1,6 +1,7 @@
 <template>
     <section>
-        <form href="#" id="contact" class="vue-form" method="get" enctype="text/plain" target="_blank" :action="generateMailToURL()">
+        <!-- <form href="#" id="contact" class="vue-form" method="get" enctype="text/plain" target="_blank" :action="generateMailToURL()"> -->
+        <form href="#" id="contact" class="vue-form" method="get" enctype="text/plain">
             <h2>Contact Tyler Earls</h2>
             <fieldset>
                 <div>
@@ -17,7 +18,7 @@
                 </div>
 
                 <!-- TODO: see if the size attribute can be dynamically changed -->
-                <!-- <template v-if="shouldCompactRecaptcha">
+                <template v-if="shouldCompactRecaptcha">
                     <vue-recaptcha 
                         sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
                         theme="dark"
@@ -32,23 +33,24 @@
                         size="normal"
                         @verify="markRecaptchaVerified"
                         @expired="resetRecaptcha"></vue-recaptcha>
-                </template> -->
+                </template>
                 
                 <div style="margin: 0;">
-                    <!-- <error-message
+                    <error-message
                         id="recaptcha-error"
                         successMessage="Thank you. I look forward to working with you!"
                         :errorPresent="saveDisabled"
-                        :errorMessage="getErrorMessage()"></error-message> -->
+                        :errorMessage="getErrorMessage()"></error-message>
+                    <a
+                        target="_blank"
+                        @mouseover="handleHoverMessage();"
+                        @mouseleave="hoveringMessage = false;"
+                        :href="generateMailToURL()"
+                        :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}">Send Message</a>
                     <!-- <input type="submit" value="Send Message"
-                        :disabled="saveDisabled"
                         @mouseover="handleHoverMessage();"
                         @mouseleave="hoveringMessage = false;"
-                        :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}"/> -->
-                    <input type="submit" value="Send Message"
-                        @mouseover="handleHoverMessage();"
-                        @mouseleave="hoveringMessage = false;"
-                        :class="{hover: hoveringMessage}"/>
+                        :class="{hover: hoveringMessage}"/> -->
                 </div>
             </fieldset>
         </form>
@@ -56,8 +58,8 @@
 </template>
 
 <script>
-// import VueRecaptcha from 'vue-recaptcha';
-// import ErrorMessage from '@/components/renderless/ErrorMessage.vue';
+import VueRecaptcha from 'vue-recaptcha';
+import ErrorMessage from '@/components/renderless/ErrorMessage.vue';
 
 export default {
     data() {
@@ -75,10 +77,10 @@ export default {
             }
         }
     },
-    // components: {
-    //     VueRecaptcha,
-    //     ErrorMessage
-    // },
+    components: {
+        VueRecaptcha,
+        ErrorMessage
+    },
     computed: {
         saveDisabled: function() {
             return this.message.text.length == 0 || !this.recaptchaVerified;
@@ -89,9 +91,9 @@ export default {
     },
     methods: {
         handleHoverMessage: function() {
-            // if (!this.saveDisabled) {
+            if (!this.saveDisabled) {
                 this.hoveringMessage = true;
-            // }
+            }
         },
         getErrorMessage: function() {
             if (!this.recaptchaVerified) {
@@ -108,13 +110,15 @@ export default {
             this.recaptchaVerified = false;
         },
         generateMailToURL: function() {
+            if (this.saveDisabled) return false;
+
             var mailToURL = "mailto:tyler.a.earls@gmail.com";
             mailToURL += `?body=${encodeURIComponent(this.message.text)}`; // add body
             if (this.subject.text.length > 0) {
                 mailToURL += `&amp;subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
             }
             return mailToURL;
-        },
+        }
     }
 }
 </script>
@@ -220,11 +224,12 @@ input {
         resize: vertical;
         overflow: auto;
     }
-    input[type="submit"] {
+    input[type="submit"], a {
         border: 1px solid $gray;
         background: $lightblack;
         border-radius: 0.25em;
         padding: 12px 20px;
+        font-size: 12px;
         color: #fff;
         font-weight: bold;
         cursor: pointer;
