@@ -6,12 +6,14 @@
             <fieldset>
                 <div>
                     <label class="label" for="contactSubject">Subject: </label>
-                    <input type="text" name="subject" id="contactSubject" required="" :maxlength="subject.maxlength" v-model="subject.text">
+                    <input type="text" name="subject" id="contactSubject" required
+                        :maxlength="subject.maxlength" 
+                        v-model="subject.text">
                     <span class="counter">{{ subject.text.length }} / {{ subject.maxlength }}</span>
                 </div>
                 <div>
                     <label class="label" for="contactMessage">Message: </label>
-                    <textarea class="message" name="message" id="contactMessage" required="" 
+                    <textarea class="message" name="message" id="contactMessage" required 
                             v-model="message.text" 
                             :maxlength="message.maxlength"></textarea>
                     <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
@@ -115,7 +117,7 @@ export default {
             var mailToURL = "mailto:tyler.a.earls@gmail.com";
             mailToURL += `?body=${encodeURIComponent(this.message.text)}`; // add body
             if (this.subject.text.length > 0) {
-                mailToURL += `&amp;subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
+                mailToURL += `&subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
             }
             return mailToURL;
         }
