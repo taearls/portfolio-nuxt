@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="toggler-container">
         <button id="custom-toggler"
             :class="{active: toggleActive, inactive: !toggleActive}"
             @click="handleToggle();"
@@ -30,6 +30,12 @@ export default {
         handleToggle: function() {
             this.$emit('toggle');
             this.toggleActive = !this.toggleActive;
+            var body = document.body;
+            // if (body.classList.contains('active')) {
+            //     body.classList.remove('active');
+            // } else {
+            //     body.classList.add('active');
+            // }
         }
     }
 }
@@ -42,8 +48,8 @@ export default {
     background: none;
     border: none;
     position: fixed;
-    top: 10px;
-    transition: left 500ms $easing;
+    top: 20px;
+    right: 30px;
     z-index: 1000;
     padding: 5px;
     border-radius: 3px;
@@ -58,12 +64,14 @@ export default {
         transition: transform 500ms $easing, opacity 500ms;
         will-change: transform, opacity;
     }
-}
-.inactive {
-    left: 10px;
+    #toggler-top {
+        margin-top: 4px;
+    }
+    #toggler-bottom {
+        margin-bottom: 4px;
+    }
 }
 .active {
-    left: calc(#{$largeNav} - 50px);
     #toggler-top {
         transform: translateY(10px) rotate(-135deg);
     }
@@ -83,22 +91,10 @@ export default {
     #custom-toggler div {
         width: 30px;
     }
-    .inactive {
-        left: 7px;
-    }
-    .active {
-        left: calc(#{$largeNav} - 82px);
-    }
 }
 @media (max-width: $S) {
     #custom-toggler div {
         width: 27px;
-    }
-    .inactive {
-        left: 5px;
-    }
-    .active {
-        left: calc(#{$largeNav} - 100px);
     }
 }
 </style>

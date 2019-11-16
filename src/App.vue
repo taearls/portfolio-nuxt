@@ -5,16 +5,13 @@
         @websiteEntered="handleWebsiteEntered();"/>
     </template>
     <template v-else> -->
-      <nav-toggle 
-        class="nav-toggle"
-        :class="{adjustToggle: navActive}"
-        @toggle="handleToggle();"></nav-toggle>
       <nav-bar 
         id="nav-bar"
-        style="padding-top: 35px;"
         :class="{showNav: navActive, hideNav: !navActive}"/>
-      <vue-body
-        :class="{adjustBody: navActive, defaultBody: !navActive}"/>
+      <nav-toggle 
+        class="nav-toggle"
+        @toggle="handleToggle();"/>
+      <vue-body/>
     <!-- </template> -->
   </div>
 </template>
@@ -41,6 +38,16 @@ export default {
     NavToggle,
     VueBody
   },
+  mounted() {
+    var nav = document.getElementById("nav-bar");
+    // set initial inert value so accessibility is set before nav interacted with
+    if (this.navActive) {
+      nav.inert = false;
+    } else {
+      nav.inert = true;
+    }
+    console.log(nav.inert);
+  },
   methods: {
     handleToggle: function() {
       this.navActive = !this.navActive;
@@ -48,10 +55,15 @@ export default {
       var nav = document.getElementById("nav-bar");
       if (this.navActive) {
         nav.inert = false;
+        this.initializeFocus();
       } else {
         nav.inert = true;
       }
     },
+    initializeFocus: function() {
+      var firstLink = document.querySelector("nav ul li:first-child a");
+      firstLink.focus();
+    }
     // handleWebsiteEntered: function() {
     //   this.onLandingPage = false;
     // }
@@ -66,44 +78,11 @@ export default {
   overflow-x: hidden;
 }
 .hideNav {
-  width: 0;
   opacity: 0;
-  transition: width 400ms $easing, opacity 200ms $easing;
+  transition: opacity 200ms $easing;
 }
 .showNav {
   opacity: 0.95;
-  transition: width 300ms $easing, opacity 600ms $easing;
-}
-.nav-toggle {
-  margin-left: 0;
-}
-.defaultBody {
-  margin-left: 0;
-  transition: margin-left 400ms $easing;
-}
-.adjustBody, .adjustToggle {
-  margin-left: $largeNav;
-  transition: margin-left 400ms $easing;
-  padding: 0px 10px;
-}
-
-
-
-
-@media (max-width: $M) {
-  .showNav {
-    width: $mediumNav;
-  }
-  .adjustBody, .adjustToggle {
-    margin-left: $mediumNav;
-  }
-}
-@media (max-width: $S) {
-  .showNav {
-    width: $smallNav;
-  }
-  .adjustBody, .adjustToggle {
-    margin-left: $smallNav;
-  }
+  transition: opacity 600ms $easing;
 }
 </style>

@@ -35,8 +35,8 @@ nav {
     top: 0;
     left: 0;
     background-color: $black;
-    width: $largeNav;
-    height: 100%;
+    width: 100vw;
+    height: $navHeight;
     h1, h2, h3, h4, h5, h6 {
         color: $red;
         text-align: center;
@@ -50,13 +50,20 @@ nav {
     ul {
         list-style-type: none;
         margin: 0;
-        margin-top: 20px;
         line-height: 1.5em;
         padding-left: 1em;
         color: $red;
+        display: flex;
+        height: 100%;
+        margin-right: 100px;
+        justify-content: flex-end;
     }
     li {
-        margin-bottom: 10px;
+        margin: 0 10px;
+        display: flex;
+        a {
+            margin: auto 10px;
+        }
     }
 }
 section {
@@ -110,6 +117,9 @@ h6 {
 }
 .bold {
     font-weight: bold;
+}
+.highlighted {
+    color: $lightblue;
 }
 
 /* MEDIA QUERIES */
@@ -210,9 +220,9 @@ $h3-S: 14px;
     img {
         max-width: $img-M;
     }
-    nav {
-        width: $mediumNav;
-    }
+    // nav {
+    //     width: $mediumNav;
+    // }
     form {
         max-width: $form-M;
         div {
@@ -233,9 +243,9 @@ $h3-S: 14px;
     img {
         max-width: $img-S;
     }
-    nav {
-        width: $smallNav;
-    }
+    // nav {
+    //     width: $smallNav;
+    // }
     form {
         max-width: $form-S;
         div {

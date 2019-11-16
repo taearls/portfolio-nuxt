@@ -1,8 +1,8 @@
 <template>
     <nav>
-        <h2>Tyler Earls</h2>
+        <!-- <h2>Tyler Earls</h2>
         <h3>Software Engineer</h3>
-        <img id="headshot" alt="Tyler Earls Headshot" src="assets/headshot.jpg" />
+        <img id="headshot" alt="Tyler Earls Headshot" src="assets/headshot.jpg" /> -->
         <ul>
             <li v-for="(section, index) in sections"
             :key="index">
@@ -14,7 +14,7 @@
                 </a>
             </li>
         </ul>
-        <social-media-icons></social-media-icons>
+        <!-- <social-media-icons></social-media-icons> -->
     </nav>
 </template>
 
@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "src/scss/global.scss";
 
 .highlighted {
