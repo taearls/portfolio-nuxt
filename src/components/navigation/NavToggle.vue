@@ -31,12 +31,13 @@ export default {
             this.$emit('toggle');
             this.toggleActive = !this.toggleActive;
             var body = document.body;
-            // if (body.classList.contains('active')) {
-            //     body.classList.remove('active');
-            // } else {
-            //     body.classList.add('active');
-            // }
-        }
+            
+            if (body.classList.contains('active')) {
+                body.classList.remove('active');
+            } else {
+                body.classList.add('active');
+            }
+        },
     }
 }
 </script>

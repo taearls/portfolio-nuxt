@@ -4,6 +4,7 @@ body {
     margin: 0;
     // background: linear-gradient($darkblue, $darkpurple, $darkblue);
     background-color: $softblack;
+    transition: padding 400ms $easing;
     * {
         box-sizing: border-box;
         margin-block-start: 0;
@@ -12,6 +13,9 @@ body {
         font-weight: 200;
         letter-spacing: 0.6px;
     }
+}
+body.active {
+    padding-top: $navHeight;
 }
 p {
     text-align: justify;

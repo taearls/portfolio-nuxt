@@ -40,6 +40,10 @@ export default {
 .highlighted {
     color: $lightblue;
 }
+a {
+    font-size: 20px;
+    padding: 3px 7px;
+}
 #headshot {
     display: block;
     margin-left: auto;
