@@ -1,21 +1,25 @@
 <template>
     <section>
         <!-- <form href="#" id="contact" class="vue-form" method="get" enctype="text/plain" target="_blank" :action="generateMailToURL()"> -->
-        <form href="#" id="contact" class="vue-form" method="get" enctype="text/plain">
-            <h2>Contact Tyler Earls</h2>
+        <br/>
+        <h1>Contact Tyler Earls</h1>
+        <br/>
+        <form id="contact" class="vue-form" method="get" enctype="text/plain">
             <fieldset>
                 <div>
                     <label class="label" for="contactSubject">Subject: </label>
                     <input type="text" name="subject" id="contactSubject" required
-                        :maxlength="subject.maxlength" 
+                        :maxlength="subject.maxlength"
+                        :placeholder="subject.placeholder"
                         v-model="subject.text">
                     <span class="counter">{{ subject.text.length }} / {{ subject.maxlength }}</span>
                 </div>
                 <div>
                     <label class="label" for="contactMessage">Message: </label>
                     <textarea class="message" name="message" id="contactMessage" required 
-                            v-model="message.text" 
-                            :maxlength="message.maxlength"></textarea>
+                        :maxlength="message.maxlength"
+                        :placeholder="message.placeholder"
+                        v-model="message.text"></textarea>
                     <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
                 </div>
 
@@ -70,11 +74,13 @@ export default {
             hoveringMessage: false,
             errorLines: 0,
             message: {
-                text: `Hey Tyler,\n\nMy name is _______.\nI'd love to discuss hiring you to help build my project.`,
+                placeholder: `Hey Tyler,\n\nMy name is _______.\nI'd love to discuss hiring you to help build my project.`,
+                text: "",
                 maxlength: 500
             },
             subject: {
-                text: "Freelance Hire Inquiry",
+                placeholder: "Freelance Hire Inquiry",
+                text: "",
                 maxlength: 50
             }
         }

@@ -6,12 +6,11 @@
         <ul>
             <li v-for="(section, index) in sections"
             :key="index">
-                <a 
-                    class="bold" 
-                    tabindex="0"
-                    :href="section.href">
+                <router-link
+                    :to="section.href"
+                    tabindex="0">
                     {{section.name}}
-                </a>
+                </router-link>
             </li>
         </ul>
         <!-- <social-media-icons></social-media-icons> -->

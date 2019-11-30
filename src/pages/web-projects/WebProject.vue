@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h1 v-if="project.index === 0" href="#" id="web-projects">Web Projects</h1>
+        <h1 v-if="project.index === 0" id="web-projects">Web Projects</h1>
 
         <h2 class="project-title">{{project.name}}</h2> 
         <p class="project-description">{{project.description}}</p> 
