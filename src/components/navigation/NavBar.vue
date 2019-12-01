@@ -19,7 +19,6 @@
 
 <script>
 import sectionData from '@/data/portfolio-sections.json';
-import SocialMediaIcons from '@/components/widgets/SocialMediaIcons.vue';
 
 export default {
     data() {
@@ -27,9 +26,6 @@ export default {
             sections: sectionData
         }
     },
-    components: {
-        SocialMediaIcons
-    }
 }
 </script>
 

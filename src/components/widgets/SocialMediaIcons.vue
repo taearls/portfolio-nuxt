@@ -42,7 +42,7 @@ nav .social-container {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: distribute;
-    justify-content: space-around;
+    justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -52,6 +52,7 @@ nav .social-container {
     color: white;
     height: 38px;
     width: 38px;
+    margin: 5px 10px;
     &:hover {
         color: white;
     }
@@ -75,16 +76,6 @@ nav .social-container {
             background-color: $lightblue;
             transition: background-color 0.2s ease;
         }
-    }
-}
-@media (max-width: $M) {
-    nav .social-container {
-        left: 15px;
-    }
-}
-@media (max-width: $S) {
-    nav .social-container {
-        left: 3px;
     }
 }
 

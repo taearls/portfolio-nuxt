@@ -9,8 +9,10 @@
 
       <!-- clears nav height above each view -->
       <div class="nav-clearfix"></div>
-      
+
       <router-view />
+
+      <vue-footer />
   </div>
 </template>
 
@@ -19,6 +21,8 @@ import "wicg-inert";
 
 import NavBar from '@/components/navigation/NavBar.vue';
 import NavToggle from '@/components/navigation/NavToggle.vue';
+
+import VueFooter from '@/components/global/VueFooter.vue';
 
 export default {
   name: 'app',
@@ -30,6 +34,7 @@ export default {
   components: {
     NavBar,
     NavToggle,
+    VueFooter,
   },
   mounted() {
     var nav = document.getElementById("nav-bar");
