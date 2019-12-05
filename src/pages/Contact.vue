@@ -61,7 +61,7 @@ export default {
         return {
             recaptchaVerified: false,
             shouldCompactRecaptcha: false,
-            compactRecaptchaBreakPoint: 525,
+            compactRecaptchaBreakPoint: 560,
             hoveringMessage: false,
             errorLines: 0,
             message: {
