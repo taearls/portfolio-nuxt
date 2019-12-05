@@ -1,8 +1,5 @@
 <template>
     <nav>
-        <!-- <h2>Tyler Earls</h2>
-        <h3>Software Engineer</h3>
-        <img id="headshot" alt="Tyler Earls Headshot" src="assets/headshot.jpg" /> -->
         <ul>
             <li v-for="(section, index) in sections"
             :key="index">
@@ -13,7 +10,6 @@
                 </router-link>
             </li>
         </ul>
-        <!-- <social-media-icons></social-media-icons> -->
     </nav>
 </template>
 

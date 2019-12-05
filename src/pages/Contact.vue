@@ -1,6 +1,5 @@
 <template>
     <section>
-        <!-- <form href="#" id="contact" class="vue-form" method="get" enctype="text/plain" target="_blank" :action="generateMailToURL()"> -->
         <br/>
         <h1>Contact Tyler Earls</h1>
         <br/>
@@ -22,24 +21,14 @@
                         v-model="message.text"></textarea>
                     <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
                 </div>
-
-                <!-- TODO: see if the size attribute can be dynamically changed -->
-                <template v-if="shouldCompactRecaptcha">
-                    <vue-recaptcha 
-                        sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
-                        theme="dark"
-                        size="compact"
-                        @verify="markRecaptchaVerified"
-                        @expired="resetRecaptcha"></vue-recaptcha>
-                </template>
-                <template v-else>
-                    <vue-recaptcha 
-                        sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
-                        theme="dark"
-                        size="normal"
-                        @verify="markRecaptchaVerified"
-                        @expired="resetRecaptcha"></vue-recaptcha>
-                </template>
+                
+                <vue-recaptcha 
+                    sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
+                    theme="dark"
+                    :size="shouldCompactRecaptcha ? 'compact' : 'normal'"
+                    :key="shouldCompactRecaptcha"
+                    @verify="markRecaptchaVerified"
+                    @expired="resetRecaptcha"></vue-recaptcha>
                 
                 <div style="margin: 0;">
                     <error-message
@@ -71,6 +60,8 @@ export default {
     data() {
         return {
             recaptchaVerified: false,
+            shouldCompactRecaptcha: false,
+            compactRecaptchaBreakPoint: 525,
             hoveringMessage: false,
             errorLines: 0,
             message: {
@@ -85,6 +76,13 @@ export default {
             }
         }
     },
+    mounted() {
+        this.checkCompactRecaptcha();
+        window.addEventListener("resize", this.checkCompactRecaptcha);
+    },
+    destroyed() {
+        window.removeEventListener("resize", this.checkCompactRecaptcha);
+    },
     components: {
         VueRecaptcha,
         ErrorMessage
@@ -93,11 +91,11 @@ export default {
         saveDisabled: function() {
             return this.message.text.length == 0 || !this.recaptchaVerified;
         },
-        shouldCompactRecaptcha: function() {
-            return window.innerWidth <= 525;
-        },
     },
     methods: {
+        checkCompactRecaptcha: function() {
+            this.shouldCompactRecaptcha = window.innerWidth <= this.compactRecaptchaBreakPoint;
+        },
         handleHoverMessage: function() {
             if (!this.saveDisabled) {
                 this.hoveringMessage = true;

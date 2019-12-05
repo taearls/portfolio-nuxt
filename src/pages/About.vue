@@ -1,5 +1,8 @@
 <template>
 	<section id="about">
+		<!-- <h2>Tyler Earls</h2>
+        <h3>Software Engineer</h3>
+        <img id="headshot" alt="Tyler Earls Headshot" src="assets/headshot.jpg" /> -->
 		<br>
 		<h1>About Tyler Earls</h1>
 			<br/>

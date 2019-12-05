@@ -1,10 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-// root component
 import App from './App.vue';
-
-// routes
 
 // import LandingPage from './pages/LandingPage.vue';
 import About from './pages/About.vue';
@@ -35,12 +32,12 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+  mode: 'history',
   scrollBehavior (to, from, savedPosition) {
     if (to.hash) {
       // scroll to relative url on page
       return {
         selector: to.hash
-        // , offset: { x: 0, y: 10 }
       }
     } else if (savedPosition) {
       // emulates native-like behavior as if using a back button

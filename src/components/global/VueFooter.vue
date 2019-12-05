@@ -1,6 +1,8 @@
 <template>
     <footer>
+        <br/>
         <social-media-icons></social-media-icons>
+        <br/>
 		<h6 v-html="footerText"></h6>
 	</footer>
 </template>
