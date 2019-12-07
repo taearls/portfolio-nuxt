@@ -14,12 +14,25 @@
 </template>
 
 <script>
-import sections from '@/data/portfolio-sections.json';
+// import sections from '@/data/portfolio-sections.json';
 
 export default {
     data() {
         return {
-            sections
+            sections: [
+                {
+                    "name": "Home",
+                    "href": "/"
+                },
+                {
+                    "name": "Web", 
+                    "href": "/web-projects"
+                }, 
+                {
+                    "name": "Contact",
+                    "href": "/contact"
+                }
+            ]
         }
     },
 }
