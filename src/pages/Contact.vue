@@ -180,7 +180,8 @@ input {
         max-width: 60vw;
     }
     fieldset {
-        margin: 24px 0 0 0;
+        padding-left: 0;
+        padding-right: 0;
     }
     legend {
         font-size: 26px;
