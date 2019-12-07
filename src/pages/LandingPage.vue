@@ -43,7 +43,6 @@ export default {
     }
     button {
         background-color: $black;
-        // border: 1px solid $lightblack;
         color: $softwhite;
         font-size: 20px;
         border-radius: 3px;

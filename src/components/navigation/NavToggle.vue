@@ -30,13 +30,6 @@ export default {
         handleToggle: function() {
             this.$emit('toggle');
             this.toggleActive = !this.toggleActive;
-            // var body = document.body;
-            
-            // if (body.classList.contains('active')) {
-            //     body.classList.remove('active');
-            // } else {
-            //     body.classList.add('active');
-            // }
         },
     }
 }
@@ -51,7 +44,7 @@ export default {
     position: fixed;
     top: 20px;
     right: 30px;
-    z-index: 1000;
+    z-index: 99999;
     padding: 5px;
     border-radius: 3px;
     transform: none;
@@ -96,9 +89,4 @@ export default {
         }
     }
 }
-// @media (max-width: $S) {
-//     #custom-toggler div {
-//         width: 27px;
-//     }
-// }
 </style>

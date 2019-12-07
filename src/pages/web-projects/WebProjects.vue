@@ -10,8 +10,6 @@
 </template>
 
 <script>
-// import projects from '@/data/web-projects.json';
-
 import WebProject from './WebProject.vue';
 
 export default {

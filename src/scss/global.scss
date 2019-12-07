@@ -16,9 +16,6 @@ body {
 body.active {
     padding-top: $navHeight;
 }
-header {
-    z-index: 99999;
-}
 p {
     text-align: justify;
     text-justify: inter-character;
@@ -42,6 +39,7 @@ nav {
     left: 0;
     background-color: $black;
     width: 100vw;
+    z-index: 100;
     height: $navHeight;
     h1, h2, h3, h4, h5, h6 {
         color: $red;

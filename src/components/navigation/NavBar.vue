@@ -2,7 +2,7 @@
     <nav>
         <ul>
             <li v-for="(section, index) in sections"
-            :key="index">
+                :key="index">
                 <router-link
                     :to="section.href"
                     tabindex="0">
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-// import sections from '@/data/portfolio-sections.json';
 
 export default {
     data() {
@@ -63,14 +62,5 @@ a {
             }
         }
     }
-    // @media (max-width: $M) {
-    // nav {
-    //     ul {
-    //         margin-right: 50px;
-    //         li {
-    //             margin: 0 5px !important; 
-    //         }
-    //     }
-    // }
 }
 </style>
