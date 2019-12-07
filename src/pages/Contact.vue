@@ -18,6 +18,8 @@
                     <textarea class="message" name="message" id="contactMessage" required 
                         :maxlength="message.maxlength"
                         :placeholder="message.placeholder"
+                        :class="{'error-field': message.error}"
+                        @input="message.error = false;"
                         v-model="message.text"></textarea>
                     <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
                 </div>
@@ -42,10 +44,6 @@
                         @mouseleave="hoveringMessage = false;"
                         :href="generateMailToURL()"
                         :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}">Send Message</a>
-                    <!-- <input type="submit" value="Send Message"
-                        @mouseover="handleHoverMessage();"
-                        @mouseleave="hoveringMessage = false;"
-                        :class="{hover: hoveringMessage}"/> -->
                 </div>
             </fieldset>
         </form>
@@ -65,9 +63,11 @@ export default {
             hoveringMessage: false,
             errorLines: 0,
             message: {
-                placeholder: `Hey Tyler,\n\nMy name is _______.\nI'd love to discuss hiring you to help build my project.`,
+                placeholder: 
+                    `Hey Tyler,\n\nMy name is _______.\nLet's build something awesome together.`,
                 text: "",
-                maxlength: 500
+                maxlength: 500,
+                error: false
             },
             subject: {
                 placeholder: "Freelance Hire Inquiry",
@@ -89,7 +89,7 @@ export default {
     },
     computed: {
         saveDisabled: function() {
-            return this.message.text.length == 0 || !this.recaptchaVerified;
+            return this.message.text.length === 0 || !this.recaptchaVerified;
         },
     },
     methods: {
@@ -105,6 +105,7 @@ export default {
             if (!this.recaptchaVerified) {
                 return "Please verify that you're a human before sending.";
             } else if (this.recaptchaVerified && this.message.text.length === 0) {
+                this.message.error = true;
                 return "Message cannot be blank.";
             }
             return "Sorry about that. Please try again.";
@@ -131,13 +132,16 @@ export default {
 
 <style lang="scss">
 @import 'src/scss/global.scss';
+
+.error-field {
+    outline: 2px solid $red;
+}
 h2 {
     font-weight: bold;
 }
 form {
     display: block;
     appearance: none;
-    // max-width: calc(100vw - #{$largeNav} - 40px);
 }
 fieldset {
     border: none;
@@ -154,14 +158,12 @@ input {
 }
 .vue-form {
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 20px;
     padding: 15px 20px;
     border-radius: 4px;
     margin: 20px auto;
-    background-color: $black;
-    opacity: 0.9;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
-
+    box-shadow: 1px 1px 6px 1px $black;
+    border: 2px solid $red;
     * {
         box-sizing: border-box;
     }

@@ -32,9 +32,6 @@ nav .social-container {
     bottom: 70px;
     left: 32px;
     margin: 0;
-    .social-link {
-        margin-left: 5px;
-    }
 }
 
 .social-container {
@@ -49,15 +46,9 @@ nav .social-container {
 }
 
 .social-link {
-    color: white;
-    height: 38px;
-    width: 38px;
-    margin: 5px 10px;
-    &:hover {
-        color: white;
-    }
+    margin: 5px 0;
     span {
-        background-color: $red;
+        color: $red;
         display: inline-block;
         font-weight: 400;
         text-align: center;
@@ -68,13 +59,14 @@ nav .social-container {
         -ms-user-select: none;
         user-select: none;
         padding: .35rem .7rem;
-        font-size: 1rem;
+        font-size: 1.5rem;
         line-height: 1.5;
         border-radius: .25rem;
-        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        // transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
         &:hover {
-            background-color: $lightblue;
-            transition: background-color 0.2s ease;
+            color: $lightblue;
+            // opacity: 0.7;
+            transition: all 0.2s ease;
         }
     }
 }

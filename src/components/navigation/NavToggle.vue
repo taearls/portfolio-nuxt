@@ -88,14 +88,17 @@ export default {
     background-color: $lightblue !important;
     transition: 0.2s ease;
 }
-@media (max-width: $M) {
-    #custom-toggler div {
-        width: 30px;
-    }
-}
 @media (max-width: $S) {
-    #custom-toggler div {
-        width: 27px;
+    #custom-toggler {
+        right: 12px;
+        div {
+            width: 30px;
+        }
     }
 }
+// @media (max-width: $S) {
+//     #custom-toggler div {
+//         width: 27px;
+//     }
+// }
 </style>

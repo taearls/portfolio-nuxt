@@ -1,9 +1,9 @@
 <template>
-    <section>
-        <h1 v-if="project.index === 0" id="web-projects">Web Projects</h1>
+    <section id="web-projects">
+        <h1 v-if="project.index === 0">Web Projects</h1>
 
         <h2 class="project-title">{{project.name}}</h2> 
-        <p class="project-description">{{project.description}}</p> 
+        <p class="project-description" v-html="project.description"></p> 
         
         <a  class="portfolio-link" 
             target="_blank"
@@ -12,13 +12,15 @@
             >{{project.tagline}}
         </a>
         
-        <a  :href="project.href" rel="noreferrer" target="_blank"> 
+        <a  rel="noreferrer" target="_blank"
+            class="screenshot-link"
+            :href="project.href" 
+            :style="{cursor: cursorStyle}"> 
             <img 
                 class="portfolio-screenshot"
                 :src="`${publicPath}${project.screenshot}`" 
-                :alt="`${project.name} Screenshot`"
-                :style="{cursor: cursorStyle}" />
-        </a> 
+                :alt="`${project.name} Screenshot`"/>
+        </a>
         <br/>
 
         <template v-if="project.index !== projectCount">
@@ -50,10 +52,17 @@ export default {
 <style lang="scss" scoped>
 @import 'src/scss/global.scss';
 
+#web-projects {
+    text-align: center;
+}
 h1 {
     margin-bottom: 20px;
 }
+.screenshot-link {
+    display: inline-block;
+}
 .portfolio-link {
+    padding: 0 20px;
     display: block;
     color: $red;
     font-weight: bold;
@@ -63,7 +72,6 @@ h1 {
 }
 .portfolio-screenshot {
     margin: 7px auto;
-    // max-width: calc(100vw - #{$largeNav} - 40px);
     height: auto;
     display: block;
 }

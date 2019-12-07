@@ -3,8 +3,7 @@ import VueRouter from 'vue-router';
 
 import App from './App.vue';
 
-// import LandingPage from './pages/LandingPage.vue';
-import About from './pages/About.vue';
+import Home from './pages/Home.vue';
 import WebProjects from './pages/web-projects/WebProjects.vue';
 import Contact from './pages/Contact.vue';
 
@@ -12,13 +11,9 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
 const routes = [
-  // {
-  //   path: '/',
-  //   component: LandingPage
-  // },
   { 
     path: '/', 
-    component: About 
+    component: Home
   },
   { 
     path: '/web-projects', 

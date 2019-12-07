@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import ProjectData from '@/data/web-projects.json';
+import projects from '@/data/web-projects.json';
 
 import WebProject from './WebProject.vue';
 
 export default {
     data() {
         return {
-            projects: ProjectData,
+            projects,
         }
     },
     components: {

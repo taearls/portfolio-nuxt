@@ -2,7 +2,6 @@
     <footer>
         <br/>
         <social-media-icons></social-media-icons>
-        <br/>
 		<h6 v-html="footerText"></h6>
 	</footer>
 </template>
@@ -23,10 +22,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
-h6 {
-    text-align: center;
-    margin-bottom: 10px;
-}
 </style>

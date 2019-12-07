@@ -1,11 +1,13 @@
 <template>
   <div>
-      <nav-bar 
+      <header>
+        <nav-bar 
         id="nav-bar"
         :class="{showNav: navActive, hideNav: !navActive}"/>
-      <nav-toggle 
+        <nav-toggle 
         class="nav-toggle"
         @toggle="handleToggle();"/>
+      </header>
 
       <!-- clears nav height above each view -->
       <div class="nav-clearfix"></div>
@@ -67,21 +69,20 @@ export default {
 </script>
 
 <style lang="scss">
-@import "scss/global.scss";
+@import "src/scss/global.scss";
 
 .nav-clearfix {
   height: $navHeight;
 }
-
 #fix-width {
   overflow-x: hidden;
 }
 .hideNav {
   opacity: 0;
-  transition: opacity 200ms $easing;
+  transition: opacity 500ms $easing;
 }
 .showNav {
-  opacity: 0.95;
-  transition: opacity 600ms $easing;
+  opacity: 1;
+  transition: opacity 500ms $easing;
 }
 </style>

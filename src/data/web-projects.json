@@ -18,5 +18,15 @@
         "tagline": "Search your favorite movie!",
         "customCursor": false,
         "cursorStyle": "pointer"
+    },
+    {
+        "name": "Road Ranger",
+        "index": 2,
+        "description": "A header with navigation that I built while freelancing for <a href='https://trekk.com' rel='noreferrer' target='_blank'>Trekk</a>. Both the mobile and desktop versions are based on their designs.",
+        "screenshot": "assets/screenshots/roadranger-screenshot.png",
+        "href": "https://www.roadrangerusa.com",
+        "tagline": "Check it out! ⛽",
+        "customCursor": false,
+        "cursorStyle": "pointer"
     }
 ]

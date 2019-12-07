@@ -25,7 +25,7 @@ export default {
     margin-right: initial;
     margin-bottom: 15px;
     margin-top: -5px;
-    font-size: 13px; 
+    font-size: 15px; 
     font-weight: 400;
     color: $red;
     -webkit-font-smoothing: antialiased;

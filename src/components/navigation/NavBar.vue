@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import sectionData from '@/data/portfolio-sections.json';
+import sections from '@/data/portfolio-sections.json';
 
 export default {
     data() {
         return {
-            sections: sectionData
+            sections
         }
     },
 }
@@ -28,34 +28,36 @@ export default {
 <style lang="scss" scoped>
 @import "src/scss/global.scss";
 
-.highlighted {
-    color: $lightblue;
-}
 a {
     font-size: 20px;
-    padding: 3px 7px;
+    padding: 0px 5px;
 }
 #headshot {
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-top: 15px;
-    max-width: calc(#{$largeNav} - 30px); // 266 by 266px is the file size, so it shouldn't be any bigger than that
-    max-height: calc(#{$largeNav} - 30px);
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
 }
-@media (max-width: $M) {
-  #headshot {
-    max-width: calc(#{$mediumNav} - 30px); // 266 by 266px is the file size, so it shouldn't be any bigger than that
-    max-height: calc(#{$mediumNav} - 30px);
-  } 
-}
 @media (max-width: $S) {
-  #headshot {
-    max-width: calc(#{$smallNav} - 30px); // 266 by 266px is the file size, so it shouldn't be any bigger than that
-    max-height: calc(#{$smallNav} - 30px);
-  } 
+    nav {
+        ul {
+            margin-right: 50px;
+            li {
+                padding: 0 2px !important; 
+            }
+        }
+    }
+    // @media (max-width: $M) {
+    // nav {
+    //     ul {
+    //         margin-right: 50px;
+    //         li {
+    //             margin: 0 5px !important; 
+    //         }
+    //     }
+    // }
 }
 </style>
