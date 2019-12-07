@@ -17,6 +17,7 @@
             :href="project.href" 
             :style="{cursor: cursorStyle}"> 
             <img 
+                rel="preload"
                 class="portfolio-screenshot"
                 :src="`${publicPath}${project.screenshot}`" 
                 :alt="`${project.name} Screenshot`"/>
