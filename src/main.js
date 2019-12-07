@@ -20,7 +20,7 @@ const routes = [
     component: WebProjects 
   },
   { 
-    path: '/contact', 
+    path: '/contact',
     component: Contact 
   }
 ];
