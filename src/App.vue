@@ -2,11 +2,11 @@
   <div>
       <header>
         <nav-bar 
-        id="nav-bar"
-        :class="{showNav: navActive, hideNav: !navActive}"/>
+          id="nav-bar"
+          :class="{showNav: navActive, hideNav: !navActive}"/>
         <nav-toggle 
-        class="nav-toggle"
-        @toggle="handleToggle();"/>
+          class="nav-toggle"
+          @toggle="handleToggle();"/>
       </header>
 
       <!-- clears nav height above each view -->
