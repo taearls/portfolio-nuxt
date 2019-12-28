@@ -1,18 +1,15 @@
 <template>
     <div class="social-container">
-        <a class="social-link" rel="noreferrer" href="https://www.linkedin.com/in/tylerearls" target="_blank" aria-label="Go to Tyler's LinkedIn">
+        <a  class="social-link"
+            rel="noreferrer"
+            target="_blank"
+            v-for="(link, index) in socialLinks" 
+            :key="index"
+            :href="link.href"
+            :aria-label="`Go to Tyler's ${link.label}`">
             <span>
-                <i class="fab fa-linkedin"></i>
-            </span>
-        </a>
-        <a class="social-link" rel="noreferrer" href="https://www.github.com/tboneearls" target="_blank" aria-label="Go to Tyler's Github">
-            <span>
-                <i class="fab fa-github"></i>
-            </span>
-        </a>
-        <a class="social-link" rel="noreferrer" href="https://www.twitter.com/taearls" target="_blank" aria-label="Go to Tyler's Twitter">
-            <span>
-                <i class="fab fa-twitter"></i>
+                <i  class="fab"
+                    :class="link.icon"></i>
             </span>
         </a>
     </div>
@@ -20,7 +17,32 @@
 
 <script>
 export default {
-    
+    data() {
+        return {
+            socialLinks: [
+                {
+                    href: "https://www.linkedin.com/in/tylerearls",
+                    label: "LinkedIn",
+                    icon: "fa-linkedin"
+                },
+                {
+                    href: "https://www.github.com/tboneearls",
+                    label: "Github",
+                    icon: "fa-github"
+                },
+                {
+                    href: "https://www.twitter.com/taearls",
+                    label: "Twitter",
+                    icon: "fa-twitter"
+                },
+                {
+                    href: "https://cuckooandthebirds.bandcamp.com",
+                    label: "Bandcamp",
+                    icon: "fa-bandcamp"
+                }
+            ]
+        }
+    }
 }
 </script>
 
@@ -68,5 +90,4 @@ nav .social-container {
         }
     }
 }
-
 </style>
