@@ -1,6 +1,6 @@
 <template>
     <section id="web-projects">
-        <h1 v-if="project.index === 0">Web Projects</h1>
+        <h1 v-if="index === 0">Web Projects</h1>
 
         <h2 class="project-title">{{project.name}}</h2> 
         <p class="project-description" v-html="project.description"></p> 
@@ -12,8 +12,9 @@
             >{{project.tagline}}
         </a>
         
-        <a  rel="noreferrer" target="_blank"
-            class="screenshot-link"
+        <a  class="screenshot-link"
+            rel="noreferrer" 
+            target="_blank"
             :href="project.href" 
             :style="{cursor: cursorStyle}"> 
             <img 
@@ -24,7 +25,7 @@
         </a>
         <br/>
 
-        <template v-if="project.index !== projectCount">
+        <template v-if="index !== projectCount">
             <hr class="line-break" /> 
             <br/>
         </template>
@@ -38,7 +39,7 @@ export default {
             publicPath: process.env.BASE_URL
         }
     },
-    props: ['project', 'projectCount'],
+    props: ['project', 'projectCount', 'index'],
     computed: {
         cursorStyle: function() {
             if (this.project.customCursor) {

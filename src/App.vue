@@ -3,6 +3,7 @@
       <header>
         <nav-bar 
           id="nav-bar"
+          ref="navbar"
           :class="{showNav: navActive, hideNav: !navActive}"/>
         <nav-toggle 
           class="nav-toggle"
@@ -39,32 +40,32 @@ export default {
     VueFooter,
   },
   mounted() {
-    var nav = document.getElementById("nav-bar");
+    const navbar = this.$refs.navbar;
 
     // set initial inert value so accessibility is set before nav interacted with
     if (this.navActive) {
-      nav.inert = false;
+      navbar.inert = false;
     } else {
-      nav.inert = true;
+      navbar.inert = true;
     }
   },
   methods: {
     handleToggle: function() {
       this.navActive = !this.navActive;
       
-      var nav = document.getElementById("nav-bar");
+      var navbar = this.$refs.navbar;
       if (this.navActive) {
-        nav.inert = false;
+        navbar.inert = false;
         this.initializeFocus();
       } else {
-        nav.inert = true;
+        navbar.inert = true;
       }
     },
     initializeFocus: function() {
       var firstLink = document.querySelector("nav ul li:first-child a");
       firstLink.focus();
     }
-  }
+  },
 }
 </script>
 

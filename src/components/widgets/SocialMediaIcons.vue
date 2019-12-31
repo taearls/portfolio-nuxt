@@ -16,33 +16,35 @@
 </template>
 
 <script>
+var socialLinks = [
+    {
+        href: "https://www.linkedin.com/in/tylerearls",
+        label: "LinkedIn",
+        icon: "fa-linkedin"
+    },
+    {
+        href: "https://www.github.com/tboneearls",
+        label: "Github",
+        icon: "fa-github"
+    },
+    {
+        href: "https://www.twitter.com/taearls",
+        label: "Twitter",
+        icon: "fa-twitter"
+    },
+    {
+        href: "https://cuckooandthebirds.bandcamp.com",
+        label: "Bandcamp",
+        icon: "fa-bandcamp"
+    }
+];
+
 export default {
     data() {
         return {
-            socialLinks: [
-                {
-                    href: "https://www.linkedin.com/in/tylerearls",
-                    label: "LinkedIn",
-                    icon: "fa-linkedin"
-                },
-                {
-                    href: "https://www.github.com/tboneearls",
-                    label: "Github",
-                    icon: "fa-github"
-                },
-                {
-                    href: "https://www.twitter.com/taearls",
-                    label: "Twitter",
-                    icon: "fa-twitter"
-                },
-                {
-                    href: "https://cuckooandthebirds.bandcamp.com",
-                    label: "Bandcamp",
-                    icon: "fa-bandcamp"
-                }
-            ]
+            socialLinks,
         }
-    }
+    },
 }
 </script>
 

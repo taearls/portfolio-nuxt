@@ -1,12 +1,17 @@
 <template>
     <span>
         <span 
-            v-if="!errorPresent"
-            class="error-placeholder"
-            :class="{'success-message': successMessage}">{{ successMessage || "" }}</span>
-        <span 
             v-if="errorPresent"
-            class="error-message">{{ errorMessage }}</span>
+            class="error-message">
+            {{ errorMessage }}
+        </span>
+        <span 
+            v-else
+            class="error-placeholder"
+            :class="{'success-message': successMessage}">
+            {{ successMessage || "" }}
+        </span>
+        
     </span>
 </template>
 

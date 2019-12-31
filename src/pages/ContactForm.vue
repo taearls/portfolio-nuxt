@@ -29,6 +29,7 @@
                     theme="dark"
                     :size="shouldCompactRecaptcha ? 'compact' : 'normal'"
                     :key="shouldCompactRecaptcha"
+                    :loadRecaptchaScript="true"
                     @verify="markRecaptchaVerified"
                     @expired="resetRecaptcha"></vue-recaptcha>
                 
@@ -252,8 +253,8 @@ input {
     input[type="submit"]:active {
         transform: scale(0.9);
     }
-    input[type="text"]:focus {
-        outline-width: 7px;
+    input[type="text"]:focus, textarea:focus {
+        outline-width: 4px;
     }
     .counter {
         color: $red;

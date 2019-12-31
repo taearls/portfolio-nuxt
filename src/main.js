@@ -3,9 +3,9 @@ import VueRouter from 'vue-router';
 
 import App from './App.vue';
 
-import Home from './pages/Home.vue';
+import HomePage from './pages/HomePage.vue';
 import WebProjects from './pages/web-projects/WebProjects.vue';
-import Contact from './pages/Contact.vue';
+import ContactForm from './pages/ContactForm.vue';
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
@@ -13,7 +13,7 @@ Vue.config.productionTip = false;
 const routes = [
   { 
     path: '/', 
-    component: Home
+    component: HomePage
   },
   { 
     path: '/web-projects', 
@@ -21,7 +21,7 @@ const routes = [
   },
   { 
     path: '/contact',
-    component: Contact 
+    component: ContactForm
   }
 ];
 

@@ -14,24 +14,25 @@
 </template>
 
 <script>
+var sections = [
+    {
+        "name": "Home",
+        "href": "/"
+    },
+    {
+        "name": "Web", 
+        "href": "/web-projects"
+    }, 
+    {
+        "name": "Contact",
+        "href": "/contact"
+    }
+];
 
 export default {
     data() {
         return {
-            sections: [
-                {
-                    "name": "Home",
-                    "href": "/"
-                },
-                {
-                    "name": "Web", 
-                    "href": "/web-projects"
-                }, 
-                {
-                    "name": "Contact",
-                    "href": "/contact"
-                }
-            ]
+            sections,
         }
     },
 }

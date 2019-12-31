@@ -2,8 +2,8 @@
     <div class="toggler-container">
         <button id="custom-toggler"
             :class="{active: toggleActive, inactive: !toggleActive}"
-            @click="handleToggle();"
             :aria-label="`${toggleActive ? 'Close Navigation' : 'Open Navigation'}`"
+            @click="handleToggle();"
             @mouseover="hoverClass = true;"
             @mouseleave="hoverClass = false;">
             
