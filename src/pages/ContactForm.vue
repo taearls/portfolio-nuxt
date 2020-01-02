@@ -31,17 +31,17 @@
                     :key="shouldCompactRecaptcha"
                     :loadRecaptchaScript="true"
                     @verify="markRecaptchaVerified"
-                    @expired="resetRecaptcha"></vue-recaptcha>
+                    @expired="resetRecaptcha"/>
                 
                 <div style="margin: 0;">
                     <error-message
                         id="recaptcha-error"
                         successMessage="Thank you. I look forward to working with you!"
                         :errorPresent="saveDisabled"
-                        :errorMessage="getErrorMessage()"></error-message>
+                        :errorMessage="getErrorMessage()"/>
                     <a
                         target="_blank"
-                        @mouseover="handleHoverMessage();"
+                        @mouseover="hoveringMessage = !saveDisabled"
                         @mouseleave="hoveringMessage = false;"
                         :href="generateMailToURL()"
                         :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}">Send Message</a>
@@ -55,12 +55,23 @@
 import VueRecaptcha from 'vue-recaptcha';
 import ErrorMessage from '@/components/renderless/ErrorMessage.vue';
 
+// constants i don't want watched in data object
+const compactRecaptchaBreakPoint = 560;
+
 export default {
+    components: {
+        VueRecaptcha,
+        ErrorMessage
+    },
+    computed: {
+        saveDisabled: function() {
+            return this.message.text.length === 0 || !this.recaptchaVerified;
+        },
+    },
     data() {
         return {
             recaptchaVerified: false,
             shouldCompactRecaptcha: false,
-            compactRecaptchaBreakPoint: 560,
             hoveringMessage: false,
             errorLines: 0,
             message: {
@@ -74,32 +85,37 @@ export default {
                 placeholder: "Freelance Hire Inquiry",
                 text: "",
                 maxlength: 50
-            }
+            },
         }
     },
     mounted() {
+        // check on initial mount, add event listener to recheck when window resized
         this.checkCompactRecaptcha();
         window.addEventListener("resize", this.checkCompactRecaptcha);
     },
     destroyed() {
+        // remove resize event listener, remove stale recaptcha container
         window.removeEventListener("resize", this.checkCompactRecaptcha);
-    },
-    components: {
-        VueRecaptcha,
-        ErrorMessage
-    },
-    computed: {
-        saveDisabled: function() {
-            return this.message.text.length === 0 || !this.recaptchaVerified;
-        },
+        this.removeRecaptchaContainer();
     },
     methods: {
-        checkCompactRecaptcha: function() {
-            this.shouldCompactRecaptcha = window.innerWidth <= this.compactRecaptchaBreakPoint;
+        removeRecaptchaContainer: function() {
+            // grab the container that is appended to the DOM from recaptcha script & remove it
+            var lastChild = document.body.lastChild;
+
+            // make sure the last child is a div or an iframe before removing
+            // so scripts don't get removed inadvertently
+            if (/div|iframe/i.test(lastChild.nodeName)) {
+                lastChild.remove();
+            }
         },
-        handleHoverMessage: function() {
-            if (!this.saveDisabled) {
-                this.hoveringMessage = true;
+        checkCompactRecaptcha: function() {
+            const compare = this.shouldCompactRecaptcha;
+            this.shouldCompactRecaptcha = window.innerWidth <= compactRecaptchaBreakPoint;
+            
+            const isRecaptchaRedrawn = compare !== this.shouldCompactRecaptcha;
+            if (isRecaptchaRedrawn) {
+                this.removeRecaptchaContainer();
             }
         },
         getErrorMessage: function() {
