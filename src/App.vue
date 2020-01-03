@@ -4,6 +4,7 @@
         <nav-bar 
           id="nav-bar"
           ref="navbar"
+          :inert="!navActive"
           :class="{showNav: navActive, hideNav: !navActive}"/>
         <nav-toggle 
           class="nav-toggle"
@@ -20,8 +21,6 @@
 </template>
 
 <script>
-import "wicg-inert";
-
 import NavBar from '@/components/navigation/NavBar.vue';
 import NavToggle from '@/components/navigation/NavToggle.vue';
 
@@ -53,12 +52,8 @@ export default {
     handleToggle: function() {
       this.navActive = !this.navActive;
       
-      var navbar = this.$refs.navbar;
       if (this.navActive) {
-        navbar.inert = false;
         this.initializeFocus();
-      } else {
-        navbar.inert = true;
       }
     },
     initializeFocus: function() {

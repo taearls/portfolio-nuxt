@@ -5,7 +5,7 @@
                 :key="index">
                 <router-link
                     :to="section.href"
-                    tabindex="0">
+                    :tabindex="inert ? -1 : 0">
                     {{section.name}}
                 </router-link>
             </li>
@@ -35,6 +35,7 @@ export default {
             sections,
         }
     },
+    props: ['inert'],
 }
 </script>
 
