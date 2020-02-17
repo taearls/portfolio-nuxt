@@ -94,19 +94,18 @@ export default {
     margin: 0 auto;
   }
   .portfolio-link {
-    padding: 10px 20px;
     display: block;
     color: $red;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
-    margin-bottom: 5px;
+    width: 75%;
+    margin: 0 auto;
   }
   .project-image-container {
     float: left;
     width: 50%;
     margin: 0 10px;
-    margin-bottom: 5px;
     height: max-content;
     .portfolio-screenshot {
       margin: 7px auto;
@@ -115,7 +114,7 @@ export default {
     }
     .screenshot-link {
       img {
-        margin: 20px;
+        margin: 5px 20px;
         width: calc(100% - 40px);
       }
     }
