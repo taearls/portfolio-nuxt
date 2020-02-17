@@ -80,12 +80,6 @@ section {
     p {
         color: $softwhite;
     }
-    // img {
-    //     &:hover {
-    //         opacity: 0.7;
-    //         transition: opacity 0.09s linear;
-    //     }
-    // }
     form {
         legend {
             color: $red;
@@ -128,6 +122,9 @@ h6 {
 }
 .highlighted {
     color: $lightblue;
+}
+.clear {
+    clear: both;
 }
 
 /* MEDIA QUERIES */

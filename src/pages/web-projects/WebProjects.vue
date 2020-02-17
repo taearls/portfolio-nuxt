@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Web Projects</h1>
     <br>
     <web-project
       v-for="(project, index) in projects"
@@ -52,6 +53,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+  h1 {
+    text-align: center;
+  }
 </style>

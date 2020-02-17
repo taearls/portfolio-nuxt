@@ -1,46 +1,51 @@
 <template>
   <section id="web-projects">
-    <h1 v-if="index === 0">
-      Web Projects
-    </h1>
-
     <h2 class="project-title">
       {{ project.name }}
     </h2>
-    <p
-      class="project-description"
-      v-html="project.description"
-    />
 
-    <a
-      class="portfolio-link"
-      target="_blank"
-      rel="noreferrer"
-      :href="project.href"
-    >{{ project.tagline }}
-    </a>
-
-    <a
-      class="screenshot-link"
-      rel="noreferrer"
-      target="_blank"
-      :href="project.href"
-      :style="{cursor: cursorStyle}"
-    >
-      <cld-image
-        :public-id="`${project.imgsrc}`"
-      >
-        <cld-transformation
-          width="400"
-          crop="scale"
+    <div class="project-container">
+      <div class="project-image-container">
+        <a
+          class="screenshot-link"
+          rel="noreferrer"
+          target="_blank"
+          :href="project.href"
+          :style="{cursor: cursorStyle}"
+        >
+          <cld-image
+            :public-id="`${project.imgsrc}`"
+            class="project-image"
+          >
+            <cld-transformation
+              width="400"
+              crop="scale"
+            />
+          </cld-image>
+        </a>
+        <a
+          class="portfolio-link"
+          target="_blank"
+          rel="noreferrer"
+          :href="project.href"
+        >{{ project.tagline }}
+        </a>
+      </div>
+      <div>
+        <p
+          class="project-description"
+          v-html="project.description"
         />
-      </cld-image>
-    </a>
+      </div>
+    </div>
     <br>
 
     <template v-if="index !== projectCount">
-      <hr class="line-break">
+      <hr class="line-break clear">
       <br>
+    </template>
+    <template v-else>
+      <div class="clear" />
     </template>
   </section>
 </template>
@@ -77,19 +82,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import 'src/scss/global.scss';
 
 #web-projects {
-  .cld-image {
-    display: flex;
-    justify-content: center;
-  }
   h1 {
     margin-bottom: 20px;
   }
+  .project-container {
+    max-width: 80vw;
+    margin: 0 auto;
+  }
   .portfolio-link {
-    padding: 0 20px;
+    padding: 10px 20px;
     display: block;
     color: $red;
     font-weight: bold;
@@ -97,10 +102,23 @@ export default {
     cursor: pointer;
     margin-bottom: 5px;
   }
-  .portfolio-screenshot {
-    margin: 7px auto;
-    height: auto;
-    display: block;
+  .project-image-container {
+    float: left;
+    width: 50%;
+    margin: 0 10px;
+    margin-bottom: 5px;
+    height: max-content;
+    .portfolio-screenshot {
+      margin: 7px auto;
+      height: auto;
+      display: block;
+    }
+    .screenshot-link {
+      img {
+        margin: 20px;
+        width: calc(100% - 40px);
+      }
+    }
   }
   .project-title, .skill-title {
     margin-bottom: 10px;
