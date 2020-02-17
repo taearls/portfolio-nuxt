@@ -81,15 +81,14 @@ export default {
 @import 'src/scss/global.scss';
 
 #web-projects {
-    text-align: center;
-}
-h1 {
+  .cld-image {
+    display: flex;
+    justify-content: center;
+  }
+  h1 {
     margin-bottom: 20px;
-}
-.screenshot-link {
-    display: inline-block;
-}
-.portfolio-link {
+  }
+  .portfolio-link {
     padding: 0 20px;
     display: block;
     color: $red;
@@ -97,27 +96,28 @@ h1 {
     text-align: center;
     cursor: pointer;
     margin-bottom: 5px;
-}
-.portfolio-screenshot {
+  }
+  .portfolio-screenshot {
     margin: 7px auto;
     height: auto;
     display: block;
-}
-.project-title, .skill-title {
+  }
+  .project-title, .skill-title {
     margin-bottom: 10px;
     font-weight: bold;
     color: $red;
     text-align: center;
-}
-.project-description {
+  }
+  .project-description {
     margin-bottom: 10px;
-}
-.line-break {
+  }
+  .line-break {
     margin-top: 15px;
     border: 0;
     height: 1px;
     margin-left: 11vw;
     margin-right: 11vw;
     background: linear-gradient(to right, rgba(0, 0, 0, 0), $red, rgba(0, 0, 0, 0));
+  }
 }
 </style>

@@ -2,9 +2,9 @@
   <div class="toggler-container">
     <button
       id="custom-toggler"
-      :class="{active: toggleActive, inactive: !toggleActive}"
-      :aria-label="`${toggleActive ? 'Close Navigation' : 'Open Navigation'}`"
-      @click="handleToggle();"
+      :class="{active: isToggleActive, inactive: !isToggleActive}"
+      :aria-label="`${isToggleActive ? 'Close Navigation' : 'Open Navigation'}`"
+      @click="handleToggle($event);"
       @mouseover="hoverClass = true;"
       @mouseleave="hoverClass = false;"
     >
@@ -28,14 +28,14 @@
 export default {
   data() {
     return {
-      toggleActive: false,
+      isToggleActive: false,
       hoverClass: false,
     };
   },
   methods: {
     handleToggle() {
-      this.$emit("toggle");
-      this.toggleActive = !this.toggleActive;
+      this.isToggleActive = !this.isToggleActive;
+      this.$emit("toggleNavigation", this.isToggleActive);
     },
   },
 };
