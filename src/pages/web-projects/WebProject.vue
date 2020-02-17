@@ -2,31 +2,31 @@
     <section id="web-projects">
         <h1 v-if="index === 0">Web Projects</h1>
 
-        <h2 class="project-title">{{project.name}}</h2> 
-        <p class="project-description" v-html="project.description"></p> 
-        
-        <a  class="portfolio-link" 
+        <h2 class="project-title">{{project.name}}</h2>
+        <p class="project-description" v-html="project.description"></p>
+
+        <a  class="portfolio-link"
             target="_blank"
             rel="noreferrer"
-            :href="project.href" 
+            :href="project.href"
             >{{project.tagline}}
         </a>
-        
+
         <a  class="screenshot-link"
-            rel="noreferrer" 
+            rel="noreferrer"
             target="_blank"
-            :href="project.href" 
-            :style="{cursor: cursorStyle}"> 
-            <img 
+            :href="project.href"
+            :style="{cursor: cursorStyle}">
+            <img
                 rel="preload"
                 class="portfolio-screenshot"
-                :src="`${publicPath}${project.screenshot}`" 
+                :src="`${publicPath}${project.screenshot}`"
                 :alt="`${project.name} Screenshot`"/>
         </a>
         <br/>
 
         <template v-if="index !== projectCount">
-            <hr class="line-break" /> 
+            <hr class="line-break" />
             <br/>
         </template>
     </section>
@@ -34,21 +34,21 @@
 
 <script>
 export default {
-    data() {
-        return {
-            publicPath: process.env.BASE_URL
-        }
+  data() {
+    return {
+      publicPath: process.env.BASE_URL,
+    };
+  },
+  props: ["project", "projectCount", "index"],
+  computed: {
+    cursorStyle() {
+      if (this.project.customCursor) {
+        return `url(${this.project.cursorStyle}), pointer`;
+      }
+      return "pointer";
     },
-    props: ['project', 'projectCount', 'index'],
-    computed: {
-        cursorStyle: function() {
-            if (this.project.customCursor) {
-                return `url(${this.project.cursorStyle}), pointer`;
-            }
-            return "pointer";
-        }
-    },
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -14,29 +14,37 @@
 </template>
 
 <script>
-var sections = [
-    {
-        "name": "Home",
-        "href": "/"
-    },
-    {
-        "name": "Web", 
-        "href": "/web-projects"
-    }, 
-    {
-        "name": "Contact",
-        "href": "/contact"
-    }
+const sections = [
+  {
+    href: "/",
+    name: "Home",
+  },
+  {
+    href: "/contact",
+    name: "Contact",
+  },
+  {
+    href: "/music",
+    name: "Music",
+  },
+  {
+    href: "/press",
+    name: "Press",
+  },
+  {
+    href: "/shows",
+    name: "Shows",
+  },
 ];
 
 export default {
-    data() {
-        return {
-            sections,
-        }
-    },
-    props: ['inert'],
-}
+  data() {
+    return {
+      sections,
+    };
+  },
+  props: ["inert"],
+};
 </script>
 
 <style lang="scss" scoped>
@@ -60,7 +68,7 @@ a {
         ul {
             margin-right: 50px;
             li {
-                padding: 0 2px !important; 
+                padding: 0 2px !important;
             }
         }
     }

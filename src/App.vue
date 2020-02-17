@@ -1,12 +1,12 @@
 <template>
   <div>
       <header>
-        <nav-bar 
+        <nav-bar
           id="nav-bar"
           ref="navbar"
           :inert="!navActive"
           :class="{showNav: navActive, hideNav: !navActive}"/>
-        <nav-toggle 
+        <nav-toggle
           class="nav-toggle"
           @toggle="handleToggle();"/>
       </header>
@@ -21,17 +21,17 @@
 </template>
 
 <script>
-import NavBar from '@/components/navigation/NavBar.vue';
-import NavToggle from '@/components/navigation/NavToggle.vue';
+import NavBar from "@/components/navigation/NavBar.vue";
+import NavToggle from "@/components/navigation/NavToggle.vue";
 
-import VueFooter from '@/components/global/VueFooter.vue';
+import VueFooter from "@/components/global/VueFooter.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   data() {
     return {
-      navActive: false
-    }
+      navActive: false,
+    };
   },
   components: {
     NavBar,
@@ -39,7 +39,7 @@ export default {
     VueFooter,
   },
   mounted() {
-    const navbar = this.$refs.navbar;
+    const { navbar } = this.$refs;
 
     // set initial inert value so accessibility is set before nav interacted with
     if (this.navActive) {
@@ -49,19 +49,19 @@ export default {
     }
   },
   methods: {
-    handleToggle: function() {
+    handleToggle() {
       this.navActive = !this.navActive;
-      
+
       if (this.navActive) {
         this.initializeFocus();
       }
     },
-    initializeFocus: function() {
-      var firstLink = document.querySelector("nav ul li:first-child a");
+    initializeFocus() {
+      const firstLink = document.querySelector("nav ul li:first-child a");
       firstLink.focus();
-    }
+    },
   },
-}
+};
 </script>
 
 <style lang="scss">

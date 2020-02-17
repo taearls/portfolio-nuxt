@@ -6,33 +6,33 @@
             @click="handleToggle();"
             @mouseover="hoverClass = true;"
             @mouseleave="hoverClass = false;">
-            
+
             <div id="toggler-top"
                 :class="{hover: hoverClass}"></div>
             <div id="toggler-middle"
                 :class="{hover: hoverClass}"></div>
             <div id="toggler-bottom"
                 :class="{hover: hoverClass}"></div>
-            
+
         </button>
     </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            toggleActive: false,
-            hoverClass: false
-        }
+  data() {
+    return {
+      toggleActive: false,
+      hoverClass: false,
+    };
+  },
+  methods: {
+    handleToggle() {
+      this.$emit("toggle");
+      this.toggleActive = !this.toggleActive;
     },
-    methods: {
-        handleToggle: function() {
-            this.$emit('toggle');
-            this.toggleActive = !this.toggleActive;
-        },
-    }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -3,7 +3,7 @@
         <a  class="social-link"
             rel="noreferrer"
             target="_blank"
-            v-for="(link, index) in socialLinks" 
+            v-for="(link, index) in socialLinks"
             :key="index"
             :href="link.href"
             :aria-label="`Go to Tyler's ${link.label}`">
@@ -16,36 +16,36 @@
 </template>
 
 <script>
-var socialLinks = [
-    {
-        href: "https://www.linkedin.com/in/tylerearls",
-        label: "LinkedIn",
-        icon: "fa-linkedin"
-    },
-    {
-        href: "https://www.github.com/tboneearls",
-        label: "Github",
-        icon: "fa-github"
-    },
-    {
-        href: "https://www.twitter.com/taearls",
-        label: "Twitter",
-        icon: "fa-twitter"
-    },
-    {
-        href: "https://cuckooandthebirds.bandcamp.com",
-        label: "Bandcamp",
-        icon: "fa-bandcamp"
-    }
+const socialLinks = [
+  {
+    href: "https://www.linkedin.com/in/tylerearls",
+    label: "LinkedIn",
+    icon: "fa-linkedin",
+  },
+  {
+    href: "https://www.github.com/tboneearls",
+    label: "Github",
+    icon: "fa-github",
+  },
+  {
+    href: "https://www.twitter.com/taearls",
+    label: "Twitter",
+    icon: "fa-twitter",
+  },
+  {
+    href: "https://cuckooandthebirds.bandcamp.com",
+    label: "Bandcamp",
+    icon: "fa-bandcamp",
+  },
 ];
 
 export default {
-    data() {
-        return {
-            socialLinks,
-        }
-    },
-}
+  data() {
+    return {
+      socialLinks,
+    };
+  },
+};
 </script>
 
 <style lang="scss">

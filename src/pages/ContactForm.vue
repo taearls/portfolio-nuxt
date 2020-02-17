@@ -15,7 +15,7 @@
                 </div>
                 <div>
                     <label class="label" for="contactMessage">Message: </label>
-                    <textarea class="message" name="message" id="contactMessage" required 
+                    <textarea class="message" name="message" id="contactMessage" required
                         :maxlength="message.maxlength"
                         :placeholder="message.placeholder"
                         :class="{'error-field': message.error}"
@@ -23,8 +23,8 @@
                         v-model="message.text"></textarea>
                     <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
                 </div>
-                
-                <vue-recaptcha 
+
+                <vue-recaptcha
                     sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
                     theme="dark"
                     :size="shouldCompactRecaptcha ? 'compact' : 'normal'"
@@ -32,7 +32,7 @@
                     :loadRecaptchaScript="true"
                     @verify="markRecaptchaVerified"
                     @expired="resetRecaptcha"/>
-                
+
                 <div style="margin: 0;">
                     <error-message
                         id="recaptcha-error"
@@ -52,99 +52,99 @@
 </template>
 
 <script>
-import VueRecaptcha from 'vue-recaptcha';
-import ErrorMessage from '@/components/renderless/ErrorMessage.vue';
+import VueRecaptcha from "vue-recaptcha";
+import ErrorMessage from "@/components/renderless/ErrorMessage.vue";
 
 // constants i don't want watched in data object
 const compactRecaptchaBreakPoint = 560;
 
 export default {
-    components: {
-        VueRecaptcha,
-        ErrorMessage
+  components: {
+    VueRecaptcha,
+    ErrorMessage,
+  },
+  computed: {
+    saveDisabled() {
+      return this.message.text.length === 0 || !this.recaptchaVerified;
     },
-    computed: {
-        saveDisabled: function() {
-            return this.message.text.length === 0 || !this.recaptchaVerified;
-        },
+  },
+  data() {
+    return {
+      recaptchaVerified: false,
+      shouldCompactRecaptcha: false,
+      hoveringMessage: false,
+      errorLines: 0,
+      message: {
+        placeholder:
+                    "Hey Tyler,\n\nMy name is _______.\nLet's build something awesome together.",
+        text: "",
+        maxlength: 500,
+        error: false,
+      },
+      subject: {
+        placeholder: "Freelance Hire Inquiry",
+        text: "",
+        maxlength: 50,
+      },
+    };
+  },
+  mounted() {
+    // check on initial mount, add event listener to recheck when window resized
+    this.checkCompactRecaptcha();
+    window.addEventListener("resize", this.checkCompactRecaptcha);
+  },
+  destroyed() {
+    // remove resize event listener, remove stale recaptcha container
+    window.removeEventListener("resize", this.checkCompactRecaptcha);
+    this.removeRecaptchaContainer();
+  },
+  methods: {
+    removeRecaptchaContainer() {
+      // grab the container that is appended to the DOM from recaptcha script & remove it
+      const { lastChild } = document.body;
+
+      // make sure the last child is a div or an iframe before removing
+      // so scripts don't get removed inadvertently
+      if (/div|iframe/i.test(lastChild.nodeName)) {
+        lastChild.remove();
+      }
     },
-    data() {
-        return {
-            recaptchaVerified: false,
-            shouldCompactRecaptcha: false,
-            hoveringMessage: false,
-            errorLines: 0,
-            message: {
-                placeholder: 
-                    `Hey Tyler,\n\nMy name is _______.\nLet's build something awesome together.`,
-                text: "",
-                maxlength: 500,
-                error: false
-            },
-            subject: {
-                placeholder: "Freelance Hire Inquiry",
-                text: "",
-                maxlength: 50
-            },
-        }
-    },
-    mounted() {
-        // check on initial mount, add event listener to recheck when window resized
-        this.checkCompactRecaptcha();
-        window.addEventListener("resize", this.checkCompactRecaptcha);
-    },
-    destroyed() {
-        // remove resize event listener, remove stale recaptcha container
-        window.removeEventListener("resize", this.checkCompactRecaptcha);
+    checkCompactRecaptcha() {
+      const compare = this.shouldCompactRecaptcha;
+      this.shouldCompactRecaptcha = window.innerWidth <= compactRecaptchaBreakPoint;
+
+      const isRecaptchaRedrawn = compare !== this.shouldCompactRecaptcha;
+      if (isRecaptchaRedrawn) {
         this.removeRecaptchaContainer();
+      }
     },
-    methods: {
-        removeRecaptchaContainer: function() {
-            // grab the container that is appended to the DOM from recaptcha script & remove it
-            var lastChild = document.body.lastChild;
+    getErrorMessage() {
+      if (!this.recaptchaVerified) {
+        return "Please verify that you're a human before sending.";
+      } if (this.recaptchaVerified && this.message.text.length === 0) {
+        this.message.error = true;
+        return "Message cannot be blank.";
+      }
+      return "Sorry about that. Please try again.";
+    },
+    markRecaptchaVerified() {
+      this.recaptchaVerified = true;
+    },
+    resetRecaptcha() {
+      this.recaptchaVerified = false;
+    },
+    generateMailToURL() {
+      if (this.saveDisabled) return false;
 
-            // make sure the last child is a div or an iframe before removing
-            // so scripts don't get removed inadvertently
-            if (/div|iframe/i.test(lastChild.nodeName)) {
-                lastChild.remove();
-            }
-        },
-        checkCompactRecaptcha: function() {
-            const compare = this.shouldCompactRecaptcha;
-            this.shouldCompactRecaptcha = window.innerWidth <= compactRecaptchaBreakPoint;
-            
-            const isRecaptchaRedrawn = compare !== this.shouldCompactRecaptcha;
-            if (isRecaptchaRedrawn) {
-                this.removeRecaptchaContainer();
-            }
-        },
-        getErrorMessage: function() {
-            if (!this.recaptchaVerified) {
-                return "Please verify that you're a human before sending.";
-            } else if (this.recaptchaVerified && this.message.text.length === 0) {
-                this.message.error = true;
-                return "Message cannot be blank.";
-            }
-            return "Sorry about that. Please try again.";
-        },
-        markRecaptchaVerified: function() {
-            this.recaptchaVerified = true;
-        },
-        resetRecaptcha: function() {
-            this.recaptchaVerified = false;
-        },
-        generateMailToURL: function() {
-            if (this.saveDisabled) return false;
-
-            var mailToURL = "mailto:tyler.a.earls@gmail.com";
-            mailToURL += `?body=${encodeURIComponent(this.message.text)}`; // add body
-            if (this.subject.text.length > 0) {
-                mailToURL += `&subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
-            }
-            return mailToURL;
-        }
-    }
-}
+      let mailToURL = "mailto:tyler.a.earls@gmail.com";
+      mailToURL += `?body=${encodeURIComponent(this.message.text)}`; // add body
+      if (this.subject.text.length > 0) {
+        mailToURL += `&subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
+      }
+      return mailToURL;
+    },
+  },
+};
 </script>
 
 <style lang="scss">

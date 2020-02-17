@@ -4,14 +4,14 @@
         <h3>Software Engineer</h3>
         <img id="headshot" alt="Tyler Earls Headshot" src="assets/headshot.jpg" /> -->
 		<br>
-		<h1>Hi there! 
+		<h1>Hi there!
 			<br>
-			I'm Tyler Earls. 
+			I'm Tyler Earls.
 			<br>
-			I am a software engineer and musician.	
+			I am a software engineer and musician.
 		</h1>
 			<br/>
-			<p> 
+			<p>
 				I work at <a href="https://www.ensighten.com" rel="noreferrer" target="_blank">Ensighten</a>, where I help provide client-side security and privacy law compliance for Fortune 500 companies. I enjoy the continuously evolving challenge of making the web safe for online users and their personal data.
 			</p>
 			<br/>
@@ -27,8 +27,8 @@
 
 <script>
 export default {
-    
-}
+
+};
 </script>
 
 <style lang="scss">
@@ -44,6 +44,6 @@ export default {
 		padding: 0;
 		margin: 0 auto;
 		max-width: 75vw;
-	}
+  }
 }
 </style>

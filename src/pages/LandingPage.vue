@@ -8,17 +8,17 @@
 
 <script>
 export default {
-    data() {
-        return {
+  data() {
+    return {
 
-        }
+    };
+  },
+  methods: {
+    enterMainWebsite() {
+      this.$emit("websiteEntered");
     },
-    methods: {
-        enterMainWebsite: function() {
-            this.$emit('websiteEntered');
-        }
-    }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
