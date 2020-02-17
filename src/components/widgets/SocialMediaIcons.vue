@@ -1,18 +1,22 @@
 <template>
-    <div class="social-container">
-        <a  class="social-link"
-            rel="noreferrer"
-            target="_blank"
-            v-for="(link, index) in socialLinks"
-            :key="index"
-            :href="link.href"
-            :aria-label="`Go to Tyler's ${link.label}`">
-            <span>
-                <i  class="fab"
-                    :class="link.icon"></i>
-            </span>
-        </a>
-    </div>
+  <div class="social-container">
+    <a
+      v-for="(link, index) in socialLinks"
+      :key="index"
+      class="social-link"
+      rel="noreferrer"
+      target="_blank"
+      :href="link.href"
+      :aria-label="`Go to Tyler's ${link.label}`"
+    >
+      <span>
+        <i
+          class="fab"
+          :class="link.icon"
+        />
+      </span>
+    </a>
+  </div>
 </template>
 
 <script>

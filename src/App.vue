@@ -1,22 +1,24 @@
 <template>
   <div>
-      <header>
-        <nav-bar
-          id="nav-bar"
-          ref="navbar"
-          :inert="!navActive"
-          :class="{showNav: navActive, hideNav: !navActive}"/>
-        <nav-toggle
-          class="nav-toggle"
-          @toggle="handleToggle();"/>
-      </header>
+    <header>
+      <nav-bar
+        id="nav-bar"
+        ref="navbar"
+        :inert="!navActive"
+        :class="{showNav: navActive, hideNav: !navActive}"
+      />
+      <nav-toggle
+        class="nav-toggle"
+        @toggle="handleToggle();"
+      />
+    </header>
 
-      <!-- clears nav height above each view -->
-      <div class="nav-clearfix"></div>
+    <!-- clears nav height above each view -->
+    <div class="nav-clearfix" />
 
-      <router-view />
+    <router-view />
 
-      <vue-footer />
+    <vue-footer />
   </div>
 </template>
 
@@ -27,16 +29,16 @@ import NavToggle from "@/components/navigation/NavToggle.vue";
 import VueFooter from "@/components/global/VueFooter.vue";
 
 export default {
-  name: "app",
-  data() {
-    return {
-      navActive: false,
-    };
-  },
+  name: "App",
   components: {
     NavBar,
     NavToggle,
     VueFooter,
+  },
+  data() {
+    return {
+      navActive: false,
+    };
   },
   mounted() {
     const { navbar } = this.$refs;

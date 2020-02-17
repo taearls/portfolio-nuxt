@@ -1,23 +1,37 @@
 <template>
-    <span>
-        <span
-            v-show="errorPresent"
-            class="error-message">
-            {{ errorMessage }}
-        </span>
-        <span
-            v-show="!errorPresent"
-            class="error-placeholder"
-            :class="{'success-message': successMessage}">
-            {{ successMessage || "" }}
-        </span>
-
+  <span>
+    <span
+      v-show="errorPresent"
+      class="error-message"
+    >
+      {{ errorMessage }}
     </span>
+    <span
+      v-show="!errorPresent"
+      class="error-placeholder"
+      :class="{'success-message': successMessage}"
+    >
+      {{ successMessage || "" }}
+    </span>
+
+  </span>
 </template>
 
 <script>
 export default {
-  props: ["errorMessage", "errorPresent", "successMessage"],
+  props: {
+    errorMessage: {
+      default: "Error found. Please try again.",
+      type: String,
+    },
+    errorPresent: {
+      type: Boolean,
+    },
+    successMessage: {
+      default: "Success!",
+      type: String,
+    },
+  },
 };
 </script>
 

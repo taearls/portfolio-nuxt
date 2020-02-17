@@ -14,7 +14,7 @@ const routes = [
   {
     path: "/web-projects",
     name: "WebProjects",
-    component: () => import(/* webpackChunkName: "webprojects" */ "../pages/web-projects/WebProject.vue"),
+    component: () => import(/* webpackChunkName: "webprojects" */ "../pages/web-projects/WebProjects.vue"),
   },
   {
     path: "/contact",

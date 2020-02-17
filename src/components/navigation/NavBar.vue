@@ -1,16 +1,19 @@
 <template>
-    <nav>
-        <ul>
-            <li v-for="(section, index) in sections"
-                :key="index">
-                <router-link
-                    :to="section.href"
-                    :tabindex="inert ? -1 : 0">
-                    {{section.name}}
-                </router-link>
-            </li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li
+        v-for="(section, index) in sections"
+        :key="index"
+      >
+        <router-link
+          :to="section.href"
+          :tabindex="inert ? -1 : 0"
+        >
+          {{ section.name }}
+        </router-link>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
@@ -20,30 +23,27 @@ const sections = [
     name: "Home",
   },
   {
+    href: "/web-projects",
+    name: "Web",
+  },
+  {
     href: "/contact",
     name: "Contact",
-  },
-  {
-    href: "/music",
-    name: "Music",
-  },
-  {
-    href: "/press",
-    name: "Press",
-  },
-  {
-    href: "/shows",
-    name: "Shows",
   },
 ];
 
 export default {
+  props: {
+    inert: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data() {
     return {
       sections,
     };
   },
-  props: ["inert"],
 };
 </script>
 

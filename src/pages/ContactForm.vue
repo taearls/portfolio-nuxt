@@ -1,54 +1,78 @@
 <template>
-    <section>
-        <br/>
-        <h1>Contact Tyler Earls</h1>
-        <br/>
-        <form id="contact" class="vue-form" method="get" enctype="text/plain">
-            <fieldset>
-                <div>
-                    <label class="label" for="contactSubject">Subject: </label>
-                    <input type="text" name="subject" id="contactSubject" required
-                        :maxlength="subject.maxlength"
-                        :placeholder="subject.placeholder"
-                        v-model="subject.text">
-                    <span class="counter">{{ subject.text.length }} / {{ subject.maxlength }}</span>
-                </div>
-                <div>
-                    <label class="label" for="contactMessage">Message: </label>
-                    <textarea class="message" name="message" id="contactMessage" required
-                        :maxlength="message.maxlength"
-                        :placeholder="message.placeholder"
-                        :class="{'error-field': message.error}"
-                        @input="message.error = false;"
-                        v-model="message.text"></textarea>
-                    <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
-                </div>
+  <section>
+    <br>
+    <h1>Contact Tyler Earls</h1>
+    <br>
+    <form
+      id="contact"
+      class="vue-form"
+      method="get"
+      enctype="text/plain"
+    >
+      <fieldset>
+        <div>
+          <label
+            class="label"
+            for="contactSubject"
+          >Subject: </label>
+          <input
+            id="contactSubject"
+            v-model="subject.text"
+            type="text"
+            name="subject"
+            required
+            :maxlength="subject.maxlength"
+            :placeholder="subject.placeholder"
+          >
+          <span class="counter">{{ subject.text.length }} / {{ subject.maxlength }}</span>
+        </div>
+        <div>
+          <label
+            class="label"
+            for="contactMessage"
+          >Message: </label>
+          <textarea
+            id="contactMessage"
+            v-model="message.text"
+            class="message"
+            name="message"
+            required
+            :maxlength="message.maxlength"
+            :placeholder="message.placeholder"
+            :class="{'error-field': message.error}"
+            @input="message.error = false;"
+          />
+          <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
+        </div>
 
-                <vue-recaptcha
-                    sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
-                    theme="dark"
-                    :size="shouldCompactRecaptcha ? 'compact' : 'normal'"
-                    :key="shouldCompactRecaptcha"
-                    :loadRecaptchaScript="true"
-                    @verify="markRecaptchaVerified"
-                    @expired="resetRecaptcha"/>
+        <vue-recaptcha
+          :key="shouldCompactRecaptcha"
+          sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
+          theme="dark"
+          :size="shouldCompactRecaptcha ? 'compact' : 'normal'"
+          :load-recaptcha-script="true"
+          @verify="markRecaptchaVerified"
+          @expired="resetRecaptcha"
+        />
 
-                <div style="margin: 0;">
-                    <error-message
-                        id="recaptcha-error"
-                        successMessage="Thank you. I look forward to working with you!"
-                        :errorPresent="saveDisabled"
-                        :errorMessage="getErrorMessage()"/>
-                    <a
-                        target="_blank"
-                        @mouseover="hoveringMessage = !saveDisabled"
-                        @mouseleave="hoveringMessage = false;"
-                        :href="generateMailToURL()"
-                        :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}">Send Message</a>
-                </div>
-            </fieldset>
-        </form>
-    </section>
+        <div style="margin: 0;">
+          <error-message
+            id="recaptcha-error"
+            success-message="Thank you. I look forward to working with you!"
+            :error-present="saveDisabled"
+            :error-message="getErrorMessage()"
+          />
+          <a
+            target="_blank"
+            :href="generateMailToURL()"
+            :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}"
+            @mouseover="hoveringMessage = !saveDisabled"
+            @mouseleave="hoveringMessage = false;"
+          >Send Message</a>
+        </div>
+      </fieldset>
+    </form>
+  </section>
 </template>
 
 <script>
@@ -62,11 +86,6 @@ export default {
   components: {
     VueRecaptcha,
     ErrorMessage,
-  },
-  computed: {
-    saveDisabled() {
-      return this.message.text.length === 0 || !this.recaptchaVerified;
-    },
   },
   data() {
     return {
@@ -87,6 +106,11 @@ export default {
         maxlength: 50,
       },
     };
+  },
+  computed: {
+    saveDisabled() {
+      return this.message.text.length === 0 || !this.recaptchaVerified;
+    },
   },
   mounted() {
     // check on initial mount, add event listener to recheck when window resized

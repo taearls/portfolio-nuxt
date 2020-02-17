@@ -1,9 +1,11 @@
 <template>
-    <section id="landing-body">
-        <p>Hi, I'm <span class="important">Tyler Earls</span>. I'm a software engineer and songwriter.</p>
-        <br/>
-        <button @click="enterMainWebsite();">Enter</button>
-    </section>
+  <section id="landing-body">
+    <p>Hi, I'm <span class="important">Tyler Earls</span>. I'm a software engineer and songwriter.</p>
+    <br>
+    <button @click="enterMainWebsite();">
+      Enter
+    </button>
+  </section>
 </template>
 
 <script>
