@@ -91,7 +91,7 @@ export default {
   }
   .project-container {
     max-width: 80vw;
-    margin: 0 auto;
+    margin: 20px auto;
   }
   .portfolio-link {
     display: block;
@@ -106,6 +106,7 @@ export default {
     float: left;
     width: 50%;
     margin: 0 10px;
+    margin-bottom: 20px;
     height: max-content;
     .portfolio-screenshot {
       margin: 7px auto;
