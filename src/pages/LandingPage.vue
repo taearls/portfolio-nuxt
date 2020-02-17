@@ -1,24 +1,26 @@
 <template>
-    <section id="landing-body">
-        <p>Hi, I'm <span class="important">Tyler Earls</span>. I'm a software engineer and songwriter.</p>
-        <br/>
-        <button @click="enterMainWebsite();">Enter</button>
-    </section>
+  <section id="landing-body">
+    <p>Hi, I'm <span class="important">Tyler Earls</span>. I'm a software engineer and songwriter.</p>
+    <br>
+    <button @click="enterMainWebsite();">
+      Enter
+    </button>
+  </section>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
+  data() {
+    return {
 
-        }
+    };
+  },
+  methods: {
+    enterMainWebsite() {
+      this.$emit("websiteEntered");
     },
-    methods: {
-        enterMainWebsite: function() {
-            this.$emit('websiteEntered');
-        }
-    }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

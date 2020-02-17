@@ -1,42 +1,50 @@
 <template>
-    <nav>
-        <ul>
-            <li v-for="(section, index) in sections"
-                :key="index">
-                <router-link
-                    :to="section.href"
-                    :tabindex="inert ? -1 : 0">
-                    {{section.name}}
-                </router-link>
-            </li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li
+        v-for="(section, index) in sections"
+        :key="index"
+      >
+        <router-link
+          :to="section.href"
+          :tabindex="inert ? -1 : 0"
+        >
+          {{ section.name }}
+        </router-link>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
-var sections = [
-    {
-        "name": "Home",
-        "href": "/"
-    },
-    {
-        "name": "Web", 
-        "href": "/web-projects"
-    }, 
-    {
-        "name": "Contact",
-        "href": "/contact"
-    }
+const sections = [
+  {
+    href: "/",
+    name: "Home",
+  },
+  {
+    href: "/web-projects",
+    name: "Web",
+  },
+  {
+    href: "/contact",
+    name: "Contact",
+  },
 ];
 
 export default {
-    data() {
-        return {
-            sections,
-        }
+  props: {
+    inert: {
+      type: Boolean,
+      required: true,
     },
-    props: ['inert'],
-}
+  },
+  data() {
+    return {
+      sections,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -60,7 +68,7 @@ a {
         ul {
             margin-right: 50px;
             li {
-                padding: 0 2px !important; 
+                padding: 0 2px !important;
             }
         }
     }

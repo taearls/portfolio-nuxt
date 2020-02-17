@@ -1,54 +1,80 @@
 <template>
-    <section id="web-projects">
-        <h1 v-if="index === 0">Web Projects</h1>
+  <section id="web-projects">
+    <h1 v-if="index === 0">
+      Web Projects
+    </h1>
 
-        <h2 class="project-title">{{project.name}}</h2> 
-        <p class="project-description" v-html="project.description"></p> 
-        
-        <a  class="portfolio-link" 
-            target="_blank"
-            rel="noreferrer"
-            :href="project.href" 
-            >{{project.tagline}}
-        </a>
-        
-        <a  class="screenshot-link"
-            rel="noreferrer" 
-            target="_blank"
-            :href="project.href" 
-            :style="{cursor: cursorStyle}"> 
-            <img 
-                rel="preload"
-                class="portfolio-screenshot"
-                :src="`${publicPath}${project.screenshot}`" 
-                :alt="`${project.name} Screenshot`"/>
-        </a>
-        <br/>
+    <h2 class="project-title">
+      {{ project.name }}
+    </h2>
+    <p
+      class="project-description"
+      v-html="project.description"
+    />
 
-        <template v-if="index !== projectCount">
-            <hr class="line-break" /> 
-            <br/>
-        </template>
-    </section>
+    <a
+      class="portfolio-link"
+      target="_blank"
+      rel="noreferrer"
+      :href="project.href"
+    >{{ project.tagline }}
+    </a>
+
+    <a
+      class="screenshot-link"
+      rel="noreferrer"
+      target="_blank"
+      :href="project.href"
+      :style="{cursor: cursorStyle}"
+    >
+      <cld-image
+        :public-id="`${project.imgsrc}`"
+      >
+        <cld-transformation
+          width="400"
+          crop="scale"
+        />
+      </cld-image>
+    </a>
+    <br>
+
+    <template v-if="index !== projectCount">
+      <hr class="line-break">
+      <br>
+    </template>
+  </section>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            publicPath: process.env.BASE_URL
-        }
+  props: {
+    project: {
+      type: Object,
+      required: true,
     },
-    props: ['project', 'projectCount', 'index'],
-    computed: {
-        cursorStyle: function() {
-            if (this.project.customCursor) {
-                return `url(${this.project.cursorStyle}), pointer`;
-            }
-            return "pointer";
-        }
+    projectCount: {
+      type: Number,
+      required: true,
     },
-}
+    index: {
+      type: Number,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      publicPath: process.env.BASE_URL,
+    };
+  },
+  computed: {
+    cursorStyle() {
+      if (this.project.customCursor) {
+        return `url(${this.project.cursorStyle}), pointer`;
+      }
+      return "pointer";
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

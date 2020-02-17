@@ -1,45 +1,47 @@
 <template>
   <div>
-      <header>
-        <nav-bar 
-          id="nav-bar"
-          ref="navbar"
-          :inert="!navActive"
-          :class="{showNav: navActive, hideNav: !navActive}"/>
-        <nav-toggle 
-          class="nav-toggle"
-          @toggle="handleToggle();"/>
-      </header>
+    <header>
+      <nav-bar
+        id="nav-bar"
+        ref="navbar"
+        :inert="!navActive"
+        :class="{showNav: navActive, hideNav: !navActive}"
+      />
+      <nav-toggle
+        class="nav-toggle"
+        @toggle="handleToggle();"
+      />
+    </header>
 
-      <!-- clears nav height above each view -->
-      <div class="nav-clearfix"></div>
+    <!-- clears nav height above each view -->
+    <div class="nav-clearfix" />
 
-      <router-view />
+    <router-view />
 
-      <vue-footer />
+    <vue-footer />
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/navigation/NavBar.vue';
-import NavToggle from '@/components/navigation/NavToggle.vue';
+import NavBar from "@/components/navigation/NavBar.vue";
+import NavToggle from "@/components/navigation/NavToggle.vue";
 
-import VueFooter from '@/components/global/VueFooter.vue';
+import VueFooter from "@/components/global/VueFooter.vue";
 
 export default {
-  name: 'app',
-  data() {
-    return {
-      navActive: false
-    }
-  },
+  name: "App",
   components: {
     NavBar,
     NavToggle,
     VueFooter,
   },
+  data() {
+    return {
+      navActive: false,
+    };
+  },
   mounted() {
-    const navbar = this.$refs.navbar;
+    const { navbar } = this.$refs;
 
     // set initial inert value so accessibility is set before nav interacted with
     if (this.navActive) {
@@ -49,19 +51,19 @@ export default {
     }
   },
   methods: {
-    handleToggle: function() {
+    handleToggle() {
       this.navActive = !this.navActive;
-      
+
       if (this.navActive) {
         this.initializeFocus();
       }
     },
-    initializeFocus: function() {
-      var firstLink = document.querySelector("nav ul li:first-child a");
+    initializeFocus() {
+      const firstLink = document.querySelector("nav ul li:first-child a");
       firstLink.focus();
-    }
+    },
   },
-}
+};
 </script>
 
 <style lang="scss">

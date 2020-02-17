@@ -1,24 +1,38 @@
 <template>
-    <span>
-        <span 
-            v-if="errorPresent"
-            class="error-message">
-            {{ errorMessage }}
-        </span>
-        <span 
-            v-else
-            class="error-placeholder"
-            :class="{'success-message': successMessage}">
-            {{ successMessage || "" }}
-        </span>
-        
+  <span>
+    <span
+      v-show="errorPresent"
+      class="error-message"
+    >
+      {{ errorMessage }}
     </span>
+    <span
+      v-show="!errorPresent"
+      class="error-placeholder"
+      :class="{'success-message': successMessage}"
+    >
+      {{ successMessage || "" }}
+    </span>
+
+  </span>
 </template>
 
 <script>
 export default {
-    props: ['errorMessage', 'errorPresent', 'successMessage'],
-}
+  props: {
+    errorMessage: {
+      default: "Error found. Please try again.",
+      type: String,
+    },
+    errorPresent: {
+      type: Boolean,
+    },
+    successMessage: {
+      default: "Success!",
+      type: String,
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -30,7 +44,7 @@ export default {
     margin-right: initial;
     margin-bottom: 15px;
     margin-top: -5px;
-    font-size: 15px; 
+    font-size: 15px;
     font-weight: 400;
     color: $red;
     -webkit-font-smoothing: antialiased;
