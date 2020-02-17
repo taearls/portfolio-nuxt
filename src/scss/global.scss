@@ -9,6 +9,7 @@ body {
         margin-block-start: 0;
         margin-block-end: 0;
         font-family: $default-font;
+        font-display: swap;
         font-weight: 200;
         letter-spacing: 0.6px;
         &:focus {
