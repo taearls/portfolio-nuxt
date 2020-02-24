@@ -77,7 +77,7 @@
 
 <script>
 import VueRecaptcha from "vue-recaptcha";
-import ErrorMessage from "@/components/renderless/ErrorMessage.vue";
+import ErrorMessage from "~/components/renderless/ErrorMessage.vue";
 
 // constants i don't want watched in data object
 const compactRecaptchaBreakPoint = 560;
@@ -172,7 +172,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'src/scss/global.scss';
+@import '~/assets/scss/global.scss';
 
 .error-field {
     outline: 2px solid $red;

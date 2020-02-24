@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import 'src/scss/global.scss';
+@import "~/assets/scss/global.scss";
 
 .error-placeholder, .error-message, .success-message {
     display: block;

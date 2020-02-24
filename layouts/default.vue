@@ -2,15 +2,15 @@
   <div id="app">
     <nav-bar />
 
-    <router-view />
+    <nuxt />
 
     <vue-footer />
   </div>
 </template>
 
 <script>
-import NavBar from "@/components/navigation/NavBar.vue";
-import VueFooter from "@/components/global/VueFooter.vue";
+import NavBar from "~/components/navigation/NavBar.vue";
+import VueFooter from "~/components/global/VueFooter.vue";
 
 export default {
   name: "App",
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "src/scss/global.scss";
+@import "~/assets/scss/global.scss";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -13,15 +13,17 @@
           :href="project.href"
           :style="{cursor: cursorStyle}"
         >
-          <cld-image
-            :public-id="`${project.imgsrc}`"
-            class="project-image"
-          >
-            <cld-transformation
-              width="400"
-              crop="scale"
-            />
-          </cld-image>
+          <no-ssr>
+            <cld-image
+              :public-id="`${project.imgsrc}`"
+              class="project-image"
+            >
+              <cld-transformation
+                width="400"
+                crop="scale"
+              />
+            </cld-image>
+          </no-ssr>
         </a>
         <a
           class="portfolio-link"
@@ -83,7 +85,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'src/scss/global.scss';
+@import "~/assets/scss/global.scss";
 
 #web-projects {
   h1 {

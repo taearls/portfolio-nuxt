@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "src/scss/global.scss";
+@import "~/assets/scss/global.scss";
 
 #home {
 	h1 {

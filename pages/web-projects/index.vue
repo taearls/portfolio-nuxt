@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import WebProject from "./WebProject.vue";
+import WebProject from "~/components/WebProject.vue";
 
 const projects = [{
   name: "Road Ranger",
@@ -30,7 +30,7 @@ const projects = [{
   href: "https://tboneearls.github.io/space_clones",
   tagline: "See if you can beat my high score! 😉",
   customCursor: true,
-  cursorStyle: "assets/cursors/space-clones-cursor.png",
+  cursorStyle: "assets/images/space-clones-cursor.png",
 }, {
   name: "BigSearch",
   description: "An application inspired by the movie Big that interacts with the Open Movie Database (OMDB) REST API to return data about any movie, similar to the website, IMDB. Built using React and React Router, hosted on Heroku. To use the app, simply type the name of any movie into the search form.",

@@ -10,12 +10,12 @@
           v-for="(section, index) in sections"
           :key="index"
         >
-          <router-link
+          <nuxt-link
             :to="section.href"
             :tabindex="isNavActive ? 0 : -1"
           >
             {{ section.name }}
-          </router-link>
+          </nuxt-link>
         </li>
       </ul>
     </nav>
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "src/scss/global.scss";
+@import "~/assets/scss/global.scss";
 
 a {
     font-size: 20px;
