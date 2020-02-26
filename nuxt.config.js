@@ -15,6 +15,7 @@ export default {
     }
   },
   buildDir: "dist",
+  mode: "spa",
   babel: {
     presets({ isServer }) {
       return [
