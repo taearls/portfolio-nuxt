@@ -14,6 +14,7 @@ export default {
       }
     }
   },
+  buildDir: "dist",
   babel: {
     presets({ isServer }) {
       return [
