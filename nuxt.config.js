@@ -1,30 +1,31 @@
 export default {
   build: {
-    babel: {
-      presets({ isServer }) {
-        return [
-          [
-            require.resolve("@nuxt/babel-preset-app"),
-            // require.resolve('@nuxt/babel-preset-app-edge'), // For nuxt-edge users
-            {
-              buildTarget: isServer ? "server" : "client",
-              corejs: { version: 2 },
-            },
-          ],
-        ];
-      },
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: "styles",
+            test: /\.(css|vue)$/,
+            chunks: "all",
+            enforce: true
+          }
+        }
+      }
+    }
+  },
+  babel: {
+    presets({ isServer }) {
+      return [
+        [
+          require.resolve("@nuxt/babel-preset-app"),
+          {
+            buildTarget: isServer ? "server" : "client",
+            corejs: { version: 2 },
+          },
+        ],
+      ];
     },
-    // extend(config, ctx) {
-    //   // Run ESLint on save
-    //   if (ctx.isDev && ctx.isClient) {
-    //     config.module.rules.push({
-    //       enforce: "pre",
-    //       test: /\.(js|vue)$/,
-    //       loader: "eslint-loader",
-    //       exclude: /(node_modules)/,
-    //     });
-    //   }
-    // },
   },
   head: {
     titleTemplate: "Tyler Earls - Software Engineer",
@@ -38,13 +39,24 @@ export default {
     ],
     link: [
       {
-        href: "https://fonts.googleapis.com/css?family=Asul:400,700|Roboto:400,700&display=swap", rel: "preload", as: "style", onload: "this.onload = null; this.rel = 'stylesheet'",
+        href: "https://fonts.googleapis.com/css?family=Asul:400,700|Roboto:400,700&display=swap",
+        rel: "preload", 
+        as: "style",
+        onload: "this.onload = null; this.rel = 'stylesheet';",
       },
-      { href: "./assets/images/vulcan-salute.ico", rel: "icon" },
+      { 
+        href: "images/vulcan-salute.ico", 
+        rel: "icon",
+      },
     ],
     noscript: [
-      { innerHTML: "<strong>We're sorry but this website doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>", body: true },
+      { 
+        innerHTML: "<strong>We're sorry but this website doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>", 
+        body: true,
+      },
     ],
+    // scripts will not be url-encoded
+    __dangerouslyDisableSanitizers: ["script"],
     script: [
       {
         type: "application/ld+json",
@@ -57,9 +69,20 @@ export default {
           url: "https://www.tylerearls.com",
         }),
       },
-      { src: "./assets/scripts/googleTagManagerInit.js", type: "text/javascript" },
-      { src: "https://kit.fontawesome.com/aba278b901.js", async: true, defer: true },
-      { src: "https://www.googletagmanager.com/gtag/js?id=UA-132274464-1", async: true, defer: true },
+      // google tag manager init
+      { 
+        src: "https://www.googletagmanager.com/gtag/js?id=UA-132274464-1",
+        async: true
+      },
+      { 
+        innerHTML: "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config', 'UA-132274464-1');", 
+        type: "text/javascript"
+      },
+      { 
+        src: "https://kit.fontawesome.com/aba278b901.js", 
+        async: true, 
+        defer: true
+      },
     ],
   },
   plugins: ["~/plugins/global.js"],

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SocialMediaIcons from "@/components/widgets/SocialMediaIcons.vue";
+import SocialMediaIcons from "../widgets/SocialMediaIcons.vue";
 
 export default {
   components: {

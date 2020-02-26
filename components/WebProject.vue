@@ -11,11 +11,11 @@
           rel="noreferrer"
           target="_blank"
           :href="project.href"
-          :style="{cursor: cursorStyle}"
+          :style="{cursor: project.cursorStyle}"
         >
-          <no-ssr>
+          <client-only>
             <cld-image
-              :public-id="`${project.imgsrc}`"
+              :public-id="`${project.cloudinaryID}`"
               class="project-image"
             >
               <cld-transformation
@@ -23,7 +23,7 @@
                 crop="scale"
               />
             </cld-image>
-          </no-ssr>
+          </client-only>
         </a>
         <a
           class="portfolio-link"
@@ -73,14 +73,6 @@ export default {
       publicPath: process.env.BASE_URL,
     };
   },
-  computed: {
-    cursorStyle() {
-      if (this.project.customCursor) {
-        return `url(${this.project.cursorStyle}), pointer`;
-      }
-      return "pointer";
-    },
-  },
 };
 </script>
 
@@ -103,6 +95,10 @@ export default {
     cursor: pointer;
     width: 75%;
     margin: 0 auto;
+    &:hover {
+      color: $lightblue;
+      transition: 0.2s ease;
+    }
   }
   .project-image-container {
     float: left;

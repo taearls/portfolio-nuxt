@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import NavBar from "~/components/navigation/NavBar.vue";
-import VueFooter from "~/components/global/VueFooter.vue";
+import NavBar from "../components/navigation/NavBar.vue";
+import VueFooter from "../components/global/VueFooter.vue";
 
 export default {
   name: "App",
@@ -28,6 +28,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $red;
-  margin-top: calc(#{$navHeight} + 10px);
+  margin-top: calc(#{$navHeight} + 30px);
 }
 </style>

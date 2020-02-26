@@ -1,6 +1,5 @@
 <template>
   <section>
-    <br>
     <h1>Contact Tyler Earls</h1>
     <br>
     <form
@@ -77,7 +76,7 @@
 
 <script>
 import VueRecaptcha from "vue-recaptcha";
-import ErrorMessage from "~/components/renderless/ErrorMessage.vue";
+import ErrorMessage from "../../components/renderless/ErrorMessage.vue";
 
 // constants i don't want watched in data object
 const compactRecaptchaBreakPoint = 560;

@@ -1,6 +1,5 @@
 <template>
   <section id="home">
-    <br>
     <h1>
       Hi there!
       <br>
