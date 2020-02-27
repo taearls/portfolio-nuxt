@@ -28,6 +28,7 @@ export default {
       ];
     },
   },
+  plugins: ["~/plugins/global.js"],
   head: {
     titleTemplate: "Tyler Earls - Software Engineer",
     meta: [
@@ -86,5 +87,4 @@ export default {
       },
     ],
   },
-  plugins: ["~/plugins/global.js"],
 };
