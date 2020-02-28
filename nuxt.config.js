@@ -77,11 +77,6 @@ export default {
           url: "https://www.tylerearls.com",
         }),
       },
-      { 
-        src: "https://kit.fontawesome.com/aba278b901.js", 
-        async: true, 
-        defer: true
-      },
     ],
   },
 };

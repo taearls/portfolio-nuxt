@@ -4,7 +4,7 @@
   "private": true,
   "description": "Tyler Earls Programming Portfolio Website",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --port 8080",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -13,6 +13,9 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/vue-fontawesome": "^0.1.9",
     "cloudinary-vue": "^1.0.0",
     "nuxt": "^2.11.0",
     "vue": "^2.6.11",

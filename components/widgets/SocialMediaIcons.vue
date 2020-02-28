@@ -10,9 +10,9 @@
       :aria-label="`Go to Tyler's ${link.label}`"
     >
       <span>
-        <i
-          class="fab"
-          :class="link.icon"
+        <font-awesome-icon
+          :icon="['fab', link.icon]"
+          size="1x"
         />
       </span>
     </a>
@@ -20,30 +20,39 @@
 </template>
 
 <script>
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { faTwitter, faLinkedin, faGithub, faBandcamp } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+
+library.add(faTwitter, faLinkedin, faGithub, faBandcamp);
+
 const socialLinks = [
   {
     href: "https://www.linkedin.com/in/tylerearls",
     label: "LinkedIn",
-    icon: "fa-linkedin",
+    icon: "linkedin",
   },
   {
     href: "https://www.github.com/tboneearls",
     label: "Github",
-    icon: "fa-github",
+    icon: "github",
   },
   {
     href: "https://www.twitter.com/taearls",
     label: "Twitter",
-    icon: "fa-twitter",
+    icon: "twitter",
   },
   {
     href: "https://cuckooandthebirds.bandcamp.com",
     label: "Bandcamp",
-    icon: "fa-bandcamp",
+    icon: "bandcamp",
   },
 ];
 
 export default {
+  components: {
+    FontAwesomeIcon,
+  },
   data() {
     return {
       socialLinks,
