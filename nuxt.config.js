@@ -14,8 +14,8 @@ export default {
       }
     }
   },
-  buildModules: [['@nuxtjs/google-analytics', {
-    id: 'UA-132274464-1'
+  buildModules: [["@nuxtjs/google-analytics", {
+    id: "UA-132274464-1"
   }]],
   mode: "spa",
   babel: {
@@ -33,6 +33,9 @@ export default {
   },
   plugins: ["~/plugins/global.js"],
   head: {
+    htmlAttrs: {
+      lang: "en",
+    },
     titleTemplate: "Tyler Earls - Software Engineer",
     meta: [
       { charset: "utf-8" },
