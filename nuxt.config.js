@@ -14,6 +14,9 @@ export default {
       }
     }
   },
+  buildModules: [['@nuxtjs/google-analytics', {
+    id: 'UA-132274464-1'
+  }]],
   mode: "spa",
   babel: {
     presets({ isServer }) {
@@ -70,15 +73,6 @@ export default {
           email: "tyler.a.earls@gmail.com",
           url: "https://www.tylerearls.com",
         }),
-      },
-      // google tag manager init
-      { 
-        src: "https://www.googletagmanager.com/gtag/js?id=UA-132274464-1",
-        async: true
-      },
-      { 
-        innerHTML: "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config', 'UA-132274464-1');", 
-        type: "text/javascript"
       },
       { 
         src: "https://kit.fontawesome.com/aba278b901.js", 
