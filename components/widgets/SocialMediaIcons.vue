@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import { library } from "@fortawesome/fontawesome-svg-core"
-import { faTwitter, faLinkedin, faGithub, faBandcamp } from "@fortawesome/free-brands-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTwitter, faLinkedin, faGithub, faBandcamp } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(faTwitter, faLinkedin, faGithub, faBandcamp);
 
