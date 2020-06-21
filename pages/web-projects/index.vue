@@ -27,7 +27,7 @@ const projects = [{
   name: "Space Clones",
   description: "An original space shooting video game inspired by Space Invaders, the 1978 arcade classic. Defeat the clone army and then their mothership to advance to the next level. If you get a high enough score, you can earn extra lives. Play solo, or take turns with a friend. The galaxy is yours to save from the invading clone army! Created using HTML5, CSS3, JavaScript, and jQuery.",
   cloudinaryID: "screenshots/space-clones-screenshot.png",
-  href: "https://tboneearls.github.io/space_clones",
+  href: "https://space-clones.netlify.com",
   tagline: "See if you can beat my high score! 😉",
   customCursor: true,
   cursorStyle: "url(images/space-clones-cursor.png), pointer",
