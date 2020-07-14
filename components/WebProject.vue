@@ -8,13 +8,14 @@
       <div class="project-image-container">
         <a
           class="screenshot-link"
-          rel="noreferrer"
+          :rel="project.analytics ? 'external' : 'noreferrer'"
           target="_blank"
-          :href="project.href"
+          :href="project.analytics ? getAnalyticsLink(project.href, project.analytics) : project.href"
           :style="{cursor: project.cursorStyle}"
         >
           <client-only>
             <cld-image
+              :alt="project.alt"
               :public-id="`${project.cloudinaryID}`"
               class="project-image"
             >
@@ -68,11 +69,12 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      publicPath: process.env.BASE_URL,
-    };
-  },
+  methods: {
+    getAnalyticsLink(link, analyticsObject) {
+      const {source, medium, campaign} = analyticsObject;
+      return `${link}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
+    }
+  }
 };
 </script>
 
@@ -90,6 +92,7 @@ export default {
   .portfolio-link {
     display: block;
     color: $red;
+    font-style: italic;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
