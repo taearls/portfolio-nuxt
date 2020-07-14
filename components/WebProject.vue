@@ -21,7 +21,6 @@
             >
               <cld-transformation
                 width="400"
-                crop="scale"
               />
             </cld-image>
           </client-only>
@@ -31,8 +30,8 @@
           target="_blank"
           rel="noreferrer"
           :href="project.href"
-        >{{ project.tagline }}
-        </a>
+          v-html="project.tagline"
+        />
       </div>
       <div>
         <p
@@ -89,10 +88,12 @@ export default {
     max-width: 80vw;
     margin: 20px auto;
   }
+  .italic {
+    font-style: italic;
+  }
   .portfolio-link {
     display: block;
     color: $red;
-    font-style: italic;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
