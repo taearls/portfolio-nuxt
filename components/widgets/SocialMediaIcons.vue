@@ -33,7 +33,7 @@ const socialLinks = [
     icon: "linkedin",
   },
   {
-    href: "https://www.github.com/tboneearls",
+    href: "https://www.github.com/taearls",
     label: "Github",
     icon: "github",
   },
