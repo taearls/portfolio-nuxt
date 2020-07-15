@@ -6,27 +6,29 @@
 
     <div class="project-container">
       <div class="project-image-container">
+        <div class="project-link-container">
+          <a
+            class="project-link"
+            :rel="project.analytics ? 'external' : 'noreferrer'"
+            target="_blank"
+            :href="project.analytics ? getAnalyticsLink(project.href, project.analytics) : project.href"
+            :style="{cursor: project.cursorStyle}"
+          >
+            <client-only>
+              <cld-image
+                :alt="project.alt"
+                :public-id="`${project.cloudinaryID}`"
+                class="project-image"
+              >
+                <cld-transformation
+                  width="400"
+                />
+              </cld-image>
+            </client-only>
+          </a>
+        </div>
         <a
-          class="screenshot-link"
-          :rel="project.analytics ? 'external' : 'noreferrer'"
-          target="_blank"
-          :href="project.analytics ? getAnalyticsLink(project.href, project.analytics) : project.href"
-          :style="{cursor: project.cursorStyle}"
-        >
-          <client-only>
-            <cld-image
-              :alt="project.alt"
-              :public-id="`${project.cloudinaryID}`"
-              class="project-image"
-            >
-              <cld-transformation
-                width="400"
-              />
-            </cld-image>
-          </client-only>
-        </a>
-        <a
-          class="portfolio-link"
+          class="project-tagline-link"
           target="_blank"
           rel="noreferrer"
           :href="project.href"
@@ -68,11 +70,33 @@ export default {
       required: true,
     },
   },
+  mounted() {
+    const projectLinks = document.querySelectorAll(".project-link");
+    for (let i = 0; i < projectLinks.length; i++) {
+      let projectLink = projectLinks[i];
+      projectLink.addEventListener("focus", this.addFocusStyleToParent);
+      projectLink.addEventListener("blur", this.removeFocusStyleFromParent);
+    }
+  },
+  destroyed() {
+    const projectLinks = document.querySelectorAll(".project-link");
+    for (let i = 0; i < projectLinks.length; i++) {
+      let projectLink = projectLinks[i];
+      projectLink.removeEventListener("focus", this.addFocusStyleToParent);
+      projectLink.removeEventListener("blur", this.removeFocusStyleFromParent);
+    }
+  },
   methods: {
+    addFocusStyleToParent(e) {
+      e.target.parentElement.style.outline = "2px dotted #FAFD51";
+    },
+    removeFocusStyleFromParent(e) {
+      e.target.parentElement.style.outline = "";
+    },
     getAnalyticsLink(link, utmObject) {
       const {source, medium, campaign} = utmObject;
       return `${link}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
-    }
+    },
   }
 };
 </script>
@@ -91,9 +115,10 @@ export default {
   .italic {
     font-style: italic;
   }
-  .portfolio-link {
+  .project-tagline-link {
     display: block;
     color: $red;
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
@@ -104,6 +129,7 @@ export default {
       transition: 0.2s ease;
     }
   }
+  
   .project-image-container {
     float: left;
     width: 50%;
@@ -115,7 +141,7 @@ export default {
       height: auto;
       display: block;
     }
-    .screenshot-link {
+    .project-link {
       img {
         margin: 5px 20px;
         width: calc(100% - 40px);
@@ -151,7 +177,7 @@ export default {
         width: 100%;
         float: none;
         margin: 0 auto;
-        .screenshot-link img {
+        .project-link img {
           display: block;
           margin: 0 auto;
           margin-bottom: 4px;
@@ -159,8 +185,12 @@ export default {
         }
       }
     }
-    .portfolio-link {
+    .project-tagline-link {
       margin-bottom: 8px;
+    }
+    .project-link-container {
+      width: 80%;
+      margin: 0 auto;
     }
   }
 }
