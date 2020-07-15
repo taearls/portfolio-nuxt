@@ -19,6 +19,12 @@
         </li>
       </ul>
     </nav>
+    <div
+      v-show="!isNavActive"
+      id="navbar-fallback"
+    >
+
+    </div>
     <nav-toggle
       @toggleNavigation="isNavActive = $event"
     />
@@ -75,27 +81,27 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/scss/global.scss";
 
-a {
-    font-size: 20px;
-    padding: 0px 5px;
+#navbar-fallback {
+  position: fixed;
+  top: 0;
+  height: 75px;
+  width: 100%;
+  background: $softblack;
+  z-index: 10;
+  border-bottom: 1px dotted $softwhite;
 }
-#headshot {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 15px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
+a {
+  font-size: 20px;
+  padding: 0px 5px;
 }
 @media (max-width: $S) {
-    nav {
-        ul {
-            margin-right: 50px;
-            li {
-                padding: 0 2px !important;
-            }
-        }
+  nav {
+    ul {
+      margin-right: 50px;
+      li {
+        padding: 0 2px !important;
+      }
     }
+  }
 }
 </style>

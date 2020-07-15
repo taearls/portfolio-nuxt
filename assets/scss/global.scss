@@ -234,12 +234,12 @@ $h3-S: 17px;
     img {
         max-width: $img-M;
     }
-    form {
-        max-width: $form-M;
-        div {
-            max-width: calc(#{$form-M} - 20px);
-        }
-    }
+    // form {
+    //     max-width: $form-M;
+    //     div {
+    //         max-width: calc(#{$form-M} - 20px);
+    //     }
+    // }
 }
 @media (max-width: $S) {
     h1 {
@@ -255,9 +255,9 @@ $h3-S: 17px;
         max-width: $img-S;
     }
     form {
-        max-width: $form-S;
-        div {
-            max-width: calc(#{$form-S} - 20px);
-        }
+        max-width: calc(100% - 40px);
+        // div {
+        //     max-width: calc(#{$form-S} - 20px);
+        // }
     }
 }

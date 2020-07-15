@@ -217,7 +217,6 @@ input {
         background-color: #ffffff;
         border-radius: 0.25em;
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
-        max-width: 60vw;
     }
     fieldset {
         padding-left: 0;
@@ -306,11 +305,5 @@ input {
 }
 #recaptcha-error .error-message {
     overflow-wrap: break-word;
-}
-@media (max-width: $M) {
-    .vue-form {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
 }
 </style>
