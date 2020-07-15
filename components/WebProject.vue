@@ -69,8 +69,8 @@ export default {
     },
   },
   methods: {
-    getAnalyticsLink(link, analyticsObject) {
-      const {source, medium, campaign} = analyticsObject;
+    getAnalyticsLink(link, utmObject) {
+      const {source, medium, campaign} = utmObject;
       return `${link}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
     }
   }
@@ -138,6 +138,30 @@ export default {
     margin-left: 11vw;
     margin-right: 11vw;
     background: linear-gradient(to right, rgba(0, 0, 0, 0), $red, rgba(0, 0, 0, 0));
+  }
+}
+
+@media (max-width: $L) {
+  #web-projects {
+    .project-container {
+      max-width: 100%;
+      display: flex;
+      flex-flow: column;
+      .project-image-container {
+        width: 100%;
+        float: none;
+        margin: 0 auto;
+        .screenshot-link img {
+          display: block;
+          margin: 0 auto;
+          margin-bottom: 4px;
+          width: 80%;
+        }
+      }
+    }
+    .portfolio-link {
+      margin-bottom: 8px;
+    }
   }
 }
 </style>

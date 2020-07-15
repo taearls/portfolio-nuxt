@@ -22,9 +22,7 @@
     <div
       v-show="!isNavActive"
       id="navbar-fallback"
-    >
-
-    </div>
+    />
     <nav-toggle
       @toggleNavigation="isNavActive = $event"
     />
