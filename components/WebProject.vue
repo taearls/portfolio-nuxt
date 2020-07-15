@@ -141,7 +141,7 @@ export default {
   }
 }
 
-@media (max-width: $L) {
+@media (max-width: $XL) {
   #web-projects {
     .project-container {
       max-width: 100%;
