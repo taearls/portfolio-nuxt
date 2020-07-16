@@ -117,7 +117,7 @@ export default {
   }
   .project-tagline-link {
     display: block;
-    color: $red;
+    // color: $red;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
@@ -125,7 +125,7 @@ export default {
     width: 75%;
     margin: 0 auto;
     &:hover {
-      color: $lightblue;
+      // color: $lightblue;
       transition: 0.2s ease;
     }
   }
@@ -151,7 +151,7 @@ export default {
   .project-title, .skill-title {
     margin-bottom: 10px;
     font-weight: bold;
-    color: $red;
+    // color: $red;
     text-align: center;
   }
   .project-description {
@@ -163,35 +163,35 @@ export default {
     height: 1px;
     margin-left: 11vw;
     margin-right: 11vw;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), $red, rgba(0, 0, 0, 0));
+    // background: linear-gradient(to right, rgba(0, 0, 0, 0), $red, rgba(0, 0, 0, 0));
   }
 }
 
-@media (max-width: $XL) {
-  #web-projects {
-    .project-container {
-      max-width: 100%;
-      display: flex;
-      flex-flow: column;
-      .project-image-container {
-        width: 100%;
-        float: none;
-        margin: 0 auto;
-        .project-link img {
-          display: block;
-          margin: 0 auto;
-          margin-bottom: 4px;
-          width: 80%;
-        }
-      }
-    }
-    .project-tagline-link {
-      margin-bottom: 8px;
-    }
-    .project-link-container {
-      width: 80%;
-      margin: 0 auto;
-    }
-  }
-}
+// @media (max-width: $XL) {
+//   #web-projects {
+//     .project-container {
+//       max-width: 100%;
+//       display: flex;
+//       flex-flow: column;
+//       .project-image-container {
+//         width: 100%;
+//         float: none;
+//         margin: 0 auto;
+//         .project-link img {
+//           display: block;
+//           margin: 0 auto;
+//           margin-bottom: 4px;
+//           width: 80%;
+//         }
+//       }
+//     }
+//     .project-tagline-link {
+//       margin-bottom: 8px;
+//     }
+//     .project-link-container {
+//       width: 80%;
+//       margin: 0 auto;
+//     }
+//   }
+// }
 </style>

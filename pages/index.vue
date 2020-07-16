@@ -1,6 +1,6 @@
 <template>
   <section id="home">
-    <h1>
+    <h1 class="text-left">
       Hi there!
       <br>
       I'm Tyler Earls.
@@ -35,10 +35,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "~/assets/scss/global.scss";
+<style scoped>
+/* @import "~/assets/scss/global.scss"; */
 
-#home {
+/* #home {
 	h1 {
 		margin: 0 auto;
 		max-width: 75vw;
@@ -49,5 +49,5 @@ export default {
 		margin: 0 auto;
 		max-width: 75vw;
 	}
-}
+} */
 </style>
