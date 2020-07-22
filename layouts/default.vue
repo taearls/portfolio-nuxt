@@ -1,7 +1,8 @@
 <template>
   <div 
+    id="app"
     class="bg-gray-100 text-black"
-    id="app">
+  >
     <nav-bar />
 
     <nuxt />
