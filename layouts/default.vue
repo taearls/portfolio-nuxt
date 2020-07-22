@@ -24,15 +24,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "~/assets/scss/global.scss";
-#app {
+<style>
+/* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-top: calc(#{$navHeight} + 30px);
-}
+} */
 body {
-  background-color: #f7fafc; // bg-gray-100
+  background-color: #f7fafc; /* bg-gray-100 */
 }
 </style>

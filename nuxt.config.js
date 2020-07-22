@@ -55,7 +55,7 @@ export default {
     htmlAttrs: {
       lang: "en"
     },
-    titleTemplate: "Tyler Earls - Software Engineer",
+    titleTemplate: "Tyler Earls | Software Engineer",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width,initial-scale=1.0,shrink-to-fit=no" },

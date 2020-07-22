@@ -35,10 +35,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "~/assets/scss/global.scss";
-
-.error-placeholder, .error-message, .success-message {
+<style>
+/* .error-placeholder, .error-message, .success-message {
     display: block;
     margin-left: initial;
     margin-right: initial;
@@ -50,6 +48,6 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     width: fit-content;
-}
+} */
 
 </style>

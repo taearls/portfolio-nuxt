@@ -170,10 +170,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '~/assets/scss/global.scss';
+<style>
 
-.error-field {
+/* .error-field {
     outline: 2px solid $red;
 }
 h2 {
@@ -305,5 +304,5 @@ input {
 }
 #recaptcha-error .error-message {
     overflow-wrap: break-word;
-}
+} */
 </style>

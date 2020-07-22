@@ -1,9 +1,8 @@
 <template>
-  <!-- TODO: implement mobile design of nav bar -->
-  <div>
+  <!-- <div>
     <nav
-      v-show="isNavActive"
       id="nav-bar"
+      class="fixed top-0 w-screen bg-gray-200"
     >
       <ul>
         <li
@@ -23,6 +22,38 @@
       v-show="!isNavActive"
       id="navbar-fallback"
     />
+    <nav-toggle
+      @toggleNavigation="isNavActive = $event"
+    />
+  </div> -->
+  <div
+    id="nav-container"
+    class="fixed flex items-center justify-end w-screen top-0 font-default text-black transition-background-color transition-opacity duration-100 border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
+    :class="{'border border-gray-600 bg-gray-100': isNavActive, 'border-none': !isNavActive}"
+  >
+    <nav
+      id="nav-bar"
+      class="opacity-0 transition-opacity duration-100 w-screen"
+      :class="{'opacity-100': isNavActive}"
+    >
+      <!-- add mobile-first styles here (flex columns) -->
+      <ul class="flex flex-col h-auto justify-center sm:flex-row sm:justify-end">
+        <li
+          v-for="(section, index) in sections"
+          :key="index"
+          class="mx-auto py-2 text-center w-1/3 border border-t-0 border-l-0 border-r-0 border-b-1 border-gray-700 sm:border-none sm:mx-0 sm:w-auto"
+          :class="index === sections.length - 1 ? 'border-none' : ''"
+        >
+          <router-link
+            :to="section.href"
+            :tabindex="isNavActive ? 0 : -1"
+            class="px-4 text-lg hover:text-purple-600 hover:opacity-100 rounded-sm"
+          >
+            {{ section.name }}
+          </router-link>
+        </li>
+      </ul>
+    </nav>
     <nav-toggle
       @toggleNavigation="isNavActive = $event"
     />
@@ -76,9 +107,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "~/assets/scss/global.scss";
-
+<style>
+/* 
 #navbar-fallback {
   position: fixed;
   top: 0;
@@ -101,5 +131,5 @@ a {
       }
     }
   }
-}
+} */
 </style>

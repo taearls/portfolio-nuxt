@@ -35,9 +35,7 @@ export default {
 };
 </script>
 
-<style scoped>
-/* @import "~/assets/scss/global.scss"; */
-
+<style>
 /* #home {
 	h1 {
 		margin: 0 auto;
