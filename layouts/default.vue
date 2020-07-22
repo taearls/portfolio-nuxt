@@ -1,7 +1,7 @@
 <template>
   <div 
     id="app"
-    class="bg-gray-100 text-black"
+    class="bg-gray-100 text-black sm:mt-16"
   >
     <nav-bar />
 

@@ -1,27 +1,4 @@
 <template>
-  <!-- <div class="toggler-container">
-    <button
-      id="custom-toggler"
-      :class="{active: isToggleActive, inactive: !isToggleActive}"
-      :aria-label="`${isToggleActive ? 'Close Navigation' : 'Open Navigation'}`"
-      @click="handleToggle($event);"
-      @mouseover="hoverClass = true;"
-      @mouseleave="hoverClass = false;"
-    >
-      <div
-        id="toggler-top"
-        :class="{hover: hoverClass}"
-      />
-      <div
-        id="toggler-middle"
-        :class="{hover: hoverClass}"
-      />
-      <div
-        id="toggler-bottom"
-        :class="{hover: hoverClass}"
-      />
-    </button>
-  </div> -->
   <div class="fixed top-0 right-0 z-10 float-right p-4 h-16 sm:float-none sm:static">
     <button
       id="custom-toggler"
@@ -35,17 +12,17 @@
     >
       <div
         id="toggler-top"
-        class="bg-purple-600"
+        class="bg-black"
         :class="{hover: hoverClass}"
       />
       <div
         id="toggler-middle"
-        class="bg-purple-600"
+        class="bg-black"
         :class="{hover: hoverClass}"
       />
       <div
         id="toggler-bottom"
-        class="bg-purple-600"
+        class="bg-black"
         :class="{hover: hoverClass}"
       />
     </button>
@@ -69,6 +46,7 @@ export default {
     }
   },
   created() {
+    this.adjustBodyTopMargin();
     window.addEventListener("resize", this.adjustBodyTopMargin);
   },
   destroyed() {
@@ -171,7 +149,7 @@ export default {
   transform: translateY(-10px) rotate(-45deg);
 }
 .hover {
-  background-color: black !important;
+  background-color: #805ad5 !important; /* bg-purple-600 */
   transition: 0.2s ease;
 }
 </style>
