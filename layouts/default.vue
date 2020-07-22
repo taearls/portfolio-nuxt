@@ -1,5 +1,7 @@
 <template>
-  <div id="app">
+  <div 
+    class="bg-gray-100 text-black"
+    id="app">
     <nav-bar />
 
     <nuxt />
@@ -27,7 +29,9 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $red;
   margin-top: calc(#{$navHeight} + 30px);
+}
+body {
+  background-color: #f7fafc; // bg-gray-100
 }
 </style>

@@ -1,8 +1,10 @@
 <template>
   <footer>
-    <br>
     <social-media-icons />
-    <h6 v-html="footerText" />
+    <h6 
+      class="text-center"
+      v-html="footerText"
+    />
   </footer>
 </template>
 
