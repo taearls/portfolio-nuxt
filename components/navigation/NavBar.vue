@@ -19,7 +19,7 @@
           <nuxt-link
             :to="section.href"
             :tabindex="isNavActive ? 0 : -1"
-            class="px-4 text-lg hover:text-purple-700 hover:opacity-100 rounded-sm"
+            class="px-4 text-lg font-bold text-purple-600 hover:text-blue-400 hover:opacity-100 focus:outline-none focus:shadow-outline rounded-sm"
           >
             {{ section.name }}
           </nuxt-link>
@@ -80,28 +80,4 @@ export default {
 </script>
 
 <style>
-/* 
-#navbar-fallback {
-  position: fixed;
-  top: 0;
-  height: 75px;
-  width: 100%;
-  background: $softblack;
-  z-index: 10;
-  border-bottom: 1px dotted $softwhite;
-}
-a {
-  font-size: 20px;
-  padding: 0px 5px;
-}
-@media (max-width: $S) {
-  nav {
-    ul {
-      margin-right: 50px;
-      li {
-        padding: 0 2px !important;
-      }
-    }
-  }
-} */
 </style>

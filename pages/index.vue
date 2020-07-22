@@ -1,12 +1,15 @@
 <template>
-  <section class="prose">
-    <h1>
-      Hi there!
+  <section class="prose px-4 mx-auto">
+    <h1 class="text-left">
+      Hi there! 👋
+      <br>
       I'm Tyler Earls.
+      <br>
       I am a software engineer and musician.
     </h1>
     <p>
       I work at <a
+        class="text-purple-600 rounded-sm focus:outline-none focus:shadow-outline"
         href="https://www.ensighten.com"
         rel="noreferrer"
         target="_blank"
@@ -17,6 +20,7 @@
     </p>
     <p>
       Outside of tech, I write songs as Cuckoo and the Birds. You can listen to my music <a
+        class="text-purple-600 rounded-sm focus:outline-none focus:shadow-outline"
         href="https://cuckooandthebirds.bandcamp.com"
         rel="noreferrer"
         target="_blank"
@@ -31,16 +35,4 @@ export default {
 </script>
 
 <style>
-/* #home {
-	h1 {
-		margin: 0 auto;
-		max-width: 75vw;
-		text-align: left;
-	}
-	p {
-		padding: 0;
-		margin: 0 auto;
-		max-width: 75vw;
-	}
-} */
 </style>

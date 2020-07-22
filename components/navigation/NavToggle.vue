@@ -2,7 +2,7 @@
   <div class="fixed top-0 right-0 z-10 float-right p-4 h-16 sm:float-none sm:static">
     <button
       id="custom-toggler"
-      class="pt-1 px-1 rounded-sm"
+      class="pt-1 px-1 rounded-sm focus:outline-none focus:shadow-outline"
       style="margin-top: -0.2rem;"
       :class="{active: isToggleActive, inactive: !isToggleActive}"
       :aria-label="`${isToggleActive ? 'Close Navigation' : 'Open Navigation'}`"
@@ -12,17 +12,17 @@
     >
       <div
         id="toggler-top"
-        class="bg-black"
+        class="bg-purple-600"
         :class="{hover: hoverClass}"
       />
       <div
         id="toggler-middle"
-        class="bg-black"
+        class="bg-purple-600"
         :class="{hover: hoverClass}"
       />
       <div
         id="toggler-bottom"
-        class="bg-black"
+        class="bg-purple-600"
         :class="{hover: hoverClass}"
       />
     </button>
@@ -72,59 +72,6 @@ export default {
 </script>
 
 <style>
-/*
-
-#custom-toggler {
-    background: none;
-    border: none;
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    z-index: 99999;
-    padding: 5px;
-    border-radius: 3px;
-    transform: none;
-    opacity: 1;
-    cursor: pointer;
-    div {
-        width: 32px;
-        height: 2px;
-        margin-bottom: 8px;
-        background-color: $red;
-        transition: transform 500ms $easing, opacity 500ms;
-        will-change: transform, opacity;
-    }
-    #toggler-top {
-        margin-top: 4px;
-    }
-    #toggler-bottom {
-        margin-bottom: 4px;
-    }
-}
-.active {
-    #toggler-top {
-        transform: translateY(10px) rotate(-135deg);
-    }
-    #toggler-middle {
-        opacity: 0;
-        transform: rotate(135deg);
-    }
-    #toggler-bottom {
-        transform: translateY(-10px) rotate(-45deg);
-    }
-}
-.hover {
-    background-color: $lightblue !important;
-    transition: 0.2s ease;
-}
-@media (max-width: $S) {
-    #custom-toggler {
-        right: 12px;
-        div {
-            width: 30px;
-        }
-    }
-} */
 #custom-toggler > div {
   width: 32px;
   height: 2px;
@@ -149,7 +96,7 @@ export default {
   transform: translateY(-10px) rotate(-45deg);
 }
 .hover {
-  background-color: #805ad5 !important; /* bg-purple-600 */
+  background-color: #63b3ed !important; /* text-blue-400 */
   transition: 0.2s ease;
 }
 </style>

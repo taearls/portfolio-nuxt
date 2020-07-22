@@ -4,12 +4,12 @@
       v-for="(link, index) in socialLinks"
       :key="index"
       rel="noreferrer"
-      class="px-2 py-1"
+      class="px-2 py-1 rounded-sm focus:outline-none focus:shadow-outline"
       target="_blank"
       :href="link.href"
       :aria-label="`Go to Tyler's ${link.label}`"
     >
-      <span class="text-xs text-purple-600">
+      <span class="text-xs text-purple-600 rounded-sm hover:text-blue-400">
         <font-awesome-icon
           :icon="['fab', link.icon]"
           size="2x"
