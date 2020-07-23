@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <h1>Web Projects</h1>
-    <br>
+  <div class="prose mx-auto">
+    <h1 class="text-center">Web Projects</h1>
     <web-project
       v-for="(project, index) in projects"
       :key="index"
@@ -83,7 +82,4 @@ export default {
 </script>
 
 <style>
-h1 {
-  text-align: center;
-}
 </style>

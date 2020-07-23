@@ -2,7 +2,7 @@
   <div
     id="nav-container"
     class="fixed flex items-center justify-end w-screen top-0 font-default font-mono text-black transition-background-color transition-opacity duration-100 border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
-    :class="{'border border-gray-600 bg-gray-100': isNavActive, 'border-none': !isNavActive}"
+    :class="{'border border-gray-400 bg-gray-100': isNavActive, 'border-none': !isNavActive}"
   >
     <nav
       id="nav-bar"
@@ -13,7 +13,7 @@
         <li
           v-for="(section, index) in sections"
           :key="index"
-          class="mx-auto py-2 text-center w-1/3 border border-t-0 border-l-0 border-r-0 border-b-1 border-black sm:border-none sm:mx-0 sm:w-auto"
+          class="mx-auto py-2 text-center w-1/3 border border-t-0 border-l-0 border-r-0 border-b-1 border-gray-300 sm:border-none sm:mx-0 sm:w-auto"
           :class="index === sections.length - 1 ? 'border-none' : ''"
         >
           <nuxt-link

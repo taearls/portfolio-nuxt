@@ -14,7 +14,13 @@ module.exports = {
             "&:hover": {
               color: "#63b3ed" // text-blue-400
             }
-          }
+          },
+          h1: {
+            color: "#805ad5",
+          },
+          h2: {
+            color: "#805ad5",
+          },
         }
       }
     }

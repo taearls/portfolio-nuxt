@@ -1,10 +1,10 @@
 <template>
-  <section id="web-projects">
-    <h2 class="project-title">
+  <section class="px-4 mx-auto">
+    <h2 class="text-center">
       {{ project.name }}
     </h2>
 
-    <div class="project-container">
+    <div class="sm:flex ">
       <div class="project-image-container">
         <div class="project-link-container">
           <a
@@ -46,7 +46,6 @@
 
     <template v-if="index !== projectCount">
       <hr class="line-break clear">
-      <br>
     </template>
     <template v-else>
       <div class="clear" />
