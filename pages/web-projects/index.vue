@@ -1,6 +1,8 @@
 <template>
   <div class="prose mx-auto">
-    <h1 class="text-center">Web Projects</h1>
+    <h1 class="text-center">
+      Web Projects
+    </h1>
     <web-project
       v-for="(project, index) in projects"
       :key="index"
