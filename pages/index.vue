@@ -1,5 +1,5 @@
 <template>
-  <section class="prose px-4 mx-auto">
+  <section class="prose px-4 mx-auto max-w-none w-4/5">
     <h1 class="text-left">
       Hi there! 👋
       <br>
@@ -26,6 +26,7 @@
         target="_blank"
       >here.</a>
     </p>
+    <br>
   </section>
 </template>
 

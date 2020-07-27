@@ -1,11 +1,14 @@
 <template>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-none w-4/5">
     <h1 class="text-center">
       Web Projects
     </h1>
+    <p class="prose-lg">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consequatur, minus dolore provident ipsa magni quibusdam, quasi vel, commodi beatae repudiandae voluptate error dicta quam ratione asperiores! Fugiat, reprehenderit eveniet?
+    </p>
     <web-project
       v-for="(project, index) in projects"
-      :key="index"
+      :key="'web-project-' + index"
       :project="project"
       :index="index"
       :project-count="projects.length - 1"

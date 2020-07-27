@@ -1,14 +1,12 @@
 <template>
-  <section class="px-4 mx-auto">
+  <section class="mx-auto">
     <h2 class="text-center">
       {{ project.name }}
     </h2>
-
-    <div class="sm:flex ">
-      <div class="project-image-container">
-        <div class="project-link-container">
+    <div class="clearfix">
+      <div class="mx-auto text-center w-4/5 mb-4 md:w-1/2 md:float-left md:clearfix md:mr-4">
+        <div>
           <a
-            class="project-link"
             :rel="project.analytics ? 'external' : 'noreferrer'"
             target="_blank"
             :href="project.analytics ? getAnalyticsLink(project.href, project.analytics) : project.href"
@@ -18,7 +16,6 @@
               <cld-image
                 :alt="project.alt"
                 :public-id="`${project.cloudinaryID}`"
-                class="project-image"
               >
                 <cld-transformation
                   width="400"
@@ -28,7 +25,7 @@
           </a>
         </div>
         <a
-          class="project-tagline-link"
+          class="block my-2"
           target="_blank"
           rel="noreferrer"
           :href="project.href"
@@ -37,18 +34,16 @@
       </div>
       <div>
         <p
-          class="project-description"
+          class="px-2 prose-lg"
           v-html="project.description"
         />
       </div>
     </div>
-    <br>
-
     <template v-if="index !== projectCount">
-      <hr class="line-break clear">
+      <hr class="line-break">
     </template>
     <template v-else>
-      <div class="clear" />
+      <br>
     </template>
   </section>
 </template>
@@ -101,6 +96,14 @@ export default {
 </script>
 
 <style>
+.line-break {
+  margin-top: 15px;
+  border: 0;
+  height: 1px;
+  margin-left: 11vw;
+  margin-right: 11vw;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(203, 213, 224), rgba(0, 0, 0, 0));
+}
 /*
 #web-projects {
   h1 {
@@ -155,14 +158,7 @@ export default {
   .project-description {
     margin-bottom: 10px;
   }
-  .line-break {
-    margin-top: 15px;
-    border: 0;
-    height: 1px;
-    margin-left: 11vw;
-    margin-right: 11vw;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), $red, rgba(0, 0, 0, 0));
-  }
+  
 }
 
 @media (max-width: $XL) {
