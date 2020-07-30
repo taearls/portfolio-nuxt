@@ -12,18 +12,18 @@
     >
       <div
         id="toggler-top"
-        class="bg-purple-600"
-        :class="{hover: hoverClass}"
+        class="bg-purple-600 dark:bg-purple-500"
+        :class="hoverClass ? 'hover' : 'bg-purple-600'"
       />
       <div
         id="toggler-middle"
-        class="bg-purple-600"
-        :class="{hover: hoverClass}"
+        class="bg-purple-600 dark:bg-purple-500"
+        :class="hoverClass ? 'hover' : 'bg-purple-600'"
       />
       <div
         id="toggler-bottom"
-        class="bg-purple-600"
-        :class="{hover: hoverClass}"
+        class="bg-purple-600 dark:bg-purple-500"
+        :class="hoverClass ? 'hover' : 'bg-purple-600'"
       />
     </button>
   </div>
@@ -41,15 +41,15 @@ export default {
     bodyTopMargin() {
       const navContainer = document.getElementById("nav-container");
       const navHeight = navContainer.offsetHeight;
-      let margin = navHeight + 4 + "px";
+      let margin = navHeight + "px";
       return margin;
     }
   },
-  created() {
+  beforeMount() {
     this.adjustBodyTopMargin();
     window.addEventListener("resize", this.adjustBodyTopMargin);
   },
-  destroyed() {
+  beforeDestroy() {
     window.removeEventListener("resize", this.adjustBodyTopMargin);
   },
   methods: {
@@ -61,9 +61,9 @@ export default {
     adjustBodyTopMargin() {
       this.$nextTick(() => {
           if (this.isToggleActive && window.innerWidth < 640) {
-          document.body.style.marginTop = this.bodyTopMargin;
+          window.document.body.style.marginTop = this.bodyTopMargin;
         } else {
-          document.body.style.marginTop = "4.25rem"; // horizontal navHeight is 4rem (64px)
+          window.document.body.style.marginTop = "4rem"; // horizontal navHeight is 4rem (64px)
         }
       });
     },
@@ -96,7 +96,11 @@ export default {
   transform: translateY(-10px) rotate(-45deg);
 }
 .hover {
-  background-color: #63b3ed !important; /* text-blue-400 */
+  @apply bg-blue-400;
+  /* background-color: #63b3ed !important; text-blue-400 */
   transition: 0.2s ease;
+}
+html.dark-mode .hover {
+  @apply bg-blue-300;
 }
 </style>

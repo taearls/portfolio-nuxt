@@ -7,7 +7,7 @@
       <br>
       I am a software engineer and musician.
     </h1>
-    <p>
+    <p class="dark:text-white">
       I work at <a
         class="text-purple-600 rounded-sm focus:outline-none focus:shadow-outline"
         href="https://www.ensighten.com"
@@ -15,10 +15,10 @@
         target="_blank"
       >Ensighten</a>, where I help provide client-side security and privacy law compliance for Fortune 500 companies. I enjoy the continuously evolving challenge of making the web safe for online users and their personal data.
     </p>
-    <p>
+    <p class="dark:text-white">
       Occasionally, I do freelance frontend work on the side. I love to build UI components that people interact with on the web.
     </p>
-    <p>
+    <p class="dark:text-white">
       Outside of tech, I write songs as Cuckoo and the Birds. You can listen to my music <a
         class="text-purple-600 rounded-sm focus:outline-none focus:shadow-outline"
         href="https://cuckooandthebirds.bandcamp.com"

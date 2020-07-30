@@ -9,7 +9,7 @@
           <a
             :rel="project.analytics ? 'external' : 'noreferrer'"
             target="_blank"
-            :href="project.analytics ? getAnalyticsLink(project.href, project.analytics) : project.href"
+            :href="project.analytics !== null ? getAnalyticsLink(project.href, project.analytics) : project.href"
             :style="{cursor: project.cursorStyle}"
           >
             <client-only>

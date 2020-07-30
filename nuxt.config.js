@@ -23,9 +23,10 @@ export default {
         id: "UA-132274464-1"
       }
     ],
-    "@nuxtjs/tailwindcss"
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode"
   ],
-  mode: "spa",
+  mode: "universal",
   babel: {
     presets({ isServer }) {
       return [
@@ -46,6 +47,9 @@ export default {
     preset: {
       stage: 2
     }
+  },
+  purgeCSS: {
+    whitelist: ["dark-mode"],
   },
   tailwindcss: {
     exposeConfig: true

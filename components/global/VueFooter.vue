@@ -1,7 +1,7 @@
 <template>
   <footer>
     <social-media-icons />
-    <h6 
+    <p
       class="text-center text-xs tracking-wide font-light"
       v-html="footerText"
     />
@@ -21,7 +21,6 @@ export default {
       return `&copy; 1993-${year} &bull; Tyler Earls`;
     },
   },
-
 };
 </script>
 

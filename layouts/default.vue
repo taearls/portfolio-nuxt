@@ -1,7 +1,7 @@
 <template>
   <div 
     id="app"
-    class="bg-gray-100 text-black sm:mt-16"
+    class="text-black dark:text-white colors-black-soft sm:mt-16"
   >
     <nav-bar />
 
@@ -21,17 +21,53 @@ export default {
     NavBar,
     VueFooter,
   },
+  beforeMount() {
+    const prefersDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    if (prefersDarkMode) {
+      window.document.documentElement.classList.add("dark-mode");
+    } else {
+      window.document.documentElement.classList.remove("dark-mode");
+    }
+  },
 };
 </script>
 
 <style>
-/* #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-top: calc(#{$navHeight} + 30px);
-} */
-body {
-  background-color: #f7fafc; /* bg-gray-100 */
+html {
+  @apply bg-gray-100 transition-colors;
+}
+html.dark-mode {
+  @apply bg-soft-black transition-colors;
+}
+html.dark-mode body {
+  @apply bg-soft-black transition-colors;
+}
+html.dark-mode h1 {
+  @apply text-purple-500;
+}
+html.dark-mode h2 {
+  @apply text-purple-500;
+}
+html.dark-mode a {
+  @apply text-purple-500;
+}
+html.dark-mode span {
+  @apply text-purple-500;
+}
+html.dark-mode a:hover {
+  @apply text-blue-300;
+}
+html a:focus {
+  box-shadow: 0 0 0 3px #63b3ed; /* text-blue-400 */
+}
+html button:focus {
+  box-shadow: 0 0 0 3px #63b3ed; /* text-blue-400 */
+}
+html.dark-mode a:focus {
+  box-shadow: 0 0 0 3px #90cdf4; /* text-blue-300 */
+}
+html.dark-mode button:focus {
+  box-shadow: 0 0 0 3px #90cdf4; /* text-blue-300 */
 }
 </style>

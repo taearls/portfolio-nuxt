@@ -1,8 +1,8 @@
 <template>
   <div
     id="nav-container"
-    class="fixed flex items-center justify-end w-screen top-0 font-default font-mono text-black transition-background-color transition-opacity duration-100 border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
-    :class="{'border border-gray-400 bg-gray-100': isNavActive, 'border-none': !isNavActive}"
+    class="fixed flex items-center justify-end w-screen top-0 font-default font-mono dark:text-white text-black transition-background-color transition-opacity duration-100 border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
+    :class="{'border border-gray-400 bg-gray-100 dark:bg-soft-black dark:border-gray-600': isNavActive, 'border-none bg-transparent': !isNavActive}"
   >
     <nav
       id="nav-bar"

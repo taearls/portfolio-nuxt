@@ -1,5 +1,5 @@
 <template>
-  <div class="prose mx-auto max-w-none w-4/5">
+  <div class="prose mx-auto max-w-none w-4/5 dark:text-white">
     <h1 class="text-center">
       Web Projects
     </h1>
@@ -51,6 +51,7 @@ const projects = [{
   cloudinaryID: "screenshots/v2/roadranger-desktop.png",
   alt: "Image of Road Ranger Banner",
   href: "https://www.roadrangerusa.com",
+  analytics: null,
   tagline: "<span class='italic'>Check it out!</span> ⛽",
   customCursor: false,
   cursorStyle: "pointer",
@@ -60,6 +61,7 @@ const projects = [{
   cloudinaryID: "screenshots/v2/space-clones-game.png",
   alt: "Image of Space Clones Title Screen",
   href: "https://space-clones.netlify.com",
+  analytics: null,
   tagline: "<span class='italic'>See if you can beat my high score!</span> 😉",
   customCursor: true,
   cursorStyle: "url(images/space-clones-cursor.png), pointer",

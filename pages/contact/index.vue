@@ -1,9 +1,8 @@
 <template>
-  <section class="prose mx-auto">
+  <section class="prose mx-auto dark:text-white">
     <h1 class="text-center">
       Contact Tyler Earls
     </h1>
-    <br>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic inventore dolorem atque cumque, beatae iusto dolores, harum quae provident tempore animi quas iure maiores eligendi sunt enim recusandae ex voluptas.</p>
     <form
       id="contact"
@@ -67,7 +66,7 @@
           <a
             target="_blank"
             :href="generateMailToURL()"
-            :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}"
+            :class="{disabled: saveDisabled, hover: !saveDisabled && hoveringMessage}"
             @mouseover="hoveringMessage = !saveDisabled"
             @mouseleave="hoveringMessage = false;"
           >Send Message</a>
