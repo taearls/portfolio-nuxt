@@ -6,30 +6,61 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic inventore dolorem atque cumque, beatae iusto dolores, harum quae provident tempore animi quas iure maiores eligendi sunt enim recusandae ex voluptas.</p>
     <form
       id="contact"
-      class="vue-form"
+      class="w-full max-w-sm"
       method="get"
       enctype="text/plain"
     >
       <fieldset>
-        <div>
-          <label
-            class="label"
-            for="contactSubject"
-          >Subject: </label>
-          <input
-            id="contactSubject"
-            v-model="subject.text"
-            type="text"
-            name="subject"
-            required
-            :maxlength="subject.maxlength"
-            :placeholder="subject.placeholder"
-          >
-          <span class="counter">{{ subject.text.length }} / {{ subject.maxlength }}</span>
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label
+              class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              for="inline-full-name"
+            >
+              Full Name
+            </label>
+          </div>
+        </div>
+
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label
+              class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              for="contactSubject"
+            >Subject: </label>
+            <input
+              id="contactSubject"
+              v-model="subject.text"
+              type="text"
+              name="subject"
+              required
+              :maxlength="subject.maxlength"
+              :placeholder="subject.placeholder"
+            >
+          </div>
+        </div>
+        
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label
+              class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              for="contactSubject"
+            >Subject: </label>
+            <input
+              id="contactSubject"
+              v-model="subject.text"
+              type="text"
+              name="subject"
+              required
+              :maxlength="subject.maxlength"
+              :placeholder="subject.placeholder"
+            >
+            <span class="counter">{{ subject.text.length }} / {{ subject.maxlength }}</span>
+          </div>
         </div>
         <div>
           <label
-            class="label"
+            class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
             for="contactMessage"
           >Message: </label>
           <textarea
@@ -56,7 +87,7 @@
           @expired="resetRecaptcha"
         />
 
-        <div style="margin: 0;">
+        <div>
           <error-message
             id="recaptcha-error"
             success-message="Thank you. I look forward to working with you!"
@@ -73,12 +104,53 @@
         </div>
       </fieldset>
     </form>
+    
+    
+    <!-- <form class="w-full max-w-sm">
+  <div class="md:flex md:items-center mb-6">
+    <div class="md:w-1/3">
+      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+        Full Name
+      </label>
+    </div>
+    <div class="md:w-2/3">
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" value="Jane Doe">
+    </div>
+  </div>
+  <div class="md:flex md:items-center mb-6">
+    <div class="md:w-1/3">
+      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+        Password
+      </label>
+    </div>
+    <div class="md:w-2/3">
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-password" type="password" placeholder="******************">
+    </div>
+  </div>
+  <div class="md:flex md:items-center mb-6">
+    <div class="md:w-1/3"></div>
+    <label class="md:w-2/3 block text-gray-500 font-bold">
+      <input class="mr-2 leading-tight" type="checkbox">
+      <span class="text-sm">
+        Send me your newsletter!
+      </span>
+    </label>
+  </div>
+  <div class="md:flex md:items-center">
+    <div class="md:w-1/3"></div>
+    <div class="md:w-2/3">
+      <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+        Sign Up
+      </button>
+    </div>
+  </div>
+</form> -->
   </section>
 </template>
 
 <script>
 import VueRecaptcha from "vue-recaptcha";
-import ErrorMessage from "../../components/renderless/ErrorMessage.vue";
+import ErrorMessage from "@/components/util/ErrorMessage.vue";
 
 // constants i don't want watched in data object
 const compactRecaptchaBreakPoint = 560;
@@ -96,7 +168,7 @@ export default {
       errorLines: 0,
       message: {
         placeholder:
-                    "Hey Tyler,\n\nMy name is _______.\nLet's build something awesome together.",
+          "Hey Tyler,\n\nMy name is _______.\nLet's build something awesome together.",
         text: "",
         maxlength: 500,
         error: false,

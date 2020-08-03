@@ -1,5 +1,6 @@
 <template>
   <section class="prose px-4 mx-auto max-w-none w-4/5">
+    <DarkModeToggle />
     <h1 class="text-left">
       Hi there! 👋
       <br>
@@ -31,7 +32,11 @@
 </template>
 
 <script>
+import DarkModeToggle from "../components/util/DarkModeToggle";
 export default {
+  components: {
+    DarkModeToggle,
+  },
 };
 </script>
 
