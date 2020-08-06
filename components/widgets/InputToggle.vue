@@ -1,7 +1,7 @@
 <template>
   <div
-      class="relative inline-block w-10 h-auto mr-2 align-middle select-none transition duration-800 ease-in"
-    >
+    class="relative inline-block w-10 h-auto mr-2 align-middle select-none transition duration-800 ease-in"
+  >
     <input
       id="darkModeToggle"
       type="checkbox"

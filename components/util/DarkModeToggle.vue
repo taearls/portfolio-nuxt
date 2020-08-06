@@ -4,16 +4,24 @@
     <no-ssr>
       <transition name="fade">
         <!-- <template> -->
-          <button v-show="prefersDarkMode" class="relative left-0 focus:outline-none focus:shadow-outline" @click="prefersDarkMode = !prefersDarkMode">
-            <SunIcon @click="prefersDarkMode = !prefersDarkMode"/>
-          </button>
+        <button
+          v-show="prefersDarkMode"
+          class="relative left-0 focus:outline-none focus:shadow-outline"
+          @click="prefersDarkMode = !prefersDarkMode"
+        >
+          <SunIcon @click="prefersDarkMode = !prefersDarkMode" />
+        </button>
         <!-- </template> -->
       </transition>
       <transition name="fade">
         <!-- <template > -->
-          <button v-show="!prefersDarkMode" class="relative left-0 focus:outline-none focus:shadow-outline" @click="prefersDarkMode = !prefersDarkMode">
-            <MoonIcon />
-          </button>
+        <button
+          v-show="!prefersDarkMode"
+          class="relative left-0 focus:outline-none focus:shadow-outline"
+          @click="prefersDarkMode = !prefersDarkMode"
+        >
+          <MoonIcon />
+        </button>
         <!-- </template> -->
       </transition>
     </no-ssr>
