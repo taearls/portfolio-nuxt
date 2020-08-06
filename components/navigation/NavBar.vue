@@ -4,6 +4,7 @@
     class="fixed flex items-center justify-end w-screen top-0 font-default font-mono dark:text-white text-black transition-background-color transition-opacity duration-100 border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
     :class="{'border border-gray-400 bg-gray-100 dark:bg-soft-black dark:border-gray-600': isNavActive, 'border-none bg-transparent': !isNavActive}"
   >
+    <DarkModeToggle />
     <nav
       id="nav-bar"
       class="opacity-0 transition-opacity duration-100 w-screen"
@@ -33,7 +34,8 @@
 </template>
 
 <script>
-import NavToggle from "./NavToggle.vue";
+import DarkModeToggle from "../util/DarkModeToggle";
+import NavToggle from "./NavToggle";
 
 const sections = [
   {
@@ -53,6 +55,7 @@ const sections = [
 export default {
   components: {
     NavToggle,
+    DarkModeToggle,
   },
   data() {
     return {

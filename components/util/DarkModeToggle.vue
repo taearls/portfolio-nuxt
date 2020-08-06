@@ -1,34 +1,20 @@
 <template>
-  <div class="flex items-center h-8">
-    <!-- toggle component -->
-    <div
-      class="relative inline-block w-10 h-auto mr-2 align-middle select-none transition duration-800 ease-in"
-    >
-      <input
-        id="darkModeToggle"
-        type="checkbox"
-        :checked="prefersDarkMode"
-        name="darkModeToggle"
-        class="toggle-checkbox focus:outline-none dark:border-purple-400"
-        @click="prefersDarkMode = !prefersDarkMode"
-      >
-      <label
-        for="darkModeToggle"
-        class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-400 cursor-pointer"
-      />
-    </div>
-
+  <div class="absolute z-10 left-0 items-center h-8 pl-4 hover:opacity-75">    
     <!-- sun / moon svg icons -->
     <no-ssr>
       <transition name="fade">
-        <template v-if="prefersDarkMode">
-          <SunIcon />
-        </template>
+        <!-- <template> -->
+          <button v-show="prefersDarkMode" class="relative left-0 focus:outline-none focus:shadow-outline" @click="prefersDarkMode = !prefersDarkMode">
+            <SunIcon @click="prefersDarkMode = !prefersDarkMode"/>
+          </button>
+        <!-- </template> -->
       </transition>
       <transition name="fade">
-        <template v-if="!prefersDarkMode">
-          <MoonIcon />
-        </template>
+        <!-- <template > -->
+          <button v-show="!prefersDarkMode" class="relative left-0 focus:outline-none focus:shadow-outline" @click="prefersDarkMode = !prefersDarkMode">
+            <MoonIcon />
+          </button>
+        <!-- </template> -->
       </transition>
     </no-ssr>
   </div>
@@ -82,7 +68,12 @@ export default {
 }
 
 .fade-enter-active {
-  transition: opacity 0.4s ease-out;
+  display: block;
+  transition: opacity 0.2s ease-in;
+}
+.fade-leave-active {
+  display: none;
+  transition: display 0s 0.4s, opacity 0.2s ease-out;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
