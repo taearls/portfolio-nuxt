@@ -9,8 +9,8 @@
         type="checkbox"
         :checked="prefersDarkMode"
         name="darkModeToggle"
-        class="toggle-checkbox absolute inline-block align-middle w-5 h-5 border-2 border-gray-400 dark:border-purple-400 rounded-full bg-white appearance-none cursor-pointer focus:outline-none"
-        @click="toggleDarkMode()"
+        class="toggle-checkbox focus:outline-none dark:border-purple-400"
+        @click="prefersDarkMode = !prefersDarkMode"
       >
       <label
         for="darkModeToggle"
@@ -19,12 +19,18 @@
     </div>
 
     <!-- sun / moon svg icons -->
-    <template v-if="prefersDarkMode">
-      <SunIcon width="32" />
-    </template>
-    <template v-else>
-      <MoonIcon />
-    </template>
+    <no-ssr>
+      <transition name="fade">
+        <template v-if="prefersDarkMode">
+          <SunIcon />
+        </template>
+      </transition>
+      <transition name="fade">
+        <template v-if="!prefersDarkMode">
+          <MoonIcon />
+        </template>
+      </transition>
+    </no-ssr>
   </div>
 </template>
 
@@ -46,7 +52,6 @@ export default {
   },
   watch: {
     prefersDarkMode: function(newValue) {
-      console.log("prefersDarkMode watcher fired");
       if (newValue) {
         window.document.documentElement.classList.add("dark-mode");
       } else {
@@ -58,11 +63,6 @@ export default {
     this.prefersDarkMode =
       window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   },
-  methods: {
-    toggleDarkMode() {
-      this.prefersDarkMode = !this.prefersDarkMode;
-    }
-  }
 };
 </script>
 
@@ -71,11 +71,20 @@ export default {
 /* @apply rules for documentation, these do not work as inline style */
 .toggle-checkbox:checked {
   @apply right-0;
-  /* right: 0;
-  border-color: #68D391; */
+}
+.toggle-checkbox {
+  @apply absolute inline-block align-middle w-5 h-5 border-2 border-gray-400 rounded-full bg-white appearance-none cursor-pointer;
+  right: 1.25rem;
+  transition: right 0.4s ease;
 }
 .toggle-checkbox:checked + .toggle-label {
   @apply bg-purple-400;
-  /* background-color: #68D391; */
+}
+
+.fade-enter-active {
+  transition: opacity 0.4s ease-out;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
