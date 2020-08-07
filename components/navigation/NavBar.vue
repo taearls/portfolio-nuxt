@@ -20,7 +20,7 @@
           <nuxt-link
             :to="section.href"
             :tabindex="isNavActive ? 0 : -1"
-            class="px-4 text-lg font-bold text-purple-600 hover:text-blue-400 hover:opacity-100 focus:outline-none focus:shadow-outline rounded-sm"
+            class="px-4 text-lg font-bold text-purple-600 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline rounded-sm"
           >
             {{ section.name }}
           </nuxt-link>

@@ -1,6 +1,6 @@
 <template>
   <section class="prose px-4 mx-auto max-w-none w-4/5">
-    <h1 class="text-left">
+    <h1 class="text-left text-purple-700">
       Hi there! 👋
       <br>
       I'm Tyler Earls.
@@ -9,7 +9,7 @@
     </h1>
     <p class="dark:text-white">
       I work at <a
-        class="text-purple-600 rounded-sm focus:outline-none focus:shadow-outline"
+        class="rounded-sm focus:outline-none focus:shadow-outline"
         href="https://www.ensighten.com"
         rel="noreferrer"
         target="_blank"
@@ -20,7 +20,7 @@
     </p>
     <p class="dark:text-white">
       Outside of tech, I write songs as Cuckoo and the Birds. You can listen to my music <a
-        class="text-purple-600 rounded-sm focus:outline-none focus:shadow-outline"
+        class="rounded-sm focus:outline-none focus:shadow-outline"
         href="https://cuckooandthebirds.bandcamp.com"
         rel="noreferrer"
         target="_blank"

@@ -42,7 +42,8 @@ const projects = [{
     medium: "web",
     campaign: "portfolio"
   },
-  tagline: "<span class='italic'>Give our music a listen</span> 🎵",
+  tagline: "Give our music a listen",
+  emoji: "🎵",
   customCursor: false,
   cursorStyle: "pointer"
 }, {
@@ -52,7 +53,8 @@ const projects = [{
   alt: "Image of Road Ranger Banner",
   href: "https://www.roadrangerusa.com",
   analytics: null,
-  tagline: "<span class='italic'>Check it out!</span> ⛽",
+  tagline: "Check it out!",
+  emoji: "⛽",
   customCursor: false,
   cursorStyle: "pointer",
 }, {
@@ -62,7 +64,8 @@ const projects = [{
   alt: "Image of Space Clones Title Screen",
   href: "https://space-clones.netlify.com",
   analytics: null,
-  tagline: "<span class='italic'>See if you can beat my high score!</span> 😉",
+  tagline: "See if you can beat my high score!",
+  emoji: "😉",
   customCursor: true,
   cursorStyle: "url(images/space-clones-cursor.png), pointer",
 // }, {

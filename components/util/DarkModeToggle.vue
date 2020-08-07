@@ -1,30 +1,28 @@
 <template>
-  <div class="absolute z-10 left-0 items-center h-8 pl-4 hover:opacity-75">    
+  <div class="fixed top-0 float-left p-4 h-16 z-10 left-0 items-center hover:opacity-75 sm:float-none sm:static">
     <!-- sun / moon svg icons -->
-    <no-ssr>
+    <client-only>
       <transition name="fade">
-        <!-- <template> -->
         <button
           v-show="prefersDarkMode"
-          class="relative left-0 focus:outline-none focus:shadow-outline"
+          ref="sunToggle"
+          class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline"
           @click="prefersDarkMode = !prefersDarkMode"
         >
-          <SunIcon @click="prefersDarkMode = !prefersDarkMode" />
+          <SunIcon />
         </button>
-        <!-- </template> -->
       </transition>
       <transition name="fade">
-        <!-- <template > -->
         <button
           v-show="!prefersDarkMode"
-          class="relative left-0 focus:outline-none focus:shadow-outline"
+          ref="moonToggle"
+          class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline"
           @click="prefersDarkMode = !prefersDarkMode"
         >
           <MoonIcon />
         </button>
-        <!-- </template> -->
       </transition>
-    </no-ssr>
+    </client-only>
   </div>
 </template>
 
@@ -45,18 +43,26 @@ export default {
     };
   },
   watch: {
-    prefersDarkMode: function(newValue) {
-      if (newValue) {
+    prefersDarkMode: function(isDarkMode) {
+      if (isDarkMode) {
         window.document.documentElement.classList.add("dark-mode");
       } else {
         window.document.documentElement.classList.remove("dark-mode");
       }
+
+      this.$nextTick(() => {
+        if (isDarkMode) {
+          this.$refs.sunToggle.focus();
+        } else {
+          this.$refs.moonToggle.focus();
+        }
+      });
     }
   },
   beforeMount() {
     this.prefersDarkMode =
       window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  },
+  }
 };
 </script>
 
@@ -83,7 +89,8 @@ export default {
   display: none;
   transition: display 0s 0.4s, opacity 0.2s ease-out;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

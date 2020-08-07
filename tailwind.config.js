@@ -15,24 +15,14 @@ module.exports = {
     },
     typography: {
       default: {
+        // TODO: remove this config
         css: {
           color: "#000",
-          a: {
-            color: "#805ad5", // text-purple-600
-            "&:hover": {
-              color: "#63b3ed" // text-blue-400
-            }
-          },
-          span: {
-            "&:hover": {
-              color: "#63b3ed" // text-blue-400
-            }
-          },
           h1: {
-            color: "#805ad5",
+            color: "#6b46c1",
           },
           h2: {
-            color: "#805ad5",
+            color: "#6b46c1",
           },
           p: {
             fontSize: "1.125rem", // prose-lg
@@ -41,6 +31,9 @@ module.exports = {
             marginTop: 0,
             marginBottom: 0,
           },
+          // a: {
+          //   textDecoration: "underline #81e6d9",
+          // },
         }
       }
     }

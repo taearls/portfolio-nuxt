@@ -1,6 +1,6 @@
 <template>
   <section class="mx-auto">
-    <h2 class="text-center">
+    <h2 class="text-center text-purple-700">
       {{ project.name }}
     </h2>
     <div class="clearfix">
@@ -25,12 +25,13 @@
           </a>
         </div>
         <a
-          class="block my-2"
+          class="block my-2 dark-hover:text-blue-300"
           target="_blank"
           rel="noreferrer"
           :href="project.href"
-          v-html="project.tagline"
-        />
+        >
+          <span class="italic">{{ project.tagline }}</span> {{ project.emoji }}
+        </a>
       </div>
       <div>
         <p
