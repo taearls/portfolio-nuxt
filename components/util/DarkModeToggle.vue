@@ -7,7 +7,7 @@
           v-show="prefersDarkMode"
           ref="sunToggle"
           class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline"
-          @click="prefersDarkMode = !prefersDarkMode"
+          @click="toggleDarkMode()"
         >
           <SunIcon />
         </button>
@@ -17,7 +17,7 @@
           v-show="!prefersDarkMode"
           ref="moonToggle"
           class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline"
-          @click="prefersDarkMode = !prefersDarkMode"
+          @click="toggleDarkMode()"
         >
           <MoonIcon />
         </button>
@@ -49,20 +49,25 @@ export default {
       } else {
         window.document.documentElement.classList.remove("dark-mode");
       }
-
-      this.$nextTick(() => {
-        if (isDarkMode) {
-          this.$refs.sunToggle.focus();
-        } else {
-          this.$refs.moonToggle.focus();
-        }
-      });
     }
   },
   beforeMount() {
     this.prefersDarkMode =
       window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
+  },
+  methods: {
+    toggleDarkMode() {
+      // change data value, then focus on the newly visible svg icon
+      this.prefersDarkMode = !this.prefersDarkMode;
+      this.$nextTick(() => {
+        if (this.prefersDarkMode) {
+          this.$refs.sunToggle.focus();
+        } else {
+          this.$refs.moonToggle.focus();
+        }
+      });
+    },
+  },
 };
 </script>
 

@@ -26,7 +26,7 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode"
   ],
-  mode: "universal",
+  mode: "spa",
   babel: {
     presets({ isServer }) {
       return [

@@ -35,7 +35,7 @@
       </div>
       <div>
         <p
-          class="px-2 prose-lg"
+          class="px-2 text-lg leading-7"
           v-html="project.description"
         />
       </div>

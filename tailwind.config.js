@@ -24,13 +24,13 @@ module.exports = {
           h2: {
             color: "#6b46c1",
           },
-          p: {
-            fontSize: "1.125rem", // prose-lg
-          },
-          img: {
-            marginTop: 0,
-            marginBottom: 0,
-          },
+          // p: {
+          //   fontSize: "1.125rem", // prose-lg
+          // },
+          // img: {
+          //   marginTop: 0,
+          //   marginBottom: 0,
+          // },
           // a: {
           //   textDecoration: "underline #81e6d9",
           // },
