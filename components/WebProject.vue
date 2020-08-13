@@ -25,12 +25,12 @@
           </a>
         </div>
         <a
-          class="block my-2 dark-hover:text-blue-300"
+          class="block my-2 text-purple-700 dark:text-purple-500"
           target="_blank"
           rel="noreferrer"
           :href="project.href"
         >
-          <span class="italic">{{ project.tagline }}</span> {{ project.emoji }}
+          <span class="italic text-purple-700 dark:text-purple-500">{{ project.tagline }}</span> {{ project.emoji }}
         </a>
       </div>
       <div>

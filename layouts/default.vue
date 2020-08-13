@@ -21,15 +21,6 @@ export default {
     NavBar,
     VueFooter,
   },
-  beforeMount() {
-    const prefersDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
-    if (prefersDarkMode) {
-      window.document.documentElement.classList.add("dark-mode");
-    } else {
-      window.document.documentElement.classList.remove("dark-mode");
-    }
-  },
 };
 </script>
 
@@ -38,14 +29,14 @@ export default {
 html {
   @apply bg-white transition-colors text-soft-black;
 }
-html a:hover {
+html a:hover, html a:hover span {
   @apply text-blue-500;
 }
 html a:focus {
-  box-shadow: 0 0 0 3px #63b3ed; /* text-blue-400 */
+  box-shadow: 0 0 0 3px #4299e1; /* text-blue-500 */
 }
 html button:focus {
-  box-shadow: 0 0 0 3px #63b3ed; /* text-blue-400 */
+  box-shadow: 0 0 0 3px #4299e1; /* text-blue-500 */
 }
 
 /* dark-mode */

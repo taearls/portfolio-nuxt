@@ -10,7 +10,7 @@
     </h1>
     <p class="text-soft-black dark:text-white my-4 text-lg leading-normal">
       I work at <a
-        class="rounded-sm focus:outline-none focus:shadow-outline"
+        class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold focus:outline-none focus:shadow-outline"
         href="https://www.ensighten.com"
         rel="noreferrer"
         target="_blank"
@@ -21,7 +21,7 @@
     </p>
     <p class="text-soft-black dark:text-white my-4 text-lg leading-normal">
       Outside of tech, I write songs as Cuckoo and the Birds. You can listen to my music <a
-        class="rounded-sm focus:outline-none focus:shadow-outline"
+        class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline"
         href="https://cuckooandthebirds.bandcamp.com"
         rel="noreferrer"
         target="_blank"

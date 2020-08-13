@@ -2,7 +2,7 @@
   <div
     id="nav-container"
     class="fixed flex items-center justify-end w-screen top-0 font-default font-mono dark:text-white text-black transition-background-color transition-opacity duration-100 border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
-    :class="{'border border-gray-400 bg-gray-100 dark:bg-soft-black dark:border-gray-600': isNavActive, 'border-none bg-transparent': !isNavActive}"
+    :class="{'border border-gray-500 bg-white dark:bg-soft-black dark:border-gray-300': isNavActive, 'border-none bg-transparent': !isNavActive}"
   >
     <DarkModeToggle />
     <nav
@@ -12,18 +12,34 @@
     >
       <ul class="flex flex-col h-auto justify-center sm:flex-row sm:justify-end">
         <li
-          v-for="(section, index) in sections"
-          :key="index"
-          class="mx-auto py-2 text-center w-1/3 border border-t-0 border-l-0 border-r-0 border-b-1 border-gray-300 sm:border-none sm:mx-0 sm:w-auto"
-          :class="index === sections.length - 1 ? 'border-none' : ''"
+          v-for="(internalLink, index) in internalLinks"
+          :key="'internalLink' + index"
+          class="mx-auto py-2 text-center w-1/3 border border-gray-400 dark:border-gray-500 border-t-0 border-l-0 border-r-0 border-b-1 sm:border-none sm:mx-0 sm:w-auto"
+          :class="externalLinks.length === 0 && index === internalLinks.length - 1 ? 'border-none' : ''"
         >
           <nuxt-link
-            :to="section.href"
+            :to="internalLink.href"
             :tabindex="isNavActive ? 0 : -1"
-            class="px-4 text-lg font-bold text-purple-600 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline rounded-sm"
+            class="px-4 text-lg font-extrabold text-purple-700 dark:text-purple-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline rounded-sm"
           >
-            {{ section.name }}
+            {{ internalLink.name }}
           </nuxt-link>
+        </li>
+        <li
+          v-for="(externalLink, index) in externalLinks"
+          :key="'externalLink' + index"
+          class="mx-auto py-2 text-center w-1/3 border border-gray-400 dark:border-gray-500 border-t-0 border-l-0 border-r-0 border-b-1 sm:border-none sm:mx-0 sm:w-auto"
+          :class="externalLinks.length - 1 ? 'border-none' : ''"
+        >
+          <a
+            :href="externalLink.href"
+            :tabindex="isNavActive ? 0 : -1"
+            target="_blank"
+            class="px-4 text-lg font-extrabold text-purple-700 dark:text-purple-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline rounded-sm"
+          >
+            {{ externalLink.name }}
+          </a>
+          <!-- TODO: insert external link icon here -->
         </li>
       </ul>
     </nav>
@@ -37,7 +53,7 @@
 import DarkModeToggle from "../util/DarkModeToggle";
 import NavToggle from "./NavToggle";
 
-const sections = [
+const internalLinks = [
   {
     href: "/",
     name: "Home",
@@ -52,6 +68,13 @@ const sections = [
   },
 ];
 
+const externalLinks = [
+  {
+    href: "https://cuckooandthebirds.bandcamp.com",
+    name: "Music",
+  },
+];
+
 export default {
   components: {
     NavToggle,
@@ -60,7 +83,8 @@ export default {
   data() {
     return {
       isNavActive: false,
-      sections,
+      internalLinks,
+      externalLinks,
     };
   },
   watch: {
