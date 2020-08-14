@@ -34,6 +34,7 @@ html a:hover, html a:hover span {
 }
 html a:hover svg {
   fill: #4299e1 !important; /* text-blue-500 */
+  stroke: #4299e1 !important; /* text-blue-500 */
 }
 html a:focus {
   box-shadow: 0 0 0 3px #4299e1; /* text-blue-500 */
@@ -66,6 +67,7 @@ html.dark-mode a:hover, html.dark-mode a:hover span {
 }
 html.dark-mode a:hover svg {
   fill: #90cdf4 !important; /* text-blue-300 */
+  stroke: #90cdf4 !important; /* text-blue-300 */
 }
 html.dark-mode a:focus {
   box-shadow: 0 0 0 3px #90cdf4; /* text-blue-300 */
