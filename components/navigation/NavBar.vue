@@ -1,13 +1,13 @@
 <template>
   <div
     id="nav-container"
-    class="fixed flex items-center justify-end w-screen top-0 font-default font-mono dark:text-white text-black transition-background-color duration-100 border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
+    class="fixed flex items-center justify-end w-screen top-0 font-default font-mono dark:text-white text-black border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
     :class="{'border border-gray-500 bg-white dark:bg-soft-black dark:border-gray-300': isNavActive, 'border-none bg-transparent': !isNavActive}"
   >
     <DarkModeToggle />
     <nav
       id="nav-bar"
-      class="opacity-0 transition-opacity duration-100 w-screen"
+      class="opacity-0 w-screen"
       :class="{'opacity-100': isNavActive}"
     >
       <ul class="flex flex-col h-auto justify-center sm:flex-row sm:justify-end">

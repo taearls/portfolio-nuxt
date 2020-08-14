@@ -27,7 +27,7 @@ export default {
 <style>
 /* light-mode */
 html {
-  @apply bg-white transition-colors text-soft-black;
+  @apply bg-white text-soft-black;
 }
 html a:hover, html a:hover span {
   @apply text-blue-500;
@@ -45,10 +45,10 @@ html button:focus {
 
 /* dark-mode */
 html.dark-mode {
-  @apply bg-soft-black transition-colors;
+  @apply bg-soft-black;
 }
 html.dark-mode body {
-  @apply bg-soft-black transition-colors;
+  @apply bg-soft-black;
 }
 html.dark-mode h1 {
   @apply text-purple-500;
