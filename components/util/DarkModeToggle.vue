@@ -35,30 +35,24 @@ export default {
     MoonIcon,
     SunIcon
   },
-  data() {
-    return {
-      prefersDarkMode: false,
-      iconHeight: 32,
-      iconWidth: 32
-    };
+  computed: {
+    prefersDarkMode() {
+      return this.$store.state.prefersDarkMode === true;
+    }
   },
-  watch: {
-    prefersDarkMode: function(isDarkMode) {
-      if (isDarkMode) {
+  beforeMount() {
+    const defaultDarkModeVal = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    this.$store.commit("setDefaultDarkMode", defaultDarkModeVal);
+  },
+  methods: {
+    toggleDarkMode() {
+      // change data value, add/remove dark-mode class, then focus on the newly visible svg icon
+      this.$store.commit("toggleDarkMode");
+      if (this.prefersDarkMode) {
         window.document.documentElement.classList.add("dark-mode");
       } else {
         window.document.documentElement.classList.remove("dark-mode");
       }
-    }
-  },
-  beforeMount() {
-    this.prefersDarkMode =
-      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  },
-  methods: {
-    toggleDarkMode() {
-      // change data value, then focus on the newly visible svg icon
-      this.prefersDarkMode = !this.prefersDarkMode;
       this.$nextTick(() => {
         if (this.prefersDarkMode) {
           this.$refs.sunToggle.focus();
