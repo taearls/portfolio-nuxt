@@ -97,7 +97,6 @@ export default {
 }
 .hover {
   @apply bg-blue-400;
-  /* background-color: #63b3ed !important; text-blue-400 */
   transition: 0.2s ease;
 }
 html.dark-mode .hover {

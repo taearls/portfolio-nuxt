@@ -25,6 +25,7 @@ export default {
       type: String,
     },
     errorPresent: {
+      default: false,
       type: Boolean,
     },
     successMessage: {
