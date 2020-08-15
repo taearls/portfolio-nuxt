@@ -1,19 +1,19 @@
 <template>
-  <div class="prose mx-auto max-w-none w-4/5 dark:text-white">
-    <h1 class="text-center">
+  <section class="px-4 mt-20 mx-auto max-w-none w-4/5 leading-8">
+    <h1 class="text-center mb-4 text-purple-700 font-extrabold text-4xl leading-tight">
       Web Projects
     </h1>
-    <p class="prose-lg">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consequatur, minus dolore provident ipsa magni quibusdam, quasi vel, commodi beatae repudiandae voluptate error dicta quam ratione asperiores! Fugiat, reprehenderit eveniet?
+    <p class="text-soft-black dark:text-white text-lg px-2 mt-4 mb-10 leading-7">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maiores odit mollitia temporibus voluptatum molestias nobis, unde accusantium iure fugiat necessitatibus facilis error inventore ipsam odio. Veritatis, similique! Optio, tenetur?
     </p>
-    <web-project
+    <WebProject
       v-for="(project, index) in projects"
       :key="'web-project-' + index"
       :project="project"
       :index="index"
       :project-count="projects.length - 1"
     />
-  </div>
+  </section>
 </template>
 
 <script>
@@ -30,7 +30,6 @@ import WebProject from "../../components/WebProject.vue";
  * customCursor - indicates if a custom cursor will appear or a pointer
  * cursorStyle - CSS rule for cursor
 */
-
 const projects = [{
   name: "Cuckoo and the Birds Website",
   description: "A website I made for my band, Cuckoo and the Birds, where you can find all our info, social media links, and press. <br><br> If you're interested to listen, please consider supporting our music by streaming our EP, Twin Stars, on <a href='https://open.spotify.com/artist/3JcmKe00eIMMsC0MRkKknD'>Spotify</a>. <br><br> Built mobile-first with Nuxt, Tailwind, and a (mostly) healthy dose of rock 'n' roll 🤘",
@@ -64,7 +63,7 @@ const projects = [{
   alt: "Image of Space Clones Title Screen",
   href: "https://space-clones.netlify.com",
   analytics: null,
-  tagline: "See if you can beat my high score!",
+  tagline: "Beat my high score!",
   emoji: "😉",
   customCursor: true,
   cursorStyle: "url(images/space-clones-cursor.png), pointer",

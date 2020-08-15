@@ -2,7 +2,7 @@
   <div
     id="nav-container"
     class="fixed flex items-center justify-end w-screen top-0 font-default font-mono dark:text-white text-black border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
-    :class="{'border border-gray-500 bg-white dark:bg-soft-black dark:border-gray-300': isNavActive, 'border-none bg-transparent': !isNavActive}"
+    :class="{'border border-gray-500 bg-white dark:bg-soft-black dark:border-gray-300': isNavActive, 'h-0 border-none bg-transparent': !isNavActive}"
   >
     <DarkModeToggle />
     <nav

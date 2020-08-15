@@ -1,10 +1,14 @@
 <template>
   <section class="mx-auto">
-    <h2 class="text-center text-purple-700">
+    <h2
+      class="text-center mb-8 text-purple-700 dark:text-purple-500"
+      style="font-weight: 700;
+    font-size: 1.5em;"
+    >
       {{ project.name }}
     </h2>
     <div class="clearfix">
-      <div class="mx-auto text-center w-4/5 mb-4 md:w-1/2 md:float-left md:clearfix md:mr-4">
+      <div class="mx-auto text-center w-4/5 mb-4 sm:mb-2 sm:w-1/2 sm:float-left sm:clearfix sm:mr-4">
         <div>
           <a
             :rel="project.analytics ? 'external' : 'noreferrer'"
@@ -25,7 +29,7 @@
           </a>
         </div>
         <a
-          class="block my-2 text-purple-700 dark:text-purple-500"
+          class="block text-purple-700 dark:text-purple-500"
           target="_blank"
           rel="noreferrer"
           :href="project.href"
@@ -35,13 +39,13 @@
       </div>
       <div>
         <p
-          class="px-2 text-lg leading-7"
+          class="px-2 sm:px-0 text-justify text-lg leading-7"
           v-html="project.description"
         />
       </div>
     </div>
     <template v-if="index !== projectCount">
-      <hr class="line-break">
+      <hr class="line-break mt-12 mb-8">
     </template>
     <template v-else>
       <br>
@@ -98,95 +102,10 @@ export default {
 
 <style>
 .line-break {
-  margin-top: 15px;
   border: 0;
   height: 1px;
   margin-left: 11vw;
   margin-right: 11vw;
   background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(203, 213, 224), rgba(0, 0, 0, 0));
 }
-/*
-#web-projects {
-  h1 {
-    margin-bottom: 20px;
-  }
-  .project-container {
-    max-width: 80vw;
-    margin: 20px auto;
-  }
-  .italic {
-    font-style: italic;
-  }
-  .project-tagline-link {
-    display: block;
-    color: $red;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    width: 75%;
-    margin: 0 auto;
-    &:hover {
-      color: $lightblue;
-      transition: 0.2s ease;
-    }
-  }
-  
-  .project-image-container {
-    float: left;
-    width: 50%;
-    margin: 0 10px;
-    margin-bottom: 20px;
-    height: max-content;
-    .portfolio-screenshot {
-      margin: 7px auto;
-      height: auto;
-      display: block;
-    }
-    .project-link {
-      img {
-        margin: 5px 20px;
-        width: calc(100% - 40px);
-      }
-    }
-  }
-  .project-title, .skill-title {
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: $red;
-    text-align: center;
-  }
-  .project-description {
-    margin-bottom: 10px;
-  }
-  
-}
-
-@media (max-width: $XL) {
-  #web-projects {
-    .project-container {
-      max-width: 100%;
-      display: flex;
-      flex-flow: column;
-      .project-image-container {
-        width: 100%;
-        float: none;
-        margin: 0 auto;
-        .project-link img {
-          display: block;
-          margin: 0 auto;
-          margin-bottom: 4px;
-          width: 80%;
-        }
-      }
-    }
-    .project-tagline-link {
-      margin-bottom: 8px;
-    }
-    .project-link-container {
-      width: 80%;
-      margin: 0 auto;
-    }
-  }
-} */
 </style>

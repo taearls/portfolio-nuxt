@@ -41,7 +41,7 @@ export default {
     bodyTopMargin() {
       const navContainer = document.getElementById("nav-container");
       const navHeight = navContainer.offsetHeight;
-      let margin = navHeight + "px";
+      let margin = `${navHeight + 16}px`;
       return margin;
     }
   },
@@ -60,7 +60,7 @@ export default {
     },
     adjustBodyTopMargin() {
       this.$nextTick(() => {
-          if (this.isToggleActive && window.innerWidth < 640) {
+        if (this.isToggleActive && window.innerWidth < 640) {
           window.document.body.style.marginTop = this.bodyTopMargin;
         } else {
           window.document.body.style.marginTop = "4rem"; // horizontal navHeight is 4rem (64px)
