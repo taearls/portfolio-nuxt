@@ -2,13 +2,13 @@
   <span>
     <span
       v-show="errorPresent"
-      class="error-message"
+      class="error-message text-purple-700"
     >
       {{ errorMessage }}
     </span>
     <span
       v-show="!errorPresent"
-      class="error-placeholder"
+      class="error-placeholder text-purple-700"
       :class="{'success-message': successMessage}"
     >
       {{ successMessage || "" }}

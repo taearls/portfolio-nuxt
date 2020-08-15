@@ -1,86 +1,79 @@
 <template>
-  <section class="prose mx-auto dark:text-white">
-    <h1 class="text-center">
+  <section class="px-4 mt-20 mx-auto max-w-none w-4/5 leading-8">
+    <h1 class="text-center mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl leading-tight">
       Contact Tyler Earls
     </h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic inventore dolorem atque cumque, beatae iusto dolores, harum quae provident tempore animi quas iure maiores eligendi sunt enim recusandae ex voluptas.</p>
+    <p class="text-soft-black dark:text-white my-4 text-lg leading-normal">
+      If you're interested in my coding work, my music, or want to say hello, please feel free to
+      reach out.
+    </p>
     <form
       id="contact"
-      class="w-full max-w-sm"
+      class="mx-auto bg-gray-100 rounded-md border border-soft-black w-full max-w-sm"
       method="get"
       enctype="text/plain"
     >
-      <fieldset>
+      <fieldset 
+        class="px-4 py-2"
+      >
         <div class="md:flex md:items-center mb-6">
           <div class="md:w-1/3">
             <label
-              class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              for="inline-full-name"
+              class="block text-purple-700 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              for="contactName"
             >
-              Full Name
+              Name
             </label>
+            <input
+              id="contactName"
+              v-model="name.text"
+              class="border border-soft-black rounded-sm"
+              type="text"
+              name="name"
+              :placeholder="name.placeholder"
+            >
           </div>
         </div>
 
         <div class="md:flex md:items-center mb-6">
           <div class="md:w-1/3">
             <label
-              class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              class="block text-purple-700 font-bold md:text-right mb-1 md:mb-0 pr-4"
               for="contactSubject"
-            >Subject: </label>
+            >Subject</label>
             <input
               id="contactSubject"
               v-model="subject.text"
+              class="border border-soft-black rounded-sm"
               type="text"
               name="subject"
-              required
-              :maxlength="subject.maxlength"
               :placeholder="subject.placeholder"
             >
-          </div>
-        </div>
-        
-        <div class="md:flex md:items-center mb-6">
-          <div class="md:w-1/3">
-            <label
-              class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              for="contactSubject"
-            >Subject: </label>
-            <input
-              id="contactSubject"
-              v-model="subject.text"
-              type="text"
-              name="subject"
-              required
-              :maxlength="subject.maxlength"
-              :placeholder="subject.placeholder"
-            >
-            <span class="counter">{{ subject.text.length }} / {{ subject.maxlength }}</span>
           </div>
         </div>
         <div>
           <label
-            class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+            class="block text-purple-700 font-bold md:text-right mb-1 md:mb-0 pr-4"
             for="contactMessage"
-          >Message: </label>
+          >
+            Message
+          </label>
           <textarea
             id="contactMessage"
             v-model="message.text"
-            class="message"
+            class="border border-soft-black rounded-sm"
             name="message"
             required
-            :maxlength="message.maxlength"
             :placeholder="message.placeholder"
-            :class="{'error-field': message.error}"
-            @input="message.error = false;"
+            :class="{ 'error-field': message.error }"
+            @input="message.error = false"
           />
-          <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
         </div>
 
         <vue-recaptcha
-          :key="shouldCompactRecaptcha"
+          :key="shouldCompactRecaptcha + prefersDarkMode"
           sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
-          theme="dark"
+          :theme="prefersDarkMode ? 'dark' : 'light'"
           :size="shouldCompactRecaptcha ? 'compact' : 'normal'"
           :load-recaptcha-script="true"
           @verify="markRecaptchaVerified"
@@ -88,7 +81,7 @@
         />
 
         <div>
-          <error-message
+          <ErrorMessage
             id="recaptcha-error"
             success-message="Thank you. I look forward to working with you!"
             :error-present="saveDisabled"
@@ -97,54 +90,13 @@
           <a
             target="_blank"
             :href="generateMailToURL()"
-            :class="{disabled: saveDisabled, hover: !saveDisabled && hoveringMessage}"
+            :class="{ disabled: saveDisabled, hover: !saveDisabled && hoveringMessage }"
             @mouseover="hoveringMessage = !saveDisabled"
-            @mouseleave="hoveringMessage = false;"
+            @mouseleave="hoveringMessage = false"
           >Send Message</a>
         </div>
       </fieldset>
     </form>
-    
-    
-    <!-- <form class="w-full max-w-sm">
-  <div class="md:flex md:items-center mb-6">
-    <div class="md:w-1/3">
-      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-        Full Name
-      </label>
-    </div>
-    <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" value="Jane Doe">
-    </div>
-  </div>
-  <div class="md:flex md:items-center mb-6">
-    <div class="md:w-1/3">
-      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
-        Password
-      </label>
-    </div>
-    <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-password" type="password" placeholder="******************">
-    </div>
-  </div>
-  <div class="md:flex md:items-center mb-6">
-    <div class="md:w-1/3"></div>
-    <label class="md:w-2/3 block text-gray-500 font-bold">
-      <input class="mr-2 leading-tight" type="checkbox">
-      <span class="text-sm">
-        Send me your newsletter!
-      </span>
-    </label>
-  </div>
-  <div class="md:flex md:items-center">
-    <div class="md:w-1/3"></div>
-    <div class="md:w-2/3">
-      <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-        Sign Up
-      </button>
-    </div>
-  </div>
-</form> -->
   </section>
 </template>
 
@@ -158,7 +110,7 @@ const compactRecaptchaBreakPoint = 560;
 export default {
   components: {
     VueRecaptcha,
-    ErrorMessage,
+    ErrorMessage
   },
   data() {
     return {
@@ -166,23 +118,27 @@ export default {
       shouldCompactRecaptcha: false,
       hoveringMessage: false,
       errorLines: 0,
-      message: {
-        placeholder:
-          "Hey Tyler,\n\nMy name is _______.\nLet's build something awesome together.",
+      name: {
+        placeholder: "Name",
         text: "",
-        maxlength: 500,
-        error: false,
       },
       subject: {
         placeholder: "Freelance Hire Inquiry",
+        text: ""
+      },
+      message: {
+        placeholder: "Hey Tyler,\n\nMy name is _______.\nLet's build something awesome together.",
         text: "",
-        maxlength: 50,
+        error: false
       },
     };
   },
   computed: {
     saveDisabled() {
-      return this.message.text.length === 0 || !this.recaptchaVerified;
+      return this.name.text.length === 0 || this.message.text.length === 0 || !this.recaptchaVerified;
+    },
+    prefersDarkMode() {
+      return this.$store.state.prefersDarkMode;
     },
   },
   mounted() {
@@ -218,7 +174,8 @@ export default {
     getErrorMessage() {
       if (!this.recaptchaVerified) {
         return "Please verify that you're a human before sending.";
-      } if (this.recaptchaVerified && this.message.text.length === 0) {
+      }
+      if (this.recaptchaVerified && this.message.text.length === 0) {
         this.message.error = true;
         return "Message cannot be blank.";
       }
@@ -232,17 +189,16 @@ export default {
     },
     generateMailToURL() {
       if (this.saveDisabled) return false;
-
+      // TODO: use name field somehow
       let mailToURL = "mailto:tyler.a.earls@gmail.com";
       mailToURL += `?body=${encodeURIComponent(this.message.text)}`; // add body
       if (this.subject.text.length > 0) {
         mailToURL += `&subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
       }
       return mailToURL;
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>
