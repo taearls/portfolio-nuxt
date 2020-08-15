@@ -13,30 +13,6 @@ module.exports = {
         "soft-black": "#121212"
       }
     },
-    typography: {
-      default: {
-        // TODO: remove this config
-        css: {
-          color: "#000",
-          h1: {
-            color: "#6b46c1",
-          },
-          h2: {
-            color: "#6b46c1",
-          },
-          // p: {
-          //   fontSize: "1.125rem", // prose-lg
-          // },
-          // img: {
-          //   marginTop: 0,
-          //   marginBottom: 0,
-          // },
-          // a: {
-          //   textDecoration: "underline #81e6d9",
-          // },
-        }
-      }
-    }
   },
   variants: {
     backgroundColor: ["dark", "dark-hover", "dark-group-hover", "dark-even", "dark-odd", "hover", "responsive"],
@@ -44,7 +20,6 @@ module.exports = {
     textColor: ["dark", "dark-hover", "dark-active", "hover", "responsive"]
   },
   plugins: [
-    require("@tailwindcss/typography"),
     require("tailwindcss-dark-mode")()
   ]
 };
