@@ -20,6 +20,7 @@ module.exports = {
     textColor: ["dark", "dark-hover", "dark-active", "hover", "responsive"]
   },
   plugins: [
+    require("@tailwindcss/typography"),
     require("tailwindcss-dark-mode")()
   ]
 };
