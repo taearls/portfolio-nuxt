@@ -1,6 +1,6 @@
 <template>
   <section class="px-4 mt-20 mx-auto max-w-none w-4/5 leading-8">
-    <h1 class="text-center mb-4 text-purple-700 font-extrabold text-4xl leading-tight">
+    <h1 class="text-center mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl leading-tight">
       Web Projects
     </h1>
     <p class="text-soft-black dark:text-white text-lg px-2 mt-4 mb-10 leading-7">
@@ -32,7 +32,7 @@ import WebProject from "../../components/WebProject.vue";
 */
 const projects = [{
   name: "Cuckoo and the Birds Website",
-  description: "A website I made for my band, Cuckoo and the Birds, where you can find all our info, social media links, and press. <br><br> If you're interested to listen, please consider supporting our music by streaming our EP, Twin Stars, on <a href='https://open.spotify.com/artist/3JcmKe00eIMMsC0MRkKknD'>Spotify</a>. <br><br> Built mobile-first with Nuxt, Tailwind, and a (mostly) healthy dose of rock 'n' roll 🤘",
+  description: "A website I made for my band, Cuckoo and the Birds, where you can find all our info, social media links, and press. <br><br> If you're interested to listen, please consider supporting our music by streaming our EP, Twin Stars, on <a class='rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline' href='https://open.spotify.com/artist/3JcmKe00eIMMsC0MRkKknD'>Spotify</a>. <br><br> Built mobile-first with Nuxt, Tailwind, and a (mostly) healthy dose of rock 'n' roll 🤘",
   cloudinaryID: "screenshots/v2/cuckoo-mobile.png",  
   alt: "Image of Cuckoo and the Birds Website",
   href: "https://www.cuckooandthebirds.com",
@@ -47,7 +47,7 @@ const projects = [{
   cursorStyle: "pointer"
 }, {
   name: "Road Ranger",
-  description: "A navigation header that I built while freelancing for <a href='https://trekk.com' rel='noreferrer' target='_blank'>Trekk</a>. <br><br> Both the mobile and desktop versions are based on designs their web designers prepared for the client and had me implement. Built with SCSS, JavaScript, and PHP.",
+  description: "A navigation header that I built while freelancing for <a class='rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline' href='https://trekk.com' rel='noreferrer' target='_blank'>Trekk</a>. <br><br> Both the mobile and desktop versions are based on designs their web designers prepared for the client and had me implement. Built with SCSS, JavaScript, and PHP.",
   cloudinaryID: "screenshots/v2/roadranger-desktop.png",
   alt: "Image of Road Ranger Banner",
   href: "https://www.roadrangerusa.com",

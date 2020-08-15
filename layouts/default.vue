@@ -50,19 +50,7 @@ html.dark-mode {
 html.dark-mode body {
   @apply bg-soft-black;
 }
-html.dark-mode h1 {
-  @apply text-purple-500;
-}
-html.dark-mode h2 {
-  @apply text-purple-500;
-}
-html.dark-mode a {
-  @apply text-purple-500;
-}
-html.dark-mode span {
-  @apply text-purple-500;
-}
-html.dark-mode a:hover, html.dark-mode a:hover span {
+html.dark-mode a:hover span {
   @apply text-blue-300;
 }
 html.dark-mode a:hover svg {

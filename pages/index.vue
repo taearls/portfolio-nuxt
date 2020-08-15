@@ -2,7 +2,7 @@
   <section class="px-4 mt-20 mx-auto max-w-none w-4/5 leading-8">
     <!-- TODO: add images to break up text -->
     <h1 
-      class="text-left mb-4 text-purple-700 font-extrabold text-4xl"
+      class="text-left mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl"
       style="line-height: 1.1;"
     >
       Hi there! 👋
@@ -13,7 +13,7 @@
     </h1>
     <p class="text-soft-black dark:text-white mt-4 text-lg leading-normal">
       I work at <a
-        class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold focus:outline-none focus:shadow-outline"
+        class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline"
         href="https://www.ensighten.com"
         rel="noreferrer"
         target="_blank"

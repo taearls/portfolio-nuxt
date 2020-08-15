@@ -9,7 +9,7 @@
       :href="link.href"
       :aria-label="`Go to Tyler's ${link.label}`"
     >
-      <span class="text-xs text-purple-700 rounded-sm hover:text-blue-500 dark-hover:text-blue-300">
+      <span class="text-xs text-purple-700 dark:text-purple-500 rounded-sm hover:text-blue-500 dark-hover:text-blue-300">
         <font-awesome-icon
           :icon="['fab', link.icon]"
           size="2x"
