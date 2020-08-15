@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import MoonIcon from "../widgets/MoonIcon";
-import SunIcon from "../widgets/SunIcon";
+import MoonIcon from "../widgets/svg/MoonIcon";
+import SunIcon from "../widgets/svg/SunIcon";
 
 export default {
   components: {

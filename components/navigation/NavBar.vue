@@ -37,7 +37,7 @@
             :tabindex="isNavActive ? 0 : -1"
             :aria-label="externalLink.ariaLabel"
             target="_blank"
-            class="sm:flex sm:items-center sm:justify-center pl-8 pr-12 sm:pl-4 sm:pr-2 text-lg font-extrabold text-purple-700 dark:text-purple-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline rounded-sm"
+            class="pl-8 pr-12 text-lg font-extrabold text-purple-700 rounded-sm dark:text-purple-500 dark-hover:text-blue-300 sm:pl-4 sm:pr-2 sm:flex sm:items-center sm:justify-center focus:outline-none focus:shadow-outline"
           >
             {{ externalLink.name }}
             <ExternalLinkIcon :prefers-dark-mode="prefersDarkMode" />
@@ -53,7 +53,7 @@
 
 <script>
 import DarkModeToggle from "../util/DarkModeToggle";
-import ExternalLinkIcon from "../widgets/ExternalLinkIcon";
+import ExternalLinkIcon from "../widgets/svg/ExternalLinkIcon";
 import NavToggle from "./NavToggle";
 
 const internalLinks = [
