@@ -6,9 +6,9 @@
       style="line-height: 1.1;"
     >
       Hi there! 👋
-      <br />
+      <br>
       My name is Tyler Earls.
-      <br />
+      <br>
       I am a software engineer and musician.
     </h1>
     <p class="text-soft-black dark:text-white mt-4 text-lg md:text-xl leading-normal">
@@ -18,8 +18,7 @@
         href="https://www.ensighten.com"
         rel="noreferrer"
         target="_blank"
-        >Ensighten</a
-      >, where I help provide client-side security and privacy law compliance for our clients. I
+      >Ensighten</a>, where I help provide client-side security and privacy law compliance for our clients. I
       enjoy the continuously evolving challenge of making the web safe for online users and their
       personal data. I think it's meaningful work to provide privacy law compliance so that users have the fullest autonomy
       during their web experience that regulations allow.
@@ -32,15 +31,13 @@
       Outside of tech, I write songs as
       <a
         class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
-        >Cuckoo and the Birds</a
-      >. If you'd like, you can listen to my music
+      >Cuckoo and the Birds</a>. If you'd like, you can listen to my music
       <a
         class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
         href="https://cuckooandthebirds.bandcamp.com"
         rel="noreferrer"
         target="_blank"
-        >here.</a
-      >
+      >here.</a>
     </p>
     <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       I'm also a very avid Star Trek fan. During these difficult times, I find comfort in its optimistic view on the potential of humanity and its future.
