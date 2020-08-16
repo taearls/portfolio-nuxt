@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="inline"
+    class="inline pointer-events-none hover:opacity-100"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     version="1.1"

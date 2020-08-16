@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="absolute inline-block ml-1 sm:static sm:mx-1"
+    class="external-link absolute inline-block ml-1 sm:static sm:mx-1"
     height="24px"
     width="24px"
     :stroke="prefersDarkMode ? '#9f7aea' : '#6b46c1'"

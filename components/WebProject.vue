@@ -11,6 +11,7 @@
       <div class="mx-auto text-center w-4/5 mb-2 sm:mb-0 sm:w-1/2 sm:float-left sm:clearfix sm:mr-4">
         <div>
           <a
+            class="block rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             :rel="project.analytics ? 'external' : 'noreferrer'"
             target="_blank"
             :href="project.analytics !== null ? getAnalyticsLink(project.href, project.analytics) : project.href"
@@ -29,7 +30,7 @@
           </a>
         </div>
         <a
-          class="block text-purple-700 dark:text-purple-500"
+          class="block rounded-sm mt-1 text-purple-700 dark:text-purple-500 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           target="_blank"
           rel="noreferrer"
           :href="project.href"
@@ -39,7 +40,7 @@
       </div>
       <div>
         <p
-          class="px-2 sm:px-0 text-soft-black dark:text-white text-justify text-lg leading-7"
+          class="project-description px-2 sm:px-0 text-soft-black dark:text-white text-justify text-lg leading-7"
           v-html="project.description"
         />
       </div>
@@ -69,29 +70,7 @@ export default {
       required: true,
     },
   },
-  mounted() {
-    const projectLinks = document.querySelectorAll(".project-link");
-    for (let i = 0; i < projectLinks.length; i++) {
-      const projectLink = projectLinks[i];
-      projectLink.addEventListener("focus", this.addFocusStyleToParent);
-      projectLink.addEventListener("blur", this.removeFocusStyleFromParent);
-    }
-  },
-  destroyed() {
-    const projectLinks = document.querySelectorAll(".project-link");
-    for (let i = 0; i < projectLinks.length; i++) {
-      const projectLink = projectLinks[i];
-      projectLink.removeEventListener("focus", this.addFocusStyleToParent);
-      projectLink.removeEventListener("blur", this.removeFocusStyleFromParent);
-    }
-  },
   methods: {
-    addFocusStyleToParent(e) {
-      e.target.parentElement.style.outline = "2px dotted #FAFD51";
-    },
-    removeFocusStyleFromParent(e) {
-      e.target.parentElement.style.outline = "";
-    },
     getAnalyticsLink(link, utmObject) {
       const {source, medium, campaign} = utmObject;
       return `${link}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
@@ -107,5 +86,24 @@ export default {
   margin-left: 11vw;
   margin-right: 11vw;
   background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(203, 213, 224), rgba(0, 0, 0, 0));
+}
+
+.project-description a {
+  @apply rounded-sm text-purple-700 font-semibold;
+}
+.project-description a:hover {
+  @apply text-blue-500;
+}
+.project-description a:focus {
+  @apply outline-none shadow-outline-light;
+}
+html.dark-mode .project-description a {
+  @apply text-purple-500;
+}
+html.dark-mode .project-description a:hover {
+  @apply text-blue-300;
+}
+html.dark-mode .project-description a:focus {
+  @apply shadow-outline-dark;
 }
 </style>

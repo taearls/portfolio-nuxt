@@ -9,7 +9,7 @@
     </p>
     <form
       id="contact"
-      class="form-boxshadow mx-auto my-8 bg-gray-200 dark:bg-white rounded-md w-full max-w-sm"
+      class="form-boxshadow mx-auto my-8 bg-gray-200 dark:bg-gray-900 rounded-md w-full max-w-sm"
       method="get"
       enctype="text/plain"
       :action="generateMailToURL()"
@@ -19,7 +19,7 @@
       >
         <div class="mb-2">
           <label
-            class="block text-purple-700 font-bold mb-1 md:mb-0 pr-4"
+            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
             for="contactName"
           >
             Name
@@ -27,7 +27,7 @@
           <input
             id="contactName"
             v-model="name.text"
-            class="form-input w-full text-soft-black dark:bg-gray-200 placeholder-gray-600 focus:outline-none focus:shadow-outline focus:bg-white"
+            class="form-input w-full text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             type="text"
             name="name"
             :placeholder="name.placeholder"
@@ -36,13 +36,13 @@
 
         <div class="mb-2">
           <label
-            class="block text-purple-700 font-bold mb-1 md:mb-0 pr-4"
+            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
             for="contactSubject"
           >Subject</label>
           <input
             id="contactSubject"
             v-model="subject.text"
-            class="form-input w-full text-soft-black dark:bg-gray-200 placeholder-gray-600 focus:outline-none focus:shadow-outline focus:bg-white"
+            class="form-input w-full text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             type="text"
             name="subject"
             :placeholder="subject.placeholder"
@@ -50,7 +50,7 @@
         </div>
         <div>
           <label
-            class="block text-purple-700 font-bold mb-1 md:mb-0 pr-4"
+            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
             for="contactMessage"
           >
             Message<span> *</span>
@@ -58,7 +58,7 @@
           <textarea
             id="contactMessage"
             v-model="message.text"
-            class="form-textarea mb-2 text-soft-black dark:bg-gray-200 focus:outline-none focus:shadow-outline dark-focus:bg-white placeholder-gray-600 w-full h-32"
+            class="form-textarea w-full h-32 mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             name="message"
             required
             :placeholder="message.placeholder"
@@ -88,15 +88,18 @@
             <input
               type="submit"
               value="Send Email"
-              style="padding-right: 40px;"
               :disabled="saveDisabled"
-              :href="generateMailToURL()"
-              class="inline-block bg-purple-700 rounded-lg px-2 my-2 text-white hover:bg-gray-700 transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline"
-              :class="{ disabled: saveDisabled, hover: !saveDisabled && hoveringMessage }"
+              class="inline-block transition-padding bg-purple-700 dark:bg-purple-500 rounded-lg pl-2 pr-10 disabled:pr-2 my-2 text-white transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark disabled:opacity-75"
+              :class="{ disabled: saveDisabled, 'submit-hover': !saveDisabled && hoveringMessage }"
               @mouseover="hoveringMessage = !saveDisabled"
               @mouseleave="hoveringMessage = false"
             >
-            <RightArrowIcon style="margin-left: -32px;" />
+            <transition name="draw">
+              <RightArrowIcon 
+                v-if="!saveDisabled"
+                style="margin-left: -32px;"
+              />
+            </transition>
           </div>
         </div>
       </fieldset>
@@ -108,9 +111,6 @@
 import VueRecaptcha from "vue-recaptcha";
 import ErrorMessage from "@/components/util/ErrorMessage";
 import RightArrowIcon from "@/components/widgets/svg/RightArrowIcon";
-
-// constants i don't want watched in data object
-const compactRecaptchaBreakPoint = 560;
 
 export default {
   components: {
@@ -125,15 +125,16 @@ export default {
       hoveringMessage: false,
       errorLines: 0,
       name: {
-        placeholder: "Name",
+        placeholder: "Captain Kirk",
         text: "",
       },
       subject: {
-        placeholder: "Freelance Hire Inquiry",
+        placeholder: "Captain's Log",
         text: ""
       },
       message: {
-        placeholder: "Hey Tyler,\n\nMy name is _______.\nLet's do something awesome together.",
+        // placeholder: "Hey Tyler,\n\nMy name is _______.\nLet's do something awesome together.",
+        placeholder: "Stardate 2713.5\n\nIn the distant reaches of our galaxy, we have made an astonishing discovery – Earth-type radio signals coming from a planet which apparently is an exact duplicate of the Earth.\n\nIt seems impossible, but there it is.",
         text: "",
         error: false
       },
@@ -169,6 +170,7 @@ export default {
       }
     },
     checkCompactRecaptcha() {
+      const compactRecaptchaBreakPoint = 560;
       const compare = this.shouldCompactRecaptcha;
       this.shouldCompactRecaptcha = window.innerWidth <= compactRecaptchaBreakPoint;
 
@@ -211,8 +213,11 @@ export default {
 .disabled {
   @apply cursor-not-allowed;
 }
-.hover {
-  @apply cursor-pointer opacity-75;
+.submit-hover {
+  @apply cursor-pointer;
+}
+.transition-padding {
+  transition: padding 500ms ease;
 }
 .form-input {
   @apply appearance-none p-2 text-base leading-6 rounded-md;
@@ -221,14 +226,30 @@ export default {
   @apply appearance-none p-2 text-base leading-6 rounded-md;
 }
 .form-input:focus, .form-textarea:focus {
-  background-color: #fff;
-  border: none;
+  
 }
 .form-boxshadow {
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
 html.dark-mode .form-boxshadow {
   /* box-shadow: 0 4px 6px 0 hsla(0, 100%, 100%, 0.4); */
-  box-shadow: 0 4px 6px 0 rgba(255, 255, 255, 0.4);
+  /* box-shadow: 0 4px 6px 0 rgba(255, 255, 255, 0.4); */
+}
+
+
+/* transitions */
+.draw-enter-active {
+  /* opacity: 1; */
+  display: block;
+  transition: all 500ms ease 100ms;
+}
+.draw-leave-active {
+  opacity: 0;
+  display: none;
+  transition: all 300ms ease;
+}
+.draw-enter,
+.draw-leave-to {
+  opacity: 0;
 }
 </style>

@@ -1,11 +1,7 @@
 <template>
-  <div 
-    id="app"
-  >
+  <div id="app">
     <nav-bar />
-
     <nuxt />
-
     <vue-footer />
   </div>
 </template>
@@ -31,35 +27,19 @@ html {
 html a:hover, html a:hover span {
   @apply text-blue-500;
 }
-html a:hover svg {
+html a:hover svg.dark-mode-toggle, html a:hover svg.external-link {
   fill: #4299e1 !important; /* text-blue-500 */
   stroke: #4299e1 !important; /* text-blue-500 */
 }
-html a:focus {
-  box-shadow: 0 0 0 3px #4299e1; /* text-blue-500 */
-}
-html button:focus {
-  box-shadow: 0 0 0 3px #4299e1; /* text-blue-500 */
-}
-
 /* dark-mode */
-html.dark-mode {
-  @apply bg-soft-black;
-}
-html.dark-mode body {
+html.dark-mode, html.dark-mode body {
   @apply bg-soft-black;
 }
 html.dark-mode a:hover span {
   @apply text-blue-300;
 }
-html.dark-mode a:hover svg {
+html.dark-mode a:hover svg.dark-mode-toggle, html.dark-mode a:hover svg.external-link {
   fill: #90cdf4 !important; /* text-blue-300 */
   stroke: #90cdf4 !important; /* text-blue-300 */
-}
-html.dark-mode a:focus {
-  box-shadow: 0 0 0 3px #90cdf4; /* text-blue-300 */
-}
-html.dark-mode button:focus {
-  box-shadow: 0 0 0 3px #90cdf4; /* text-blue-300 */
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <svg
+    class="dark-mode-toggle"
     xmlns="http://www.w3.org/2000/svg"
     height="32"
     viewBox="-12 0 448 448.04455"

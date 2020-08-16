@@ -26,6 +26,16 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode"
   ],
+  colorMode: {
+    preference: "system",
+    fallback: "light",
+    cookie: {
+      key: "tylerearls.com-color-scheme",
+      options: {
+        sameSite: "lax" // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
+      }
+    }
+  },
   mode: "spa",
   babel: {
     presets({ isServer }) {

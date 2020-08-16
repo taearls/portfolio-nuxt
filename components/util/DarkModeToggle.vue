@@ -6,7 +6,7 @@
         <button
           v-show="prefersDarkMode"
           ref="sunToggle"
-          class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline"
+          class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
           <SunIcon />
@@ -16,7 +16,7 @@
         <button
           v-show="!prefersDarkMode"
           ref="moonToggle"
-          class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline"
+          class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
           <MoonIcon />
@@ -35,14 +35,34 @@ export default {
     MoonIcon,
     SunIcon
   },
+  props: {
+    cookieKey: {
+      type: String,
+      default: "nuxt-color-mode",
+    },
+  },
   computed: {
     prefersDarkMode() {
       return this.$store.state.prefersDarkMode === true;
     }
   },
   beforeMount() {
-    const defaultDarkModeVal = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    this.$store.commit("setDefaultDarkMode", defaultDarkModeVal);
+    const cookieKey = this.cookieKey;
+    const documentHasColorModeCookie = document.cookie && document.cookie.indexOf(`${cookieKey}=`) > -1;
+    let isDarkMode;
+    
+    if (documentHasColorModeCookie) {
+      const cookieValue = document.cookie
+        .split("; ")
+        .find(row => row.startsWith(cookieKey))
+        .split("=")[1];
+      isDarkMode = cookieValue === "dark";
+    } else {
+      isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const defaultCookieValue = isDarkMode ? "dark" : "light";
+      this.setPrefersDarkModeCookie(defaultCookieValue);
+    }
+    this.$store.commit("setDefaultDarkMode", isDarkMode);
   },
   methods: {
     toggleDarkMode() {
@@ -50,8 +70,10 @@ export default {
       this.$store.commit("toggleDarkMode");
       if (this.prefersDarkMode) {
         window.document.documentElement.classList.add("dark-mode");
+        this.setPrefersDarkModeCookie("dark")
       } else {
         window.document.documentElement.classList.remove("dark-mode");
+        this.setPrefersDarkModeCookie("light");
       }
       this.$nextTick(() => {
         if (this.prefersDarkMode) {
@@ -60,6 +82,11 @@ export default {
           this.$refs.moonToggle.focus();
         }
       });
+    },
+    setPrefersDarkModeCookie(newCookieValue) {
+      if (!document.cookie) return;
+      const cookieKey = this.cookieKey;
+      document.cookie = `${cookieKey}=${newCookieValue}`;
     },
   },
 };

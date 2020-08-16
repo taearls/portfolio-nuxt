@@ -8,7 +8,7 @@
     </span>
     <span
       v-show="!errorPresent"
-      class="block my-2 text-purple-700 font-normal leading-6"
+      class="block my-2 text-green-700 dark:text-green-400 font-normal leading-6"
       :class="{'success-message': successMessage}"
     >
       {{ successMessage || "" }}

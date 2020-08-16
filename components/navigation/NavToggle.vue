@@ -2,7 +2,7 @@
   <div class="fixed top-0 right-0 z-10 float-right p-4 h-16 sm:float-none sm:static">
     <button
       id="custom-toggler"
-      class="pt-1 px-1 rounded-sm focus:outline-none focus:shadow-outline"
+      class="pt-1 px-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
       style="margin-top: -0.2rem;"
       :class="{active: isToggleActive, inactive: !isToggleActive}"
       :aria-label="`${isToggleActive ? 'Close Navigation' : 'Open Navigation'}`"

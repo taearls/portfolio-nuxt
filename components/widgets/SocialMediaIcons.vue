@@ -4,7 +4,7 @@
       v-for="(link, index) in socialLinks"
       :key="index"
       rel="noreferrer"
-      class="px-2 py-1 rounded-sm focus:outline-none focus:shadow-outline"
+      class="px-2 py-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
       target="_blank"
       :href="link.href"
       :aria-label="`Go to Tyler's ${link.label}`"

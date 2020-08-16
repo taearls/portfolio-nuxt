@@ -4,7 +4,7 @@
     class="fixed flex items-center justify-end w-screen top-0 font-default font-mono dark:text-white text-black border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
     :class="{'border border-gray-500 bg-white dark:bg-soft-black dark:border-gray-300': isNavActive, 'h-0 border-none bg-transparent': !isNavActive}"
   >
-    <DarkModeToggle />
+    <DarkModeToggle cookie-key="tylerearls.com-color-scheme" />
     <nav
       id="nav-bar"
       class="opacity-0 w-screen"
@@ -21,7 +21,7 @@
             :to="internalLink.href"
             :tabindex="isNavActive ? 0 : -1"
             :aria-label="internalLink.ariaLabel"
-            class="px-8 sm:px-4 text-lg font-extrabold text-purple-700 dark:text-purple-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline rounded-sm"
+            class="px-8 sm:px-4 text-lg font-extrabold text-purple-700 dark:text-purple-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark rounded-sm"
           >
             {{ internalLink.name }}
           </nuxt-link>
@@ -37,7 +37,7 @@
             :tabindex="isNavActive ? 0 : -1"
             :aria-label="externalLink.ariaLabel"
             target="_blank"
-            class="pl-8 pr-12 text-lg font-extrabold text-purple-700 rounded-sm dark:text-purple-500 dark-hover:text-blue-300 sm:pl-4 sm:pr-2 sm:flex sm:items-center sm:justify-center focus:outline-none focus:shadow-outline"
+            class="pl-8 pr-12 text-lg font-extrabold text-purple-700 rounded-sm dark:text-purple-500 dark-hover:text-blue-300 sm:pl-4 sm:pr-2 sm:flex sm:items-center sm:justify-center focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           >
             {{ externalLink.name }}
             <ExternalLinkIcon :prefers-dark-mode="prefersDarkMode" />
