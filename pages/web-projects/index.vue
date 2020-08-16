@@ -4,7 +4,13 @@
       Web Projects
     </h1>
     <p class="text-soft-black dark:text-white text-lg md:text-xl px-2 mt-4 mb-10 leading-7">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maiores odit mollitia temporibus voluptatum molestias nobis, unde accusantium iure fugiat necessitatibus facilis error inventore ipsam odio. Veritatis, similique! Optio, tenetur?
+      Here's a sample of some of my coding work. In addition to this website, which is built with Nuxt, TailwindCSS, and endless hours researching how to design a dark mode, these projects include personal and freelance projects. If you're interested to see more, feel free to stalk me on 
+      <a
+        class="inline-anchor"
+        href="https://www.github.com/taearls"
+        rel="noreferrer"
+        target="_blank"
+      >Github</a>.
     </p>
     <WebProject
       v-for="(project, index) in projects"
@@ -32,7 +38,7 @@ import WebProject from "../../components/WebProject.vue";
 */
 const projects = [{
   name: "Cuckoo and the Birds Website",
-  description: "A website I made for my band, Cuckoo and the Birds, where you can find all our info, social media links, and press. <br><br> If you're interested to listen, please consider supporting our music by streaming our EP, Twin Stars, on <a href='https://open.spotify.com/artist/3JcmKe00eIMMsC0MRkKknD'>Spotify</a>. <br><br> Built mobile-first with Nuxt, Tailwind, and a (mostly) healthy dose of rock 'n' roll 🤘",
+  description: "A website I made for my band, Cuckoo and the Birds, where you can find all our info, social media links, and press. <br><br> If you're interested to listen, please consider supporting our music by streaming our EP, Twin Stars, on <a class='inline-anchor' href='https://open.spotify.com/artist/3JcmKe00eIMMsC0MRkKknD'>Spotify</a>. <br><br> Built mobile-first with Nuxt, Tailwind, and a (mostly) healthy dose of rock 'n' roll 🤘",
   cloudinaryID: "screenshots/v2/cuckoo-mobile.png",  
   alt: "Image of Cuckoo and the Birds Website",
   href: "https://www.cuckooandthebirds.com",
@@ -47,7 +53,7 @@ const projects = [{
   cursorStyle: "pointer"
 }, {
   name: "Road Ranger",
-  description: "A navigation header that I built while freelancing for <a href='https://trekk.com' rel='noreferrer' target='_blank'>Trekk</a>. <br><br> Both the mobile and desktop versions are based on designs their web designers prepared for the client and had me implement. Built with SCSS, JavaScript, and PHP.",
+  description: "A navigation header that I built while freelancing for <a class='inline-anchor' href='https://trekk.com' rel='noreferrer' target='_blank'>Trekk</a>. <br><br> Both the mobile and desktop versions are based on designs their web designers prepared for the client and had me implement. Built with SCSS, JavaScript, and PHP.",
   cloudinaryID: "screenshots/v2/roadranger-desktop.png",
   alt: "Image of Road Ranger Banner",
   href: "https://www.roadrangerusa.com",

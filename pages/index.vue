@@ -14,7 +14,7 @@
     <p class="text-soft-black dark:text-white mt-4 text-lg md:text-xl leading-normal">
       Currently, I work at
       <a
-        class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+        class="inline-anchor"
         href="https://www.ensighten.com"
         rel="noreferrer"
         target="_blank"
@@ -30,10 +30,13 @@
     <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       Outside of tech, I write songs as
       <a
-        class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+        class="inline-anchor"
+        href="https://www.cuckooandthebirds.com"
+        rel="external"
+        target="_blank"
       >Cuckoo and the Birds</a>. If you'd like, you can listen to my music
       <a
-        class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+        class="inline-anchor"
         href="https://cuckooandthebirds.bandcamp.com"
         rel="noreferrer"
         target="_blank"

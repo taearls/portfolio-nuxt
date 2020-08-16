@@ -87,23 +87,4 @@ export default {
   margin-right: 11vw;
   background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(203, 213, 224), rgba(0, 0, 0, 0));
 }
-
-.project-description a {
-  @apply rounded-sm text-purple-700 font-semibold;
-}
-.project-description a:hover {
-  @apply text-blue-500;
-}
-.project-description a:focus {
-  @apply outline-none shadow-outline-light;
-}
-html.dark-mode .project-description a {
-  @apply text-purple-500;
-}
-html.dark-mode .project-description a:hover {
-  @apply text-blue-300;
-}
-html.dark-mode .project-description a:focus {
-  @apply shadow-outline-dark;
-}
 </style>
