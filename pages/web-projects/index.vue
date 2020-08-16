@@ -3,7 +3,7 @@
     <h1 class="text-center mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl leading-tight">
       Web Projects
     </h1>
-    <p class="text-soft-black dark:text-white text-lg px-2 mt-4 mb-10 leading-7">
+    <p class="text-soft-black dark:text-white text-lg md:text-xl px-2 mt-4 mb-10 leading-7">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus maiores odit mollitia temporibus voluptatum molestias nobis, unde accusantium iure fugiat necessitatibus facilis error inventore ipsam odio. Veritatis, similique! Optio, tenetur?
     </p>
     <WebProject

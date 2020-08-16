@@ -3,7 +3,7 @@
     <h1 class="text-center mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl leading-tight">
       Contact Tyler Earls
     </h1>
-    <p class="w-4/5 mx-auto text-justify text-soft-black dark:text-white my-4 text-lg leading-normal">
+    <p class="w-4/5 mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       If you're interested in my coding work, my music, or want to say hello, please feel free to
       reach out.
     </p>

@@ -11,7 +11,7 @@
       <br>
       I am a software engineer and musician.
     </h1>
-    <p class="text-soft-black dark:text-white mt-4 text-lg leading-normal">
+    <p class="text-soft-black dark:text-white mt-4 text-lg md:text-xl leading-normal">
       I work at <a
         class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
         href="https://www.ensighten.com"
@@ -19,10 +19,10 @@
         target="_blank"
       >Ensighten</a>, where I help provide client-side security and privacy law compliance for Fortune 500 companies. I enjoy the continuously evolving challenge of making the web safe for online users and their personal data.
     </p>
-    <p class="text-soft-black dark:text-white my-4 text-lg leading-normal">
+    <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       Occasionally, I do freelance frontend work on the side. I love to build UI components that people interact with on the web.
     </p>
-    <p class="text-soft-black dark:text-white my-4 text-lg leading-normal">
+    <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       Outside of tech, I write songs as Cuckoo and the Birds. You can listen to my music <a
         class="rounded-sm text-purple-700 dark:text-purple-500 font-semibold hover:text-blue-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
         href="https://cuckooandthebirds.bandcamp.com"

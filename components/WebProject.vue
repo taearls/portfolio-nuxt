@@ -35,12 +35,12 @@
           rel="noreferrer"
           :href="project.href"
         >
-          <span class="text-purple-700 dark:text-purple-500">{{ project.tagline }}</span> {{ project.emoji }}
+          <span class="text-purple-700 md:text-lg dark:text-purple-500">{{ project.tagline }}</span> {{ project.emoji }}
         </a>
       </div>
       <div>
         <p
-          class="project-description px-2 sm:px-0 text-soft-black dark:text-white text-justify text-lg leading-7"
+          class="project-description px-2 sm:px-0 text-soft-black dark:text-white text-justify text-lg md:text-xl leading-7"
           v-html="project.description"
         />
       </div>
