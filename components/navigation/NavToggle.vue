@@ -2,28 +2,23 @@
   <div class="fixed top-0 right-0 z-10 float-right p-4 h-16 sm:float-none sm:static">
     <button
       id="custom-toggler"
-      class="pt-1 px-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+      class="group pt-1 px-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
       style="margin-top: -0.2rem;"
-      :class="{active: isToggleActive, inactive: !isToggleActive}"
+      :class="{active: isToggleActive}"
       :aria-label="`${isToggleActive ? 'Close Navigation' : 'Open Navigation'}`"
       @click="handleToggle($event);"
-      @mouseover="hoverClass = true;"
-      @mouseleave="hoverClass = false;"
     >
       <div
         id="toggler-top"
-        class="bg-purple-600 dark:bg-purple-500"
-        :class="hoverClass ? 'hover' : 'bg-purple-600'"
+        class="bg-purple-600 dark:bg-purple-500 group-hover:bg-blue-400 dark-group-hover:bg-blue-300 transition-colors duration-200"
       />
       <div
         id="toggler-middle"
-        class="bg-purple-600 dark:bg-purple-500"
-        :class="hoverClass ? 'hover' : 'bg-purple-600'"
+        class="bg-purple-600 dark:bg-purple-500 group-hover:bg-blue-400 dark-group-hover:bg-blue-300 transition-colors duration-200"
       />
       <div
         id="toggler-bottom"
-        class="bg-purple-600 dark:bg-purple-500"
-        :class="hoverClass ? 'hover' : 'bg-purple-600'"
+        class="bg-purple-600 dark:bg-purple-500 group-hover:bg-blue-400 dark-group-hover:bg-blue-300 transition-colors duration-200"
       />
     </button>
   </div>
@@ -33,8 +28,7 @@
 export default {
   data() {
     return {
-      isToggleActive: false,
-      hoverClass: false
+      isToggleActive: false
     };
   },
   computed: {
@@ -94,12 +88,5 @@ export default {
 }
 .active #toggler-bottom {
   transform: translateY(-10px) rotate(-45deg);
-}
-.hover {
-  @apply bg-blue-400;
-  transition: 0.2s ease;
-}
-html.dark-mode .hover {
-  @apply bg-blue-300;
 }
 </style>
