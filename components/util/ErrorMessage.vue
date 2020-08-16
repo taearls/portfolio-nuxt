@@ -2,13 +2,13 @@
   <span>
     <span
       v-show="errorPresent"
-      class="error-message text-purple-700"
+      class="block my-2 text-red-600 font-normal leading-6"
     >
       {{ errorMessage }}
     </span>
     <span
       v-show="!errorPresent"
-      class="error-placeholder text-purple-700"
+      class="block my-2 text-purple-700 font-normal leading-6"
       :class="{'success-message': successMessage}"
     >
       {{ successMessage || "" }}
@@ -37,18 +37,4 @@ export default {
 </script>
 
 <style>
-/* .error-placeholder, .error-message, .success-message {
-    display: block;
-    margin-left: initial;
-    margin-right: initial;
-    margin-bottom: 15px;
-    margin-top: -5px;
-    font-size: 15px;
-    font-weight: 400;
-    color: $red;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    width: fit-content;
-} */
-
 </style>

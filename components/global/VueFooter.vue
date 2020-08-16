@@ -2,7 +2,7 @@
   <footer>
     <social-media-icons />
     <p
-      class="text-center text-xs tracking-wide font-normal"
+      class="text-center text-soft-black dark:text-white text-xs tracking-wide font-normal"
       v-html="footerText"
     />
   </footer>

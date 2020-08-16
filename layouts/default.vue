@@ -1,7 +1,6 @@
 <template>
   <div 
     id="app"
-    class="text-black dark:text-white colors-black-soft sm:mt-16"
   >
     <nav-bar />
 

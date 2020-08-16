@@ -8,7 +8,7 @@
       {{ project.name }}
     </h2>
     <div class="clearfix">
-      <div class="mx-auto text-center w-4/5 mb-4 sm:mb-2 sm:w-1/2 sm:float-left sm:clearfix sm:mr-4">
+      <div class="mx-auto text-center w-4/5 mb-2 sm:mb-0 sm:w-1/2 sm:float-left sm:clearfix sm:mr-4">
         <div>
           <a
             :rel="project.analytics ? 'external' : 'noreferrer'"
@@ -34,12 +34,12 @@
           rel="noreferrer"
           :href="project.href"
         >
-          <span class="italic text-purple-700 dark:text-purple-500">{{ project.tagline }}</span> {{ project.emoji }}
+          <span class="text-purple-700 dark:text-purple-500">{{ project.tagline }}</span> {{ project.emoji }}
         </a>
       </div>
       <div>
         <p
-          class="px-2 sm:px-0 text-justify text-lg leading-7"
+          class="px-2 sm:px-0 text-soft-black dark:text-white text-justify text-lg leading-7"
           v-html="project.description"
         />
       </div>
