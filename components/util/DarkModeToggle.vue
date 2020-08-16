@@ -6,6 +6,7 @@
         <button
           v-show="prefersDarkMode"
           ref="sunToggle"
+          aria-label="toggle on light mode"
           class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
@@ -16,6 +17,7 @@
         <button
           v-show="!prefersDarkMode"
           ref="moonToggle"
+          aria-label="toggle on dark mode"
           class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
