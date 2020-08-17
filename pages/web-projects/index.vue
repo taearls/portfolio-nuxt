@@ -77,8 +77,7 @@ const projects = [{
   descriptions: [`
     A navigation header that I built while freelancing for 
     <a class='inline-anchor' href='https://trekk.com' rel='noreferrer' target='_blank'>
-      Trekk
-    </a>. 
+      Trekk</a>. 
   `,
   `
     Both the mobile and desktop versions are based on designs 
