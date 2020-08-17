@@ -1,5 +1,5 @@
 <template>
-  <section class="mx-auto">
+  <section class="mx-auto mt-12">
     <h2
       class="text-center mb-8 text-purple-700 dark:text-purple-500"
       style="font-weight: 700;
@@ -7,7 +7,7 @@
     >
       {{ project.name }}
     </h2>
-    <div class="clearfix">
+    <div class="clearfix mb-8">
       <div class="mx-auto text-center w-4/5 mb-2 sm:mb-0 sm:w-1/2 sm:float-left sm:clearfix sm:mr-4">
         <div>
           <a
@@ -48,10 +48,7 @@
       </div>
     </div>
     <template v-if="index !== projectCount">
-      <hr class="line-break mt-12 mb-8">
-    </template>
-    <template v-else>
-      <br>
+      <hr class="line-break">
     </template>
   </section>
 </template>
