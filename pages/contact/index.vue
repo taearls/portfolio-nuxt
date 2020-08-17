@@ -130,13 +130,13 @@ export default {
       },
       subject: {
         placeholder: "Captain's Log",
-        text: ""
+        text: "",
       },
       message: {
         // placeholder: "Hey Tyler,\n\nMy name is _______.\nLet's do something awesome together.",
         placeholder: "Stardate 2713.5\n\nIn the distant reaches of our galaxy, we have made an astonishing discovery – Earth-type radio signals coming from a planet which apparently is an exact duplicate of the Earth.\n\nIt seems impossible, but there it is.",
         text: "",
-        error: false
+        error: false,
       },
     };
   },
@@ -204,8 +204,8 @@ export default {
         mailToURL += `&subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
       }
       return mailToURL;
-    }
-  }
+    },
+  },
 };
 </script>
 

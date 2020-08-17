@@ -98,7 +98,7 @@ export default {
   computed: {
     prefersDarkMode() {
       return this.$store.state.prefersDarkMode;
-    }
+    },
   },
   watch: {
     isNavActive(isActive) {
@@ -111,8 +111,14 @@ export default {
     initializeFocus() {
       // need to use next tick to ensure tabindex is set to 0 before attempting to focus
       this.$nextTick(() => {
-        const firstRouterLink = document.querySelector("#nav-bar ul li:first-child a");
-        firstRouterLink.focus();
+        // initialize focus on the current page
+        const activeRouterLink = document.querySelector("a.nuxt-link-exact-active");
+        if (activeRouterLink == null) {
+          const firstRouterLink = document.querySelector("#nav-bar ul li:first-child a");
+          firstRouterLink.focus();
+        } else {
+          activeRouterLink.focus();
+        }
       });
     },
   },

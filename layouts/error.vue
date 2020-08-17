@@ -39,7 +39,7 @@ export default {
   computed: {
     currentRoute() {
       return window.location.href;
-    }
+    },
   },
 }
 </script>

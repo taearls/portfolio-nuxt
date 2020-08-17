@@ -10,21 +10,21 @@ export default {
             name: "styles",
             test: /\.(css|vue)$/,
             chunks: "all",
-            enforce: true
-          }
-        }
-      }
-    }
+            enforce: true,
+          },
+        },
+      },
+    },
   },
   buildModules: [
     [
       "@nuxtjs/google-analytics",
       {
-        id: "UA-132274464-1"
-      }
+        id: "UA-132274464-1",
+      },
     ],
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/color-mode"
+    "@nuxtjs/color-mode",
   ],
   colorMode: {
     preference: "system",
@@ -32,9 +32,9 @@ export default {
     cookie: {
       key: "tylerearls.com-color-scheme",
       options: {
-        sameSite: "lax" // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
-      }
-    }
+        sameSite: "lax", // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
+      },
+    },
   },
   mode: "spa",
   babel: {
@@ -44,30 +44,30 @@ export default {
           require.resolve("@nuxt/babel-preset-app"),
           {
             buildTarget: isServer ? "server" : "client",
-            corejs: { version: 2 }
-          }
-        ]
+            corejs: { version: 2 },
+          },
+        ],
       ];
-    }
+    },
   },
   postcss: {
     plugins: {
-      tailwindcss: join(__dirname, "tailwind.config.js")
+      tailwindcss: join(__dirname, "tailwind.config.js"),
     },
     preset: {
-      stage: 2
-    }
+      stage: 2,
+    },
   },
   purgeCSS: {
     whitelist: ["dark-mode"],
   },
   tailwindcss: {
-    exposeConfig: true
+    exposeConfig: true,
   },
   plugins: ["~/plugins/global.js"],
   head: {
     htmlAttrs: {
-      lang: "en"
+      lang: "en",
     },
     titleTemplate: "Tyler Earls | Software Engineer",
     meta: [
@@ -78,36 +78,39 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "Tyler Earls is a software engineer who works in Java, ES8+ JavaScript, and JavaScript frameworks."
+          "Tyler Earls is a software engineer who works in Java, ES8+ JavaScript, and JavaScript frameworks.",
       },
       { name: "author", content: "Tyler Earls" },
       {
         name: "keywords",
         content:
-          "HTML, CSS, JavaScript, JQuery, Java, Vue, React, Node.js, Software Engineer, Web Development, SASS, SCSS, Less, Responsive Design"
-      }
+          "HTML, CSS, JavaScript, JQuery, Java, Vue, React, Node.js, Software Engineer, Web Development, SASS, SCSS, Less, Responsive Design",
+      },
     ],
     link: [
       {
         href: "https://fonts.googleapis.com/css?family=Asul:400,700|Roboto:400,700&display=swap",
         rel: "preload",
         as: "style",
-        onload: "this.onload = null; this.rel = 'stylesheet';"
+        onload: "this.onload = null; this.rel = 'stylesheet';",
       },
       {
         href: "images/vulcan-salute.ico",
-        rel: "icon"
-      }
+        rel: "icon",
+      },
     ],
     noscript: [
       {
         innerHTML:
           "<strong>We're sorry but this website doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>",
-        body: true
-      }
+        body: true,
+      },
     ],
     // scripts will not be url-encoded
     __dangerouslyDisableSanitizers: ["script"],
+    router: {
+      linkActiveClass: "active-link",
+    },
     script: [
       {
         type: "application/ld+json",
@@ -117,9 +120,9 @@ export default {
           name: "Tyler Earls",
           jobTitle: "Software Engineer",
           email: "tyler.a.earls@gmail.com",
-          url: "https://www.tylerearls.com"
-        })
-      }
-    ]
-  }
+          url: "https://www.tylerearls.com",
+        }),
+      },
+    ],
+  },
 };

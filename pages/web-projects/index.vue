@@ -66,12 +66,12 @@ const projects = [{
   analytics: {
     source: "portfolio",
     medium: "web",
-    campaign: "portfolio"
+    campaign: "portfolio",
   },
   tagline: "Give our music a listen",
   emoji: "🎵",
   customCursor: false,
-  cursorStyle: "pointer"
+  cursorStyle: "pointer",
 }, {
   name: "Road Ranger",
   descriptions: [`

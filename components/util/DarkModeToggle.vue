@@ -35,7 +35,7 @@ import SunIcon from "../widgets/svg/SunIcon";
 export default {
   components: {
     MoonIcon,
-    SunIcon
+    SunIcon,
   },
   props: {
     cookieKey: {
@@ -46,7 +46,7 @@ export default {
   computed: {
     prefersDarkMode() {
       return this.$store.state.prefersDarkMode === true;
-    }
+    },
   },
   beforeMount() {
     const cookieKey = this.cookieKey;

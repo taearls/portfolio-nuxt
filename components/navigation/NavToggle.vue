@@ -28,7 +28,7 @@
 export default {
   data() {
     return {
-      isToggleActive: false
+      isToggleActive: false,
     };
   },
   computed: {
@@ -37,7 +37,7 @@ export default {
       const navHeight = navContainer.offsetHeight;
       let margin = `${navHeight + 16}px`;
       return margin;
-    }
+    },
   },
   beforeMount() {
     this.adjustBodyTopMargin();

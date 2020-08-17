@@ -74,7 +74,7 @@ export default {
       const {source, medium, campaign} = utmObject;
       return `${link}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
     },
-  }
+  },
 };
 </script>
 
