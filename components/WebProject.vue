@@ -40,8 +40,10 @@
       </div>
       <div>
         <p
-          class="project-description px-2 sm:px-0 text-soft-black dark:text-white text-justify text-lg md:text-xl leading-7"
-          v-html="project.description"
+          v-for="(description, index) in project.descriptions"
+          :key="`${project.name}-description-${index}`"
+          v-html="description"
+          class="my-4 px-2 sm:px-0 text-soft-black dark:text-white text-justify text-lg md:text-xl leading-7"
         />
       </div>
     </div>
