@@ -91,8 +91,8 @@
               type="submit"
               value="Send Email"
               :disabled="saveDisabled"
-              class="inline-block transition-padding bg-purple-700 dark:bg-purple-500 rounded-lg pl-2 pr-10 disabled:pr-2 my-2 text-white transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark disabled:opacity-75"
-              :class="{ disabled: saveDisabled, 'submit-hover': !saveDisabled && hoveringMessage }"
+              class="inline-block my-2 text-white transition-colors transition-padding ease-in-out duration-200 bg-purple-700 dark:bg-purple-500 rounded-lg pl-2 pr-10 disabled:pr-2 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+              :class="{'submit-hover': !saveDisabled && hoveringMessage }"
               @mouseover="hoveringMessage = !saveDisabled"
               @mouseleave="hoveringMessage = false"
             >

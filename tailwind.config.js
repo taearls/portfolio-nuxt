@@ -22,6 +22,7 @@ module.exports = {
     backgroundColor: ["dark", "dark-hover", "dark-group-hover", "dark-even", "dark-odd", "hover", "responsive"],
     borderColor: ["dark", "dark-focus", "dark-focus-within", "hover", "responsive"],
     boxShadow: ["responsive", "hover", "dark-focus", "focus"],
+    cursor: ["responsive", "disabled"],
     opacity: ["responsive", "hover", "focus", "disabled"],
     padding: ["responsive", "disabled"],
     textColor: ["dark", "dark-hover", "dark-active", "hover", "responsive"],
