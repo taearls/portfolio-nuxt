@@ -3,10 +3,10 @@
     <h1 class="text-center mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl leading-tight">
       Contact Tyler Earls
     </h1>
-    <p class="w-1/2 mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
+    <p class="w-full max-w-sm mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       If you're interested in hiring me for coding work, my music, or just want to say hello—I'd love to hear from you. I'm a voracious learner, and nothing is too nerdy or niche for my taste.
     </p>
-    <p class="w-1/2 mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
+    <p class="w-full max-w-sm mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       The best way to reach me is by filling out the form below. 
     </p>
     <form

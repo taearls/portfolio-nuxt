@@ -88,12 +88,12 @@ export default {
       },
     ],
     link: [
-      {
-        href: "https://fonts.googleapis.com/css?family=Asul:400,700|Roboto:400,700&display=swap",
-        rel: "preload",
-        as: "style",
-        onload: "this.onload = null; this.rel = 'stylesheet';",
-      },
+      // {
+      //   href: "https://fonts.googleapis.com/css?family=Asul:400,600,700,800&display=swap",
+      //   rel: "preload",
+      //   as: "style",
+      //   onload: "this.onload = null; this.rel = 'stylesheet';",
+      // },
       {
         href: "images/vulcan-salute.ico",
         rel: "icon",
