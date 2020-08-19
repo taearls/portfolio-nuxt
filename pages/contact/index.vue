@@ -4,7 +4,7 @@
       Contact Tyler Earls
     </h1>
     <p class="w-1/2 mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
-      If you're interested in my coding work, my music, or just want to say hello—I'd love to hear from you. I'm a voracious learner, and nothing is too nerdy or niche for my taste.
+      If you're interested in hiring me for coding work, my music, or just want to say hello—I'd love to hear from you. I'm a voracious learner, and nothing is too nerdy or niche for my taste.
     </p>
     <p class="w-1/2 mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       The best way to reach me is by filling out the form below. 
@@ -13,8 +13,8 @@
       id="contact"
       class="form-boxshadow mx-auto my-8 bg-gray-200 dark:bg-gray-900 rounded-md w-full max-w-sm"
       method="get"
+      target="_blank"
       enctype="text/plain"
-      :action="generateMailToURL()"
     >
       <fieldset 
         class="px-4 py-2"
@@ -87,7 +87,8 @@
             :error-message="getErrorMessage()"
           />
           <div class="flex items-center">
-            <input
+            <!-- UNCOMMENT WHEN USING A NODE.JS EMAIL SERVICE -->
+            <!-- <input
               type="submit"
               value="Send Email"
               :disabled="saveDisabled"
@@ -96,6 +97,23 @@
               @mouseover="hoveringMessage = !saveDisabled"
               @mouseleave="hoveringMessage = false"
             >
+            <transition name="draw">
+              <RightArrowIcon 
+                v-if="!saveDisabled"
+                style="margin-left: -32px;"
+              />
+            </transition> -->
+            <button
+              type="submit"
+              :disabled="saveDisabled"
+              class="inline-block my-2 text-white transition-colors transition-padding ease-in-out duration-200 bg-purple-700 dark:bg-purple-500 rounded-lg pl-2 pr-10 disabled:pr-2 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+              :class="{'submit-hover': !saveDisabled && hoveringMessage }"
+              @click="goToMailURL()"
+              @mouseover="hoveringMessage = !saveDisabled"
+              @mouseleave="hoveringMessage = false"
+            >
+              Send Email
+            </button>
             <transition name="draw">
               <RightArrowIcon 
                 v-if="!saveDisabled"
@@ -122,6 +140,7 @@ export default {
   },
   data() {
     return {
+      testMailToURL: "mailto:tyler.a.earls@gmail.com?body=fuck&subject=fart",
       recaptchaVerified: false,
       shouldCompactRecaptcha: false,
       hoveringMessage: false,
@@ -148,6 +167,9 @@ export default {
     },
     prefersDarkMode() {
       return this.$store.state.prefersDarkMode;
+    },
+    mailToURL() {
+      return this.generateMailToURL();
     },
   },
   mounted() {
@@ -197,10 +219,13 @@ export default {
     resetRecaptcha() {
       this.recaptchaVerified = false;
     },
+    goToMailURL() {
+      window.open(this.mailToURL);
+    },
     generateMailToURL() {
       if (this.saveDisabled) return false;
       // TODO: use name field somehow
-      let mailToURL = "mailto:tyler.a.earls@gmail.com";
+      let mailToURL = "mailto:tyler.a.earls@gmail.com/";
       mailToURL += `?body=${encodeURIComponent(this.message.text)}`; // add body
       if (this.subject.text.length > 0) {
         mailToURL += `&subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
