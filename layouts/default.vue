@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <nav-bar />
-
     <nuxt />
-
     <vue-footer />
   </div>
 </template>
@@ -21,13 +19,45 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "~/assets/scss/global.scss";
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: $red;
-  margin-top: calc(#{$navHeight} + 30px);
+<style>
+/* light-mode */
+html {
+  @apply bg-white text-soft-black;
+}
+html a:hover, html a:hover span {
+  @apply text-blue-500;
+}
+html a:hover svg.dark-mode-toggle, html a:hover svg.external-link {
+  fill: #4299e1 !important; /* text-blue-500 */
+  stroke: #4299e1 !important; /* text-blue-500 */
+}
+/* dark-mode */
+html.dark-mode, html.dark-mode body {
+  @apply bg-soft-black;
+}
+html.dark-mode a:hover span {
+  @apply text-blue-300;
+}
+html.dark-mode a:hover svg.dark-mode-toggle, html.dark-mode a:hover svg.external-link {
+  fill: #90cdf4 !important; /* text-blue-300 */
+  stroke: #90cdf4 !important; /* text-blue-300 */
+}
+.inline-anchor {
+  @apply rounded-sm text-purple-700 font-semibold;
+}
+.inline-anchor:hover {
+  @apply text-blue-500 cursor-pointer;
+}
+.inline-anchor:focus {
+  @apply outline-none shadow-outline-light;
+}
+html.dark-mode .inline-anchor {
+  @apply text-purple-500;
+}
+html.dark-mode .inline-anchor:hover {
+  @apply text-blue-300;
+}
+html.dark-mode .inline-anchor:focus {
+  @apply shadow-outline-dark;
 }
 </style>

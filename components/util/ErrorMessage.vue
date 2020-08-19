@@ -2,13 +2,13 @@
   <span>
     <span
       v-show="errorPresent"
-      class="error-message"
+      class="block my-2 text-red-600 font-normal leading-6"
     >
       {{ errorMessage }}
     </span>
     <span
       v-show="!errorPresent"
-      class="error-placeholder"
+      class="block my-2 text-green-700 dark:text-green-400 font-normal leading-6"
       :class="{'success-message': successMessage}"
     >
       {{ successMessage || "" }}
@@ -25,6 +25,7 @@ export default {
       type: String,
     },
     errorPresent: {
+      default: false,
       type: Boolean,
     },
     successMessage: {
@@ -35,21 +36,5 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "~/assets/scss/global.scss";
-
-.error-placeholder, .error-message, .success-message {
-    display: block;
-    margin-left: initial;
-    margin-right: initial;
-    margin-bottom: 15px;
-    margin-top: -5px;
-    font-size: 15px;
-    font-weight: 400;
-    color: $red;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    width: fit-content;
-}
-
+<style>
 </style>

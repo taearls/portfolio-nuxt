@@ -1,18 +1,18 @@
 <template>
-  <div class="social-container">
+  <div class="flex justify-center">
     <a
       v-for="(link, index) in socialLinks"
       :key="index"
-      class="social-link"
       rel="noreferrer"
+      class="px-2 py-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
       target="_blank"
       :href="link.href"
       :aria-label="`Go to Tyler's ${link.label}`"
     >
-      <span>
+      <span class="text-xs text-purple-700 dark:text-purple-500 rounded-sm hover:text-blue-500 dark-hover:text-blue-300">
         <font-awesome-icon
           :icon="['fab', link.icon]"
-          size="1x"
+          size="2x"
         />
       </span>
     </a>
@@ -61,48 +61,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "~/assets/scss/global.scss";
-
-nav .social-container {
-    position: absolute;
-    bottom: 70px;
-    left: 32px;
-    margin: 0;
-}
-
-.social-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.social-link {
-    margin: 5px 0;
-    span {
-        color: $red;
-        display: inline-block;
-        font-weight: 400;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        padding: .35rem .7rem;
-        font-size: 1.5rem;
-        line-height: 1.5;
-        border-radius: .25rem;
-        &:hover {
-            color: $lightblue;
-            transition: all 0.2s ease;
-        }
-    }
-}
+<style>
 </style>

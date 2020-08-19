@@ -13,7 +13,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: [
-    'vue'
+    "vue",
   ],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
@@ -21,6 +21,14 @@ module.exports = {
     "max-len": "off",
     "no-tabs": ["error", { allowIndentationTabs: true }],
     "vue/no-v-html": "off",
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "never",
+    }],
+    eqeqeq: ["error", "smart"],
     quotes: [2, "double", { avoidEscape: true }],
   },
 };

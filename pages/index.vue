@@ -1,53 +1,53 @@
 <template>
-  <section id="home">
-    <h1>
-      Hi there!
+  <section class="px-4 mt-20 mx-auto max-w-none w-4/5 leading-8">
+    <!-- TODO: add images to break up text -->
+    <h1
+      class="text-left mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl"
+      style="line-height: 1.1;"
+    >
+      Hi there! 👋
       <br>
-      I'm Tyler Earls.
+      My name is Tyler Earls.
       <br>
       I am a software engineer and musician.
     </h1>
-    <br>
-    <p>
-      I work at <a
+    <p class="text-soft-black dark:text-white mt-4 text-lg md:text-xl leading-normal">
+      Currently, I work at
+      <a
+        class="inline-anchor"
         href="https://www.ensighten.com"
         rel="noreferrer"
         target="_blank"
-      >Ensighten</a>, where I help provide client-side security and privacy law compliance for Fortune 500 companies. I enjoy the continuously evolving challenge of making the web safe for online users and their personal data.
+      >Ensighten</a>, where I help provide client-side security and privacy law compliance for our clients. I
+      enjoy the continuously evolving challenge of making the web safe for online users and their
+      personal data. I think it's meaningful work to provide privacy law compliance so that users have the fullest autonomy
+      during their web experience that regulations allow.
     </p>
-    <br>
-    <p>
-      Occasionally, I do freelance frontend work on the side. I love to build UI components that people interact with on the web.
+    <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
+      Aside from this work, I occasionally take on freelance frontend work. I love building clean and accessible
+      UI components that enrich everyone's web experience.
     </p>
-    <br>
-    <p>
-      Outside of tech, I write songs as Cuckoo and the Birds. You can listen to my music <a
+    <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
+      Outside of tech, I write songs as
+      <a
+        class="inline-anchor"
+        href="https://www.cuckooandthebirds.com"
+        rel="external"
+        target="_blank"
+      >Cuckoo and the Birds</a>. If you'd like, you can listen to my music
+      <a
+        class="inline-anchor"
         href="https://cuckooandthebirds.bandcamp.com"
         rel="noreferrer"
         target="_blank"
       >here.</a>
     </p>
+    <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
+      I'm also a very avid Star Trek fan. During these difficult times, I find comfort in its optimistic view on the potential of humanity and its future.
+    </p>
   </section>
 </template>
 
-<script>
-export default {
-};
-</script>
+<script></script>
 
-<style lang="scss">
-@import "~/assets/scss/global.scss";
-
-#home {
-	h1 {
-		margin: 0 auto;
-		max-width: 75vw;
-		text-align: left;
-	}
-	p {
-		padding: 0;
-		margin: 0 auto;
-		max-width: 75vw;
-	}
-}
-</style>
+<style></style>

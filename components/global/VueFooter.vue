@@ -1,8 +1,10 @@
 <template>
   <footer>
-    <br>
     <social-media-icons />
-    <h6 v-html="footerText" />
+    <p
+      class="text-center text-soft-black dark:text-white text-xs tracking-wide font-normal"
+      v-html="footerText"
+    />
   </footer>
 </template>
 
@@ -16,13 +18,11 @@ export default {
   computed: {
     footerText() {
       const year = new Date().getFullYear();
-      return `&copy; Tyler Earls ${year}`;
+      return `&copy; 1993-${year} &bull; Tyler Earls`;
     },
   },
-
 };
 </script>
 
-<style lang="scss">
-
+<style>
 </style>

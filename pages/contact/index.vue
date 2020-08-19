@@ -1,73 +1,126 @@
 <template>
-  <section>
-    <h1>Contact Tyler Earls</h1>
-    <br>
+  <section class="px-4 mt-20 mx-auto max-w-none w-4/5 leading-8">
+    <h1 class="text-center mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl leading-tight">
+      Contact Tyler Earls
+    </h1>
+    <p class="w-full max-w-lg mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
+      If you're interested in hiring me for coding work, my music, or just want to say hello—I'd love to hear from you. I'm a voracious learner, and nothing is too nerdy or niche for my taste.
+    </p>
+    <p class="w-full max-w-lg mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
+      The best way to reach me is by filling out the form below. 
+    </p>
     <form
       id="contact"
-      class="vue-form"
+      class="form-boxshadow mx-auto my-8 bg-gray-200 dark:bg-gray-900 rounded-md w-full max-w-sm"
       method="get"
+      target="_blank"
       enctype="text/plain"
     >
-      <fieldset>
-        <div>
+      <fieldset 
+        class="px-4 py-2"
+      >
+        <div class="mb-2">
           <label
-            class="label"
+            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
+            for="contactName"
+          >
+            Name
+          </label>
+          <input
+            id="contactName"
+            v-model="name.text"
+            class="form-input w-full text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            type="text"
+            name="name"
+            :placeholder="name.placeholder"
+          >
+        </div>
+
+        <div class="mb-2">
+          <label
+            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
             for="contactSubject"
-          >Subject: </label>
+          >Subject</label>
           <input
             id="contactSubject"
             v-model="subject.text"
+            class="form-input w-full text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             type="text"
             name="subject"
-            required
-            :maxlength="subject.maxlength"
             :placeholder="subject.placeholder"
           >
-          <span class="counter">{{ subject.text.length }} / {{ subject.maxlength }}</span>
         </div>
         <div>
           <label
-            class="label"
+            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
             for="contactMessage"
-          >Message: </label>
+          >
+            Message<span> *</span>
+          </label>
           <textarea
             id="contactMessage"
             v-model="message.text"
-            class="message"
+            class="form-textarea w-full h-32 mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             name="message"
             required
-            :maxlength="message.maxlength"
             :placeholder="message.placeholder"
-            :class="{'error-field': message.error}"
-            @input="message.error = false;"
+            :class="{ 'error-field': message.error }"
+            @input="message.error = false"
           />
-          <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
         </div>
 
         <vue-recaptcha
-          :key="shouldCompactRecaptcha"
+          :key="shouldCompactRecaptcha + prefersDarkMode"
           sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
-          theme="dark"
+          :theme="prefersDarkMode ? 'dark' : 'light'"
           :size="shouldCompactRecaptcha ? 'compact' : 'normal'"
           :load-recaptcha-script="true"
           @verify="markRecaptchaVerified"
           @expired="resetRecaptcha"
         />
 
-        <div style="margin: 0;">
-          <error-message
+        <div class="relative">
+          <ErrorMessage
             id="recaptcha-error"
             success-message="Thank you. I look forward to working with you!"
             :error-present="saveDisabled"
             :error-message="getErrorMessage()"
           />
-          <a
-            target="_blank"
-            :href="generateMailToURL()"
-            :class="{disabled: saveDisabled, 'hover': !saveDisabled && hoveringMessage}"
-            @mouseover="hoveringMessage = !saveDisabled"
-            @mouseleave="hoveringMessage = false;"
-          >Send Message</a>
+          <div class="flex items-center">
+            <!-- UNCOMMENT WHEN USING A NODE.JS EMAIL SERVICE -->
+            <!-- <input
+              type="submit"
+              value="Send Email"
+              :disabled="saveDisabled"
+              class="inline-block my-2 text-white transition-colors transition-padding ease-in-out duration-200 bg-purple-700 dark:bg-purple-500 rounded-lg pl-2 pr-10 disabled:pr-2 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+              :class="{'submit-hover': !saveDisabled && hoveringMessage }"
+              @mouseover="hoveringMessage = !saveDisabled"
+              @mouseleave="hoveringMessage = false"
+            >
+            <transition name="draw">
+              <RightArrowIcon 
+                v-if="!saveDisabled"
+                style="margin-left: -32px;"
+              />
+            </transition> -->
+            <button
+              type="submit"
+              :disabled="saveDisabled"
+              class="inline-block my-2 text-white transition-colors transition-padding ease-in-out duration-200 bg-purple-700 dark:bg-purple-500 rounded-lg pl-2 pr-10 disabled:pr-2 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+              :class="{'submit-hover': !saveDisabled && hoveringMessage }"
+              @click="goToMailURL()"
+              @mouseover="hoveringMessage = !saveDisabled"
+              @mouseleave="hoveringMessage = false"
+            >
+              Send Email
+            </button>
+            <transition name="draw">
+              <RightArrowIcon 
+                v-if="!saveDisabled"
+                style="margin-left: -32px;"
+              />
+            </transition>
+          </div>
         </div>
       </fieldset>
     </form>
@@ -76,39 +129,47 @@
 
 <script>
 import VueRecaptcha from "vue-recaptcha";
-import ErrorMessage from "../../components/renderless/ErrorMessage.vue";
-
-// constants i don't want watched in data object
-const compactRecaptchaBreakPoint = 560;
+import ErrorMessage from "@/components/util/ErrorMessage";
+import RightArrowIcon from "@/components/widgets/svg/RightArrowIcon";
 
 export default {
   components: {
     VueRecaptcha,
     ErrorMessage,
+    RightArrowIcon,
   },
   data() {
     return {
+      testMailToURL: "mailto:tyler.a.earls@gmail.com?body=fuck&subject=fart",
       recaptchaVerified: false,
       shouldCompactRecaptcha: false,
       hoveringMessage: false,
       errorLines: 0,
-      message: {
-        placeholder:
-                    "Hey Tyler,\n\nMy name is _______.\nLet's build something awesome together.",
+      name: {
+        placeholder: "Captain Kirk",
         text: "",
-        maxlength: 500,
-        error: false,
       },
       subject: {
-        placeholder: "Freelance Hire Inquiry",
+        placeholder: "Captain's Log",
         text: "",
-        maxlength: 50,
+      },
+      message: {
+        // placeholder: "Hey Tyler,\n\nMy name is _______.\nLet's do something awesome together.",
+        placeholder: "Stardate 2713.5\n\nIn the distant reaches of our galaxy, we have made an astonishing discovery – Earth-type radio signals coming from a planet which apparently is an exact duplicate of the Earth.\n\nIt seems impossible, but there it is.",
+        text: "",
+        error: false,
       },
     };
   },
   computed: {
     saveDisabled() {
       return this.message.text.length === 0 || !this.recaptchaVerified;
+    },
+    prefersDarkMode() {
+      return this.$store.state.prefersDarkMode;
+    },
+    mailToURL() {
+      return this.generateMailToURL();
     },
   },
   mounted() {
@@ -133,6 +194,7 @@ export default {
       }
     },
     checkCompactRecaptcha() {
+      const compactRecaptchaBreakPoint = 560;
       const compare = this.shouldCompactRecaptcha;
       this.shouldCompactRecaptcha = window.innerWidth <= compactRecaptchaBreakPoint;
 
@@ -143,8 +205,9 @@ export default {
     },
     getErrorMessage() {
       if (!this.recaptchaVerified) {
-        return "Please verify that you're a human before sending.";
-      } if (this.recaptchaVerified && this.message.text.length === 0) {
+        return "Please verify you're a human before sending.";
+      }
+      if (this.recaptchaVerified && this.message.text.length === 0) {
         this.message.error = true;
         return "Message cannot be blank.";
       }
@@ -156,10 +219,13 @@ export default {
     resetRecaptcha() {
       this.recaptchaVerified = false;
     },
+    goToMailURL() {
+      window.open(this.mailToURL);
+    },
     generateMailToURL() {
       if (this.saveDisabled) return false;
-
-      let mailToURL = "mailto:tyler.a.earls@gmail.com";
+      // TODO: use name field somehow
+      let mailToURL = "mailto:tyler.a.earls@gmail.com/";
       mailToURL += `?body=${encodeURIComponent(this.message.text)}`; // add body
       if (this.subject.text.length > 0) {
         mailToURL += `&subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
@@ -170,140 +236,47 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '~/assets/scss/global.scss';
+<style>
+.disabled {
+  @apply cursor-not-allowed;
+}
+.submit-hover {
+  @apply cursor-pointer;
+}
+.transition-padding {
+  transition: padding 500ms ease;
+}
+.form-input {
+  @apply appearance-none p-2 text-base leading-6 rounded-md;
+}
+.form-textarea {
+  @apply appearance-none p-2 text-base leading-6 rounded-md;
+}
+.form-input:focus, .form-textarea:focus {
+  
+}
+.form-boxshadow {
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+html.dark-mode .form-boxshadow {
+  /* box-shadow: 0 4px 6px 0 hsla(0, 100%, 100%, 0.4); */
+  /* box-shadow: 0 4px 6px 0 rgba(255, 255, 255, 0.4); */
+}
 
-.error-field {
-    outline: 2px solid $red;
-}
-h2 {
-    font-weight: bold;
-}
-form {
-    display: block;
-    appearance: none;
-}
-fieldset {
-    border: none;
-    div {
-        margin-bottom: 25px;
-    }
-}
-input {
-    font-size: 12px;
-}
-.hover {
-    color: $red !important;
-    transition: 0.2s ease;
-}
-.vue-form {
-    box-sizing: border-box;
-    font-size: 20px;
-    padding: 15px 20px;
-    border-radius: 4px;
-    margin: 20px auto;
-    box-shadow: 1px 1px 6px 1px $black;
-    border: 2px solid $red;
-    * {
-        box-sizing: border-box;
-    }
 
-    input[type="text"],
-    input[type="email"],
-    textarea,
-    select {
-        padding: 12px;
-        border: 1px solid #cfd9db;
-        background-color: #ffffff;
-        border-radius: 0.25em;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
-    }
-    fieldset {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    legend {
-        font-size: 26px;
-        text-align: center;
-        padding-bottom: 10px;
-    }
-    div {
-        position: relative;
-    }
-    h4,
-    .label {
-        color: $red;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    .label {
-        display: inline-block;
-    }
-    input,
-    textarea,
-    select,
-    label {
-        color: #2b3e51;
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea,
-    select,
-    legend {
-        display: block;
-        padding: 0;
-        width: 100%;
-        appearance: none;
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea,
-    select {
-        padding: 12px;
-        border  : 1px solid #cfd9db;
-        background-color: #ffffff;
-        border-radius: 0.25em;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
-    }
-    textarea {
-        font-size: 13px;
-        line-height: 1.4;
-        min-height: 120px;
-        resize: vertical;
-        overflow: auto;
-    }
-    input[type="submit"], a {
-        border: 1px solid $gray;
-        background: $lightblack;
-        border-radius: 0.25em;
-        padding: 12px 20px;
-        font-size: 12px;
-        color: #fff;
-        font-weight: bold;
-        cursor: pointer;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        appearance: none;
-    }
-    .no-touch input[type="submit"]:hover {
-        background: $lightblue;
-    }
-    input[type="submit"]:active {
-        transform: scale(0.9);
-    }
-    input[type="text"]:focus, textarea:focus {
-        outline-width: 4px;
-    }
-    .counter {
-        color: $red;
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-        font-size: 11px;
-        margin-top: 5px;
-    }
+/* transitions */
+.draw-enter-active {
+  /* opacity: 1; */
+  display: block;
+  transition: all 500ms ease 100ms;
 }
-#recaptcha-error .error-message {
-    overflow-wrap: break-word;
+.draw-leave-active {
+  opacity: 0;
+  display: none;
+  transition: all 300ms ease;
+}
+.draw-enter,
+.draw-leave-to {
+  opacity: 0;
 }
 </style>
