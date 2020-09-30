@@ -40,7 +40,11 @@
             class="inline-block pl-6 pr-12 text-lg font-extrabold text-purple-700 rounded-sm dark:text-purple-500 dark-hover:text-blue-300 sm:pl-4 sm:pr-2 sm:flex sm:items-center sm:justify-center focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           >
             {{ externalLink.name }}
-            <ExternalLinkIcon :prefers-dark-mode="prefersDarkMode" />
+            <ExternalLinkIcon
+              :prefers-dark-mode="prefersDarkMode"
+              dark-mode-color="#9f7aea"
+              light-mode-color="#6b46c1"
+            />
           </a>
         </li>
       </ul>

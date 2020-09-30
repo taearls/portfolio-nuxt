@@ -27,13 +27,23 @@
   </svg>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+
+export default defineComponent({
   props: {
     prefersDarkMode: {
-      default: false,
       type: Boolean,
+      required: true,
+    },
+    darkModeColor: {
+      type: String,
+      required: true,
+    },
+    lightModeColor: {
+      type: String,
+      required: true,
     },
   },
-}
+});
 </script>

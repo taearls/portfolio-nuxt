@@ -72,7 +72,7 @@ export default {
       this.$store.commit("toggleDarkMode");
       if (this.prefersDarkMode) {
         window.document.documentElement.classList.add("dark-mode");
-        this.setPrefersDarkModeCookie("dark")
+        this.setPrefersDarkModeCookie("dark");
       } else {
         window.document.documentElement.classList.remove("dark-mode");
         this.setPrefersDarkModeCookie("light");

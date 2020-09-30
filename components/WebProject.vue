@@ -53,8 +53,10 @@
   </section>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+
+export default defineComponent({
   props: {
     project: {
       type: Object,
@@ -70,12 +72,14 @@ export default {
     },
   },
   methods: {
-    getAnalyticsLink(link, utmObject) {
+    // for some reason, adding Record<string, string> throws a lint error that Record is undefined
+    // probably until upgrading to vue 3 for real.
+    getAnalyticsLink(link: string, utmObject: any): string {
       const {source, medium, campaign} = utmObject;
       return `${link}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
     },
   },
-};
+});
 </script>
 
 <style>

@@ -19,46 +19,47 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTwitter, faLinkedin, faGithub, faBandcamp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faTwitter, faLinkedin, faGithub, faBandcamp);
-
-const socialLinks = [
-  {
-    href: "https://www.linkedin.com/in/tylerearls",
-    label: "LinkedIn",
-    icon: "linkedin",
-  },
-  {
-    href: "https://www.github.com/taearls",
-    label: "Github",
-    icon: "github",
-  },
-  {
-    href: "https://www.twitter.com/taearls",
-    label: "Twitter",
-    icon: "twitter",
-  },
-  {
-    href: "https://cuckooandthebirds.bandcamp.com",
-    label: "Bandcamp",
-    icon: "bandcamp",
-  },
-];
-
-export default {
+export default defineComponent({
   components: {
     FontAwesomeIcon,
   },
-  data() {
+  setup() {
+    library.add(faTwitter, faLinkedin, faGithub, faBandcamp);
+
+    const socialLinks = [
+      {
+        href: "https://www.linkedin.com/in/tylerearls",
+        label: "LinkedIn",
+        icon: "linkedin",
+      },
+      {
+        href: "https://www.github.com/taearls",
+        label: "Github",
+        icon: "github",
+      },
+      {
+        href: "https://www.twitter.com/taearls",
+        label: "Twitter",
+        icon: "twitter",
+      },
+      {
+        href: "https://cuckooandthebirds.bandcamp.com",
+        label: "Bandcamp",
+        icon: "bandcamp",
+      },
+    ];
     return {
       socialLinks,
     };
   },
-};
+});
 </script>
 
 <style>

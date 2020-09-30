@@ -28,6 +28,7 @@ module.exports = {
       "exports": "never",
       "functions": "never",
     }],
+    semi: ["error", "always"],
     eqeqeq: ["error", "smart"],
     quotes: [2, "double", { avoidEscape: true }],
   },

@@ -41,7 +41,7 @@ export default {
       return window.location.href;
     },
   },
-}
+};
 </script>
 
 <style>
