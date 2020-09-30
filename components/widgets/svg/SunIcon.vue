@@ -5,7 +5,10 @@
     height="32"
     viewBox="0 0 128 128"
     width="32"
+    role="presentation"
+    aria-labelledby="sunIcon"
   >
+    <title id="sunIcon">Sun Icon</title>
     <g>
       <circle
         cx="64"
