@@ -128,7 +128,9 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import VueRecaptcha from "vue-recaptcha";
+
 import ErrorMessage from "@/components/util/ErrorMessage";
 import RightArrowIcon from "@/components/widgets/svg/RightArrowIcon";
 
@@ -140,7 +142,6 @@ export default {
   },
   data() {
     return {
-      testMailToURL: "mailto:tyler.a.earls@gmail.com?body=fuck&subject=fart",
       recaptchaVerified: false,
       shouldCompactRecaptcha: false,
       hoveringMessage: false,
@@ -162,11 +163,9 @@ export default {
     };
   },
   computed: {
+    ...mapState(["prefersDarkMode"]),
     saveDisabled() {
       return this.message.text.length === 0 || !this.recaptchaVerified;
-    },
-    prefersDarkMode() {
-      return this.$store.state.prefersDarkMode;
     },
     mailToURL() {
       return this.generateMailToURL();

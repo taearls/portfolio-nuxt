@@ -52,6 +52,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import DarkModeToggle from "../util/DarkModeToggle";
 import ExternalLinkIcon from "../widgets/svg/ExternalLinkIcon";
 import NavToggle from "./NavToggle";
@@ -96,9 +98,7 @@ export default {
     };
   },
   computed: {
-    prefersDarkMode() {
-      return this.$store.state.prefersDarkMode;
-    },
+    ...mapState(["prefersDarkMode"]),
   },
   watch: {
     isNavActive(isActive) {

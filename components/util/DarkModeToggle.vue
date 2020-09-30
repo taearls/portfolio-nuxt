@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import MoonIcon from "../widgets/svg/MoonIcon";
 import SunIcon from "../widgets/svg/SunIcon";
 
@@ -44,9 +46,7 @@ export default {
     },
   },
   computed: {
-    prefersDarkMode() {
-      return this.$store.state.prefersDarkMode === true;
-    },
+    ...mapState(["prefersDarkMode"]),
   },
   beforeMount() {
     const cookieKey = this.cookieKey;
