@@ -23,6 +23,7 @@ export default {
         id: "UA-132274464-1",
       },
     ],
+    "@nuxt/typescript-build",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
   ],
@@ -30,7 +31,7 @@ export default {
     preference: "system",
     fallback: "light",
     cookie: {
-      key: "tylerearls.com-color-scheme",
+      key: "color-scheme",
       options: {
         sameSite: "lax", // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
       },
@@ -64,7 +65,10 @@ export default {
   tailwindcss: {
     exposeConfig: true,
   },
-  plugins: ["~/plugins/global.js"],
+  plugins: [
+    "~/plugins/cloudinary.js",
+    "~/plugins/vue-composition-api.js",
+  ],
   head: {
     htmlAttrs: {
       lang: "en",

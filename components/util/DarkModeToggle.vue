@@ -42,7 +42,7 @@ export default {
   props: {
     cookieKey: {
       type: String,
-      default: "nuxt-color-mode",
+      required: true,
     },
   },
   computed: {

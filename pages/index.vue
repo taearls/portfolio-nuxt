@@ -42,7 +42,7 @@
         target="_blank"
       >here.</a>
     </p>
-    <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
+    <p class="text-soft-black dark:text-white mt-4 mb-8 text-lg md:text-xl leading-normal">
       I'm also a very avid Star Trek fan. During these difficult times, I find comfort in its optimistic view on the potential of humanity and its future.
     </p>
   </section>

@@ -3,26 +3,26 @@
     <social-media-icons />
     <p
       class="text-center text-soft-black dark:text-white text-xs tracking-wide font-normal"
-      v-html="footerText"
+      v-html="footerHtml"
     />
   </footer>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+
 import SocialMediaIcons from "../widgets/SocialMediaIcons.vue";
 
-export default {
+export default defineComponent({
+  setup() {
+    const footerHtml = `&copy; 1993-${new Date().getFullYear()} &bull; Tyler Earls`;
+
+    return {
+      footerHtml,
+    };
+  },
   components: {
     SocialMediaIcons,
   },
-  computed: {
-    footerText() {
-      const year = new Date().getFullYear();
-      return `&copy; 1993-${year} &bull; Tyler Earls`;
-    },
-  },
-};
+});
 </script>
-
-<style>
-</style>
