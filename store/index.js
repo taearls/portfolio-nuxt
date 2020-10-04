@@ -15,17 +15,9 @@ export const mutations = {
   setPrefersDarkMode(state, defaultVal) {
     state.prefersDarkMode = defaultVal;
   },
-  setWebProjects(state, webProjects) {
-    state.webProjects = webProjects;
-  },
-  setInternalNavigationLinks(state, internalNavigationLinks) {
-    state.internalNavigationLinks = internalNavigationLinks;
-  },
-  setExternalNavigationLinks(state, externalNavigationLinks) {
-    state.externalNavigationLinks = externalNavigationLinks;
-  },
-  setSocialMediaLinks(state, socialMediaLinks) {
-    state.socialMediaLinks = socialMediaLinks;
+  setState(state, { stateProperty, newStateValue }) {
+    // generic function to update central state for all collections once data is fetched from firebase
+    state[stateProperty] = newStateValue;
   },
 };
 
@@ -45,9 +37,7 @@ export const actions = {
         }
         return 0;
       });
-    const upperCasedCollectionName = collectionName.charAt(0).toUpperCase() + collectionName.slice(1);
-
-    commit(`set${upperCasedCollectionName}`, data);
+    commit("setState", { stateProperty: collectionName, newStateValue: data });
   },
   async nuxtServerInit({ dispatch }) {
     await dispatch("fetchData", "webProjects");
