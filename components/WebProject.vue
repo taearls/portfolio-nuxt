@@ -74,7 +74,7 @@ export default defineComponent({
     // for some reason, adding Record<string, string> throws a lint error that Record is undefined
     // probably until upgrading to vue 3 for real.
     getAnalyticsLink(link: string, utmObject: any): string {
-      const {source, medium, campaign} = utmObject;
+      const { source, medium, campaign } = utmObject;
       return `${link}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
     },
   },
