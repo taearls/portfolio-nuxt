@@ -1,9 +1,7 @@
 <template>
   <section class="mx-auto mt-12">
     <h2
-      class="text-center mb-8 text-purple-700 dark:text-purple-500"
-      style="font-weight: 700;
-    font-size: 1.5em;"
+      class="text-center font-bold text-2xl mb-8 text-purple-700 dark:text-purple-500"
     >
       {{ project.name }}
     </h2>
@@ -24,6 +22,7 @@
               >
                 <cld-transformation
                   width="400"
+                  quality="auto"
                 />
               </cld-image>
             </client-only>
@@ -71,7 +70,7 @@ export default {
   },
   methods: {
     getAnalyticsLink(link, utmObject) {
-      const {source, medium, campaign} = utmObject;
+      const { source, medium, campaign } = utmObject;
       return `${link}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
     },
   },

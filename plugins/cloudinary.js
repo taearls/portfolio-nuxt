@@ -3,6 +3,6 @@ import Cloudinary from "cloudinary-vue";
 
 Vue.use(Cloudinary, {
   configuration: {
-    cloudName: "taearls",
+    cloudName: process.env.CLOUDINARY_ID,
   },
 });
