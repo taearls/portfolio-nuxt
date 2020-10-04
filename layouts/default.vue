@@ -7,10 +7,11 @@
 </template>
 
 <script lang="ts">
-import NavBar from "../components/navigation/NavBar.vue";
-import VueFooter from "../components/global/VueFooter.vue";
 import { mapState } from "vuex";
 import { defineComponent } from "@vue/composition-api";
+import type { WebProject } from "../types/index";
+import NavBar from "../components/navigation/NavBar.vue";
+import VueFooter from "../components/global/VueFooter.vue";
 
 export default defineComponent({
   name: "App",
@@ -31,7 +32,7 @@ export default defineComponent({
       // setTimeout with 0ms puts this call at the end of the stack
       setTimeout(() => {
         // TODO: add interface for web project
-        this.webProjects.forEach((project: any) => {
+        this.webProjects.forEach((project: WebProject) => {
           if (project.cloudinarySrc != null && project.cloudinarySrc !== "") {
             new Image().src = project.cloudinarySrc;
           }

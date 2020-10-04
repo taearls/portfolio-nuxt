@@ -12,35 +12,35 @@
     >
       <ul class="flex flex-col h-auto justify-center sm:flex-row sm:justify-end">
         <li
-          v-for="(internalLink, index) in internalLinks"
-          :key="'internalLink' + index"
+          v-for="(internalNavigationLink, index) in internalNavigationLinks"
+          :key="'internalNavigationLink' + index"
           class="mx-auto py-2 text-center w-1/3 border border-gray-400 dark:border-gray-500 border-t-0 border-l-0 border-r-0 border-b-1 sm:border-none sm:mx-0 sm:w-auto"
-          :class="externalLinks.length === 0 && index === internalLinks.length - 1 ? 'border-none' : ''"
+          :class="externalNavigationLinks.length === 0 && index === internalNavigationLinks.length - 1 ? 'border-none' : ''"
         >
           <nuxt-link
-            :to="internalLink.href"
+            :to="internalNavigationLink.href"
             :tabindex="isNavActive ? 0 : -1"
-            :aria-label="internalLink.ariaLabel"
+            :aria-label="internalNavigationLink.ariaLabel"
             class="px-8 sm:px-4 text-lg font-extrabold text-purple-700 dark:text-purple-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark rounded-sm"
           >
-            {{ internalLink.name }}
+            {{ internalNavigationLink.displayText }}
           </nuxt-link>
         </li>
         <li
-          v-for="(externalLink, index) in externalLinks"
-          :key="'externalLink' + index"
+          v-for="(externalNavigationLink, index) in externalNavigationLinks"
+          :key="'externalNavigationLinks' + index"
           class="mx-auto py-2 text-center w-1/3 border border-gray-400 dark:border-gray-500 border-t-0 border-l-0 border-r-0 border-b-1 sm:border-none sm:mx-0 sm:w-auto"
-          :class="index === externalLinks.length - 1 ? 'border-none' : ''"
+          :class="index === externalNavigationLinks.length - 1 ? 'border-none' : ''"
         >
           <a
-            :href="externalLink.href"
+            :href="externalNavigationLink.href"
             :tabindex="isNavActive ? 0 : -1"
-            :aria-label="externalLink.ariaLabel"
+            :aria-label="externalNavigationLink.ariaLabel"
             rel="noreferrer"
             target="_blank"
             class="inline-block pl-6 pr-12 text-lg font-extrabold text-purple-700 rounded-sm dark:text-purple-500 dark-hover:text-blue-300 sm:pl-4 sm:pr-2 sm:flex sm:items-center sm:justify-center focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           >
-            {{ externalLink.name }}
+            {{ externalNavigationLink.displayText }}
             <ExternalLinkIcon
               :prefers-dark-mode="prefersDarkMode"
               dark-mode-color="#9f7aea"
@@ -56,40 +56,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
 import { mapState } from "vuex";
 
-import DarkModeToggle from "../util/DarkModeToggle";
-import ExternalLinkIcon from "../widgets/svg/ExternalLinkIcon";
-import NavToggle from "./NavToggle";
+import DarkModeToggle from "../util/DarkModeToggle.vue";
+import ExternalLinkIcon from "../widgets/svg/ExternalLinkIcon.vue";
+import NavToggle from "./NavToggle.vue";
 
-const internalLinks = [
-  {
-    href: "/",
-    name: "Home",
-    ariaLabel: "Visit Home Page",
-  },
-  {
-    href: "/web-projects",
-    name: "Web",
-    ariaLabel: "Visit Web Projects Page",
-  },
-  {
-    href: "/contact",
-    name: "Contact",
-    ariaLabel: "Visit Contact Page",
-  },
-];
-
-const externalLinks = [
-  {
-    href: "https://cuckooandthebirds.bandcamp.com",
-    name: "Music",
-    ariaLabel: "Listen to Tyler's music on Bandcamp",
-  },
-];
-
-export default {
+export default defineComponent({
   components: {
     DarkModeToggle,
     ExternalLinkIcon,
@@ -98,12 +73,14 @@ export default {
   data() {
     return {
       isNavActive: false,
-      internalLinks,
-      externalLinks,
     };
   },
   computed: {
-    ...mapState(["prefersDarkMode"]),
+    ...mapState([
+      "prefersDarkMode",
+      "internalNavigationLinks",
+      "externalNavigationLinks",
+    ]),
   },
   watch: {
     isNavActive(isActive) {
@@ -117,15 +94,17 @@ export default {
       // need to use next tick to ensure tabindex is set to 0 before attempting to focus
       this.$nextTick(() => {
         // initialize focus on the current page
-        const activeRouterLink = document.querySelector("a.nuxt-link-exact-active");
+        const activeRouterLink = document.querySelector("a.nuxt-link-exact-active") as HTMLElement;
         if (activeRouterLink == null) {
-          const firstRouterLink = document.querySelector("#nav-bar ul li:first-child a");
-          firstRouterLink.focus();
+          const firstRouterLink = document.querySelector("#nav-bar ul li:first-child a") as HTMLElement;
+          if (firstRouterLink != null) {
+            firstRouterLink.focus();
+          }
         } else {
           activeRouterLink.focus();
         }
       });
     },
   },
-};
+});
 </script>

@@ -81,7 +81,6 @@ export default defineComponent({
       }
       this.$nextTick(() => {
         if (this.prefersDarkMode) {
-          
           const sunToggle = this.$refs.sunToggle as HTMLElement;
           sunToggle.focus();
         } else {

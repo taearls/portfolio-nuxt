@@ -35,11 +35,13 @@ export default defineComponent({
   },
   computed: {
     bodyTopMargin() {
-      const navContainer = document.getElementById("nav-container");
       let margin = "0";
-      if (navContainer != null) {
-        const navHeight = navContainer.offsetHeight;
-        margin = `${navHeight + 16}px`;
+      if (process.client) {
+        const navContainer = document.getElementById("nav-container");
+        if (navContainer != null) {
+          const navHeight = navContainer.offsetHeight;
+          margin = `${navHeight + 16}px`;
+        }
       }
       return margin;
     },
