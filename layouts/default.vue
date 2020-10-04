@@ -9,12 +9,30 @@
 <script>
 import NavBar from "../components/navigation/NavBar.vue";
 import VueFooter from "../components/global/VueFooter.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "App",
   components: {
     NavBar,
     VueFooter,
+  },
+  computed: {
+    ...mapState([
+      "webProjects",
+    ]),
+  },
+  mounted() {
+    this.preloadCloudinaryImages();
+  },
+  methods: {
+    preloadCloudinaryImages() {
+      this.webProjects.forEach(project => {
+        if (project.cloudinarySrc != null && project.cloudinarySrc !== "") {
+          new Image().src = project.cloudinarySrc;
+        }
+      });
+    },
   },
 };
 </script>

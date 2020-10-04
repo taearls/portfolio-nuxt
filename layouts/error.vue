@@ -31,17 +31,12 @@ export default {
   components: {
     RightArrowIcon,
   },
-  data() {
-    return {
-      showArrowIcon: false,
-    };
-  },
   computed: {
     currentRoute() {
       return window.location.href;
     },
   },
-}
+};
 </script>
 
 <style>

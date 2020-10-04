@@ -36,7 +36,7 @@ export default {
       },
     },
   },
-  mode: "spa",
+  mode: "universal",
   babel: {
     presets({ isServer }) {
       return [
@@ -64,7 +64,10 @@ export default {
   tailwindcss: {
     exposeConfig: true,
   },
-  plugins: ["~/plugins/global.js"],
+  plugins: [
+    "~/plugins/cloudinary.js",
+    "~/plugins/firebase.js",
+  ],
   head: {
     htmlAttrs: {
       lang: "en",

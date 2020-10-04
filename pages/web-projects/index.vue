@@ -18,18 +18,18 @@
       I have been very interested in learning Rust. I'm currently leveling up those skills and hope to start work on a fun project in that realm. Specifically, I'd love to build a game and embed it on the web using Web Assembly.
     </p>
     <WebProject
-      v-for="(project, index) in projects"
+      v-for="(project, index) in webProjects"
       :key="'web-project-' + index"
       :project="project"
       :index="index"
-      :project-count="projects.length - 1"
+      :project-count="webProjects.length - 1"
     />
   </section>
 </template>
 
 <script>
 import WebProject from "../../components/WebProject.vue";
-
+import { mapState } from "vuex";
 /** 
  * name - name of web project
  * description - description of web project
@@ -116,7 +116,8 @@ const projects = [{
   cursorStyle: "url(images/space-clones-cursor.png), pointer",
 // }, {
 //   name: "BigSearch",
-//   description: "An application inspired by the movie Big that interacts with the Open Movie Database (OMDB) REST API to return data about any movie, similar to the website, IMDB. <br><br> Built using React and React Router, hosted on Heroku. To use the app, simply type the name of any movie into the search form.",
+//   description: "An application inspired by the movie Big that interacts with the Open Movie Database (OMDB) REST API to return data about any movie, similar to the website, IMDB. 
+// <br><br> Built using React and React Router, hosted on Heroku. To use the app, simply type the name of any movie into the search form.",
 //   cloudinaryID: "screenshots/big-search-screenshot.png",
 //   alt: "Image of BigSearch app",
 //   href: "https://bigsearch.herokuapp.com",
@@ -133,6 +134,11 @@ export default {
     return {
       projects,
     };
+  },
+  computed: {
+    ...mapState([
+      "webProjects",
+    ]),
   },
 };
 </script>
