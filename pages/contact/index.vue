@@ -131,8 +131,8 @@
 import { mapState } from "vuex";
 import VueRecaptcha from "vue-recaptcha";
 
-import ErrorMessage from "@/components/util/ErrorMessage";
-import RightArrowIcon from "@/components/widgets/svg/RightArrowIcon";
+import ErrorMessage from "../../components/util/ErrorMessage.vue";
+import RightArrowIcon from "../../components/widgets/svg/RightArrowIcon.vue";
 
 export default {
   components: {
@@ -163,7 +163,9 @@ export default {
     };
   },
   computed: {
-    ...mapState(["prefersDarkMode"]),
+    ...mapState([
+      "prefersDarkMode",
+    ]),
     saveDisabled() {
       return this.message.text.length === 0 || !this.recaptchaVerified;
     },
@@ -235,7 +237,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .disabled {
   @apply cursor-not-allowed;
 }
@@ -250,9 +252,6 @@ export default {
 }
 .form-textarea {
   @apply appearance-none p-2 text-base leading-6 rounded-md;
-}
-.form-input:focus, .form-textarea:focus {
-  
 }
 .form-boxshadow {
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
