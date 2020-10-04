@@ -36,6 +36,10 @@ export default {
       },
     },
   },
+  env: {
+    CLOUDINARY_ID: process.env.CLOUDINARY_ID,
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+  },
   mode: "universal",
   babel: {
     presets({ isServer }) {

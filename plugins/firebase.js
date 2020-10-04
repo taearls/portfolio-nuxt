@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 if (!firebase.apps.length) {
   const config = {
-    apiKey: "AIzaSyDzNrJWjLjgWOft0ZbBaLg21bEIMylTa0s",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "portfolio-4ad61.firebaseapp.com",
     databaseURL: "https://portfolio-4ad61.firebaseio.com",
     projectId: "portfolio-4ad61",
