@@ -9,7 +9,7 @@ export const mutations = {
   toggleDarkMode(state) {
     state.prefersDarkMode = !state.prefersDarkMode; 
   },
-  setDefaultDarkMode(state, defaultVal) {
+  setPrefersDarkMode(state, defaultVal) {
     state.prefersDarkMode = defaultVal;
   },
   setWebProjects(state, webProjects) {

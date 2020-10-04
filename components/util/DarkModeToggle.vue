@@ -28,13 +28,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
 import { mapState } from "vuex";
 
-import MoonIcon from "../widgets/svg/MoonIcon";
-import SunIcon from "../widgets/svg/SunIcon";
+import MoonIcon from "../widgets/svg/MoonIcon.vue";
+import SunIcon from "../widgets/svg/SunIcon.vue";
 
-export default {
+import { getCookieValue, isDarkModePreferred, doesColorSchemeCookieExist, setCookieValue } from "../../composables/cookieUtils";
+
+export default defineComponent({
   components: {
     MoonIcon,
     SunIcon,
@@ -46,55 +49,52 @@ export default {
     },
   },
   computed: {
-    ...mapState(["prefersDarkMode"]),
+    ...mapState([
+      "prefersDarkMode",
+    ]),
   },
   beforeMount() {
     const cookieKey = this.cookieKey;
-    const documentHasColorModeCookie = document.cookie && document.cookie.indexOf(`${cookieKey}=`) > -1;
-    let isDarkMode;
+    const documentHasColorModeCookie : boolean = doesColorSchemeCookieExist(cookieKey);
+    let isDarkModeByDefault = false;
     
     if (documentHasColorModeCookie) {
-      const cookieValue = document.cookie
-        .split("; ")
-        .find(row => row.startsWith(cookieKey))
-        .split("=")[1];
-      isDarkMode = cookieValue === "dark";
+      const cookieValue = getCookieValue(cookieKey);
+      isDarkModeByDefault = cookieValue === "dark";
     } else {
-      isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const defaultCookieValue = isDarkMode ? "dark" : "light";
-      this.setPrefersDarkModeCookie(defaultCookieValue);
+      isDarkModeByDefault = isDarkModePreferred();
+      const newCookieValue = isDarkModeByDefault ? "dark" : "light";
+      setCookieValue(cookieKey, newCookieValue);
     }
-    this.$store.commit("setDefaultDarkMode", isDarkMode);
+    this.$store.commit("setPrefersDarkMode", isDarkModeByDefault);
   },
   methods: {
-    toggleDarkMode() {
+    toggleDarkMode(): void {
       // change data value, add/remove dark-mode class, then focus on the newly visible svg icon
       this.$store.commit("toggleDarkMode");
       if (this.prefersDarkMode) {
         window.document.documentElement.classList.add("dark-mode");
-        this.setPrefersDarkModeCookie("dark");
+        setCookieValue(this.cookieKey, "dark");
       } else {
         window.document.documentElement.classList.remove("dark-mode");
-        this.setPrefersDarkModeCookie("light");
+        setCookieValue(this.cookieKey, "light");
       }
       this.$nextTick(() => {
         if (this.prefersDarkMode) {
-          this.$refs.sunToggle.focus();
+          
+          const sunToggle = this.$refs.sunToggle as HTMLElement;
+          sunToggle.focus();
         } else {
-          this.$refs.moonToggle.focus();
+          const moonToggle = this.$refs.moonToggle as HTMLElement;
+          moonToggle.focus();
         }
       });
     },
-    setPrefersDarkModeCookie(newCookieValue) {
-      if (!document.cookie) return;
-      const cookieKey = this.cookieKey;
-      document.cookie = `${cookieKey}=${newCookieValue}`;
-    },
   },
-};
+});
 </script>
 
-<style>
+<style scoped>
 /* CHECKBOX TOGGLE SWITCH */
 /* @apply rules for documentation, these do not work as inline style */
 .toggle-checkbox:checked {

@@ -81,7 +81,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .line-break {
   border: 0;
   height: 1px;

@@ -6,12 +6,13 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import NavBar from "../components/navigation/NavBar.vue";
 import VueFooter from "../components/global/VueFooter.vue";
 import { mapState } from "vuex";
+import { defineComponent } from "@vue/composition-api";
 
-export default {
+export default defineComponent({
   name: "App",
   components: {
     NavBar,
@@ -26,10 +27,11 @@ export default {
     this.preloadCloudinaryImages();
   },
   methods: {
-    preloadCloudinaryImages() {
+    preloadCloudinaryImages(): void {
       // setTimeout with 0ms puts this call at the end of the stack
       setTimeout(() => {
-        this.webProjects.forEach(project => {
+        // TODO: add interface for web project
+        this.webProjects.forEach((project: any) => {
           if (project.cloudinarySrc != null && project.cloudinarySrc !== "") {
             new Image().src = project.cloudinarySrc;
           }
@@ -37,7 +39,7 @@ export default {
       }, 0);
     },
   },
-};
+});
 </script>
 
 <style>

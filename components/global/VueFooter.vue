@@ -14,15 +14,15 @@ import { defineComponent } from "@vue/composition-api";
 import SocialMediaIcons from "../widgets/SocialMediaIcons.vue";
 
 export default defineComponent({
+  components: {
+    SocialMediaIcons,
+  },
   setup() {
     const footerHtml = `&copy; 1993-${new Date().getFullYear()} &bull; Tyler Earls`;
 
     return {
       footerHtml,
     };
-  },
-  components: {
-    SocialMediaIcons,
   },
 });
 </script>

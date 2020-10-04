@@ -9,7 +9,7 @@ module.exports = {
     "plugin:vue/recommended",
   ],
   parserOptions: {
-    parser: "babel-eslint",
+    parser: "@typescript-eslint/parser",
     sourceType: "module",
   },
   plugins: [
@@ -28,6 +28,7 @@ module.exports = {
       "exports": "never",
       "functions": "never",
     }],
+    "eol-last": ["error", "always"],
     "object-curly-spacing": ["error", "always"],
     semi: ["error", "always"],
     eqeqeq: ["error", "smart"],

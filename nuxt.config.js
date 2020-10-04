@@ -42,7 +42,6 @@ export default {
     CLOUDINARY_ID: process.env.CLOUDINARY_ID,
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
   },
-  mode: "universal",
   babel: {
     presets({ isServer }) {
       return [
@@ -50,12 +49,13 @@ export default {
           require.resolve("@nuxt/babel-preset-app"),
           {
             buildTarget: isServer ? "server" : "client",
-            corejs: { version: 2 },
+            corejs: { version: 3 },
           },
         ],
       ];
     },
   },
+  ssr: true,
   postcss: {
     plugins: {
       tailwindcss: join(__dirname, "tailwind.config.js"),
@@ -107,12 +107,6 @@ export default {
       },
     ],
     link: [
-      // {
-      //   href: "https://fonts.googleapis.com/css?family=Asul:400,600,700,800&display=swap",
-      //   rel: "preload",
-      //   as: "style",
-      //   onload: "this.onload = null; this.rel = 'stylesheet';",
-      // },
       {
         href: "images/vulcan-salute.ico",
         rel: "icon",

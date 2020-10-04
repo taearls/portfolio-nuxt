@@ -51,7 +51,7 @@
       </ul>
     </nav>
     <nav-toggle
-      @toggleNavigation="isNavActive = $event"
+      @toggle-navigation="isNavActive = $event"
     />
   </div>
 </template>
@@ -129,6 +129,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
