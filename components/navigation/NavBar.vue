@@ -36,6 +36,7 @@
             :href="externalLink.href"
             :tabindex="isNavActive ? 0 : -1"
             :aria-label="externalLink.ariaLabel"
+            rel="noreferrer"
             target="_blank"
             class="inline-block pl-6 pr-12 text-lg font-extrabold text-purple-700 rounded-sm dark:text-purple-500 dark-hover:text-blue-300 sm:pl-4 sm:pr-2 sm:flex sm:items-center sm:justify-center focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           >

@@ -22,6 +22,8 @@
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "@vue/composition-api": "^1.0.0-beta.14",
     "cloudinary-vue": "^1.1.1",
+    "dotenv": "^8.2.0",
+    "firebase": "^7.22.0",
     "nuxt": "^2.14.1",
     "typescript": "^4.0.3",
     "vue": "^2.6.11",

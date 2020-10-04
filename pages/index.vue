@@ -28,19 +28,19 @@
       UI components that enrich everyone's web experience.
     </p>
     <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
-      Outside of tech, I write songs as
+      Outside of tech, I write songs and lead a band called
       <a
         class="inline-anchor"
         href="https://www.cuckooandthebirds.com"
-        rel="external"
+        rel="noreferrer"
         target="_blank"
-      >Cuckoo and the Birds</a>. If you'd like, you can listen to my music
+      >Cuckoo and the Birds</a>. If you'd like, you can listen at our 
       <a
         class="inline-anchor"
         href="https://cuckooandthebirds.bandcamp.com"
         rel="noreferrer"
         target="_blank"
-      >here.</a>
+      >Bandcamp</a>.
     </p>
     <p class="text-soft-black dark:text-white mt-4 mb-8 text-lg md:text-xl leading-normal">
       I'm also a very avid Star Trek fan. During these difficult times, I find comfort in its optimistic view on the potential of humanity and its future.

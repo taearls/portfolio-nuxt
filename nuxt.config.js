@@ -1,4 +1,5 @@
 import { join } from "path";
+import { fireStore } from "./plugins/firebase";
 
 export default {
   build: {
@@ -37,7 +38,11 @@ export default {
       },
     },
   },
-  mode: "spa",
+  env: {
+    CLOUDINARY_ID: process.env.CLOUDINARY_ID,
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+  },
+  mode: "universal",
   babel: {
     presets({ isServer }) {
       return [
@@ -68,7 +73,17 @@ export default {
   plugins: [
     "~/plugins/cloudinary.js",
     "~/plugins/vue-composition-api.js",
+    "~/plugins/firebase.js",
   ],
+  hooks: {
+    generate: {
+      done() {
+        // prevents warning when running nuxt generate command
+        // https://github.com/nuxt-community/firebase-module/issues/93
+        fireStore.terminate();
+      },
+    },
+  },
   head: {
     htmlAttrs: {
       lang: "en",

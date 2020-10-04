@@ -28,6 +28,7 @@ module.exports = {
       "exports": "never",
       "functions": "never",
     }],
+    "object-curly-spacing": ["error", "always"],
     semi: ["error", "always"],
     eqeqeq: ["error", "smart"],
     quotes: [2, "double", { avoidEscape: true }],
