@@ -1,4 +1,4 @@
-import { fireDb } from "~/plugins/firebase.js";
+import { fireStore } from "~/plugins/firebase.js";
 
 export const state = () => ({
   prefersDarkMode: false,
@@ -19,17 +19,20 @@ export const mutations = {
 
 export const actions = {
   async fetchData({ commit }, collectionName) {
-    const response = await fireDb.collection(collectionName)
+    const response = await fireStore.collection(collectionName)
       .where("isActive", "==", true)
       .get();
-    const data = response.docs.map(doc => doc.data()).sort((a, b) => {
-      if (a.index > b.index) {
-        return 1;
-      } else if (a.index < b.index) {
-        return -1;
-      }
-      return 0;
-    });
+    const data = response.docs
+      .map(doc => doc.data())
+      .sort((a, b) => {
+        // sort web projects in ascending order by index
+        if (a.index > b.index) {
+          return 1;
+        } else if (a.index < b.index) {
+          return -1;
+        }
+        return 0;
+      });
     const upperCasedCollectionName = collectionName.charAt(0).toUpperCase() + collectionName.slice(1);
 
     commit(`set${upperCasedCollectionName}`, data);

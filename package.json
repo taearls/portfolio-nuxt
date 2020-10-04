@@ -13,7 +13,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint --ext .js,.vue --ignore-path .gitignore ."
+      "pre-commit": "npm run lint"
     }
   },
   "dependencies": {

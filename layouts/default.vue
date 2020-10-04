@@ -27,11 +27,14 @@ export default {
   },
   methods: {
     preloadCloudinaryImages() {
-      this.webProjects.forEach(project => {
-        if (project.cloudinarySrc != null && project.cloudinarySrc !== "") {
-          new Image().src = project.cloudinarySrc;
-        }
-      });
+      // setTimeout with 0ms puts this call at the end of the stack
+      setTimeout(() => {
+        this.webProjects.forEach(project => {
+          if (project.cloudinarySrc != null && project.cloudinarySrc !== "") {
+            new Image().src = project.cloudinarySrc;
+          }
+        });
+      }, 0);
     },
   },
 };
