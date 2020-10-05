@@ -18,6 +18,7 @@
             <client-only>
               <cld-image
                 :alt="project.alt"
+                format="jpg"
                 :public-id="`${project.cloudinaryID}`"
               >
                 <cld-transformation
