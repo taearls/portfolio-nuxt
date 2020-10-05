@@ -31,10 +31,11 @@ export default defineComponent({
     preloadCloudinaryImages(): void {
       // setTimeout with 1000ms preloads the images without blocking main thread
       setTimeout(() => {
-        // TODO: add interface for web project
         this.webProjects.forEach((project: WebProject) => {
           if (project.cloudinarySrc != null && project.cloudinarySrc !== "") {
-            new Image().src = project.cloudinarySrc;
+            fetch(project.cloudinarySrc, {
+              cache: "only-if-cached",
+            });
           }
         });
       }, 1000);
