@@ -56,6 +56,7 @@ export default {
     },
   },
   target: "server",
+  mode: "universal",
   ssr: true,
   postcss: {
     plugins: {
