@@ -10,7 +10,7 @@
         <div>
           <a
             class="block rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
-            :rel="project.analytics ? 'external' : 'noreferrer'"
+            :rel="project.analytics ? 'noopener' : 'noreferrer'"
             target="_blank"
             :href="project.analytics !== null ? getAnalyticsLink(project.href, project.analytics) : project.href"
             :style="{cursor: project.cursorStyle}"
