@@ -38,6 +38,8 @@ export default {
       },
     },
   },
+  // TODO: figure out how to implement privateRunTimeConfig
+  // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
   env: {
     CLOUDINARY_ID: process.env.CLOUDINARY_ID,
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
