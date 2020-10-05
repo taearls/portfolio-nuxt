@@ -9,7 +9,6 @@
 <script lang="ts">
 import { mapState } from "vuex";
 import { defineComponent } from "@vue/composition-api";
-import type { WebProject } from "../types/index";
 import NavBar from "../components/navigation/NavBar.vue";
 import VueFooter from "../components/global/VueFooter.vue";
 
@@ -23,21 +22,6 @@ export default defineComponent({
     ...mapState([
       "webProjects",
     ]),
-  },
-  mounted() {
-    this.preloadCloudinaryImages();
-  },
-  methods: {
-    preloadCloudinaryImages(): void {
-      // setTimeout with 1000ms preloads the images without blocking main thread
-      setTimeout(() => {
-        this.webProjects.forEach((project: WebProject) => {
-          if (project.cloudinarySrc != null && project.cloudinarySrc !== "") {
-            new Image().src = project.cloudinarySrc;
-          }
-        });
-      }, 1000);
-    },
   },
 });
 </script>
