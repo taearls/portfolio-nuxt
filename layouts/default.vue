@@ -33,9 +33,7 @@ export default defineComponent({
       setTimeout(() => {
         this.webProjects.forEach((project: WebProject) => {
           if (project.cloudinarySrc != null && project.cloudinarySrc !== "") {
-            fetch(project.cloudinarySrc, {
-              cache: "only-if-cached",
-            });
+            new Image().src = project.cloudinarySrc;
           }
         });
       }, 1000);
