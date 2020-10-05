@@ -43,12 +43,14 @@ export default {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
   },
   babel: {
-    presets({ isServer }) {
+    // presets({ isServer }) {
+    presets() {
       return [
         [
           require.resolve("@nuxt/babel-preset-app"),
           {
-            buildTarget: isServer ? "server" : "client",
+            buildTarget: "server",
+            // buildTarget: isServer ? "server" : "client",
             corejs: { version: 3 },
           },
         ],
