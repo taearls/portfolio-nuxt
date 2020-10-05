@@ -14,5 +14,8 @@ export const isDarkModePreferred = () => {
 };
 
 export const doesColorSchemeCookieExist = (cookieKey) => {
-  return document.cookie != null && document.cookie.indexOf(`${cookieKey}=`) > -1;
+  // check if cookie defined by cookieKey exists
+  return document.cookie != null && document.cookie
+    .split("; ")
+    .find(row => row.startsWith(cookieKey)) !== undefined;
 };

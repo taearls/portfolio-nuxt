@@ -64,12 +64,6 @@ export default {
       stage: 2,
     },
   },
-  purgeCSS: {
-    whitelist: ["dark-mode"],
-  },
-  tailwindcss: {
-    exposeConfig: true,
-  },
   plugins: [
     "~/plugins/cloudinary.js",
     "~/plugins/vue-composition-api.js",
