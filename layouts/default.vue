@@ -29,7 +29,7 @@ export default defineComponent({
   },
   methods: {
     preloadCloudinaryImages(): void {
-      // setTimeout with 0ms puts this call at the end of the stack
+      // setTimeout with 1000ms preloads the images without blocking main thread
       setTimeout(() => {
         // TODO: add interface for web project
         this.webProjects.forEach((project: WebProject) => {
@@ -37,7 +37,7 @@ export default defineComponent({
             new Image().src = project.cloudinarySrc;
           }
         });
-      }, 0);
+      }, 1000);
     },
   },
 });
