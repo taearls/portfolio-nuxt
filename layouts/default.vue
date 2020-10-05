@@ -7,7 +7,6 @@
 </template>
 
 <script lang="ts">
-import { mapState } from "vuex";
 import { defineComponent } from "@vue/composition-api";
 import NavBar from "../components/navigation/NavBar.vue";
 import VueFooter from "../components/global/VueFooter.vue";
@@ -17,11 +16,6 @@ export default defineComponent({
   components: {
     NavBar,
     VueFooter,
-  },
-  computed: {
-    ...mapState([
-      "webProjects",
-    ]),
   },
 });
 </script>
