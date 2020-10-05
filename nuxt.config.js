@@ -55,8 +55,7 @@ export default {
       ];
     },
   },
-  target: "server",
-  mode: "universal",
+  target: "static", // only change to "server" if a Node.js env is set up (but I don't want to pay $$)
   ssr: true,
   postcss: {
     plugins: {
