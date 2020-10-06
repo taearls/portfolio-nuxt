@@ -2,9 +2,10 @@
   <div class="fixed top-0 float-left p-4 h-16 z-10 left-0 items-center hover:opacity-75 sm:float-none sm:static">
     <!-- sun / moon svg icons -->
     <client-only>
-      <transition name="fade">
+      <transition-group name="toggleFade">
         <button
           v-show="prefersDarkMode"
+          key="sunToggle"
           ref="sunToggle"
           aria-label="toggle on light mode"
           class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
@@ -12,10 +13,9 @@
         >
           <SunIcon />
         </button>
-      </transition>
-      <transition name="fade">
         <button
           v-show="!prefersDarkMode"
+          key="moonToggle"
           ref="moonToggle"
           aria-label="toggle on dark mode"
           class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
@@ -23,7 +23,7 @@
         >
           <MoonIcon />
         </button>
-      </transition>
+      </transition-group>
     </client-only>
   </div>
 </template>
@@ -108,16 +108,16 @@ export default defineComponent({
   @apply bg-purple-400;
 }
 
-.fade-enter-active {
+.toggleFade-enter-active {
   display: block;
   transition: opacity 0.2s ease-in;
 }
-.fade-leave-active {
+.toggleFade-leave-active {
   display: none;
-  transition: display 0s 0.4s, opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
 }
-.fade-enter,
-.fade-leave-to {
+.toggleFade-enter,
+.toggleFade-leave-to {
   opacity: 0;
 }
 </style>

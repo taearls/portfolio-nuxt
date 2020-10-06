@@ -4,9 +4,14 @@
     class="fixed flex items-center justify-end w-screen top-0 font-default font-mono dark:text-white text-black border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
     :class="{'border border-gray-500 bg-white dark:bg-soft-black dark:border-gray-300': isNavActive, 'h-0 border-none bg-transparent': !isNavActive}"
   >
-    <DarkModeToggle cookie-key="color-scheme" />
+    <transition name="fade" mode="out-in">
+      <DarkModeToggle       
+        v-show="!isScrollingDown"
+        cookie-key="color-scheme"
+      />
+    </transition>
     <nav
-      id="nav-bar"
+      id="navbar"
       class="opacity-0 w-screen"
       :class="{'opacity-100': isNavActive}"
     >
@@ -51,9 +56,12 @@
         </li>
       </ul>
     </nav>
-    <nav-toggle
-      @toggle-navigation="isNavActive = $event"
-    />
+    <transition name="fade">
+      <nav-toggle
+        v-show="!isScrollingDown"
+        @toggle-navigation="isNavActive = $event"
+      />
+    </transition>
   </div>
 </template>
 
@@ -71,9 +79,11 @@ export default defineComponent({
     ExternalLinkIcon,
     NavToggle,
   },
-  data() {
+  setup() {
     return {
       isNavActive: false,
+      isScrollingDown: false,
+      lastScrollPosition: 0,
     };
   },
   computed: {
@@ -90,14 +100,29 @@ export default defineComponent({
       }
     },
   },
+  beforeMount() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
   methods: {
-    initializeFocus() {
+    onScroll(): void {
+      // only hide if nav is inactive
+      if (!this.isNavActive) {
+        const currentScrollPosition = window.pageYOffset;
+        // check if current scroll position is greater than the last stored
+        this.isScrollingDown = this.lastScrollPosition < currentScrollPosition;
+        this.lastScrollPosition = currentScrollPosition;
+      }
+    },
+    initializeFocus(): void {
       // need to use next tick to ensure tabindex is set to 0 before attempting to focus
       this.$nextTick(() => {
         // initialize focus on the current page
         const activeRouterLink = document.querySelector("a.nuxt-link-exact-active") as HTMLElement;
         if (activeRouterLink == null) {
-          const firstRouterLink = document.querySelector("#nav-bar ul li:first-child a") as HTMLElement;
+          const firstRouterLink = document.querySelector("#navbar ul li:first-child a") as HTMLElement;
           if (firstRouterLink != null) {
             firstRouterLink.focus();
           }
@@ -109,3 +134,16 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.fade-enter-active {
+  transition: opacity 0.2s ease-out;
+}
+.fade-leave-active {
+  transition: opacity 0.2s ease-in;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
