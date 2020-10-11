@@ -6,7 +6,7 @@
       style="margin-top: -0.2rem;"
       :class="{active: isToggleActive}"
       :aria-label="`${isToggleActive ? 'Close Navigation' : 'Open Navigation'}`"
-      @click="handleToggle($event);"
+      @click="handleToggle();"
     >
       <div
         id="toggler-top"
@@ -24,8 +24,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+
+export default defineComponent({
   data() {
     return {
       isToggleActive: false,
@@ -33,9 +35,14 @@ export default {
   },
   computed: {
     bodyTopMargin() {
-      const navContainer = document.getElementById("nav-container");
-      const navHeight = navContainer.offsetHeight;
-      let margin = `${navHeight + 16}px`;
+      let margin = "0";
+      if (process.client) {
+        const navContainer = document.getElementById("nav-container");
+        if (navContainer != null) {
+          const navHeight = navContainer.offsetHeight;
+          margin = `${navHeight + 16}px`;
+        }
+      }
       return margin;
     },
   },
@@ -47,12 +54,12 @@ export default {
     window.removeEventListener("resize", this.adjustBodyTopMargin);
   },
   methods: {
-    handleToggle() {
+    handleToggle() : void {
       this.isToggleActive = !this.isToggleActive;
       this.adjustBodyTopMargin();
-      this.$emit("toggleNavigation", this.isToggleActive);
+      this.$emit("toggle-navigation", this.isToggleActive);
     },
-    adjustBodyTopMargin() {
+    adjustBodyTopMargin() : void {
       this.$nextTick(() => {
         if (this.isToggleActive && window.innerWidth < 640) {
           window.document.body.style.marginTop = this.bodyTopMargin;
@@ -62,10 +69,10 @@ export default {
       });
     },
   },
-};
+});
 </script>
 
-<style>
+<style scoped>
 #custom-toggler > div {
   width: 32px;
   height: 2px;

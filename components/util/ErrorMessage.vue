@@ -9,16 +9,17 @@
     <span
       v-show="!errorPresent"
       class="block my-2 text-green-700 dark:text-green-400 font-normal leading-6"
-      :class="{'success-message': successMessage}"
+      :class="{'success-message': successMessage.length > 0}"
     >
-      {{ successMessage || "" }}
+      {{ successMessage }}
     </span>
-
   </span>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+
+export default defineComponent({
   props: {
     errorMessage: {
       default: "Error found. Please try again.",
@@ -33,8 +34,5 @@ export default {
       type: String,
     },
   },
-};
+});
 </script>
-
-<style>
-</style>

@@ -2,18 +2,22 @@ import { fireStore } from "~/plugins/firebase.js";
 
 export const state = () => ({
   prefersDarkMode: false,
-  webProjects: {},
+  webProjects: [],
+  internalNavigationLinks: [],
+  externalNavigationLinks: [],
+  socialMediaLinks: [],
 });
 
 export const mutations = {
   toggleDarkMode(state) {
     state.prefersDarkMode = !state.prefersDarkMode; 
   },
-  setDefaultDarkMode(state, defaultVal) {
+  setPrefersDarkMode(state, defaultVal) {
     state.prefersDarkMode = defaultVal;
   },
-  setWebProjects(state, webProjects) {
-    state.webProjects = webProjects;
+  setState(state, { stateProperty, newStateValue }) {
+    // generic function to update central state for all collections once data is fetched from firebase
+    state[stateProperty] = newStateValue;
   },
 };
 
@@ -33,12 +37,13 @@ export const actions = {
         }
         return 0;
       });
-    const upperCasedCollectionName = collectionName.charAt(0).toUpperCase() + collectionName.slice(1);
-
-    commit(`set${upperCasedCollectionName}`, data);
+    commit("setState", { stateProperty: collectionName, newStateValue: data });
   },
   async nuxtServerInit({ dispatch }) {
     await dispatch("fetchData", "webProjects");
+    await dispatch("fetchData", "internalNavigationLinks");
+    await dispatch("fetchData", "externalNavigationLinks");
+    await dispatch("fetchData", "socialMediaLinks");
   },
 };
 

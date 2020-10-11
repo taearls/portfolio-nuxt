@@ -24,20 +24,22 @@
   </section>
 </template>
 
-<script>
-import RightArrowIcon from "@/components/widgets/svg/RightArrowIcon";
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+import RightArrowIcon from "../components/widgets/svg/RightArrowIcon.vue";
 
-export default {
+export default defineComponent({
   components: {
     RightArrowIcon,
   },
   computed: {
     currentRoute() {
-      return window.location.href;
+      let currentRoute = "";
+      if (process.client) {
+        currentRoute = window.location.href;
+      }
+      return currentRoute;
     },
   },
-};
+});
 </script>
-
-<style>
-</style>
