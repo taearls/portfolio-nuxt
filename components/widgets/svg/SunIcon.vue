@@ -2,9 +2,9 @@
   <svg
     class="dark-mode-toggle"
     xmlns="http://www.w3.org/2000/svg"
-    height="32"
     viewBox="0 0 128 128"
-    width="32"
+    :height="height"
+    :width="width"
     role="presentation"
     aria-labelledby="sunIcon"
   >
@@ -51,10 +51,19 @@
   </svg>
 </template>
 
-<script>
-export default {
-  // props: {
-  //   width: 32,
-  // }
-};
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+
+export default defineComponent({
+  props: {
+    width: {
+      type: Number,
+      default: 32,
+    },
+    height: {
+      type: Number,
+      default: 32,
+    },
+  },
+});
 </script>

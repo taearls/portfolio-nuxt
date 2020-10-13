@@ -27,11 +27,12 @@
   </section>
 </template>
 
-<script>
-import WebProject from "../../components/WebProject.vue";
+<script lang="ts">
 import { mapState } from "vuex";
+import { defineComponent } from "@vue/composition-api";
+import WebProject from "../../components/WebProject.vue";
 
-export default {
+export default defineComponent({
   components: {
     WebProject,
   },
@@ -40,8 +41,5 @@ export default {
       "webProjects",
     ]),
   },
-};
+});
 </script>
-
-<style>
-</style>

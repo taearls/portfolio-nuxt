@@ -3,7 +3,7 @@
     class="external-link absolute inline-block ml-1 sm:static sm:mx-1"
     height="24px"
     width="24px"
-    :stroke="prefersDarkMode ? '#9f7aea' : '#6b46c1'"
+    :stroke="prefersDarkMode ? darkModeColor : lightModeColor"
     stroke-width="5"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -27,13 +27,23 @@
   </svg>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+
+export default defineComponent({
   props: {
     prefersDarkMode: {
-      default: false,
       type: Boolean,
+      required: true,
+    },
+    darkModeColor: {
+      type: String,
+      required: true,
+    },
+    lightModeColor: {
+      type: String,
+      required: true,
     },
   },
-};
+});
 </script>

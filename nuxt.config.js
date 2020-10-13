@@ -24,6 +24,7 @@ export default {
         id: "UA-132274464-1",
       },
     ],
+    "@nuxt/typescript-build",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
   ],
@@ -31,30 +32,33 @@ export default {
     preference: "system",
     fallback: "light",
     cookie: {
-      key: "tylerearls.com-color-scheme",
+      key: "color-scheme",
       options: {
         sameSite: "lax", // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
       },
     },
   },
+  // TODO: figure out how to implement privateRunTimeConfig
+  // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
   env: {
     CLOUDINARY_ID: process.env.CLOUDINARY_ID,
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
   },
-  mode: "universal",
   babel: {
-    presets({ isServer }) {
+    presets() {
       return [
         [
           require.resolve("@nuxt/babel-preset-app"),
           {
-            buildTarget: isServer ? "server" : "client",
-            corejs: { version: 2 },
+            buildTarget: "server",
+            corejs: { version: 3 },
           },
         ],
       ];
     },
   },
+  target: "static", // only change to "server" if a Node.js env is set up (but I don't want to pay $$)
+  ssr: true,
   postcss: {
     plugins: {
       tailwindcss: join(__dirname, "tailwind.config.js"),
@@ -63,14 +67,9 @@ export default {
       stage: 2,
     },
   },
-  purgeCSS: {
-    whitelist: ["dark-mode"],
-  },
-  tailwindcss: {
-    exposeConfig: true,
-  },
   plugins: [
     "~/plugins/cloudinary.js",
+    "~/plugins/vue-composition-api.js",
     "~/plugins/firebase.js",
   ],
   hooks: {
@@ -105,12 +104,6 @@ export default {
       },
     ],
     link: [
-      // {
-      //   href: "https://fonts.googleapis.com/css?family=Asul:400,600,700,800&display=swap",
-      //   rel: "preload",
-      //   as: "style",
-      //   onload: "this.onload = null; this.rel = 'stylesheet';",
-      // },
       {
         href: "images/vulcan-salute.ico",
         rel: "icon",

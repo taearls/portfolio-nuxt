@@ -6,11 +6,11 @@
       {{ project.name }}
     </h2>
     <div class="clearfix mb-8">
-      <div class="mx-auto text-center w-4/5 mb-2 sm:mb-0 sm:w-1/2 sm:float-left sm:clearfix sm:mr-4">
+      <div class="mx-auto text-center w-11/12 mb-2 sm:mb-0 sm:w-1/2 sm:float-left sm:clearfix sm:mr-4">
         <div>
           <a
             class="block rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
-            :rel="project.analytics ? 'external' : 'noreferrer'"
+            :rel="project.analytics ? 'noopener' : 'noreferrer'"
             target="_blank"
             :href="project.analytics !== null ? getAnalyticsLink(project.href, project.analytics) : project.href"
             :style="{cursor: project.cursorStyle}"
@@ -18,6 +18,7 @@
             <client-only>
               <cld-image
                 :alt="project.alt"
+                format="jpg"
                 :public-id="`${project.cloudinaryID}`"
               >
                 <cld-transformation
@@ -52,8 +53,10 @@
   </section>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+
+export default defineComponent({
   props: {
     project: {
       type: Object,
@@ -69,15 +72,15 @@ export default {
     },
   },
   methods: {
-    getAnalyticsLink(link, utmObject) {
+    getAnalyticsLink(link: string, utmObject: Record<string, string>): string {
       const { source, medium, campaign } = utmObject;
       return `${link}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
     },
   },
-};
+});
 </script>
 
-<style>
+<style scoped>
 .line-break {
   border: 0;
   height: 1px;

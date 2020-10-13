@@ -111,12 +111,14 @@
 </template>
 
 <script>
+// NOTE: not converting this to TS until I can fully migrate to vue 3. 
+// the type inferences are all fucked.
 import { mapState } from "vuex";
 import VueRecaptcha from "vue-recaptcha";
 import axios from "axios";
 
-import ErrorMessage from "@/components/util/ErrorMessage";
-import RightArrowIcon from "@/components/widgets/svg/RightArrowIcon";
+import ErrorMessage from "../../components/util/ErrorMessage.vue";
+import RightArrowIcon from "../../components/widgets/svg/RightArrowIcon.vue";
 
 export default {
   components: {
@@ -139,7 +141,6 @@ export default {
         text: "",
       },
       message: {
-        // placeholder: "Hey Tyler,\n\nMy name is _______.\nLet's do something awesome together.",
         placeholder: "Stardate 2713.5\n\nIn the distant reaches of our galaxy, we have made an astonishing discovery – Earth-type radio signals coming from a planet which apparently is an exact duplicate of the Earth.\n\nIt seems impossible, but there it is.",
         text: "",
         error: false,
@@ -147,7 +148,9 @@ export default {
     };
   },
   computed: {
-    ...mapState(["prefersDarkMode"]),
+    ...mapState([
+      "prefersDarkMode",
+    ]),
     saveDisabled() {
       return this.message.text.length === 0 || !this.recaptchaVerified;
     },
@@ -181,7 +184,7 @@ export default {
 
       // make sure the last child is a div or an iframe before removing
       // so scripts don't get removed inadvertently
-      if (/div|iframe/i.test(lastChild.nodeName)) {
+      if (lastChild != null && /div|iframe/i.test(lastChild.nodeName)) {
         lastChild.remove();
       }
     },
@@ -233,14 +236,14 @@ export default {
         }
       })
       .catch(error => {
-        console.log("error: " + error);
+        console.log(`error: ${error}`);
       });
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 .disabled {
   @apply cursor-not-allowed;
 }
@@ -256,17 +259,9 @@ export default {
 .form-textarea {
   @apply appearance-none p-2 text-base leading-6 rounded-md;
 }
-.form-input:focus, .form-textarea:focus {
-  
-}
 .form-boxshadow {
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
-html.dark-mode .form-boxshadow {
-  /* box-shadow: 0 4px 6px 0 hsla(0, 100%, 100%, 0.4); */
-  /* box-shadow: 0 4px 6px 0 rgba(255, 255, 255, 0.4); */
-}
-
 
 /* transitions */
 .draw-enter-active {
