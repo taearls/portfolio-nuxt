@@ -12,9 +12,9 @@
     <form
       id="contact"
       class="form-boxshadow mx-auto my-8 bg-gray-200 dark:bg-gray-900 rounded-md w-full max-w-sm"
-      method="get"
-      target="_blank"
+      method="POST"
       enctype="text/plain"
+      @submit.prevent="submitEmail"
     >
       <fieldset 
         class="px-4 py-2"
@@ -88,7 +88,7 @@
           />
           <div class="flex items-center">
             <!-- UNCOMMENT WHEN USING A NODE.JS EMAIL SERVICE -->
-            <!-- <input
+            <input
               type="submit"
               value="Send Email"
               :disabled="saveDisabled"
@@ -97,23 +97,6 @@
               @mouseover="hoveringMessage = !saveDisabled"
               @mouseleave="hoveringMessage = false"
             >
-            <transition name="draw">
-              <RightArrowIcon 
-                v-if="!saveDisabled"
-                style="margin-left: -32px;"
-              />
-            </transition> -->
-            <button
-              type="submit"
-              :disabled="saveDisabled"
-              class="inline-block my-2 text-white transition-colors transition-padding ease-in-out duration-200 bg-purple-700 dark:bg-purple-500 rounded-lg pl-2 pr-10 disabled:pr-2 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
-              :class="{'submit-hover': !saveDisabled && hoveringMessage }"
-              @click="goToMailURL()"
-              @mouseover="hoveringMessage = !saveDisabled"
-              @mouseleave="hoveringMessage = false"
-            >
-              Send Email
-            </button>
             <transition name="draw">
               <RightArrowIcon 
                 v-if="!saveDisabled"
@@ -130,6 +113,7 @@
 <script>
 import { mapState } from "vuex";
 import VueRecaptcha from "vue-recaptcha";
+import axios from "axios";
 
 import ErrorMessage from "@/components/util/ErrorMessage";
 import RightArrowIcon from "@/components/widgets/svg/RightArrowIcon";
@@ -169,6 +153,15 @@ export default {
     },
     mailToURL() {
       return this.generateMailToURL();
+    },
+    emailBody() {
+      return {
+        name: this.name.text, 
+        email: "booking@cuckooandthebirds.com", // placeholder for now until I add to form
+        subject: this.subject.text, 
+        message: this.message.text, 
+        to: "tyler.a.earls@gmail.com", // placeholder for now until I add to form
+      };
     },
   },
   mounted() {
@@ -218,18 +211,30 @@ export default {
     resetRecaptcha() {
       this.recaptchaVerified = false;
     },
-    goToMailURL() {
-      window.open(this.mailToURL);
-    },
     generateMailToURL() {
-      if (this.saveDisabled) return false;
-      // TODO: use name field somehow
-      let mailToURL = "mailto:tyler.a.earls@gmail.com/";
-      mailToURL += `?body=${encodeURIComponent(this.message.text)}`; // add body
-      if (this.subject.text.length > 0) {
-        mailToURL += `&subject=${encodeURIComponent(this.subject.text)}`; // add subject if needed
-      }
+      if (this.saveDisabled) return "";
+      // TODO: set different mailToURL based on environment
+      let mailToURL = "http://localhost:3000/send";
       return mailToURL;
+    },
+    submitEmail() {
+      const vm = this;
+      // show loading state, success state, failed state
+      axios.post(
+        vm.mailToURL, 
+        vm.emailBody
+      )
+      .then(response => {
+        if (response.status === 200) {
+          vm.$router.push("/thank-you");
+        } else {
+          // show some error
+          console.log("failed");
+        }
+      })
+      .catch(error => {
+        console.log("error: " + error);
+      });
     },
   },
 };

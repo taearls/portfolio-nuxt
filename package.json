@@ -20,6 +20,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/vue-fontawesome": "^0.1.10",
+    "axios": "^0.20.0",
     "cloudinary-vue": "^1.1.1",
     "dotenv": "^8.2.0",
     "firebase": "^7.22.0",
