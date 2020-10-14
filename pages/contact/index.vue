@@ -7,7 +7,7 @@
       If you're interested in hiring me for coding work, my music, or just want to say hello—I'd love to hear from you. I'm a voracious learner, and nothing is too nerdy or niche for my taste.
     </p>
     <p class="w-full max-w-lg mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
-      The best way to reach me is by filling out the form below. 
+      The best way to reach me is by completing the form below. 
     </p>
     <form
       id="contact"
@@ -19,32 +19,74 @@
       <fieldset 
         class="px-4 py-2"
       >
-        <div class="mb-2">
+        <div>
           <label
             class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
             for="contactName"
           >
-            Name
+            Name<span> *</span>
           </label>
           <input
             id="contactName"
-            v-model="name.text"
-            class="form-input w-full text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            v-model.trim="name.text"
+            :style="$v.name.text.$error ? 'margin: 0' : ''"
+            class="form-input w-full mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             type="text"
             name="name"
             :placeholder="name.placeholder"
+            @input="$v.name.text.$reset(); isUserTyping = true;"
+            @blur="$v.name.text.$touch(); isUserTyping = false;"
           >
+          <p
+            v-if="$v.name.text.$error"
+            class="error-message"
+          >
+            Please enter your name.
+          </p>
         </div>
 
-        <div class="mb-2">
+        <div>
+          <label
+            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
+            for="contactEmail"
+          >
+            Email<span> *</span>
+          </label>
+          <input
+            id="contactEmail"
+            v-model.trim="email.text"
+            :style="$v.email.text.$error ? 'margin: 0' : ''"
+            class="form-input w-full mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            type="email"
+            name="email"
+            required
+            placeholder="beammeup@scotty.com"
+            @input="$v.email.text.$reset(); isUserTyping = true;"
+            @blur="$v.email.text.$touch(); isUserTyping = false;"
+          >
+          <p
+            v-if="$v.email.text.$dirty && !$v.email.text.required"
+            class="error-message"
+          >
+            Please enter your email.
+          </p>
+          <p
+            v-if="$v.email.text.$dirty && !$v.email.text.emailValidationRegex"
+            class="error-message"
+          >
+            Please enter a valid email address.
+          </p>
+        </div>
+
+        <div>
           <label
             class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
             for="contactSubject"
           >Subject</label>
           <input
             id="contactSubject"
-            v-model="subject.text"
-            class="form-input w-full text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            v-model.trim="subject.text"
+            class="form-input w-full mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             type="text"
             name="subject"
             :placeholder="subject.placeholder"
@@ -59,35 +101,40 @@
           </label>
           <textarea
             id="contactMessage"
-            v-model="message.text"
+            v-model.trim="message.text"
             class="form-textarea w-full h-32 mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            :style="$v.message.text.$error ? 'margin: 0' : ''"
             name="message"
             required
             :placeholder="message.placeholder"
-            :class="{ 'error-field': message.error }"
-            @input="message.error = false"
+            @input="$v.message.text.$reset(); isUserTyping = true;"
+            @blur="$v.message.text.$touch(); isUserTyping = false;"
           />
+          <p
+            v-if="$v.message.text.$error"
+            class="error-message"
+          >
+            Please enter a message.
+          </p>
         </div>
-
         <vue-recaptcha
           :key="shouldCompactRecaptcha + prefersDarkMode"
           sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
           :theme="prefersDarkMode ? 'dark' : 'light'"
           :size="shouldCompactRecaptcha ? 'compact' : 'normal'"
           :load-recaptcha-script="true"
-          @verify="markRecaptchaVerified"
-          @expired="resetRecaptcha"
+          @verify="recaptchaVerified = true"
+          @expired="recaptchaVerified = false"
         />
 
         <div class="relative">
-          <ErrorMessage
-            id="recaptcha-error"
-            success-message="Thank you. I look forward to working with you!"
-            :error-present="saveDisabled"
-            :error-message="getErrorMessage()"
-          />
+          <p 
+            v-if="!saveDisabled"
+            class="success-message"
+          >
+            Thank you. I look forward to working with you!
+          </p>
           <div class="flex items-center">
-            <!-- UNCOMMENT WHEN USING A NODE.JS EMAIL SERVICE -->
             <input
               type="submit"
               value="Send Email"
@@ -116,14 +163,13 @@
 import { mapState } from "vuex";
 import VueRecaptcha from "vue-recaptcha";
 import axios from "axios";
+import { required, email as emailValidationRegex } from "vuelidate/lib/validators";
 
-import ErrorMessage from "../../components/util/ErrorMessage.vue";
 import RightArrowIcon from "../../components/widgets/svg/RightArrowIcon.vue";
 
 export default {
   components: {
     VueRecaptcha,
-    ErrorMessage,
     RightArrowIcon,
   },
   data() {
@@ -132,8 +178,13 @@ export default {
       shouldCompactRecaptcha: false,
       hoveringMessage: false,
       errorLines: 0,
+      isUserTyping: false,
       name: {
         placeholder: "Captain Kirk",
+        text: "",
+      },
+      email: {
+        placeholder: "beammeup@scotty.com",
         text: "",
       },
       subject: {
@@ -141,29 +192,60 @@ export default {
         text: "",
       },
       message: {
-        placeholder: "Stardate 2713.5\n\nIn the distant reaches of our galaxy, we have made an astonishing discovery – Earth-type radio signals coming from a planet which apparently is an exact duplicate of the Earth.\n\nIt seems impossible, but there it is.",
+        placeholder: "Stardate 2713.5\n\nIn the distant reaches of our galaxy, we have made an astonishing discovery—Earth-type radio signals coming from a planet which apparently is an exact duplicate of the Earth.\n\nIt seems impossible, but there it is.",
         text: "",
-        error: false,
       },
     };
+  },
+  validations: {
+    name: {
+      text: {
+        required,
+      },
+    },
+    email: {
+      text: {
+        required,
+        emailValidationRegex,
+      },
+    },
+    message: {
+      text: {
+        required,
+      },
+    },
   },
   computed: {
     ...mapState([
       "prefersDarkMode",
     ]),
     saveDisabled() {
-      return this.message.text.length === 0 || !this.recaptchaVerified;
+      return (
+        !this.recaptchaVerified || 
+        this.isUserTyping ||
+        !this.$v.name.text.required ||
+        !this.$v.email.text.required ||
+        !this.$v.email.text.emailValidationRegex ||
+        !this.$v.message.text.required
+      );
     },
     mailToURL() {
-      return this.generateMailToURL();
+      let mailToURL = "";
+      if (!this.saveDisabled) {
+        if (process.env.NODE_ENV === "development") {
+          mailToURL = "http://localhost:3000/send";
+        } else if (process.env.NODE_ENV === "production") {
+          mailToURL = "https://tyler-shared-email-service.herokuapp.com/";
+        }
+      }
+      return mailToURL;
     },
     emailBody() {
       return {
-        name: this.name.text, 
-        email: "booking@cuckooandthebirds.com", // placeholder for now until I add to form
+        name: this.name.text,
         subject: this.subject.text, 
-        message: this.message.text, 
-        to: "tboneearls@gmail.com", // placeholder for now until I add to form
+        message: this.message.text,
+        to: this.email.text,
       };
     },
   },
@@ -190,35 +272,13 @@ export default {
     },
     checkCompactRecaptcha() {
       const compactRecaptchaBreakPoint = 560;
-      const compare = this.shouldCompactRecaptcha;
+      const oldShouldCompactRecaptcha = this.shouldCompactRecaptcha;
       this.shouldCompactRecaptcha = window.innerWidth <= compactRecaptchaBreakPoint;
 
-      const isRecaptchaRedrawn = compare !== this.shouldCompactRecaptcha;
+      const isRecaptchaRedrawn = oldShouldCompactRecaptcha !== this.shouldCompactRecaptcha;
       if (isRecaptchaRedrawn) {
         this.removeRecaptchaContainer();
       }
-    },
-    getErrorMessage() {
-      if (!this.recaptchaVerified) {
-        return "Please verify you're a human before sending.";
-      }
-      if (this.recaptchaVerified && this.message.text.length === 0) {
-        this.message.error = true;
-        return "Message cannot be blank.";
-      }
-      return "Sorry about that. Please try again.";
-    },
-    markRecaptchaVerified() {
-      this.recaptchaVerified = true;
-    },
-    resetRecaptcha() {
-      this.recaptchaVerified = false;
-    },
-    generateMailToURL() {
-      if (this.saveDisabled) return "";
-      // TODO: set different mailToURL based on environment
-      let mailToURL = "http://localhost:3000/send";
-      return mailToURL;
     },
     submitEmail() {
       const vm = this;
@@ -244,6 +304,18 @@ export default {
 </script>
 
 <style scoped>
+.error-message {
+  @apply text-red-700 font-semibold;
+}
+html.dark-mode .error-message {
+  @apply text-red-500;
+}
+.success-message {
+  @apply text-green-500 font-semibold;
+}
+html.dark-mode .success-message {
+  @apply text-green-400;
+}
 .disabled {
   @apply cursor-not-allowed;
 }
