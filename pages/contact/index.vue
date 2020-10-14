@@ -163,7 +163,7 @@ export default {
         email: "booking@cuckooandthebirds.com", // placeholder for now until I add to form
         subject: this.subject.text, 
         message: this.message.text, 
-        to: "tyler.a.earls@gmail.com", // placeholder for now until I add to form
+        to: "tboneearls@gmail.com", // placeholder for now until I add to form
       };
     },
   },
