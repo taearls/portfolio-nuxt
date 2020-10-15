@@ -45,7 +45,10 @@
           </p>
         </div>
 
-        <div>
+        <div 
+          class="flex flex-col"
+          :class="{'mb-2': !$v.email.text.$error}"
+        >
           <label
             class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
             for="contactEmail"
@@ -55,8 +58,7 @@
           <input
             id="contactEmail"
             v-model.trim="email.text"
-            :style="$v.email.text.$error ? 'margin: 0' : ''"
-            class="form-input w-full mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            class="form-input w-full text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             type="email"
             name="email"
             required
@@ -92,7 +94,10 @@
             :placeholder="subject.placeholder"
           >
         </div>
-        <div>
+        <div 
+          class="flex flex-col"
+          :class="{'mb-4': !$v.message.text.$error}"
+        >
           <label
             class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
             for="contactMessage"
@@ -102,8 +107,7 @@
           <textarea
             id="contactMessage"
             v-model.trim="message.text"
-            class="form-textarea w-full h-32 mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
-            :style="$v.message.text.$error ? 'margin: 0' : ''"
+            class="form-textarea w-full h-32 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
             name="message"
             required
             :placeholder="message.placeholder"
@@ -235,7 +239,7 @@ export default {
         if (process.env.NODE_ENV === "development") {
           mailToURL = "http://localhost:3000/send";
         } else if (process.env.NODE_ENV === "production") {
-          mailToURL = "https://tyler-shared-email-service.herokuapp.com/";
+          mailToURL = "https://tyler-shared-email-service.herokuapp.com/send";
         }
       }
       return mailToURL;
