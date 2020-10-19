@@ -14,8 +14,8 @@
       />
     </transition>
     <nav
-      id="navbar"
       v-show="isNavActive"
+      id="navbar"
       class="w-screen"
     >
       <ul class="flex flex-col h-auto justify-center sm:flex-row sm:justify-end">
