@@ -1,8 +1,8 @@
 <template>
   <div
     id="nav-container"
-    class="fixed flex items-center justify-end w-screen top-0 font-default font-mono dark:text-white text-black border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
-    :class="{'border border-gray-500 bg-white dark:bg-soft-black dark:border-gray-300': isNavActive, 'h-0 border-none bg-transparent': !isNavActive}"
+    class="fixed flex items-center w-screen top-0 font-default font-mono dark:text-white text-black border border-b border-t-0 border-l-0 border-r-0 h-auto sm:h-16"
+    :class="{'border border-gray-500 bg-white dark:bg-soft-black dark:border-gray-300 justify-end': isNavActive, 'h-0 border-none bg-transparent justify-between': !isNavActive}"
   >
     <transition
       name="fade"
@@ -14,9 +14,9 @@
       />
     </transition>
     <nav
+      v-show="isNavActive"
       id="navbar"
-      class="opacity-0 w-screen"
-      :class="{'opacity-100': isNavActive}"
+      class="w-screen"
     >
       <ul class="flex flex-col h-auto justify-center sm:flex-row sm:justify-end">
         <li
