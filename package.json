@@ -1,5 +1,6 @@
 {
   "name": "portfolio",
+  "author": "Tyler Earls",
   "version": "0.1.0",
   "private": true,
   "description": "Tyler Earls Programming Portfolio Website",
