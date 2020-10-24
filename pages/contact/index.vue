@@ -138,6 +138,26 @@
           >
             Thank you. I look forward to working with you!
           </p>
+          <!-- TODO: flesh out UI for loading, success, error request states -->
+          <p
+            v-if="requestState === 'loading'"
+            class="text-blue-700 dark:text-blue-500"
+          >
+            Loading...
+          </p>
+          <p
+            v-if="requestState === 'success'"
+            class="success-message"
+          >
+            Success!
+          </p>
+          <p
+            v-if="requestState === 'error'"
+            class="error-message"
+          >
+            There was an error.
+          </p>
+
           <div class="flex items-center">
             <input
               type="submit"
@@ -171,6 +191,14 @@ import { required, email as emailValidationRegex } from "vuelidate/lib/validator
 
 import RightArrowIcon from "../../components/widgets/svg/RightArrowIcon.vue";
 
+// TODO: convert to enum
+const RequestState = {
+  idle: "idle",
+  loading: "loading",
+  success: "success",
+  error: "error",
+};
+
 export default {
   components: {
     VueRecaptcha,
@@ -199,6 +227,7 @@ export default {
         placeholder: "Stardate 2713.5\n\nIn the distant reaches of our galaxy, we have made an astonishing discovery—Earth-type radio signals coming from a planet which apparently is an exact duplicate of the Earth.\n\nIt seems impossible, but there it is.",
         text: "",
       },
+      requestState: RequestState.idle,
     };
   },
   validations: {
@@ -286,6 +315,7 @@ export default {
     },
     submitEmail() {
       const vm = this;
+      this.requestState = RequestState.loading;
       // show loading state, success state, failed state
       axios.post(
         vm.mailToURL, 
@@ -293,14 +323,17 @@ export default {
       )
       .then(response => {
         if (response.status === 200) {
-          vm.$router.push("/thank-you");
+          // vm.$router.push("/thank-you");
+          this.requestState = RequestState.success;
         } else {
           // show some error
           console.log("failed");
+          this.requestState = RequestState.error;
         }
       })
       .catch(error => {
         console.log(`error: ${error}`);
+        this.requestState = RequestState.error;
       });
     },
   },
