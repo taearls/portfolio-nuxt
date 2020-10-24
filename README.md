@@ -1,5 +1,7 @@
 # Portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/706f9494-d6d6-4a4e-a336-d01fdcf8e2b4/deploy-status)](https://app.netlify.com/sites/tylerearls/deploys)
+
 This is personal [website](https://www.tylerearls.com) to learn more about me, my professional programming portfolio, and my [band](https://www.cuckooandthebirds.com).
 
 Here, you can keep up to date with my current projects.
