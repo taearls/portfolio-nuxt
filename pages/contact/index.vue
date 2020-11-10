@@ -139,12 +139,9 @@
             Thank you. I look forward to working with you!
           </p>
           <!-- TODO: flesh out UI for loading, success, error request states -->
-          <p
-            v-if="requestState === 'loading'"
-            class="text-blue-700 dark:text-blue-500"
-          >
-            Loading...
-          </p>
+          <client-only>
+            <loading-state v-if="requestState === 'loading'" />
+          </client-only>
           <p
             v-if="requestState === 'success'"
             class="success-message"
@@ -189,7 +186,8 @@ import VueRecaptcha from "vue-recaptcha";
 import axios from "axios";
 import { required, email as emailValidationRegex } from "vuelidate/lib/validators";
 
-import RightArrowIcon from "../../components/widgets/svg/RightArrowIcon.vue";
+import RightArrowIcon from "@/components/widgets/svg/RightArrowIcon.vue";
+import LoadingState from "@/components/util/requestStates/LoadingState.vue";
 
 // TODO: convert to enum
 const RequestState = {
@@ -203,6 +201,7 @@ export default {
   components: {
     VueRecaptcha,
     RightArrowIcon,
+    LoadingState,
   },
   data() {
     return {
@@ -254,6 +253,7 @@ export default {
     ]),
     saveDisabled() {
       return (
+        this.requestState !== RequestState.idle ||
         !this.recaptchaVerified || 
         this.isUserTyping ||
         !this.$v.name.text.required ||
