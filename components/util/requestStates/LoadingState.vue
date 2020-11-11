@@ -5,15 +5,16 @@
 <script>
   export default {
     beforeCreate() {
-      document.body.classList.add("background-loading");
+      // change style attribute directly so css in this component can be scoped
+      document.body.style.opacity = "75%";
     },
     beforeDestroy() {
-      document.body.classList.remove("background-loading");
+      document.body.style.opacity = "1";
     },
   };
 </script>
 
-<style>
+<style scoped>
 #loading-spinner {
   font-size: 16px;
   width: 1em;
@@ -27,9 +28,6 @@
 }
 html.dark-mode #loading-spinner {
   animation: loading-dark-mode 1s infinite ease;
-}
-.background-loading {
-  opacity: 75% !important;
 }
 
 @keyframes loading-light-mode {
