@@ -138,7 +138,6 @@
           >
             Thank you. I look forward to working with you!
           </p>
-          <!-- TODO: flesh out UI for loading, success, error request states -->
           <client-only>
             <loading-state v-if="requestState === 'loading'" />
           </client-only>
@@ -146,13 +145,13 @@
             v-if="requestState === 'success'"
             class="success-message"
           >
-            Success!
+            Success! I'll be in touch shortly.
           </p>
           <p
             v-if="requestState === 'error'"
             class="error-message"
           >
-            There was an error.
+            There was an error sending your message. Please try again.
           </p>
 
           <div class="flex items-center">
