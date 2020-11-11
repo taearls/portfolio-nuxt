@@ -263,12 +263,10 @@ export default {
     },
     mailToURL() {
       let mailToURL = "";
-      if (!this.saveDisabled) {
-        if (process.env.NODE_ENV === "development") {
-          mailToURL = "http://localhost:3000/send";
-        } else if (process.env.NODE_ENV === "production") {
-          mailToURL = "https://tyler-shared-email-service.herokuapp.com/send";
-        }
+      if (process.env.NODE_ENV === "development") {
+        mailToURL = "http://localhost:3000/send";
+      } else if (process.env.NODE_ENV === "production") {
+        mailToURL = "https://tyler-shared-email-service.herokuapp.com/send";
       }
       return mailToURL;
     },
@@ -322,11 +320,8 @@ export default {
       )
       .then(response => {
         if (response.status === 200) {
-          // vm.$router.push("/thank-you");
           this.requestState = RequestState.success;
         } else {
-          // show some error
-          console.log("failed");
           this.requestState = RequestState.error;
         }
       })
