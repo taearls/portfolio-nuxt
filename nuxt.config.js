@@ -69,8 +69,9 @@ export default {
   },
   plugins: [
     "~/plugins/cloudinary.js",
-    "~/plugins/vue-composition-api.js",
     "~/plugins/firebase.js",
+    "~/plugins/vuelidate.js",
+    "~/plugins/vue-composition-api.js",
   ],
   hooks: {
     generate: {
