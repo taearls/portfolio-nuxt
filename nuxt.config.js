@@ -91,13 +91,39 @@ export default {
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width,initial-scale=1.0,shrink-to-fit=no" },
       // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+      { name: "author", content: "Tyler Earls" },
       {
         hid: "description",
         name: "description",
         content:
           "Tyler Earls is a software engineer who works in Java, ES8+ JavaScript, and JavaScript frameworks.",
       },
-      { name: "author", content: "Tyler Earls" },
+      {
+        property: "og:description",
+        content:
+          "Tyler Earls is a software engineer who works in Java, ES8+ JavaScript, and JavaScript frameworks.",
+      },
+      {
+        property: "og:title",
+        content: "Tyler Earls | Software Engineer",
+      },
+      {
+        property: "og:type",
+        content: "website",
+      },
+      {
+        property: "og:url",
+        content: "https://www.tylerearls.com",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://res.cloudinary.com/taearls/image/upload/c_scale,w_450/v1605418591/teal-tyler-in-space.jpg",
+      },
+      {
+        property: "og:image:alt",
+        content: "Laser Tyler",
+      },
       {
         name: "keywords",
         content:
