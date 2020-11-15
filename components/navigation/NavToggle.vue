@@ -74,7 +74,7 @@ export default defineComponent({
 
 <style scoped>
 #custom-toggler > div {
-  width: 32px;
+  width: 36px;
   height: 2px;
   margin-bottom: 8px;
   transition: transform 500ms ease, opacity 500ms;

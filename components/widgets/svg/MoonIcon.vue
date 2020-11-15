@@ -22,11 +22,11 @@ export default defineComponent({
   props: {
     width: {
       type: Number,
-      default: 32,
+      default: 36,
     },
     height: {
       type: Number,
-      default: 32,
+      default: 36,
     },
   },
 });

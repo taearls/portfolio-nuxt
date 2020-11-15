@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 float-left p-4 h-16 z-10 left-0 items-center hover:opacity-75 sm:float-none sm:static">
+  <div class="fixed top-0 float-left p-3 h-17 z-10 left-0 items-center hover:opacity-75 sm:float-none sm:static">
     <!-- sun / moon svg icons -->
     <client-only>
       <transition-group name="toggleFade">
@@ -8,7 +8,7 @@
           key="sunToggle"
           ref="sunToggle"
           aria-label="toggle on light mode"
-          class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
           <SunIcon />
@@ -18,7 +18,7 @@
           key="moonToggle"
           ref="moonToggle"
           aria-label="toggle on dark mode"
-          class="relative left-0 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
           <MoonIcon />

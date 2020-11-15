@@ -9,6 +9,9 @@ module.exports = {
       default: "'Avenir', Helvetica, Arial, sans-serif;",
     },
     extend: {
+      spacing: {
+        "17": "4.25rem",
+      },
       colors: {
         "soft-black": "#121212",
       },
