@@ -96,12 +96,12 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "Tyler Earls is a software engineer who works in Java, ES8+ JavaScript, and JavaScript frameworks.",
+          "Tyler Earls is a software engineer who works in Vue, React, JavaScript, Java, HTML, CSS, and Rust.",
       },
       {
         property: "og:description",
         content:
-          "Tyler Earls is a software engineer who works in Java, ES8+ JavaScript, and JavaScript frameworks.",
+          "Tyler Earls is a software engineer who works in Vue, React, JavaScript, Java, HTML, CSS, and Rust.",
       },
       {
         property: "og:title",
@@ -122,12 +122,12 @@ export default {
       },
       {
         property: "og:image:alt",
-        content: "Laser Tyler",
+        content: "Teal Tyler in Space",
       },
       {
         name: "keywords",
         content:
-          "HTML, CSS, JavaScript, JQuery, Java, Vue, React, Node.js, Software Engineer, Web Development, SASS, SCSS, Less, Responsive Design",
+          "HTML, CSS, JavaScript, JQuery, Java, Rust, Vue, React, Node.js, Software Engineer, Web Development, SASS, SCSS, Less, Responsive Design",
       },
     ],
     link: [
