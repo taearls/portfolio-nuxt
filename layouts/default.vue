@@ -28,18 +28,18 @@ html {
 html a:hover, html a:hover span {
   @apply text-blue-500;
 }
-html a:hover svg.dark-mode-toggle, html a:hover svg.external-link {
+html a:hover svg.dark-toggle, html a:hover svg.external-link {
   fill: #4299e1 !important; /* text-blue-500 */
   stroke: #4299e1 !important; /* text-blue-500 */
 }
 /* dark-mode */
-html.dark-mode, html.dark-mode body {
+html.dark, html.dark body {
   @apply bg-soft-black;
 }
-html.dark-mode a:hover span {
+html.dark a:hover span {
   @apply text-blue-300;
 }
-html.dark-mode a:hover svg.dark-mode-toggle, html.dark-mode a:hover svg.external-link {
+html.dark a:hover svg.dark-toggle, html.dark a:hover svg.external-link {
   fill: #90cdf4 !important; /* text-blue-300 */
   stroke: #90cdf4 !important; /* text-blue-300 */
 }
@@ -52,13 +52,13 @@ html.dark-mode a:hover svg.dark-mode-toggle, html.dark-mode a:hover svg.external
 .inline-anchor:focus {
   @apply outline-none shadow-outline-light;
 }
-html.dark-mode .inline-anchor {
+html.dark .inline-anchor {
   @apply text-purple-500;
 }
-html.dark-mode .inline-anchor:hover {
+html.dark .inline-anchor:hover {
   @apply text-blue-300;
 }
-html.dark-mode .inline-anchor:focus {
+html.dark .inline-anchor:focus {
   @apply shadow-outline-dark;
 }
 </style>

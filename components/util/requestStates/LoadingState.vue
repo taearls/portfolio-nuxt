@@ -26,7 +26,7 @@
   transform: translate(-50%, -50%);
   animation: loading-light-mode 1s infinite ease;
 }
-html.dark-mode #loading-spinner {
+html.dark #loading-spinner {
   animation: loading-dark-mode 1s infinite ease;
 }
 

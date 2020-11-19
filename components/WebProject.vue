@@ -5,7 +5,7 @@
     >
       {{ project.name }}
     </h2>
-    <div class="clearfix mb-8">
+    <div class="flow-root mb-8">
       <div class="mx-auto text-center w-11/12 mb-2 sm:mb-0 sm:w-1/2 sm:float-left sm:clearfix sm:mr-4">
         <div>
           <a

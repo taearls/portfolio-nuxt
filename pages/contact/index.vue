@@ -338,13 +338,13 @@ export default {
 .error-message {
   @apply text-red-700 font-semibold;
 }
-html.dark-mode .error-message {
+html.dark .error-message {
   @apply text-red-500;
 }
 .success-message {
   @apply text-green-500 font-semibold;
 }
-html.dark-mode .success-message {
+html.dark .success-message {
   @apply text-green-400;
 }
 .disabled {

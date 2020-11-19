@@ -26,18 +26,7 @@ export default {
     ],
     "@nuxt/typescript-build",
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/color-mode",
   ],
-  colorMode: {
-    preference: "system",
-    fallback: "light",
-    cookie: {
-      key: "color-scheme",
-      options: {
-        sameSite: "lax", // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
-      },
-    },
-  },
   // TODO: figure out how to implement privateRunTimeConfig
   // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
   env: {
@@ -159,6 +148,24 @@ export default {
           email: "tyler.a.earls@gmail.com",
           url: "https://www.tylerearls.com",
         }),
+      },
+      {
+        hid: "cookieInit",
+        type: "text/javascript",
+        // TODO: find a less ugly way to implement this...
+        innerHTML: `
+          const cookieKey = "color-scheme";
+          const cookieValue = document.cookie
+            .split("; ")
+            .find(row => row.startsWith(cookieKey))
+            .split("=")[1];
+
+          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches || cookieValue === "dark") {
+            document.querySelector("html").classList.add("dark");
+          } else {
+            document.querySelector("html").classList.remove("dark");
+          }
+        `,
       },
     ],
   },
