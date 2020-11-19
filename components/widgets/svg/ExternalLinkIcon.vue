@@ -3,7 +3,6 @@
     class="external-link absolute inline-block ml-1 sm:static sm:mx-1"
     height="24px"
     width="24px"
-    :stroke="prefersDarkMode ? darkModeColor : lightModeColor"
     stroke-width="5"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -36,14 +35,23 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
-    darkModeColor: {
-      type: String,
-      required: true,
-    },
-    lightModeColor: {
-      type: String,
-      required: true,
-    },
+    // darkModeColor: {
+    //   type: String,
+    //   required: true,
+    // },
+    // lightModeColor: {
+    //   type: String,
+    //   required: true,
+    // },
   },
 });
 </script>
+
+<style scoped>
+svg {
+  @apply fill-current stroke-current text-purple-700;
+}
+html.dark svg {
+  @apply text-purple-400;
+}
+</style>

@@ -21,13 +21,10 @@ module.exports = {
     },
   },
   variants: {
-    // backgroundColor: ["dark", "dark-hover", "dark-group-hover", "dark-even", "dark-odd", "hover", "responsive"],
-    // borderColor: ["dark", "dark-focus", "dark-focus-within", "hover", "responsive"],
-    boxShadow: ["responsive", "hover", "focus"],
-    cursor: ["responsive", "disabled"],
-    opacity: ["responsive", "hover", "focus", "disabled"],
+    boxShadow: ["responsive", "dark", "group-hover", "focus-within", "hover", "focus"],
+    cursor: ["responsive", "hover", "disabled"],
+    opacity: ["responsive", "group-hover", "focus-within", "hover", "disabled"],
     padding: ["responsive", "disabled"],
-    // textColor: ["dark", "dark-hover", "dark-active", "hover", "responsive"],
   },
   plugins: [],
 };

@@ -8,7 +8,7 @@
           key="sunToggle"
           ref="sunToggle"
           aria-label="toggle on light mode"
-          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
           <SunIcon />
@@ -18,7 +18,7 @@
           key="moonToggle"
           ref="moonToggle"
           aria-label="toggle on dark mode"
-          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
           <MoonIcon />

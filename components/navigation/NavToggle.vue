@@ -2,7 +2,7 @@
   <div class="fixed top-0 right-0 z-10 float-right p-4 h-16 sm:float-none sm:static">
     <button
       id="custom-toggler"
-      class="group pt-1 px-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+      class="group pt-1 px-1 rounded-sm focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
       style="margin-top: -0.2rem;"
       :class="{active: isToggleActive}"
       :aria-label="`${isToggleActive ? 'Close Navigation' : 'Open Navigation'}`"
@@ -10,15 +10,15 @@
     >
       <div
         id="toggler-top"
-        class="bg-purple-700 dark:bg-purple-500 group-hover:bg-blue-400 dark-group-hover:bg-blue-300 transition-colors duration-200"
+        class="bg-purple-700 dark:bg-purple-400 group-hover:bg-blue-400 dark:group-hover:bg-blue-300 transition-colors duration-200"
       />
       <div
         id="toggler-middle"
-        class="bg-purple-700 dark:bg-purple-500 group-hover:bg-blue-400 dark-group-hover:bg-blue-300 transition-colors duration-200"
+        class="bg-purple-700 dark:bg-purple-400 group-hover:bg-blue-400 dark:group-hover:bg-blue-300 transition-colors duration-200"
       />
       <div
         id="toggler-bottom"
-        class="bg-purple-700 dark:bg-purple-500 group-hover:bg-blue-400 dark-group-hover:bg-blue-300 transition-colors duration-200"
+        class="bg-purple-700 dark:bg-purple-400 group-hover:bg-blue-400 dark:group-hover:bg-blue-300 transition-colors duration-200"
       />
     </button>
   </div>

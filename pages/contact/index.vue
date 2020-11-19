@@ -1,6 +1,6 @@
 <template>
   <section class="px-4 mt-20 mx-auto max-w-none w-4/5 leading-8">
-    <h1 class="text-center mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl leading-tight">
+    <h1 class="text-center mb-4 text-purple-700 dark:text-purple-400 font-extrabold text-4xl leading-tight">
       Contact Tyler Earls
     </h1>
     <p class="w-full max-w-lg mx-auto text-justify text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
@@ -21,7 +21,7 @@
       >
         <div>
           <label
-            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
+            class="block text-purple-700 dark:text-purple-400 font-bold mb-1 md:mb-0 pr-4"
             for="contactName"
           >
             Name<span> *</span>
@@ -30,7 +30,7 @@
             id="contactName"
             v-model.trim="name.text"
             :style="$v.name.text.$error ? 'margin: 0' : ''"
-            class="form-input w-full mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            class="form-input w-full mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
             type="text"
             name="name"
             :placeholder="name.placeholder"
@@ -50,7 +50,7 @@
           :class="{'mb-2': !$v.email.text.$error}"
         >
           <label
-            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
+            class="block text-purple-700 dark:text-purple-400 font-bold mb-1 md:mb-0 pr-4"
             for="contactEmail"
           >
             Email<span> *</span>
@@ -58,7 +58,7 @@
           <input
             id="contactEmail"
             v-model.trim="email.text"
-            class="form-input w-full text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            class="form-input w-full text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
             type="email"
             name="email"
             required
@@ -82,13 +82,13 @@
 
         <div>
           <label
-            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
+            class="block text-purple-700 dark:text-purple-400 font-bold mb-1 md:mb-0 pr-4"
             for="contactSubject"
           >Subject</label>
           <input
             id="contactSubject"
             v-model.trim="subject.text"
-            class="form-input w-full mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            class="form-input w-full mb-2 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
             type="text"
             name="subject"
             :placeholder="subject.placeholder"
@@ -99,7 +99,7 @@
           :class="{'mb-4': !$v.message.text.$error}"
         >
           <label
-            class="block text-purple-700 dark:text-purple-500 font-bold mb-1 md:mb-0 pr-4"
+            class="block text-purple-700 dark:text-purple-400 font-bold mb-1 md:mb-0 pr-4"
             for="contactMessage"
           >
             Message<span> *</span>
@@ -107,7 +107,7 @@
           <textarea
             id="contactMessage"
             v-model.trim="message.text"
-            class="form-textarea w-full h-32 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            class="form-textarea w-full h-32 text-soft-black placeholder-gray-600 focus:bg-white focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
             name="message"
             required
             :placeholder="message.placeholder"
@@ -159,7 +159,7 @@
               type="submit"
               value="Send Email"
               :disabled="saveDisabled"
-              class="inline-block my-2 text-white transition-colors transition-padding ease-in-out duration-200 bg-purple-700 dark:bg-purple-500 rounded-lg pl-2 pr-10 disabled:pr-2 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+              class="inline-block my-2 text-white transition-colors transition-padding ease-in-out duration-200 bg-purple-700 dark:bg-purple-400 rounded-lg pl-2 pr-10 disabled:pr-2 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
               :class="{'submit-hover': !saveDisabled && hoveringMessage }"
               @mouseover="hoveringMessage = !saveDisabled"
               @mouseleave="hoveringMessage = false"
