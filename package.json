@@ -30,7 +30,7 @@
     "firebase": "^7.22.0",
     "nuxt": "^2.14.6",
     "postcss": "^7.0.35",
-    "tailwindcss": "^2.0.1-compat",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
     "typescript": "^4.0.3",
     "vue": "^2.6.12",
     "vue-recaptcha": "^1.3.0",
