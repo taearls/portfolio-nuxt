@@ -30,7 +30,7 @@
           </a>
         </div>
         <a
-          class="block rounded-sm mt-1 text-purple-700 dark:text-purple-400 focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
+          class="block cursor-pointer font-semibold rounded-sm mt-1 text-purple-700 dark:text-purple-400 focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
           target="_blank"
           rel="noreferrer"
           :href="project.href"

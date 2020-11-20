@@ -160,10 +160,10 @@ export default {
             .find(row => row.startsWith(cookieKey))
             .split("=")[1];
 
-          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches || cookieValue === "dark") {
-            document.querySelector("html").classList.add("dark");
-          } else {
+          if (cookieValue === "light") {
             document.querySelector("html").classList.remove("dark");
+          } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches || cookieValue === "dark") {
+            document.querySelector("html").classList.add("dark");
           }
         `,
       },
