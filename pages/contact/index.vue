@@ -336,16 +336,16 @@ export default {
 
 <style scoped>
 .error-message {
-  @apply text-red-700 font-semibold;
+  @apply text-red-600 font-semibold;
 }
 html.dark .error-message {
   @apply text-red-500;
 }
 .success-message {
-  @apply text-green-500 font-semibold;
+  @apply text-emerald-500 font-semibold;
 }
 html.dark .success-message {
-  @apply text-green-400;
+  @apply text-emerald-400;
 }
 .disabled {
   @apply cursor-not-allowed;
@@ -368,7 +368,7 @@ html.dark .success-message {
 
 /* transitions */
 .draw-enter-active {
-  /* opacity: 1; */
+  opacity: 1;
   display: block;
   transition: all 500ms ease 100ms;
 }

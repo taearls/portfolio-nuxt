@@ -10,15 +10,15 @@
     >
       <div
         id="toggler-top"
-        class="bg-purple-700 dark:bg-purple-400 group-hover:bg-blue-400 dark:group-hover:bg-blue-300 transition-colors duration-200"
+        class="bg-purple-700 dark:bg-purple-400 group-hover:bg-cyan-400 dark:group-hover:bg-cyan-300 transition-colors duration-200"
       />
       <div
         id="toggler-middle"
-        class="bg-purple-700 dark:bg-purple-400 group-hover:bg-blue-400 dark:group-hover:bg-blue-300 transition-colors duration-200"
+        class="bg-purple-700 dark:bg-purple-400 group-hover:bg-cyan-400 dark:group-hover:bg-cyan-300 transition-colors duration-200"
       />
       <div
         id="toggler-bottom"
-        class="bg-purple-700 dark:bg-purple-400 group-hover:bg-blue-400 dark:group-hover:bg-blue-300 transition-colors duration-200"
+        class="bg-purple-700 dark:bg-purple-400 group-hover:bg-cyan-400 dark:group-hover:bg-cyan-300 transition-colors duration-200"
       />
     </button>
   </div>

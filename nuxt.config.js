@@ -155,11 +155,14 @@ export default {
         // TODO: find a less ugly way to implement this...
         innerHTML: `
           const cookieKey = "color-scheme";
-          const cookieValue = document.cookie
-            .split("; ")
-            .find(row => row.startsWith(cookieKey))
-            .split("=")[1];
-
+          const cookieArray = document.cookie
+            .split("; ");
+          let cookieValue;
+          if (cookieArray) {
+            cookieValue = cookieArray
+              .find(row => row.startsWith(cookieKey))
+              .split("=")[1];
+          }
           if (cookieValue === "light") {
             document.querySelector("html").classList.remove("dark");
           } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches || cookieValue === "dark") {

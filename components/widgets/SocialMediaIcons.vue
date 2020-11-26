@@ -9,7 +9,7 @@
       :href="socialMediaLink.href"
       :aria-label="socialMediaLink.ariaLabel"
     >
-      <span class="text-xs text-purple-700 dark:text-purple-400 rounded-sm hover:text-blue-500 dark:hover:text-blue-300">
+      <span class="text-xs text-purple-700 dark:text-purple-400 rounded-sm hover:text-cyan-400 dark:hover:text-cyan-300">
         <font-awesome-icon
           :icon="['fab', socialMediaLink.icon]"
           size="2x"
