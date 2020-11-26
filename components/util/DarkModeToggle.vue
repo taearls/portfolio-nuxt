@@ -8,7 +8,7 @@
           key="sunToggle"
           ref="sunToggle"
           aria-label="toggle on light mode"
-          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
           <SunIcon />
@@ -18,7 +18,7 @@
           key="moonToggle"
           ref="moonToggle"
           aria-label="toggle on dark mode"
-          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+          class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
           <MoonIcon />
@@ -72,12 +72,15 @@ export default defineComponent({
     toggleDarkMode(): void {
       // change data value, add/remove dark-mode class, then focus on the newly visible svg icon
       this.$store.commit("toggleDarkMode");
-      if (this.prefersDarkMode) {
-        window.document.documentElement.classList.add("dark-mode");
-        setCookieValue(this.cookieKey, "dark");
-      } else {
-        window.document.documentElement.classList.remove("dark-mode");
-        setCookieValue(this.cookieKey, "light");
+      const htmlElement = document.querySelector("html");
+      if (htmlElement != null) {
+        if (this.prefersDarkMode) {
+          htmlElement.classList.add("dark");
+          setCookieValue(this.cookieKey, "dark");
+        } else {
+          htmlElement.classList.remove("dark");
+          setCookieValue(this.cookieKey, "light");
+        }
       }
       this.$nextTick(() => {
         if (this.prefersDarkMode) {

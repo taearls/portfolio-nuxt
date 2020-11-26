@@ -2,7 +2,7 @@
   <section class="px-4 mt-20 mx-auto max-w-none w-4/5 leading-8">
     <!-- TODO: add images to break up text -->
     <h1
-      class="text-left mb-4 text-purple-700 dark:text-purple-500 font-extrabold text-4xl"
+      class="text-left mb-4 text-purple-700 dark:text-purple-400 font-extrabold text-4xl"
       style="line-height: 1.1;"
     >
       Hi there! 👋

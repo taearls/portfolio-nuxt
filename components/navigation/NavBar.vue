@@ -30,7 +30,7 @@
             :tabindex="isNavActive ? 0 : -1"
             :aria-label="internalNavigationLink.ariaLabel"
             prefetch
-            class="px-8 sm:px-4 text-lg font-extrabold text-purple-700 dark:text-purple-500 dark-hover:text-blue-300 focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark rounded-sm"
+            class="px-8 sm:px-4 text-lg font-extrabold text-purple-700 dark:text-purple-400 dark:hover:text-cyan-300 focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark rounded-sm"
           >
             {{ internalNavigationLink.displayText }}
           </nuxt-link>
@@ -47,13 +47,11 @@
             :aria-label="externalNavigationLink.ariaLabel"
             rel="noreferrer"
             target="_blank"
-            class="inline-block pl-6 pr-12 sm:pl-4 sm:pr-2 text-lg font-extrabold text-purple-700 rounded-sm dark:text-purple-500 dark-hover:text-blue-300 sm:flex sm:items-center sm:justify-center focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+            class="inline-block pl-6 pr-12 sm:pl-4 sm:pr-2 text-lg font-extrabold text-purple-700 rounded-sm dark:text-purple-400 dark:hover:text-cyan-300 sm:flex sm:items-center sm:justify-center focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
           >
             {{ externalNavigationLink.displayText }}
             <ExternalLinkIcon
               :prefers-dark-mode="prefersDarkMode"
-              dark-mode-color="#9f7aea"
-              light-mode-color="#6b46c1"
             />
           </a>
         </li>

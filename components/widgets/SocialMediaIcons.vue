@@ -4,12 +4,12 @@
       v-for="(socialMediaLink, index) in socialMediaLinks"
       :key="'socialMediaLink' + index"
       rel="noreferrer"
-      class="px-2 py-1 rounded-sm focus:outline-none focus:shadow-outline-light dark-focus:shadow-outline-dark"
+      class="px-2 py-1 rounded-sm focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
       target="_blank"
       :href="socialMediaLink.href"
       :aria-label="socialMediaLink.ariaLabel"
     >
-      <span class="text-xs text-purple-700 dark:text-purple-500 rounded-sm hover:text-blue-500 dark-hover:text-blue-300">
+      <span class="text-xs text-purple-700 dark:text-purple-400 rounded-sm hover:text-cyan-400 dark:hover:text-cyan-300">
         <font-awesome-icon
           :icon="['fab', socialMediaLink.icon]"
           size="2x"
