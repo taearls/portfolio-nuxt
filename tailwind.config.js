@@ -11,6 +11,11 @@ module.exports = {
       spacing: {
         "17": "4.25rem",
       },
+      boxShadow: {
+        "outline-light": "0 0 0 3px #22D3EE", // cyan-400
+        "outline-dark": "0 0 0 3px #67E8F9", // cyan-300
+        // box-shadow: inset 0 -0.125em 0 0 #fff, inset 0 -0.375em 0 0 rgba(165,243,252,.4);
+      },
       // soft-black, emerald, cyan are used. others are from the tailwind 2.0 palette for experimentation
       colors: {
         "soft-black": "#121212",
@@ -86,10 +91,6 @@ module.exports = {
           800: "#9F1239",
           900: "#881337",
         },
-      },
-      boxShadow: {
-        "outline-light": "0 0 0 3px #22D3EE", // cyan-400
-        "outline-dark": "0 0 0 3px #67E8F9", // cyan-300
       },
     },
   },

@@ -2,20 +2,21 @@ import { join } from "path";
 import { fireStore } from "./plugins/firebase";
 
 export default {
+  target: "static",
+  ssr: true,
+  // TODO: figure out how to implement privateRunTimeConfig
+  // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
+  env: {
+    CLOUDINARY_ID: process.env.CLOUDINARY_ID,
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+  },
+  colorMode: {
+    classSuffix: "",
+  },
   build: {
+    // allows webpack analyzer to run when doing npm run generate in development
+    // analyze: process.env.NODE_ENV !== "production" ? true : false,
     extractCSS: true,
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: {
-            name: "styles",
-            test: /\.(css|vue)$/,
-            chunks: "all",
-            enforce: true,
-          },
-        },
-      },
-    },
   },
   buildModules: [
     [
@@ -25,14 +26,9 @@ export default {
       },
     ],
     "@nuxt/typescript-build",
+    "@nuxtjs/color-mode",
     "@nuxtjs/tailwindcss",
   ],
-  // TODO: figure out how to implement privateRunTimeConfig
-  // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
-  env: {
-    CLOUDINARY_ID: process.env.CLOUDINARY_ID,
-    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
-  },
   babel: {
     presets() {
       return [
@@ -46,8 +42,6 @@ export default {
       ];
     },
   },
-  target: "static", // only change to "server" if a Node.js env is set up (but I don't want to pay $$)
-  ssr: true,
   postcss: {
     plugins: {
       tailwindcss: join(__dirname, "tailwind.config.js"),
@@ -57,10 +51,11 @@ export default {
     },
   },
   plugins: [
-    "~/plugins/cloudinary.js",
-    "~/plugins/firebase.js",
-    "~/plugins/vuelidate.js",
-    "~/plugins/vue-composition-api.js",
+    { src: "~/plugins/cloudinary.js" },
+    { src: "~/plugins/firebase.js", mode: "server" },
+    { src: "~/plugins/vuelidate.js" },
+    { src: "~/plugins/cookieInit.js", mode: "client" },
+    { src: "~/plugins/vue-composition-api.js" },
   ],
   hooks: {
     generate: {
@@ -78,7 +73,10 @@ export default {
     titleTemplate: "Tyler Earls | Software Engineer",
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width,initial-scale=1.0,shrink-to-fit=no" },
+      {
+        name: "viewport",
+        content: "width=device-width,initial-scale=1.0,shrink-to-fit=no",
+      },
       // hid is used as unique identifier. Do not use `vmid` for it as it will not work
       { name: "author", content: "Tyler Earls" },
       {
@@ -148,27 +146,6 @@ export default {
           email: "tyler.a.earls@gmail.com",
           url: "https://www.tylerearls.com",
         }),
-      },
-      {
-        hid: "cookieInit",
-        type: "text/javascript",
-        // TODO: find a less ugly way to implement this...
-        innerHTML: `
-          const cookieKey = "color-scheme";
-          const cookieArray = document.cookie
-            .split("; ");
-          let cookieValue;
-          if (cookieArray) {
-            cookieValue = cookieArray
-              .find(row => row.startsWith(cookieKey))
-              .split("=")[1];
-          }
-          if (cookieValue === "light") {
-            document.querySelector("html").classList.remove("dark");
-          } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches || cookieValue === "dark") {
-            document.querySelector("html").classList.add("dark");
-          }
-        `,
       },
     ],
   },
