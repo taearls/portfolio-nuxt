@@ -263,10 +263,14 @@ export default {
     },
     mailToURL() {
       let mailToURL = "";
-      if (process.env.NODE_ENV === "development") {
-        mailToURL = "http://localhost:3000/send";
-      } else if (process.env.NODE_ENV === "production") {
-        mailToURL = "https://tyler-shared-email-service.herokuapp.com/send";
+      const NODE_ENV = process.env["NODE_ENV"];
+      switch(NODE_ENV) {
+        case "development":
+          mailToURL = "http://localhost:3000/send";
+          break;
+        case "production":
+          mailToURL = "https://tyler-shared-email-service.herokuapp.com/send";
+          break;
       }
       return mailToURL;
     },

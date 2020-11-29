@@ -1,21 +1,31 @@
 import { join } from "path";
 import { fireStore } from "./plugins/firebase";
 
+// DOCS: https://nuxtjs.org/docs/2.x/directory-structure/nuxt-config
+
 export default {
   target: "static",
   ssr: true,
-  // TODO: figure out how to implement privateRunTimeConfig
-  // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
+  // old way w/out nuxt runtime config - couldn't get that to work, so fuck it for now.
   env: {
-    CLOUDINARY_ID: process.env.CLOUDINARY_ID,
-    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+    CLOUDINARY_ID: process.env["CLOUDINARY_ID"],
+    FIREBASE_API_KEY: process.env["FIREBASE_API_KEY"],
+    FIREBASE_AUTH_DOMAIN: process.env["FIREBASE_AUTH_DOMAIN"],
+    FIREBASE_DB_URL: process.env["FIREBASE_DB_URL"],
+    FIREBASE_PROJECT_ID: process.env["FIREBASE_PROJECT_ID"],
+    FIREBASE_STORAGE_BUCKET: process.env["FIREBASE_STORAGE_BUCKET"],
+    FIREBASE_MESSAGING_SENDER_ID: process.env["FIREBASE_MESSAGING_SENDER_ID"],
+    FIREBASE_APP_ID: process.env["FIREBASE_APP_ID"],
+    FIREBASE_MEASUREMENT_ID: process.env["FIREBASE_MEASUREMENT_ID"],
   },
+  // necessary for `@nuxtjs/color-mode` module to hook into tailwind's dark mode
   colorMode: {
     classSuffix: "",
   },
+  // options to pass to webpack build config
   build: {
-    // allows webpack analyzer to run when doing npm run generate in development
-    // analyze: process.env.NODE_ENV !== "production" ? true : false,
+    // uncomment this to use webpack analyzer when running `npm run generate` in development
+    // analyze: process.env["NODE_ENV"] !== "production" ? true : false,
     extractCSS: true,
   },
   buildModules: [
@@ -43,15 +53,13 @@ export default {
     },
   },
   postcss: {
+    // register tailwind as plugin in postcss processing with associated config file
     plugins: {
       tailwindcss: join(__dirname, "tailwind.config.js"),
     },
-    preset: {
-      stage: 2,
-    },
   },
   plugins: [
-    { src: "~/plugins/cloudinary.js" },
+    { src: "~/plugins/cloudinary.js", mode: "client" },
     { src: "~/plugins/firebase.js", mode: "server" },
     { src: "~/plugins/vuelidate.js" },
     { src: "~/plugins/cookieInit.js", mode: "client" },
