@@ -5,10 +5,13 @@
  */
 const setDarkModePreference = () => {
   const cookieKey = "color-scheme";
-  const cookieValue = document.cookie
+  const cookie = document.cookie
     .split("; ")
-    .find(row => row.startsWith(cookieKey))
-    .split("=")[1];
+    .find(row => row.startsWith(cookieKey));
+  let cookieValue;
+  if (cookie) {
+    cookieValue = cookie.split("=")[1];
+  }
   if (cookieValue === "light") {
     document.querySelector("html").classList.remove("dark");
   } else if (
