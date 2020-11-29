@@ -8,6 +8,7 @@ const setDarkModePreference = () => {
   const cookie = document.cookie
     .split("; ")
     .find(row => row.startsWith(cookieKey));
+  // have to make sure there's a value for `color-scheme` before attempting to grab it.
   let cookieValue;
   if (cookie) {
     cookieValue = cookie.split("=")[1];
