@@ -8,7 +8,6 @@ export default {
   ssr: true,
   // old way w/out nuxt runtime config - couldn't get that to work, so fuck it for now.
   env: {
-    CLOUDINARY_ID: process.env["CLOUDINARY_ID"],
     FIREBASE_API_KEY: process.env["FIREBASE_API_KEY"],
     FIREBASE_AUTH_DOMAIN: process.env["FIREBASE_AUTH_DOMAIN"],
     FIREBASE_DB_URL: process.env["FIREBASE_DB_URL"],
@@ -18,6 +17,27 @@ export default {
     FIREBASE_APP_ID: process.env["FIREBASE_APP_ID"],
     FIREBASE_MEASUREMENT_ID: process.env["FIREBASE_MEASUREMENT_ID"],
   },
+  /////////////////////
+  // PUBLIC ENV VARS //
+  /////////////////////
+  publicRuntimeConfig: {
+    cloudinaryId: process.env["CLOUDINARY_ID"],
+    recaptchaSitekey: process.env["RECAPTCHA_SITEKEY"],
+  },
+  //////////////////////
+  // PRIVATE ENV VARS //
+  //////////////////////
+  // TODO: get this to work with ~/plugins/firebase.js
+  // privateRuntimeConfig: {
+  //   firebaseApiKey: process.env["FIREBASE_API_KEY"],
+  //   firebaseAuthDomain: process.env["FIREBASE_AUTH_DOMAIN"],
+  //   firebaseDbUrl: process.env["FIREBASE_DB_URL"],
+  //   firebaseProjectId: process.env["FIREBASE_PROJECT_ID"],
+  //   firebaseStorageBucket: process.env["FIREBASE_STORAGE_BUCKET"],
+  //   firebaseMessagingSenderId: process.env["FIREBASE_MESSAGING_SENDER_ID"],
+  //   firebaseAppId: process.env["FIREBASE_APP_ID"],
+  //   firebaseMeasurementId: process.env["FIREBASE_MEASUREMENT_ID"],
+  // },
   // necessary for `@nuxtjs/color-mode` module to hook into tailwind's dark mode
   colorMode: {
     classSuffix: "",
