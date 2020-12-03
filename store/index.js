@@ -1,5 +1,3 @@
-import { fireStore } from "~/plugins/firebase.js";
-
 export const state = () => ({
   prefersDarkMode: false,
   webProjects: [],
@@ -23,7 +21,7 @@ export const mutations = {
 
 export const actions = {
   async fetchData({ commit }, collectionName) {
-    const response = await fireStore.collection(collectionName)
+    const response = await this.$fire.firestore.collection(collectionName)
       .where("isActive", "==", true)
       .get();
     const data = response.docs
