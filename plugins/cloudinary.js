@@ -1,8 +1,10 @@
 import Vue from "vue";
 import Cloudinary from "cloudinary-vue";
 
-Vue.use(Cloudinary, {
-  configuration: {
-    cloudName: process.env["CLOUDINARY_ID"],
-  },
-});
+export default ({ $config: { cloudinaryId } }) => {
+  Vue.use(Cloudinary, {
+    configuration: {
+      cloudName: cloudinaryId,
+    },
+  });
+};

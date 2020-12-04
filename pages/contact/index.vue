@@ -123,7 +123,7 @@
         </div>
         <vue-recaptcha
           :key="shouldCompactRecaptcha + prefersDarkMode"
-          sitekey="6LfWJbcUAAAAAAPyrhy_FrLb_2y3wuLIzl3dEtZx"
+          :sitekey="$config.recaptchaSitekey"
           :theme="prefersDarkMode ? 'dark' : 'light'"
           :size="shouldCompactRecaptcha ? 'compact' : 'normal'"
           :load-recaptcha-script="true"
