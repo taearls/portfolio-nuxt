@@ -9,8 +9,9 @@
       :href="socialMediaLink.href"
       :aria-label="socialMediaLink.ariaLabel"
     >
-      <span class="text-xs text-purple-700 dark:text-purple-400 rounded-sm hover:text-cyan-400 dark:hover:text-cyan-300">
+      <span class="text-purple-700 dark:text-purple-400 rounded-sm hover:text-cyan-400 dark:hover:text-cyan-300">
         <font-awesome-icon
+          v-show="pageLoaded"
           :icon="['fab', socialMediaLink.icon]"
           size="2x"
         />
@@ -34,10 +35,20 @@ export default defineComponent({
   setup() {
     library.add(faTwitter, faLinkedin, faGithub, faBandcamp);
   },
+  data() {
+    return {
+      pageLoaded: false,
+    };
+  },
   computed: {
     ...mapState([
       "socialMediaLinks",
     ]),
+  },
+  mounted() {
+    // this only shows the social media icons after the DOM is fully loaded. 
+    // prevents FOUC in firefox
+    this.pageLoaded = true;
   },
 });
 </script>
