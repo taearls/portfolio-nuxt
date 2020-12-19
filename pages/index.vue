@@ -5,7 +5,7 @@
       class="text-left mb-4 text-purple-700 dark:text-purple-400 font-extrabold text-4xl"
       style="line-height: 1.1;"
     >
-      Hi there! 👋
+      Hi there!
       <br>
       My name is Tyler Earls.
       <br>

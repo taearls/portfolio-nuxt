@@ -17,7 +17,7 @@
     <p class="text-soft-black dark:text-white text-lg md:text-xl px-2 mt-4 mb-10 leading-7">
       I have been very interested in learning Rust. I'm currently leveling up those skills and hope to start work on a fun project in that realm. Specifically, I'd love to build a game and embed it on the web using Web Assembly.
     </p>
-    <WebProject
+    <web-project
       v-for="(project, index) in webProjects"
       :key="'web-project-' + index"
       :project="project"

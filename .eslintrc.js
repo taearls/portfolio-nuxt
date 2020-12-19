@@ -21,6 +21,10 @@ module.exports = {
     "max-len": "off",
     "no-tabs": ["error", { allowIndentationTabs: true }],
     "vue/no-v-html": "off",
+    "vue/component-name-in-template-casing": ["error", "kebab-case", {
+      "registeredComponentsOnly": false,
+      "ignores": [],
+    }],
     "comma-dangle": ["error", {
       "arrays": "always-multiline",
       "objects": "always-multiline",
