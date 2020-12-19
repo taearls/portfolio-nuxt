@@ -16,7 +16,7 @@
       class="flex items-center group mx-auto my-2 mb-4 px-2 py-1 rounded-md text-center text-soft-black dark:text-white bg-purple-700 dark:bg-purple-400 focus:outline-none hover:opacity-75 dark:hover:opacity-75"
       @click="$router.back()"
     >
-      <RightArrowIcon
+      <right-arrow-icon
         class="mr-2 transform rotate-180"
       />
       Back

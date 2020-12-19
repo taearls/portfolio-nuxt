@@ -121,7 +121,7 @@
             Please enter a message.
           </p>
         </div>
-        <VueRecaptcha
+        <vue-recaptcha
           :key="shouldCompactRecaptcha + prefersDarkMode"
           :sitekey="$config.recaptchaSitekey"
           :theme="prefersDarkMode ? 'dark' : 'light'"
@@ -139,7 +139,7 @@
             Thank you. I look forward to working with you!
           </p>
           <client-only>
-            <LoadingState v-if="requestState === 'loading'" />
+            <loading-state v-if="requestState === 'loading'" />
           </client-only>
           <p
             v-if="requestState === 'success'"
@@ -165,7 +165,7 @@
               @mouseleave="hoveringMessage = false"
             >
             <transition name="draw">
-              <RightArrowIcon 
+              <right-arrow-icon 
                 v-if="!saveDisabled"
                 style="margin-left: -32px;"
               />

@@ -21,7 +21,7 @@ module.exports = {
     "max-len": "off",
     "no-tabs": ["error", { allowIndentationTabs: true }],
     "vue/no-v-html": "off",
-    "vue/component-name-in-template-casing": ["error", "PascalCase", {
+    "vue/component-name-in-template-casing": ["error", "kebab-case", {
       "registeredComponentsOnly": true,
       "ignores": [],
     }],

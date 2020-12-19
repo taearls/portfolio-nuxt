@@ -11,7 +11,7 @@
           class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
-          <SunIcon />
+          <sun-icon />
         </button>
         <button
           v-show="!prefersDarkMode"
@@ -21,7 +21,7 @@
           class="relative left-0 p-1 rounded-sm focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
           @click="toggleDarkMode()"
         >
-          <MoonIcon />
+          <moon-icon />
         </button>
       </transition-group>
     </client-only>

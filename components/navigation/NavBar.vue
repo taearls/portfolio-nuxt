@@ -8,7 +8,7 @@
       name="fade"
       mode="out-in"
     >
-      <DarkModeToggle       
+      <dark-mode-toggle       
         v-show="!isScrollingDown"
         cookie-key="color-scheme"
       />
@@ -50,7 +50,7 @@
             class="inline-block pl-6 pr-12 sm:pl-4 sm:pr-2 text-lg font-extrabold text-purple-700 rounded-sm dark:text-purple-400 dark:hover:text-cyan-300 sm:flex sm:items-center sm:justify-center focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark"
           >
             {{ externalNavigationLink.displayText }}
-            <ExternalLinkIcon
+            <external-link-icon
               :prefers-dark-mode="prefersDarkMode"
             />
           </a>
@@ -58,7 +58,7 @@
       </ul>
     </nav>
     <transition name="fade">
-      <NavBarToggle
+      <nav-bar-toggle
         v-show="!isScrollingDown"
         @toggle-navigation="isNavActive = $event"
       />
