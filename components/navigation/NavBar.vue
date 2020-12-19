@@ -25,7 +25,7 @@
           class="flex justify-center sm:inline-block mx-auto py-2 text-center w-1/3 border border-gray-400 dark:border-gray-500 border-t-0 border-l-0 border-r-0 border-b-1 sm:border-none sm:mx-0 sm:w-auto"
           :class="externalNavigationLinks.length === 0 && index === internalNavigationLinks.length - 1 ? 'border-none' : ''"
         >
-          <NuxtLink
+          <nuxt-link
             :to="internalNavigationLink.href"
             :tabindex="isNavActive ? 0 : -1"
             :aria-label="internalNavigationLink.ariaLabel"
@@ -33,7 +33,7 @@
             class="px-8 sm:px-4 text-lg font-extrabold text-purple-700 dark:text-purple-400 dark:hover:text-cyan-300 focus:outline-none focus:shadow-outline-light dark:focus:shadow-outline-dark rounded-sm"
           >
             {{ internalNavigationLink.displayText }}
-          </NuxtLink>
+          </nuxt-link>
         </li>
         <li
           v-for="(externalNavigationLink, index) in externalNavigationLinks"

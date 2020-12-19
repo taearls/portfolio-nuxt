@@ -22,7 +22,7 @@ module.exports = {
     "no-tabs": ["error", { allowIndentationTabs: true }],
     "vue/no-v-html": "off",
     "vue/component-name-in-template-casing": ["error", "kebab-case", {
-      "registeredComponentsOnly": true,
+      "registeredComponentsOnly": false,
       "ignores": [],
     }],
     "comma-dangle": ["error", {
