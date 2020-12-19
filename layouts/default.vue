@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <nav-bar />
+    <NavBar />
     <nuxt />
-    <vue-footer />
+    <TheFooter />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "@vue/composition-api";
 import NavBar from "../components/navigation/NavBar.vue";
-import VueFooter from "../components/global/VueFooter.vue";
+import TheFooter from "../components/global/TheFooter.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     NavBar,
-    VueFooter,
+    TheFooter,
   },
 });
 </script>

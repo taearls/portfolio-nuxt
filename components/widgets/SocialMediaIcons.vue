@@ -10,7 +10,7 @@
       :aria-label="socialMediaLink.ariaLabel"
     >
       <span class="text-purple-700 dark:text-purple-400 rounded-sm hover:text-cyan-400 dark:hover:text-cyan-300">
-        <font-awesome-icon
+        <FontAwesomeIcon
           v-show="pageLoaded"
           :icon="['fab', socialMediaLink.icon]"
           size="2x"

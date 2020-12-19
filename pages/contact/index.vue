@@ -121,7 +121,7 @@
             Please enter a message.
           </p>
         </div>
-        <vue-recaptcha
+        <VueRecaptcha
           :key="shouldCompactRecaptcha + prefersDarkMode"
           :sitekey="$config.recaptchaSitekey"
           :theme="prefersDarkMode ? 'dark' : 'light'"
@@ -139,7 +139,7 @@
             Thank you. I look forward to working with you!
           </p>
           <client-only>
-            <loading-state v-if="requestState === 'loading'" />
+            <LoadingState v-if="requestState === 'loading'" />
           </client-only>
           <p
             v-if="requestState === 'success'"

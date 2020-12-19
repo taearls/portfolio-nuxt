@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <social-media-icons />
+    <SocialMediaIcons />
     <p
       class="text-center text-soft-black dark:text-white text-xs tracking-wide font-normal"
       v-html="footerHtml"
