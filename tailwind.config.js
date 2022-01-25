@@ -1,8 +1,5 @@
 module.exports = {
-  purge: {
-    content: ["./components/**/*.vue", "./layouts/**/*.vue", "./pages/**/*.vue"],
-  },
-  darkMode: "class",
+  content: ["./components/**/*.vue", "./layouts/**/*.vue", "./pages/**/*.vue"],
   theme: {
     fontFamily: {
       default: "'Avenir', Helvetica, Arial, sans-serif;",
@@ -93,12 +90,6 @@ module.exports = {
         },
       },
     },
-  },
-  variants: {
-    boxShadow: ["responsive", "dark", "group-hover", "focus-within", "hover", "focus"],
-    cursor: ["responsive", "hover", "disabled"],
-    opacity: ["responsive", "group-hover", "focus-within", "hover", "disabled"],
-    padding: ["responsive", "disabled"],
   },
   plugins: [],
 };
