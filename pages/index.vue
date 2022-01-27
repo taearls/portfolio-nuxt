@@ -15,13 +15,10 @@
       Currently, I work at
       <a
         class="inline-anchor"
-        href="https://www.ensighten.com"
+        href="https://www.cquence.app"
         rel="noreferrer"
         target="_blank"
-      >Ensighten</a>, where I help provide client-side security and privacy law compliance for our clients. I
-      enjoy the continuously evolving challenge of making the web safe for online users and their
-      personal data. I think it's meaningful work to provide privacy law compliance so that users have the fullest autonomy
-      during their web experience that regulations allow.
+      >Cquence</a>, where I help develop video software that empowers film makers and content creators in their post production workflow.
     </p>
     <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       Aside from this work, I occasionally take on freelance frontend work. I love building clean and accessible
