@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: "class",
   content: ["./components/**/*.vue", "./layouts/**/*.vue", "./pages/**/*.vue"],
   theme: {
     fontFamily: {
