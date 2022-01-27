@@ -13,13 +13,18 @@ const setDarkModePreference = () => {
   if (cookie) {
     cookieValue = cookie.split("=")[1];
   }
-  if (cookieValue === "light") {
+  if (cookieValue === "light" || 
+    (window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches && cookieValue !== "dark")) {
+        console.log("dark class removed inside cookieInit");
     document.querySelector("html").classList.remove("dark");
   } else if (
     cookieValue === "dark" ||
     (window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
+      window.matchMedia("(prefers-color-scheme: dark)").matches && cookieValue !== "light")
   ) {
+    console.log("dark class added inside cookieInit");
+
     document.querySelector("html").classList.add("dark");
   }
 };

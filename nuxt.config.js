@@ -1,4 +1,3 @@
-import { join } from "path";
 // DOCS: https://nuxtjs.org/docs/2.x/directory-structure/nuxt-config
 
 export default {
@@ -11,15 +10,16 @@ export default {
     cloudinaryId: process.env["CLOUDINARY_ID"],
     recaptchaSitekey: process.env["RECAPTCHA_SITEKEY"],
   },
-  // necessary for `@nuxtjs/color-mode` module to hook into tailwind's dark mode
-  colorMode: {
-    classSuffix: "",
-  },
   // options to pass to webpack build config
   build: {
     // uncomment this to use webpack analyzer when running `npm run generate` in development
     // analyze: process.env["NODE_ENV"] !== "production" ? true : false,
-    extractCSS: true,
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
   },
   buildModules: [
     [
@@ -28,10 +28,12 @@ export default {
         id: "UA-132274464-1",
       },
     ],
+    "@nuxt/postcss8",
     "@nuxt/typescript-build",
-    "@nuxtjs/color-mode",
     "@nuxtjs/firebase",
-    "@nuxtjs/tailwindcss",
+  ],
+  css: [
+    "~/assets/css/main.css",
   ],
   firebase: {
     config: {
@@ -59,12 +61,6 @@ export default {
           },
         ],
       ];
-    },
-  },
-  postcss: {
-    // register tailwind as plugin in postcss processing with associated config file
-    plugins: {
-      tailwindcss: join(__dirname, "tailwind.config.js"),
     },
   },
   plugins: [

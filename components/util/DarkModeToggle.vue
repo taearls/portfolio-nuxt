@@ -1,5 +1,7 @@
 <template>
-  <div class="fixed top-0 float-left p-3 h-17 z-10 left-0 items-center hover:opacity-75 sm:float-none sm:static">
+  <div
+    class="fixed top-0 float-left p-3 h-17 z-10 left-0 items-center hover:opacity-75 sm:float-none sm:static"
+  >
     <!-- sun / moon svg icons -->
     <client-only>
       <transition-group name="toggleFade">
@@ -35,7 +37,12 @@ import { mapState } from "vuex";
 import MoonIcon from "../widgets/svg/MoonIcon.vue";
 import SunIcon from "../widgets/svg/SunIcon.vue";
 
-import { getCookieValue, isDarkModePreferred, doesColorSchemeCookieExist, setCookieValue } from "../../composables/cookieUtils";
+import {
+  // getCookieValue,
+  // isDarkModePreferred,
+  // doesColorSchemeCookieExist,
+  setCookieValue
+} from "../../composables/cookieUtils";
 
 export default defineComponent({
   components: {
@@ -49,36 +56,68 @@ export default defineComponent({
     },
   },
   computed: {
-    ...mapState([
-      "prefersDarkMode",
-    ]),
+    ...mapState(["prefersDarkMode"]),
   },
   beforeMount() {
-    const cookieKey = this.cookieKey;
-    const documentHasColorModeCookie : boolean = doesColorSchemeCookieExist(cookieKey);
-    let isDarkModeByDefault = false;
-    
-    if (documentHasColorModeCookie) {
-      const cookieValue = getCookieValue(cookieKey);
-      isDarkModeByDefault = cookieValue === "dark";
-    } else {
-      isDarkModeByDefault = isDarkModePreferred();
-      const newCookieValue = isDarkModeByDefault ? "dark" : "light";
-      setCookieValue(cookieKey, newCookieValue);
-    }
-    this.$store.commit("setPrefersDarkMode", isDarkModeByDefault);
+    // this.initTheme();
+    // const cookieKey = this.cookieKey;
+    // const documentHasColorModeCookie: boolean =
+    //   doesColorSchemeCookieExist(cookieKey);
+    // let isDarkModeByDefault = false;
+
+    // if (documentHasColorModeCookie) {
+    //   const cookieValue = getCookieValue(cookieKey);
+    //   console.log("cookieValue: ", cookieValue);
+    //   isDarkModeByDefault = cookieValue === "dark";
+    // } else {
+    //   isDarkModeByDefault = isDarkModePreferred();
+    //   console.log("no cookie, isDarkModeByDefault: ", isDarkModeByDefault);
+    //   const newCookieValue = isDarkModeByDefault ? "dark" : "light";
+    //   setCookieValue(cookieKey, newCookieValue);
+    // }
+    // this.$store.commit("setPrefersDarkMode", isDarkModeByDefault);
   },
   methods: {
+    initTheme(): void {
+      const cookieKey = "color-scheme";
+      const cookie = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith(cookieKey));
+      // have to make sure there's a value for `color-scheme` before attempting to grab it.
+      let cookieValue;
+      if (cookie) {
+        cookieValue = cookie.split("=")[1];
+      }
+
+      // prioritize cookieValue first so that a user's saved preference on the website will override their system's preferred theme, if one exists
+      if (
+        cookieValue === "light" ||
+        (window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: light)").matches && cookieValue !== "dark")
+      ) {
+        // console.log("dark class removed");
+        // (document.querySelector("html") as HTMLElement).classList.remove("dark");
+        this.$store.commit("setPrefersDarkMode", false);
+      } else if (
+        cookieValue === "dark" ||
+        (window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches && cookieValue !== "light")
+      ) {
+        console.log("dark class added");
+        this.$store.commit("setPrefersDarkMode", true);
+        // (document.querySelector("html") as HTMLElement).classList.add("dark");
+      }
+    },
     toggleDarkMode(): void {
       // change data value, add/remove dark-mode class, then focus on the newly visible svg icon
       this.$store.commit("toggleDarkMode");
       const htmlElement = document.querySelector("html");
       if (htmlElement != null) {
         if (this.prefersDarkMode) {
-          htmlElement.classList.add("dark");
+          // htmlElement.classList.add("dark");
           setCookieValue(this.cookieKey, "dark");
         } else {
-          htmlElement.classList.remove("dark");
+          // htmlElement.classList.remove("dark");
           setCookieValue(this.cookieKey, "light");
         }
       }
