@@ -10,8 +10,8 @@ export const mutations = {
   toggleDarkMode(state) {
     state.prefersDarkMode = !state.prefersDarkMode; 
   },
-  setPrefersDarkMode(state, defaultVal) {
-    state.prefersDarkMode = defaultVal;
+  setPrefersDarkMode(state, prefersDarkMode) {
+    state.prefersDarkMode = prefersDarkMode;
   },
   setState(state, { stateProperty, newStateValue }) {
     // generic function to update central state for all collections once data is fetched from firebase
