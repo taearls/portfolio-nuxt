@@ -34,13 +34,12 @@
 import { defineComponent } from "@vue/composition-api";
 import { mapState } from "vuex";
 
+
 import MoonIcon from "../widgets/svg/MoonIcon.vue";
 import SunIcon from "../widgets/svg/SunIcon.vue";
 
 import {
-  // getCookieValue,
-  // isDarkModePreferred,
-  // doesColorSchemeCookieExist,
+  isDarkModePreferred,
   setCookieValue
 } from "../../composables/cookieUtils";
 
@@ -58,22 +57,25 @@ export default defineComponent({
   computed: {
     ...mapState(["prefersDarkMode"]),
   },
+  beforeMount() {
+    this.$store.commit("setPrefersDarkMode", isDarkModePreferred());
+  },
   methods: {
     toggleDarkMode(): void {
       // change data value, add/remove dark-mode class, then focus on the newly visible svg icon
       this.$store.commit("toggleDarkMode");
-      const htmlElement = document.querySelector("html");
-      if (htmlElement != null) {
+      // const htmlElement = document.documentElement;
+      // if (htmlElement != null) {
         if (this.prefersDarkMode) {
-          htmlElement.classList.add("dark");
+          document.documentElement.classList.add("dark");
           setCookieValue(this.cookieKey, "dark");
           this.$store.commit("setPrefersDarkMode", true);
         } else {
-          htmlElement.classList.remove("dark");
+          document.documentElement.classList.remove("dark");
           setCookieValue(this.cookieKey, "light");
           this.$store.commit("setPrefersDarkMode", false);
         }
-      }
+      // }
       this.$nextTick(() => {
         if (this.prefersDarkMode) {
           const sunToggle = this.$refs.sunToggle as HTMLElement;

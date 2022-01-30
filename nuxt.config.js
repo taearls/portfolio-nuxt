@@ -33,7 +33,7 @@ export default {
     "@nuxtjs/firebase",
   ],
   css: [
-    "~/assets/css/main.css",
+    "~/static/css/main.css",
   ],
   firebase: {
     config: {
@@ -65,7 +65,7 @@ export default {
   },
   plugins: [
     { src: "~/plugins/cloudinary.js", mode: "client" },
-    { src: "~/plugins/cookieInit.js", mode: "client" },
+    // { src: "~/plugins/cookieInit.js", mode: "client" },
     { src: "~/plugins/vuelidate.js" },
     { src: "~/plugins/vue-composition-api.js" },
   ],
@@ -159,6 +159,9 @@ export default {
       linkActiveClass: "active-link",
     },
     script: [
+      {
+        src: "js/cookieInit.js",
+      },
       {
         type: "application/ld+json",
         innerHTML: JSON.stringify({
