@@ -65,7 +65,6 @@ export default {
   },
   plugins: [
     { src: "~/plugins/cloudinary.js", mode: "client" },
-    // { src: "~/plugins/cookieInit.js", mode: "client" },
     { src: "~/plugins/vuelidate.js" },
     { src: "~/plugins/vue-composition-api.js" },
   ],

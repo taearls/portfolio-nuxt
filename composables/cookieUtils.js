@@ -1,12 +1,3 @@
-
-
-export const getCookieValue = (cookieKey) => {
-  return document.cookie
-    .split("; ")
-    .find(row => row.startsWith(cookieKey))
-    .split("=")[1];
-};
-
 export const setCookieValue = (cookieKey, newCookieValue) => {
   document.cookie = `${cookieKey}=${newCookieValue}`;
 };
@@ -16,6 +7,7 @@ export const isDarkModePreferred = () => {
   const cookie = document.cookie
     .split("; ")
     .find((row) => row.startsWith(cookieKey));
+  
   // have to make sure there's a value for `color-scheme` before attempting to grab it.
   let cookieValue;
   if (cookie) {
@@ -37,13 +29,6 @@ export const isDarkModePreferred = () => {
     }
 
   return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-};
-
-export const doesColorSchemeCookieExist = (cookieKey) => {
-  // check if cookie defined by cookieKey exists
-  return document.cookie != null && document.cookie
-    .split("; ")
-    .find(row => row.startsWith(cookieKey)) !== undefined;
 };
 
 export const setDarkModePreference = () => {

@@ -64,18 +64,15 @@ export default defineComponent({
     toggleDarkMode(): void {
       // change data value, add/remove dark-mode class, then focus on the newly visible svg icon
       this.$store.commit("toggleDarkMode");
-      // const htmlElement = document.documentElement;
-      // if (htmlElement != null) {
-        if (this.prefersDarkMode) {
-          document.documentElement.classList.add("dark");
-          setCookieValue(this.cookieKey, "dark");
-          this.$store.commit("setPrefersDarkMode", true);
-        } else {
-          document.documentElement.classList.remove("dark");
-          setCookieValue(this.cookieKey, "light");
-          this.$store.commit("setPrefersDarkMode", false);
-        }
-      // }
+      if (this.prefersDarkMode) {
+        document.documentElement.classList.add("dark");
+        setCookieValue(this.cookieKey, "dark");
+        this.$store.commit("setPrefersDarkMode", true);
+      } else {
+        document.documentElement.classList.remove("dark");
+        setCookieValue(this.cookieKey, "light");
+        this.$store.commit("setPrefersDarkMode", false);
+      }
       this.$nextTick(() => {
         if (this.prefersDarkMode) {
           const sunToggle = this.$refs.sunToggle as HTMLElement;

@@ -1,8 +1,10 @@
 /**
- * Client-side plugin that sets dark mode preference on initial page load, based on:
+ * Script that gets injected in head tag that sets dark mode preference on initial page load, based on:
  * 1. "color-scheme" cookie value - light or dark
  * 2. system preference based on window.matchMedia
  */
+
+// Unfortunately, I cannot import or export here since this script is injected inline in the head tag. This code mirrors what's in composables/cookieUtils.js for now.
 
 const isDarkModePreferred = () => {
   const cookieKey = "color-scheme";
