@@ -12,17 +12,14 @@
       I am a software engineer and musician.
     </h1>
     <p class="text-soft-black dark:text-white mt-4 text-lg md:text-xl leading-normal">
-      Currently, I work at
-      <a
-        class="inline-anchor"
-        href="https://www.cquence.app"
-        rel="noreferrer"
-        target="_blank"
-      >Cquence</a>, where I help develop video software that empowers film makers and content creators in their post production workflow.
+      Currently, I am looking for a full-time software engineering position. I have years of industry experience with TypeScript, React, Vue, Java, and more.
+    </p>
+    <p class="text-soft-black dark:text-white mt-4 text-lg md:text-xl leading-normal">
+      Since the start of the Covid-19 pandemic, I have been studying Rust, and now I use it regularly both on side projects and on Exercism's <a href="https://www.exercism.io" target="_blank">Rust track</a>. Ideally my next role will be at a company that's interested in adopting Rust.
     </p>
     <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
-      Aside from this work, I occasionally take on freelance frontend work. I love building clean and accessible
-      UI components that enrich everyone's web experience.
+      Aside from this, I occasionally take on freelance frontend work. I love building clean and accessible
+      UI applications that enrich the end user's experience with it.
     </p>
     <p class="text-soft-black dark:text-white my-4 text-lg md:text-xl leading-normal">
       Outside of tech, I write songs and lead a band called
@@ -40,7 +37,7 @@
       >Bandcamp</a>.
     </p>
     <p class="text-soft-black dark:text-white mt-4 mb-8 text-lg md:text-xl leading-normal">
-      I'm also a very avid Star Trek fan. During these difficult times, I find comfort in its optimistic view on the potential of humanity and its future.
+      I'm also a very avid Star Trek fan. During these continuously unprecedented times, I find comfort in its optimistic view on the potential of humanity and its future.
     </p>
   </section>
 </template>
